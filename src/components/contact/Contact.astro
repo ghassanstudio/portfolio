@@ -1,0 +1,580 @@
+---
+/**
+ * Contact.astro — Contact section
+ *
+ * Two-column layout:
+ *   Left  → Info cards (email, WhatsApp, Telegram, GitHub, LinkedIn, location)
+ *   Right → Contact form (name, email, subject, message)
+ *
+ * Client-side: HTML5 + custom validation, toast notifications,
+ * loading/success/error states. Accessible, RTL/LTR, responsive 320px+.
+ */
+
+import SectionTitle from "../shared/SectionTitle.astro";
+import SVGIcon from "../shared/SVGIcon.astro";
+import siteData from "../../content/site.json";
+import homeData from "../../content/home.json";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const t = lang === "ar"
+  ? {
+      title: homeData.contact.title.ar,
+      heading: homeData.contact.heading.ar,
+      description: homeData.contact.description.ar,
+      nameLabel: "الاسم الكامل",
+      emailLabel: "البريد الإلكتروني",
+      subjectLabel: "الموضوع",
+      messageLabel: "الرسالة",
+      sendButton: "إرسال الرسالة",
+      sending: "جاري الإرسال...",
+      success: "تم إرسال رسالتك بنجاح!",
+      error: "حدث خطأ أثناء الإرسال. حاول مرة أخرى.",
+      requiredField: "هذا الحقل مطلوب",
+      emailInvalid: "أدخل بريداً إلكترونياً صالحاً",
+      locationLabel: "الموقع",
+      locationValue: siteData.location.ar,
+      emailLabelCard: "البريد الإلكتروني",
+      whatsappLabel: "واتساب",
+      telegramLabel: "تيليجرام",
+      githubLabel: "جيت هب",
+      linkedinLabel: "لينكد إن",
+    }
+  : {
+      title: homeData.contact.title.en,
+      heading: homeData.contact.heading.en,
+      description: homeData.contact.description.en,
+      nameLabel: "Your Name",
+      emailLabel: "Your Email",
+      subjectLabel: "Subject",
+      messageLabel: "Your Message",
+      sendButton: "Send Message",
+      sending: "Sending...",
+      success: "Your message has been sent successfully!",
+      error: "Something went wrong. Please try again.",
+      requiredField: "This field is required",
+      emailInvalid: "Please enter a valid email address",
+      locationLabel: "Location",
+      locationValue: siteData.location.en,
+      emailLabelCard: "Email",
+      whatsappLabel: "WhatsApp",
+      telegramLabel: "Telegram",
+      githubLabel: "GitHub",
+      linkedinLabel: "LinkedIn",
+    };
+
+const contactItems = [
+  {
+    key: "email",
+    label: t.emailLabelCard,
+    value: siteData.email,
+    href: `mailto:${siteData.email}`,
+    icon: "mail",
+  },
+  ...(siteData.socials.whatsapp
+    ? [{
+        key: "whatsapp",
+        label: t.whatsappLabel,
+        value: siteData.phone,
+        href: siteData.socials.whatsapp,
+        icon: "phone",
+      }]
+    : []),
+  ...(siteData.socials.telegram
+    ? [{
+        key: "telegram",
+        label: t.telegramLabel,
+        value: "@ghassan_gak",
+        href: siteData.socials.telegram,
+        icon: "send",
+      }]
+    : []),
+  ...(siteData.socials.github
+    ? [{
+        key: "github",
+        label: t.githubLabel,
+        value: "GitHub",
+        href: siteData.socials.github,
+        icon: "github",
+      }]
+    : []),
+  ...(siteData.socials.linkedin
+    ? [{
+        key: "linkedin",
+        label: t.linkedinLabel,
+        value: "LinkedIn",
+        href: siteData.socials.linkedin,
+        icon: "linkedin",
+      }]
+    : []),
+  {
+    key: "location",
+    label: t.locationLabel,
+    value: t.locationValue,
+    href: null,
+    icon: "map-pin",
+  },
+];
+
+const socialLinks = [
+  siteData.socials.github && { icon: "github", href: siteData.socials.github, label: "GitHub" },
+  siteData.socials.linkedin && { icon: "linkedin", href: siteData.socials.linkedin, label: "LinkedIn" },
+  siteData.socials.telegram && { icon: "send", href: siteData.socials.telegram, label: "Telegram" },
+  siteData.socials.whatsapp && { icon: "phone", href: siteData.socials.whatsapp, label: "WhatsApp" },
+].filter(Boolean);
+---
+
+<section class="contact section" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <SectionTitle
+      tag="h2"
+      subtitle={t.description}
+      id="contact-heading"
+    >
+      {t.heading}
+    </SectionTitle>
+
+    <div class="contact__content" data-reveal="up">
+
+      {/* ── Info Column ── */}
+      <div class="contact__info">
+        <div class="contact__items">
+          {contactItems.map((item) => (
+            <div class="contact__item" data-reveal="up">
+              <div class="contact__item-icon" aria-hidden="true">
+                <SVGIcon name={item.icon} size={22} />
+              </div>
+              <div class="contact__item-text">
+                <span class="contact__item-label">{item.label}</span>
+                <span class="contact__item-value">
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {socialLinks.length > 0 && (
+          <div class="contact__socials">
+            {socialLinks.map((s) => (
+              <a
+                href={s.href}
+                class="contact__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+              >
+                <SVGIcon name={s.icon} size={20} />
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* ── Form Column ── */}
+      <form class="contact__form" id="contact-form" novalidate aria-label={lang === "ar" ? "نموذج التواصل" : "Contact form"}>
+        <div class="form-group">
+          <label for="contact-name">{t.nameLabel}</label>
+          <input
+            type="text"
+            id="contact-name"
+            name="name"
+            class="form-input"
+            required
+            autocomplete="name"
+            placeholder={t.nameLabel}
+            aria-describedby="contact-name-error"
+          />
+          <span class="form-error" id="contact-name-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">{t.emailLabel}</label>
+          <input
+            type="email"
+            id="contact-email"
+            name="email"
+            class="form-input"
+            required
+            autocomplete="email"
+            placeholder={t.emailLabel}
+            aria-describedby="contact-email-error"
+          />
+          <span class="form-error" id="contact-email-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-subject">{t.subjectLabel}</label>
+          <input
+            type="text"
+            id="contact-subject"
+            name="subject"
+            class="form-input"
+            required
+            placeholder={t.subjectLabel}
+            aria-describedby="contact-subject-error"
+          />
+          <span class="form-error" id="contact-subject-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">{t.messageLabel}</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            class="form-input"
+            required
+            rows="5"
+            placeholder={t.messageLabel}
+            aria-describedby="contact-message-error"
+          ></textarea>
+          <span class="form-error" id="contact-message-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn--primary btn--lg contact__submit"
+          id="contact-submit"
+        >
+          <span class="contact__submit-text">{t.sendButton}</span>
+          <span class="contact__submit-loading" aria-hidden="true">
+            <SVGIcon name="send" size={18} />
+          </span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+{/* ── Toast Container ── */}
+<div
+  class="toast"
+  id="contact-toast"
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+></div>
+
+<script>
+  /**
+   * Contact form: validation, submission, toast notifications.
+   * Runs only if #contact-form exists on the page.
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    if (!form) return;
+
+    const submitBtn = document.getElementById("contact-submit") as HTMLButtonElement;
+    const submitText = submitBtn?.querySelector(".contact__submit-text");
+    const toast = document.getElementById("contact-toast");
+
+    // i18n strings (read from data attributes to keep JS independent)
+    const lang = document.documentElement.lang || "ar";
+    const strings = {
+      sending: lang === "ar" ? "جاري الإرسال..." : "Sending...",
+      success: lang === "ar" ? "تم إرسال رسالتك بنجاح!" : "Your message has been sent successfully!",
+      error: lang === "ar" ? "حدث خطأ أثناء الإرسال. حاول مرة أخرى." : "Something went wrong. Please try again.",
+      requiredField: lang === "ar" ? "هذا الحقل مطلوب" : "This field is required",
+      emailInvalid: lang === "ar" ? "أدخل بريداً إلكترونياً صالحاً" : "Please enter a valid email address",
+    };
+
+    /** Show toast notification */
+    function showToast(message: string, type: "success" | "error") {
+      if (!toast) return;
+      toast.textContent = message;
+      toast.className = `toast toast--${type} visible`;
+      setTimeout(() => {
+        toast.className = "toast";
+      }, 4000);
+    }
+
+    /** Validate a single field, return true if valid */
+    function validateField(field: HTMLInputElement | HTMLTextAreaElement): boolean {
+      const errorEl = field.parentElement?.querySelector(".form-error") as HTMLElement;
+      if (!errorEl) return true;
+
+      // Required check
+      if (field.required && !field.value.trim()) {
+        errorEl.textContent = strings.requiredField;
+        field.setAttribute("aria-invalid", "true");
+        return false;
+      }
+
+      // Email format check
+      if (field.type === "email" && field.value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(field.value.trim())) {
+          errorEl.textContent = strings.emailInvalid;
+          field.setAttribute("aria-invalid", "true");
+          return false;
+        }
+      }
+
+      errorEl.textContent = "";
+      field.removeAttribute("aria-invalid");
+      return true;
+    }
+
+    // Real-time validation on blur
+    const fields = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+      ".form-input"
+    );
+    fields.forEach((field) => {
+      field.addEventListener("blur", () => validateField(field));
+      field.addEventListener("input", () => {
+        if (field.getAttribute("aria-invalid") === "true") {
+          validateField(field);
+        }
+      });
+    });
+
+    // Form submit
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Validate all fields
+      let isValid = true;
+      fields.forEach((field) => {
+        if (!validateField(field)) isValid = false;
+      });
+      if (!isValid) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.setAttribute("aria-busy", "true");
+      if (submitText) submitText.textContent = strings.sending;
+
+      // Simulate form submission (replace with real endpoint later)
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        // 90% success simulation for demo
+        const success = Math.random() > 0.1;
+        if (success) {
+          showToast(strings.success, "success");
+          form.reset();
+          fields.forEach((f) => f.removeAttribute("aria-invalid"));
+        } else {
+          showToast(strings.error, "error");
+        }
+      } catch {
+        showToast(strings.error, "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute("aria-busy");
+        if (submitText) submitText.textContent = lang === "ar" ? "إرسال الرسالة" : "Send Message";
+      }
+    });
+  });
+</script>
+
+<style>
+  /* ── Contact Section ────────────────────────────────── */
+  .contact__content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-3xl);
+    align-items: start;
+    margin-top: var(--space-2xl);
+  }
+
+  /* ── Info Column ──────────────────────────────────────── */
+  .contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .contact__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .contact__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .contact__item:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .contact__item-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-full);
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+  }
+
+  .contact__item-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    min-width: 0;
+  }
+
+  .contact__item-label {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+  }
+
+  .contact__item-value {
+    font-size: var(--text-body);
+    color: var(--text-primary);
+    font-weight: var(--weight-medium);
+    word-break: break-all;
+  }
+
+  .contact__item-value a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .contact__item-value a:hover {
+    color: var(--accent);
+  }
+
+  /* Social Links */
+  .contact__socials {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .contact__social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background-color: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-spring),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .contact__social-link:hover {
+    background-color: var(--accent);
+    color: var(--text-inverse);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  /* ── Form Column ──────────────────────────────────────── */
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  /* Form error messages */
+  .form-error {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--error);
+    margin-top: var(--space-2xs);
+    min-height: 1rem;
+    line-height: 1;
+  }
+
+  /* Invalid field state */
+  .form-input[aria-invalid="true"] {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+  }
+
+  /* Submit button */
+  .contact__submit {
+    align-self: flex-start;
+    position: relative;
+    min-width: 180px;
+    justify-content: center;
+  }
+
+  .contact__submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .contact__submit-loading {
+    display: none;
+  }
+
+  .contact__submit[aria-busy="true"] .contact__submit-text {
+    display: none;
+  }
+
+  .contact__submit[aria-busy="true"] .contact__submit-loading {
+    display: inline-flex;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── Responsive ────────────────────────────────────── */
+  @media (max-width: 767px) {
+    .contact__content {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .contact__submit {
+      width: 100%;
+      align-self: stretch;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .contact__item {
+      padding: var(--space-sm);
+      gap: var(--space-sm);
+    }
+
+    .contact__item-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>

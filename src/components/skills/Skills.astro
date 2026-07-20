@@ -1,0 +1,52 @@
+---
+/**
+ * Skills.astro — Skills section
+ *
+ * Renders all skill categories from skills.json.
+ * Each category is a heading + responsive grid of SkillCards.
+ * No progress bars, no percentages, no circular charts.
+ * Fully data-driven, RTL/LTR, accessible, responsive.
+ *
+ * Layout:
+ *   Mobile:  1 column
+ *   Tablet:  2 columns per category
+ *   Desktop: auto-fill minmax(180px)
+ */
+
+import skillsData from "../../content/skills.json";
+import SectionTitle from "../shared/SectionTitle.astro";
+import SkillCategory from "./SkillCategory.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const title = lang === "ar" ? "مهاراتي التقنية" : "My Skills";
+const subtitle = lang === "ar"
+  ? "الأدوات والتقنيات التي أستخدمها لبناء حلول رقمية متميزة."
+  : "The tools and technologies I use to build exceptional digital solutions.";
+---
+
+<section
+  class="skills section"
+  id="skills"
+  data-section="skills"
+  aria-labelledby="skills-heading"
+>
+  <div class="container">
+    <SectionTitle tag="h2" subtitle={subtitle} id="skills-heading">
+      {title}
+    </SectionTitle>
+
+    <div class="skills__categories">
+      {skillsData.map((category, index) => (
+        <SkillCategory
+          category={category}
+          lang={lang}
+          data-reveal-delay={String(Math.min(index * 100, 400))}
+        />
+      ))}
+    </div>
+  </div>
+</section>

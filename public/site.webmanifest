@@ -1,0 +1,16 @@
+{
+  "name": "Ghassan AbdulKhalig — Developer Portfolio",
+  "short_name": "Ghassan Dev",
+  "description": "Personal developer portfolio showcasing web, mobile, and WordPress projects",
+  "start_url": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#08080b",
+  "theme_color": "#c8a44e",
+  "icons": [
+    {
+      "src": "/portfolio/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

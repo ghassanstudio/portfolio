@@ -1,0 +1,114 @@
+---
+/**
+ * Navbar.astro — Main navigation bar
+ *
+ * Features:
+ *   - Desktop: horizontal nav links + language toggle + CV download
+ *   - Mobile:  hamburger toggle → slide-in MobileMenu
+ *   - Scroll:  background becomes opaque + subtle shadow after 50px
+ *   - Active:  highlights current section (driven by data-section attrs)
+ *   - ARIA:    full keyboard + screen reader support
+ *   - i18n:    all strings from i18n JSON
+ */
+
+import siteData from "../../content/site.json";
+import i18nAr from "../../content/i18n/ar.json";
+import i18nEn from "../../content/i18n/en.json";
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const t = lang === "ar" ? i18nAr : i18nEn;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+/* ─── Current page path for active link detection ─── */
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+/* ─── Language switcher: flip lang ─── */
+const altLang = lang === "ar" ? "en" : "ar";
+const switchLabel = altLang === "ar" ? "عربي" : "EN";
+
+/* ─── Navigation links ─── */
+const navLinks = [
+  { href: `${base}#hero`, label: t.nav.home, section: "hero" },
+  { href: `${base}#about`, label: t.nav.about, section: "about" },
+  { href: `${base}#skills`, label: t.nav.skills, section: "skills" },
+  { href: `${base}#projects`, label: t.nav.projects, section: "projects" },
+  { href: `${base}#contact`, label: t.nav.contact, section: "contact" },
+];
+---
+
+<nav class="navbar" aria-label={lang === "ar" ? "القائمة الرئيسية" : "Main navigation"}>
+  <div class="container navbar__inner">
+    <!-- Logo -->
+    <a href={`${base}`} class="navbar__logo" aria-label={siteData.name[lang]}>
+      <span class="navbar__logo-mark">G</span>
+    </a>
+
+    <!-- Desktop links (hidden on mobile) -->
+    <ul class="navbar__links" role="list">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="navbar__link"
+            data-section={link.section}
+            aria-current={currentPath === link.href.replace(base, "") ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Right cluster: CV + lang switch + hamburger -->
+    <div class="navbar__actions">
+      <!-- CV download -->
+      <a
+        href={`${base}documents/resume.pdf`}
+        class="btn btn--ghost btn--sm navbar__cv"
+        download
+        aria-label={t.nav.downloadCv}
+      >
+        <SVGIcon name="download" size={16} />
+        <span class="navbar__cv-text">{t.nav.downloadCv}</span>
+      </a>
+
+      <!-- Language switch -->
+      <button
+        class="navbar__lang"
+        aria-label={altLang === "ar" ? "التبديل إلى العربية" : "Switch to English"}
+        data-lang-toggle
+        type="button"
+      >
+        {switchLabel}
+      </button>
+
+      <!-- Theme toggle -->
+      <button
+        class="navbar__theme-toggle"
+        aria-label={lang === "ar" ? "تبديل المظهر" : "Toggle theme"}
+        data-theme-toggle
+        type="button"
+      >
+        <SVGIcon name="sun" size={18} class="navbar__theme-icon navbar__theme-icon--light" />
+        <SVGIcon name="moon" size={18} class="navbar__theme-icon navbar__theme-icon--dark" />
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button
+        class="navbar__toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={t.nav.menuOpen}
+        data-menu-toggle
+      >
+        <SVGIcon name="menu" size={24} class="navbar__toggle-icon navbar__toggle-icon--open" />
+        <SVGIcon name="close" size={24} class="navbar__toggle-icon navbar__toggle-icon--close" />
+      </button>
+    </div>
+  </div>
+</nav>

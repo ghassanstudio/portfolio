@@ -1,0 +1,75 @@
+---
+/**
+ * Footer.astro — Site footer
+ *
+ * Features:
+ *   - Social links (GitHub, LinkedIn, email) — only renders if URL is provided
+ *   - Copyright with dynamic year
+ *   - "Crafted with" credit line
+ *   - All text from i18n JSON
+ *   - Keyboard accessible social links with gold focus ring
+ */
+
+import siteData from "../../content/site.json";
+import i18nAr from "../../content/i18n/ar.json";
+import i18nEn from "../../content/i18n/en.json";
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const t = lang === "ar" ? i18nAr : i18nEn;
+const currentYear = new Date().getFullYear();
+const siteName = lang === "ar" ? siteData.name.ar : siteData.name.en;
+
+const socialLinks = [
+  siteData.socials.github && {
+    href: siteData.socials.github,
+    label: t.socials.github,
+    icon: "github" as const,
+  },
+  siteData.socials.linkedin && {
+    href: siteData.socials.linkedin,
+    label: t.socials.linkedin,
+    icon: "linkedin" as const,
+  },
+  siteData.socials.email && {
+    href: `mailto:${siteData.socials.email}`,
+    label: t.socials.email,
+    icon: "mail" as const,
+  },
+].filter(Boolean);
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <!-- Social links -->
+    {socialLinks.length > 0 && (
+      <div class="footer__socials">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            class="footer__social-link"
+            aria-label={link.label}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SVGIcon name={link.icon} size={20} />
+          </a>
+        ))}
+      </div>
+    )}
+
+    <!-- Copyright -->
+    <p class="footer__copyright">
+      &copy; {currentYear} {siteName}. {t.footer.copyright}.
+    </p>
+
+    <!-- Credit -->
+    <p class="footer__credit">
+      {t.footer.craftedWith} {siteName}
+    </p>
+  </div>
+</footer>

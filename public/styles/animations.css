@@ -1,0 +1,88 @@
+/**
+ * animations.css — Keyframes & Scroll Reveal Classes
+ *
+ * All animation definitions live here. Elements get animated
+ * by adding reveal classes via IntersectionObserver in JS.
+ * The [data-reveal] attribute is the hook; CSS handles the rest.
+ */
+
+/* ── Keyframes ────────────────────────────────────────── */
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes scrollDot {
+  0% { top: 0; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── Scroll Reveal: Initial State ─────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+[data-reveal="up"] {
+  transform: translateY(30px);
+}
+
+[data-reveal="left"] {
+  transform: translateX(-30px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(30px);
+}
+
+[dir="ltr"] [data-reveal="left"] {
+  transform: translateX(30px);
+}
+
+[dir="ltr"] [data-reveal="right"] {
+  transform: translateX(-30px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.9);
+}
+
+/* ── Scroll Reveal: Visible State ─────────────────────── */
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* ── Stagger Delays ───────────────────────────────────── */
+[data-reveal-delay="100"] { transition-delay: 100ms; }
+[data-reveal-delay="200"] { transition-delay: 200ms; }
+[data-reveal-delay="300"] { transition-delay: 300ms; }
+[data-reveal-delay="400"] { transition-delay: 400ms; }
+[data-reveal-delay="500"] { transition-delay: 500ms; }
+[data-reveal-delay="600"] { transition-delay: 600ms; }
+
+/* ── Reduced Motion Overrides ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Scroll reveals — show immediately */
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Hero orb — static position, no movement */
+  .hero__orb {
+    animation: none;
+  }
+
+  /* No hover transforms that move elements */
+  .btn:hover,
+  .skill-card:hover,
+  .project-card:hover,
+  .related-card:hover {
+    transform: none;
+  }
+}

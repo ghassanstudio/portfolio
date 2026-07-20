@@ -1,0 +1,123 @@
+---
+/**
+ * ProjectCard.astro — Single featured project with alternating layout
+ *
+ * Refinements:
+ *   - Uses ProjectImage component (no raw <img>)
+ *   - Shows first 3 tech badges + "+N" overflow
+ *   - Year and status displayed together on one line
+ *   - Live Demo button hidden when no URL
+ *   - External links use target="_blank" rel="noopener noreferrer"
+ */
+
+import Badge from "../shared/Badge.astro";
+import Button from "../shared/Button.astro";
+import SVGIcon from "../shared/SVGIcon.astro";
+import ProjectImage from "../shared/ProjectImage.astro";
+
+interface Project {
+  slug: string;
+  title: { ar: string; en: string };
+  category: string;
+  featured: boolean;
+  order: number;
+  thumbnail: string;
+  year: number;
+  status: { ar: string; en: string };
+  summary: { ar: string; en: string };
+  tech: string[];
+  links: {
+    live?: string | null;
+    source?: string | null;
+  };
+}
+
+interface Props {
+  project: Project;
+  index: number;
+  lang?: "ar" | "en";
+  i18n: {
+    viewCaseStudy: string;
+    viewLive: string;
+  };
+}
+
+const { project, index, lang = "ar", i18n } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const title = lang === "ar" ? project.title.ar : project.title.en;
+const summary = lang === "ar" ? project.summary.ar : project.summary.en;
+const status = lang === "ar" ? project.status.ar : project.status.en;
+
+const isReversed = index % 2 === 1;
+
+const statusVariant: Record<string, "filled" | "accent" | "default"> = {
+  live: "filled",
+  "in development": "accent",
+};
+const statusKey = status.toLowerCase();
+const badgeVariant = statusVariant[statusKey] || "default";
+
+const MAX_TECH_BADGES = 3;
+const visibleTech = project.tech.slice(0, MAX_TECH_BADGES);
+const overflowCount = project.tech.length - MAX_TECH_BADGES;
+---
+
+<article
+  class:list={["featured__item", { "featured__item--reverse": isReversed }]}
+  data-reveal="up"
+>
+  <div class="featured__image-wrapper">
+    <ProjectImage
+      src={project.thumbnail}
+      alt={title}
+      category={project.category}
+      width={640}
+      height={400}
+    />
+    <div class="featured__image-overlay" aria-hidden="true"></div>
+  </div>
+
+  <div class="featured__info">
+    <div class="featured__meta-inline">
+      <span class="featured__year">{project.year}</span>
+      <span class="featured__meta-sep" aria-hidden="true">&middot;</span>
+      <Badge variant={badgeVariant} size="sm">{status}</Badge>
+    </div>
+
+    <h3 class="featured__title">{title}</h3>
+
+    <p class="featured__summary">{summary}</p>
+
+    <div class="featured__tech" role="list" aria-label="Technologies used">
+      {visibleTech.map((t) => (
+        <Badge variant="default" size="sm" role="listitem">{t}</Badge>
+      ))}
+      {overflowCount > 0 && (
+        <Badge variant="accent" size="sm" role="listitem">
+          +{overflowCount}
+        </Badge>
+      )}
+    </div>
+
+    <div class="featured__actions">
+      <Button href={`${base}projects/${project.slug}`} variant="primary" size="sm">
+        {i18n.viewCaseStudy}
+        <SVGIcon name="arrow-left" size={14} />
+      </Button>
+
+      {project.links.live && (
+        <Button
+          href={project.links.live}
+          variant="secondary"
+          size="sm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {i18n.viewLive}
+          <SVGIcon name="external-link" size={14} />
+        </Button>
+      )}
+    </div>
+  </div>
+</article>

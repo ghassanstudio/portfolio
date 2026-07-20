@@ -1,0 +1,52 @@
+---
+/**
+ * SkillCard.astro — Individual skill item
+ *
+ * Displays: tech icon + name + experience badge.
+ * No tabindex (non-interactive). Badge text + dot icon ensures
+ * skill level is NOT communicated by color alone.
+ * Fully RTL/LTR, accessible.
+ */
+
+import Badge from "../shared/Badge.astro";
+import TechIcon from "../shared/TechIcon.astro";
+
+interface Props {
+  name: string;
+  level: string;
+  icon?: string;
+  lang?: "ar" | "en";
+}
+
+const { name, level, icon, lang = "ar" } = Astro.props;
+
+const levelKey = level.toLowerCase();
+
+const levelVariants: Record<string, "filled" | "accent" | "default"> = {
+  expert: "filled",
+  advanced: "accent",
+  intermediate: "default",
+  learning: "default",
+};
+
+const badgeVariant = levelVariants[levelKey] || "default";
+
+const levelLabel: Record<string, { ar: string; en: string }> = {
+  expert: { ar: "خبير", en: "Expert" },
+  advanced: { ar: "متقدم", en: "Advanced" },
+  intermediate: { ar: "متوسط", en: "Intermediate" },
+  learning: { ar: "أتعلم", en: "Learning" },
+};
+
+const displayLevel = lang === "ar" ? levelLabel[levelKey]?.ar : levelLabel[levelKey]?.en;
+---
+
+<div class="skill-card" role="group" aria-label={`${name} — ${displayLevel}`}>
+  <span class="skill-card__icon" aria-hidden="true">
+    <TechIcon name={icon || "code"} size={18} />
+  </span>
+  <span class="skill-card__name">{name}</span>
+  <Badge variant={badgeVariant} size="sm">
+    {displayLevel}
+  </Badge>
+</div>

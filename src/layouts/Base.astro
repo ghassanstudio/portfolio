@@ -1,0 +1,141 @@
+---
+/**
+ * Base.astro — HTML Shell
+ *
+ * Root layout for every page. Props allow full SEO/OG override per page.
+ */
+
+import siteData from "../content/site.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  robots?: string;
+  lang?: "ar" | "en";
+  dir?: "rtl" | "ltr";
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  title = siteData.seo.title.ar,
+  description = siteData.seo.description.ar,
+  ogImage = siteData.seo.ogImage,
+  canonical = "",
+  robots = "index, follow",
+  lang = "ar",
+  dir = "rtl",
+  structuredData,
+} = Astro.props;
+
+const siteName = lang === "ar" ? siteData.name.ar : siteData.name.en;
+const fullTitle = `${title} | ${siteName}`;
+const resolvedCanonical = canonical || Astro.url.href;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+/* ─── Structured data: page override or default Person ─── */
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteName,
+  jobTitle: lang === "ar" ? siteData.role.ar : siteData.role.en,
+  email: siteData.email,
+  url: resolvedCanonical,
+  sameAs: Object.values(siteData.socials).filter(Boolean),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: lang === "ar" ? siteData.location.ar : siteData.location.en,
+  },
+};
+const jsonLd = structuredData || defaultStructuredData;
+
+/* ─── Critical font paths for preloading ─── */
+const criticalFonts =
+  lang === "ar"
+    ? ["tajawal-700-arabic.woff2", "tajawal-400-arabic.woff2"]
+    : ["space-grotesk-700-latin.woff2", "inter-latin-wght.woff2"];
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={siteName} />
+    <link rel="canonical" href={resolvedCanonical} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#c8a44e" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={lang === "ar" ? "ar_IQ" : "en_US"} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ghassan_dev" />
+    <meta name="twitter:creator" content="@ghassan_dev" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+    <link rel="apple-touch-icon" href={`${base}favicon.svg`} />
+    <link rel="manifest" href={`${base}site.webmanifest`} />
+
+    <!-- Prevent theme flash: runs before first paint -->
+    <script is:inline>
+      (function() {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <!-- Preload critical fonts (first paint) -->
+    {criticalFonts.map((font) => (
+      <link
+        rel="preload"
+        href={`${base}fonts/${font}`}
+        as="font"
+        type="font/woff2"
+        crossorigin="anonymous"
+      />
+    ))}
+
+    <!-- Combined stylesheet (tokens + reset + base + layout + components + animations + sections + detail + responsive) -->
+    <link rel="stylesheet" href={`${base}styles/styles.css`} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <!-- Skip to content (accessibility) -->
+    <a href="#main-content" class="skip-to-content" data-i18n="skip_to_content">
+      {lang === "ar" ? "انتقل للمحتوى الرئيسي" : "Skip to main content"}
+    </a>
+
+    <!-- Page content -->
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- Footer (outside main for semantic HTML) -->
+    <slot name="footer" />
+
+    <!-- Global scripts (ES modules, deferred automatically) -->
+    <script type="module" src={`${base}scripts/main.js`}></script>
+  </body>
+</html>

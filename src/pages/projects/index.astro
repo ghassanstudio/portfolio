@@ -1,0 +1,395 @@
+---
+/**
+ * index.astro — Projects listing page
+ *
+ * Shows all projects with category filters.
+ * Reads from projects.json, fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../../layouts/Base.astro";
+import Navbar from "../../components/navbar/Navbar.astro";
+import MobileMenu from "../../components/navbar/MobileMenu.astro";
+import BackToTop from "../../components/shared/BackToTop.astro";
+import Footer from "../../components/shared/Footer.astro";
+import Badge from "../../components/shared/Badge.astro";
+import Button from "../../components/shared/Button.astro";
+import SVGIcon from "../../components/shared/SVGIcon.astro";
+import ProjectImage from "../../components/shared/ProjectImage.astro";
+import projectsData from "../../content/projects.json";
+import siteData from "../../content/site.json";
+
+const lang = "ar" as const;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const i18n = lang === "ar"
+  ? {
+      title: "جميع مشاريعي",
+      subtitle: "مجموعة من المشاريع التي عملت عليها، من تطبيقات الموبايل إلى مواقع الويب المتكاملة.",
+      searchPlaceholder: "ابحث عن مشروع...",
+      filterAll: "الكل",
+      filterWeb: "تطوير الويب",
+      filterMobile: "تطبيقات",
+      filterDesign: "تصميم",
+      viewCaseStudy: "تفاصيل المشروع",
+      viewLive: "زيارة الموقع",
+    }
+  : {
+      title: "All Projects",
+      subtitle: "A collection of projects I've built — from mobile apps to full-stack web applications.",
+      searchPlaceholder: "Search projects...",
+      filterAll: "All",
+      filterWeb: "Web",
+      filterMobile: "Mobile",
+      filterDesign: "Design",
+      viewCaseStudy: "Case Study",
+      viewLive: "Visit Live",
+    };
+
+const pageTitle = i18n.title;
+const pageDescription = i18n.subtitle;
+
+const sorted = [...projectsData].sort((a, b) => a.order - b.order);
+
+const statusVariant: Record<string, "filled" | "accent" | "default"> = {
+  live: "filled",
+  "in development": "accent",
+};
+
+const filters = [
+  { key: "all", label: i18n.filterAll },
+  { key: "web", label: i18n.filterWeb },
+  { key: "mobile", label: i18n.filterMobile },
+  { key: "design", label: i18n.filterDesign },
+];
+---
+
+<Base
+  lang={lang}
+  dir="rtl"
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={siteData.seo.ogImage}
+  canonical={Astro.url.href}
+>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <section class="projects-page" aria-labelledby="projects-heading">
+    <div class="container">
+
+      <header class="projects-page__header" data-reveal="up">
+        <h1 class="projects-page__title" id="projects-heading">{i18n.title}</h1>
+        <p class="projects-page__subtitle">{i18n.subtitle}</p>
+      </header>
+
+      {/* Search */}
+      <div class="projects-page__search" data-reveal="up">
+        <div class="projects-page__search-icon" aria-hidden="true">
+          <SVGIcon name="filter" size={18} />
+        </div>
+        <input
+          type="search"
+          class="form-input projects-page__search-input"
+          placeholder={i18n.searchPlaceholder}
+          aria-label={i18n.searchPlaceholder}
+          data-search
+        />
+      </div>
+
+      {/* Filter Tabs */}
+      <div class="projects-page__filters" role="group" aria-label={lang === "ar" ? "تصفية المشاريع" : "Filter projects"}>
+        {filters.map((f, i) => (
+          <button
+            class:list={["projects-page__filter", { "is-active": i === 0 }]}
+            data-filter={f.key}
+            aria-pressed={i === 0 ? "true" : "false"}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Projects Grid */}
+      <div class="projects-page__grid" role="list">
+        {sorted.map((project, i) => {
+          const title = lang === "ar" ? project.title.ar : project.title.en;
+          const summary = lang === "ar" ? project.summary.ar : project.summary.en;
+          const status = lang === "ar" ? project.status.ar : project.status.en;
+          const statusKey = status.toLowerCase();
+          const variant = statusVariant[statusKey] || "default";
+
+          return (
+            <article
+              class="project-card"
+              role="listitem"
+              data-category={project.category}
+              data-reveal="up"
+              data-reveal-delay={String((i % 3 + 1) * 100)}
+            >
+              <div class="project-card__image">
+                <ProjectImage
+                  src={project.thumbnail}
+                  alt={title}
+                  category={project.category}
+                  width={400}
+                  height={250}
+                />
+              </div>
+
+              <div class="project-card__body">
+                <div class="project-card__meta">
+                  <span class="project-card__year">{project.year}</span>
+                  <Badge variant={variant} size="sm">{status}</Badge>
+                </div>
+
+                <h2 class="project-card__title">{title}</h2>
+                <p class="project-card__summary">{summary}</p>
+
+                <div class="project-card__tech">
+                  {project.tech.slice(0, 3).map((t) => (
+                    <Badge variant="default" size="sm">{t}</Badge>
+                  ))}
+                  {project.tech.length > 3 && (
+                    <Badge variant="accent" size="sm">+{project.tech.length - 3}</Badge>
+                  )}
+                </div>
+
+                <div class="project-card__actions">
+                  <Button href={`${base}projects/${project.slug}`} variant="primary" size="sm">
+                    {i18n.viewCaseStudy}
+                    <SVGIcon name="arrow-left" size={14} />
+                  </Button>
+                  {project.links.live && (
+                    <Button
+                      href={project.links.live}
+                      variant="secondary"
+                      size="sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {i18n.viewLive}
+                      <SVGIcon name="external-link" size={14} />
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+    </div>
+  </section>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<script>
+  /**
+   * Category filter + text search for projects listing page.
+   * Combines active category filter with search query.
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    const filters = document.querySelectorAll(".projects-page__filter");
+    const cards = document.querySelectorAll(".project-card");
+    const searchInput = document.querySelector<HTMLInputElement>("[data-search]");
+    let activeFilter = "all";
+
+    function applyFilters() {
+      const query = searchInput?.value.toLowerCase().trim() || "";
+
+      cards.forEach((card) => {
+        const cat = card.getAttribute("data-category");
+        const title = (card.querySelector(".project-card__title")?.textContent || "").toLowerCase();
+        const summary = (card.querySelector(".project-card__summary")?.textContent || "").toLowerCase();
+        const tech = (card.querySelector(".project-card__tech")?.textContent || "").toLowerCase();
+
+        const matchesCategory = activeFilter === "all" || cat === activeFilter;
+        const matchesSearch = !query || title.includes(query) || summary.includes(query) || tech.includes(query);
+
+        (card as HTMLElement).style.display = matchesCategory && matchesSearch ? "" : "none";
+      });
+    }
+
+    filters.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.getAttribute("data-filter") || "all";
+
+        filters.forEach((f) => f.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+        filters.forEach((f) => {
+          if (f !== btn) f.setAttribute("aria-pressed", "false");
+        });
+
+        applyFilters();
+      });
+    });
+
+    searchInput?.addEventListener("input", applyFilters);
+  });
+</script>
+
+<style>
+  .projects-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+    padding-bottom: var(--space-4xl);
+  }
+
+  .projects-page__header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .projects-page__title {
+    font-size: var(--text-display);
+    margin-bottom: var(--space-md);
+  }
+
+  .projects-page__subtitle {
+    font-size: var(--text-h3);
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ── Filters ──────────────────────────────────────── */
+  .projects-page__search {
+    position: relative;
+    margin-bottom: var(--space-lg);
+  }
+
+  .projects-page__search-icon {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: var(--space-md);
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .projects-page__search-input {
+    padding-inline-start: calc(var(--space-md) + 28px);
+  }
+
+  .projects-page__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .projects-page__filter {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-small);
+    font-weight: var(--weight-medium);
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .projects-page__filter:hover {
+    color: var(--text-secondary);
+    border-color: var(--accent-border);
+  }
+
+  .projects-page__filter.is-active {
+    color: var(--bg-primary);
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ── Grid ─────────────────────────────────────────── */
+  .projects-page__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  /* ── Card ─────────────────────────────────────────── */
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition:
+      border-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-4px);
+  }
+
+  .project-card__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    flex: 1;
+  }
+
+  .project-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .project-card__year {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+
+  .project-card__title {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .project-card__summary {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-card__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+  }
+
+  .project-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: auto;
+    padding-top: var(--space-sm);
+  }
+
+  @media (max-width: 767px) {
+    .projects-page__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

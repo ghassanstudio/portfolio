@@ -1,0 +1,28 @@
+---
+/**
+ * SectionTitle.astro — Consistent section heading
+ *
+ * Renders a semantic heading with an optional subtitle and
+ * a decorative gold underline accent. Supports any heading level.
+ *
+ * Props:
+ *   tag:      Heading level (h1–h6, default: h2)
+ *   subtitle: Optional description below the heading
+ *   class:    Additional classes
+ *   id:       Optional anchor ID
+ */
+
+interface Props {
+  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  subtitle?: string;
+  class?: string;
+  id?: string;
+}
+
+const { tag: Tag = "h2", subtitle, class: className = "", id } = Astro.props;
+---
+
+<div class:list={["section-title", className]}>
+  <Tag class="section-title__text" id={id}><slot /></Tag>
+  {subtitle && <p class="section-title__subtitle">{subtitle}</p>}
+</div>

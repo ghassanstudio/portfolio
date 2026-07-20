@@ -1,0 +1,33 @@
+{
+  "name": {
+    "ar": "غسان عبدالخالق",
+    "en": "Ghassan Abdulkhaliq"
+  },
+  "role": {
+    "ar": "مطور Android ومواقع ويب",
+    "en": "Android & Web Developer"
+  },
+  "email": "ghassanabdulkhaliq92@gmail.com",
+  "phone": "+9647755301667",
+  "location": {
+    "ar": "بغداد، العراق",
+    "en": "Baghdad, Iraq"
+  },
+  "socials": {
+    "whatsapp": "https://wa.me/9647755301667",
+    "telegram": "https://t.me/ghassan_gak",
+    "github": "",
+    "linkedin": ""
+  },
+  "seo": {
+    "title": {
+      "ar": "غسان عبدالخالق | مطور Android ومواقع ويب",
+      "en": "Ghassan Abdulkhaliq | Android & Web Developer"
+    },
+    "description": {
+      "ar": "الموقع الشخصي لغسان عبدالخالق، مطور Android ومواقع ويب من بغداد. أطور تطبيقات Android باستخدام Kotlin ومواقع ويب باستخدام WordPress و PHP.",
+      "en": "Personal portfolio of Ghassan Abdulkhaliq, an Android and web developer from Baghdad. I build Android apps with Kotlin and websites with WordPress and PHP."
+    },
+    "ogImage": "/images/og.jpg"
+  }
+}

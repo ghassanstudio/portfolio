@@ -1,0 +1,298 @@
+---
+/**
+ * resume.astro — Resume / CV preview page
+ *
+ * Shows an interactive HTML resume with a PDF download option.
+ * If the PDF doesn't exist, shows the full HTML resume.
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/navbar/Navbar.astro";
+import MobileMenu from "../components/navbar/MobileMenu.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+import Footer from "../components/shared/Footer.astro";
+import Button from "../components/shared/Button.astro";
+import Badge from "../components/shared/Badge.astro";
+import SVGIcon from "../components/shared/SVGIcon.astro";
+import siteData from "../content/site.json";
+import homeData from "../content/home.json";
+
+const lang = "ar" as const;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const t = lang === "ar"
+  ? {
+      title: "السيرة الذاتية",
+      downloadCv: "تحميل PDF",
+      name: siteData.name.ar,
+      role: siteData.role.ar,
+      location: siteData.location.ar,
+      email: siteData.email,
+      summary: homeData.about.bio.ar,
+      experience: "الخبرات المهنية",
+      education: "التعليم",
+      skills: "المهارات التقنية",
+      expItems: [
+        {
+          period: "2022 – الآن",
+          title: "مطور مواقع ويب وتطبيقات Android",
+          desc: "إنشاء مواقع PHP و WordPress على استضافة Hostinger. بناء مواقع متنوعة (أخبار، مدونات، متاجر). تطوير تطبيقات Android باستخدام Kotlin و Android Studio. أستخدم أدوات الذكاء الاصطناعي لتسريع التطوير مع التصميم والتنفيذ والتحقق بنفسي.",
+        },
+        {
+          period: "2019 – 2022",
+          title: "مطور WordPress",
+          desc: "مساعدة أخي في إدارة موقع أفلام ومسلسلات. إنشاء مواقع WordPress مستقلة للتعلم. تخصيص القوالب والإضافات وإدارة الاستضافات.",
+        },
+      ],
+      eduItems: [
+        {
+          period: "2015 – 2019",
+          title: "بكالوريوس علوم الحاسوب",
+          desc: "جامعة بغداد – كلية الحاسوب والرياضيات",
+        },
+      ],
+      skillItems: ["Kotlin", "Android Studio", "WordPress", "PHP", "MySQL", "HTML/CSS", "JavaScript", "Git", "AI Tools"],
+    }
+  : {
+      title: "Resume",
+      downloadCv: "Download PDF",
+      name: siteData.name.en,
+      role: siteData.role.en,
+      location: siteData.location.en,
+      email: siteData.email,
+      summary: homeData.about.bio.en,
+      experience: "Professional Experience",
+      education: "Education",
+      skills: "Technical Skills",
+      expItems: [
+        {
+          period: "2022 – Present",
+          title: "Web & Android Developer",
+          desc: "Deploying PHP and WordPress sites on Hostinger. Building diverse websites (news, blogs, e-commerce). Developing Android apps using Kotlin and Android Studio. Leverage AI-assisted development tools to accelerate development while designing, implementing, and validating solutions myself.",
+        },
+        {
+          period: "2019 – 2022",
+          title: "WordPress Developer",
+          desc: "Helped manage a movies and series website. Built independent WordPress sites for learning. Customized themes, plugins, and managed hosting.",
+        },
+      ],
+      eduItems: [
+        {
+          period: "2015 – 2019",
+          title: "B.Sc. Computer Science",
+          desc: "University of Baghdad – College of Computer Science & Mathematics",
+        },
+      ],
+      skillItems: ["Kotlin", "Android Studio", "WordPress", "PHP", "MySQL", "HTML/CSS", "JavaScript", "Git", "AI Tools"],
+    };
+---
+
+<Base lang={lang} dir="rtl" title={t.title} description={lang === "ar" ? "السيرة الذاتية للمطور غسان عبدالخالق" : "Resume of developer Ghassan AbdulKhalig"}>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <section class="resume-page">
+    <div class="container">
+      <header class="resume-page__header" data-reveal="up">
+        <h1 class="resume-page__title">{t.title}</h1>
+        <Button
+          href={`${base}documents/resume.pdf`}
+          variant="primary"
+          size="md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SVGIcon name="download" size={16} />
+          {t.downloadCv}
+        </Button>
+      </header>
+
+      <article class="resume" data-reveal="up">
+        {/* Header */}
+        <div class="resume__header">
+          <h2 class="resume__name">{t.name}</h2>
+          <p class="resume__role">{t.role}</p>
+          <div class="resume__meta">
+            <span class="resume__meta-item">
+              <SVGIcon name="map-pin" size={14} />
+              {t.location}
+            </span>
+            <span class="resume__meta-item">
+              <SVGIcon name="mail" size={14} />
+              {t.email}
+            </span>
+          </div>
+        </div>
+
+        {/* Summary */}
+        <section class="resume__section" aria-labelledby="resume-summary">
+          <h3 class="resume__section-title" id="resume-summary">{lang === "ar" ? "نبذة عني" : "Summary"}</h3>
+          <p class="resume__text">{t.summary}</p>
+        </section>
+
+        {/* Experience */}
+        <section class="resume__section" aria-labelledby="resume-experience">
+          <h3 class="resume__section-title" id="resume-experience">{t.experience}</h3>
+          {t.expItems.map((item) => (
+            <div class="resume__entry">
+              <span class="resume__period">{item.period}</span>
+              <h4 class="resume__entry-title">{item.title}</h4>
+              <p class="resume__entry-desc">{item.desc}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Education */}
+        <section class="resume__section" aria-labelledby="resume-education">
+          <h3 class="resume__section-title" id="resume-education">{t.education}</h3>
+          {t.eduItems.map((item) => (
+            <div class="resume__entry">
+              <span class="resume__period">{item.period}</span>
+              <h4 class="resume__entry-title">{item.title}</h4>
+              <p class="resume__entry-desc">{item.desc}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Skills */}
+        <section class="resume__section" aria-labelledby="resume-skills">
+          <h3 class="resume__section-title" id="resume-skills">{t.skills}</h3>
+          <div class="resume__skills">
+            {t.skillItems.map((skill) => (
+              <Badge variant="accent" size="sm">{skill}</Badge>
+            ))}
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<style>
+  .resume-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+    padding-bottom: var(--space-4xl);
+  }
+
+  .resume-page__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .resume-page__title {
+    font-size: var(--text-display);
+  }
+
+  .resume {
+    max-width: 800px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3xl);
+  }
+
+  .resume__header {
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resume__name {
+    font-size: var(--text-display);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-xs);
+  }
+
+  .resume__role {
+    font-size: var(--text-h3);
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .resume__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+  }
+
+  .resume__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+  }
+
+  .resume__section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .resume__section-title {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-bold);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resume__text {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .resume__entry {
+    margin-bottom: var(--space-lg);
+  }
+
+  .resume__period {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: var(--space-2xs);
+  }
+
+  .resume__entry-title {
+    font-size: var(--text-body);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .resume__entry-desc {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .resume__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  @media (max-width: 767px) {
+    .resume {
+      padding: var(--space-xl);
+    }
+
+    .resume-page__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

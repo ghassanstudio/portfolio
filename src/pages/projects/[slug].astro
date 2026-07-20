@@ -1,0 +1,541 @@
+---
+/**
+ * [slug].astro — Dynamic project case study page
+ *
+ * Generates one page per project from projects.json.
+ * Sections: Hero, Overview, Problem/Solution, Features, Tech Stack,
+ *           Gallery, Video (optional), Related Projects, Prev/Next nav.
+ * SEO: per-project title, description, canonical, OG image, JSON-LD.
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../../layouts/Base.astro";
+import Navbar from "../../components/navbar/Navbar.astro";
+import MobileMenu from "../../components/navbar/MobileMenu.astro";
+import BackToTop from "../../components/shared/BackToTop.astro";
+import Footer from "../../components/shared/Footer.astro";
+import Badge from "../../components/shared/Badge.astro";
+import Button from "../../components/shared/Button.astro";
+import SVGIcon from "../../components/shared/SVGIcon.astro";
+import ProjectImage from "../../components/shared/ProjectImage.astro";
+import projectsData from "../../content/projects.json";
+import siteData from "../../content/site.json";
+
+export async function getStaticPaths() {
+  return projectsData.map((project, i) => {
+    const sorted = [...projectsData].sort((a, b) => a.order - b.order);
+    const idx = sorted.findIndex((p) => p.slug === project.slug);
+    return {
+      params: { slug: project.slug },
+      props: {
+        project,
+        prev: idx > 0 ? sorted[idx - 1] : null,
+        next: idx < sorted.length - 1 ? sorted[idx + 1] : null,
+        related: sorted
+          .filter((p) => p.slug !== project.slug && p.category === project.category)
+          .slice(0, 2),
+      },
+    };
+  });
+}
+
+const { project, prev, next, related } = Astro.props;
+const lang = "ar" as const;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+/* ── i18n ── */
+const t = {
+  title: lang === "ar" ? project.title.ar : project.title.en,
+  summary: lang === "ar" ? project.summary.ar : project.summary.en,
+  description: lang === "ar" ? project.description.ar : project.description.en,
+  problem: lang === "ar" ? project.problem.ar : project.problem.en,
+  solution: lang === "ar" ? project.solution.ar : project.solution.en,
+  status: lang === "ar" ? project.status.ar : project.status.en,
+};
+
+const i18n = lang === "ar"
+  ? {
+      overview: "نظرة عامة",
+      features: "المميزات",
+      gallery: "معرض الصور",
+      techStack: "التقنيات المستخدمة",
+      video: "فيديو المشروع",
+      backToProjects: "العودة للمشاريع",
+      previousProject: "المشروع السابق",
+      nextProject: "المشروع التالي",
+      problem: "التحدي",
+      solution: "الحل",
+      visitLiveSite: "زيارة الموقع",
+      viewSourceCode: "عرض الكود المصدري",
+      builtWith: "تم البناء بـ",
+      relatedProjects: "مشاريع مشابهة",
+      viewCaseStudy: "تفاصيل المشروع",
+      viewLive: "زيارة الموقع",
+    }
+  : {
+      overview: "Overview",
+      features: "Features",
+      gallery: "Gallery",
+      techStack: "Tech Stack",
+      video: "Video",
+      backToProjects: "Back to Projects",
+      previousProject: "Previous",
+      nextProject: "Next",
+      problem: "The Challenge",
+      solution: "The Solution",
+      visitLiveSite: "Visit Live Site",
+      viewSourceCode: "View Source Code",
+      builtWith: "Built with",
+      relatedProjects: "Related Projects",
+      viewCaseStudy: "Case Study",
+      viewLive: "Visit Live",
+    };
+
+/* ── Status badge ── */
+const statusVariant: Record<string, "filled" | "accent" | "default"> = {
+  live: "filled",
+  "in development": "accent",
+};
+const statusKey = t.status.toLowerCase();
+const badgeVariant = statusVariant[statusKey] || "default";
+
+/* ── SEO ── */
+const siteName = lang === "ar" ? siteData.name.ar : siteData.name.en;
+const pageTitle = t.title;
+const pageDescription = t.summary;
+const ogImage = project.heroImage || siteData.seo.ogImage;
+
+/* ── JSON-LD ── */
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: t.title,
+  description: t.description,
+  author: {
+    "@type": "Person",
+    name: siteName,
+    url: `https://ghassanabdulkhaliq.github.io/portfolio`,
+  },
+  dateCreated: `${project.year}`,
+  keywords: project.tech.join(", "),
+  url: Astro.url.href,
+  image: ogImage,
+  genre: project.category,
+};
+
+/* ── Related projects (same category, different slug) ── */
+const relatedProjects = related.map((p) => ({
+  slug: p.slug,
+  title: lang === "ar" ? p.title.ar : p.title.en,
+  summary: lang === "ar" ? p.summary.ar : p.summary.en,
+  thumbnail: p.thumbnail,
+  category: p.category,
+  year: p.year,
+}));
+
+/* ── Prev/Next ── */
+const prevTitle = prev ? (lang === "ar" ? prev.title.ar : prev.title.en) : null;
+const nextTitle = next ? (lang === "ar" ? next.title.ar : next.title.en) : null;
+---
+
+<Base
+  lang={lang}
+  dir="rtl"
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={ogImage}
+  canonical={Astro.url.href}
+  structuredData={structuredData}
+>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <article class="project-detail" aria-labelledby="project-title">
+    <div class="container">
+
+      {/* ── Back Link ── */}
+      <nav class="project-detail__back" aria-label={lang === "ar" ? "العودة للمشاريع" : "Back to projects"}>
+        <a href={`${base}projects`} class="project-detail__back-link">
+          <SVGIcon name="arrow-left" size={16} />
+          {i18n.backToProjects}
+        </a>
+      </nav>
+
+      {/* ── Hero ── */}
+      <header class="project-hero" data-reveal="up">
+        <div class="project-hero__image">
+          <ProjectImage
+            src={project.heroImage}
+            alt={t.title}
+            category={project.category}
+            width={1280}
+            height={720}
+            loading="eager"
+          />
+        </div>
+
+        <h1 class="project-hero__title" id="project-title">{t.title}</h1>
+        <p class="project-hero__summary">{t.description}</p>
+
+        <div class="project-hero__meta">
+          <Badge variant="default" size="sm">{project.year}</Badge>
+          <Badge variant={badgeVariant} size="sm">{t.status}</Badge>
+          {project.tech.map((tech) => (
+            <Badge variant="default" size="sm">{tech}</Badge>
+          ))}
+        </div>
+
+        <div class="project-hero__actions">
+          {project.links.live && (
+            <Button
+              href={project.links.live}
+              variant="primary"
+              size="md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {i18n.visitLiveSite}
+              <SVGIcon name="external-link" size={16} />
+            </Button>
+          )}
+          {project.links.source && (
+            <Button
+              href={project.links.source}
+              variant="secondary"
+              size="md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {i18n.viewSourceCode}
+              <SVGIcon name="git" size={16} />
+            </Button>
+          )}
+        </div>
+      </header>
+
+      {/* ── Overview ── */}
+      <section class="project-detail__section" id="overview" aria-labelledby="overview-heading">
+        <h2 class="project-detail__section-title" id="overview-heading">
+          {i18n.overview}
+        </h2>
+        <p class="project-detail__overview-text">{t.description}</p>
+      </section>
+
+      {/* ── Problem / Solution ── */}
+      <section class="project-detail__section" id="problem-solution" aria-labelledby="ps-heading">
+        <h2 class="project-detail__section-title" id="ps-heading">
+          {i18n.problem} & {i18n.solution}
+        </h2>
+        <div class="project-detail__problem-solution">
+          <div class="ps-block" data-reveal="left">
+            <h3 class="ps-block__label">{i18n.problem}</h3>
+            <p class="ps-block__text">{t.problem}</p>
+          </div>
+          <div class="ps-block" data-reveal="right">
+            <h3 class="ps-block__label">{i18n.solution}</h3>
+            <p class="ps-block__text">{t.solution}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Features Grid ── */}
+      {project.features.length > 0 && (
+        <section class="project-detail__section" id="features" aria-labelledby="features-heading">
+          <h2 class="project-detail__section-title" id="features-heading">
+            {i18n.features}
+          </h2>
+          <div class="project-detail__features">
+            {project.features.map((feature, i) => (
+              <div class="feature-card" data-reveal="up" data-reveal-delay={String((i + 1) * 100)}>
+                <div class="feature-card__icon" aria-hidden="true">
+                  <SVGIcon name={feature.icon} size={24} />
+                </div>
+                <h3 class="feature-card__title">
+                  {lang === "ar" ? feature.title.ar : feature.title.en}
+                </h3>
+                <p class="feature-card__description">
+                  {lang === "ar" ? feature.description.ar : feature.description.en}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Tech Stack ── */}
+      <section class="project-detail__section" id="tech-stack" aria-labelledby="tech-heading">
+        <h2 class="project-detail__section-title" id="tech-heading">
+          {i18n.techStack}
+        </h2>
+        <div class="tech-stack">
+          {project.techDetails.language.length > 0 && (
+            <div class="tech-category" data-reveal="up">
+              <h3 class="tech-category__title">
+                <SVGIcon name="code" size={16} />
+                {lang === "ar" ? "اللغات" : "Languages"}
+              </h3>
+              <div class="tech-category__list">
+                {project.techDetails.language.map((t) => (
+                  <Badge variant="accent" size="sm">{t}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
+          {project.techDetails.ui.length > 0 && (
+            <div class="tech-category" data-reveal="up" data-reveal-delay="100">
+              <h3 class="tech-category__title">
+                <SVGIcon name="eye" size={16} />
+                {lang === "ar" ? "واجهة المستخدم" : "UI Framework"}
+              </h3>
+              <div class="tech-category__list">
+                {project.techDetails.ui.map((t) => (
+                  <Badge variant="accent" size="sm">{t}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
+          {project.techDetails.tools.length > 0 && (
+            <div class="tech-category" data-reveal="up" data-reveal-delay="200">
+              <h3 class="tech-category__title">
+                <SVGIcon name="external-link" size={16} />
+                {lang === "ar" ? "الأدوات" : "Tools"}
+              </h3>
+              <div class="tech-category__list">
+                {project.techDetails.tools.map((t) => (
+                  <Badge variant="accent" size="sm">{t}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── Gallery ── */}
+      {project.gallery.length > 0 && (
+        <section class="project-detail__section" id="gallery" aria-labelledby="gallery-heading">
+          <h2 class="project-detail__section-title" id="gallery-heading">
+            {i18n.gallery}
+          </h2>
+          <div class="project-detail__gallery">
+            {project.gallery.map((img, i) => (
+              <div class="gallery-item" data-reveal="up" data-reveal-delay={String((i + 1) * 100)}>
+                <ProjectImage
+                  src={img.src}
+                  alt={lang === "ar" ? img.alt.ar : img.alt.en}
+                  category={project.category}
+                  width={400}
+                  height={711}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Video (optional) ── */}
+      {project.video && (
+        <section class="project-detail__section" id="video" aria-labelledby="video-heading">
+          <h2 class="project-detail__section-title" id="video-heading">
+            {i18n.video}
+          </h2>
+          <div class="project-detail__video" data-reveal="scale">
+            <iframe
+              src={project.video}
+              title={`${t.title} — ${i18n.video}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </section>
+      )}
+
+      {/* ── Related Projects ── */}
+      {relatedProjects.length > 0 && (
+        <section class="project-detail__section" id="related" aria-labelledby="related-heading">
+          <h2 class="project-detail__section-title" id="related-heading">
+            {i18n.relatedProjects}
+          </h2>
+          <div class="project-detail__related">
+            {relatedProjects.map((rp, i) => (
+              <a
+                href={`${base}projects/${rp.slug}`}
+                class="related-card"
+                data-reveal="up"
+                data-reveal-delay={String((i + 1) * 100)}
+              >
+                <div class="related-card__image">
+                  <ProjectImage
+                    src={rp.thumbnail}
+                    alt={rp.title}
+                    category={rp.category}
+                    width={400}
+                    height={250}
+                  />
+                </div>
+                <div class="related-card__info">
+                  <span class="related-card__year">{rp.year}</span>
+                  <h3 class="related-card__title">{rp.title}</h3>
+                  <p class="related-card__summary">{rp.summary}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Prev / Next Navigation ── */}
+      <nav class="project-detail__nav" aria-label={lang === "ar" ? "تنقل بين المشاريع" : "Project navigation"}>
+        {prev ? (
+          <a href={`${base}projects/${prev.slug}`} class="project-detail__nav-link">
+            <span class="project-detail__nav-label">
+              <SVGIcon name="arrow-left" size={14} />
+              {i18n.previousProject}
+            </span>
+            <span class="project-detail__nav-title">{prevTitle}</span>
+          </a>
+        ) : (
+          <div></div>
+        )}
+        {next ? (
+          <a href={`${base}projects/${next.slug}`} class="project-detail__nav-link project-detail__nav-link--next">
+            <span class="project-detail__nav-label">
+              {i18n.nextProject}
+              <SVGIcon name="arrow-left" size={14} />
+            </span>
+            <span class="project-detail__nav-title">{nextTitle}</span>
+          </a>
+        ) : (
+          <div></div>
+        )}
+      </nav>
+
+    </div>
+  </article>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<style>
+  /* ── Project Detail Page ──────────────────────────── */
+  .project-detail {
+    padding-bottom: var(--space-4xl);
+  }
+
+  .project-detail__back {
+    padding-top: calc(var(--header-height) + var(--space-xl));
+    margin-bottom: var(--space-xl);
+  }
+
+  .project-detail__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-muted);
+    font-size: var(--text-small);
+    font-weight: var(--weight-medium);
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .project-detail__back-link:hover {
+    color: var(--accent);
+  }
+
+  .project-detail__section {
+    margin-block: var(--space-3xl);
+  }
+
+  .project-detail__section-title {
+    font-size: var(--text-h2);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .project-detail__section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    inset-inline-start: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    border-radius: var(--radius-full);
+  }
+
+  [dir="rtl"] .project-detail__section-title::after {
+    background: linear-gradient(-90deg, var(--accent), transparent);
+  }
+
+  .project-detail__overview-text {
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    max-width: 750px;
+  }
+
+  /* ── Related Projects Grid ────────────────────────── */
+  .project-detail__related {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .related-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-4px);
+  }
+
+  .related-card__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .related-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+  }
+
+  .related-card__year {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+
+  .related-card__title {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .related-card__summary {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

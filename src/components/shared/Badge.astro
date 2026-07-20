@@ -1,0 +1,26 @@
+---
+/**
+ * Badge.astro — Small label chip for skills, tags, categories
+ *
+ * Props:
+ *   variant: default (subtle border) | accent (gold tint) | filled (gold bg)
+ *   size:    sm | md (default)
+ */
+
+interface Props {
+  variant?: "default" | "accent" | "filled";
+  size?: "sm" | "md";
+  class?: string;
+}
+
+const {
+  variant = "default",
+  size = "md",
+  class: className = "",
+  ...rest
+} = Astro.props;
+---
+
+<span class:list={["badge", `badge--${variant}`, `badge--${size}`, className]} {...rest}>
+  <slot />
+</span>

@@ -1,0 +1,218 @@
+---
+/**
+ * about.astro — Standalone About page
+ *
+ * Full about page for SEO, mirrors the homepage About section
+ * with additional detail. Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/navbar/Navbar.astro";
+import MobileMenu from "../components/navbar/MobileMenu.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+import Footer from "../components/shared/Footer.astro";
+import SectionTitle from "../components/shared/SectionTitle.astro";
+import About from "../components/about/About.astro";
+import siteData from "../content/site.json";
+import homeData from "../content/home.json";
+
+const lang = "ar" as const;
+
+const t = {
+  title: lang === "ar" ? homeData.about.title.ar : homeData.about.title.en,
+  subtitle: lang === "ar" ? homeData.about.subtitle.ar : homeData.about.subtitle.en,
+  description: lang === "ar" ? siteData.seo.description.ar : siteData.seo.description.en,
+  bio: lang === "ar" ? homeData.about.bio.ar : homeData.about.bio.en,
+  experienceTitle: lang === "ar" ? "مسارني المهني" : "My Journey",
+  experience: [
+    {
+      year: "2019",
+      title: lang === "ar" ? "بداية رحلتي مع WordPress" : "Getting Started with WordPress",
+      description: lang === "ar"
+        ? "ساعدت أخي في إدارة موقع أفلام ومسلسلات (إضافة المحتوى وتنظيمه). أنشأ لي لاحقاً موقعًا خاصًا بالأنمي، مما منحني خبرة عملية في إدارة مواقع WordPress."
+        : "Helped my brother manage a movies and series website (adding and organizing content). He later created an anime site for me, giving me hands-on experience managing WordPress sites.",
+    },
+    {
+      year: "2020",
+      title: lang === "ar" ? "تطوير مواقع WordPress بنفسي" : "Building WordPress Sites Independently",
+      description: lang === "ar"
+        ? " بدأت إنشاء مواقع WordPress بنفسي للتجربة والتعلم. تعلمت العمل مع القوالب والإضافات والاستضافات واكتسبت أساسيات تطوير الويب."
+        : "Started building WordPress sites independently for learning and experimentation. Gained experience with themes, plugins, and hosting fundamentals.",
+    },
+    {
+      year: "2022",
+      title: lang === "ar" ? "نشر مواقع على الاستضافة + بداية Android" : "Deploying Sites & Starting Android",
+      description: lang === "ar"
+        ? "بدأت رفع مواقع PHP و WordPress على استضافة Hostinger للتجربة والتعلم. في نفس الوقت، بدأت التعرف على Android Studio والعمل على مشاريع أندرويد."
+        : "Started deploying PHP and WordPress sites on Hostinger hosting for learning. Simultaneously began exploring Android Studio and working on Android projects.",
+    },
+    {
+      year: "2023",
+      title: lang === "ar" ? "مشاريع WordPress متنوعة + أدوات الذكاء الاصطناعي" : "Diverse WordPress Projects + AI Tools",
+      description: lang === "ar"
+        ? "أنشأت عدة مواقع WordPress باستخدام قوالب مختلفة مثل مواقع الأخبار والمدونات والمواقع الشبيهة باليوتيوب. بدأت استخدام أدوات الذكاء الاصطناعي لتسريع التطوير وفهم الأكواد. عملت على مشاريع أندرويد مختلفة للتعلم داخل Android Studio."
+        : "Created multiple WordPress sites using different templates including news, blog, and YouTube-like platforms. Started using AI tools to speed up development and understand code. Worked on various Android projects for learning in Android Studio.",
+    },
+    {
+      year: "2024",
+      title: lang === "ar" ? "تحسين المهارات + تطوير التطبيقات" : "Skill Improvement & App Development",
+      description: lang === "ar"
+        ? "ركزت على تحسين مهارات البرمجة وإصلاح الأخطاء وتطوير التطبيقات بمساعدة أدوات الذكاء الاصطناعي لزيادة الإنتاجية."
+        : "Focused on improving programming skills, fixing bugs, and developing applications with the assistance of AI tools for increased productivity.",
+    },
+    {
+      year: "2025",
+      title: lang === "ar" ? "تطبيقات ومواقع متنوعة" : "Multiple Apps & Sites",
+      description: lang === "ar"
+        ? "طورت عدة تطبيقات منها OmniCalc و Calc Voice وتطبيق إسلامي وتطبيق بوصلة وتطبيق ماسح ضوئي. كما طورت مواقع شخصية ومتاجر إلكترونية."
+        : "Built multiple applications including OmniCalc, Calc Voice, Islamic app, compass app, and scanner app. Also developed personal websites and e-commerce stores.",
+    },
+    {
+      year: "2026",
+      title: lang === "ar" ? "الآن — مطور شامل" : "Now — Full-Spectrum Developer",
+      description: lang === "ar"
+        ? "أركّز حاليًا على تطوير OmniCalc وبناء مشاريع جديدة. أستطيع تطوير مواقع ويب وتطبيقات وألعاب خفيفة إلى متوسطة باستخدام لغات وتقنيات مختلفة. أستخدم أدوات الذكاء الاصطناعي لتعزيز الإنتاجية مع التصميم والتنفيذ والتحقق النهائي بنفسي."
+        : "Currently focused on developing OmniCalc and building new projects. I develop websites, applications, and light-to-medium games using various languages and technologies. I leverage AI-assisted development tools to accelerate development, debug code, and improve productivity while designing, implementing, and validating the final solutions myself.",
+    },
+  ],
+  educationTitle: lang === "ar" ? "التعليم" : "Education",
+  education: [
+    {
+      year: "2015 – 2019",
+      title: lang === "ar" ? "بكالوريوس علوم الحاسوب" : "B.Sc. Computer Science",
+      description: lang === "ar"
+        ? "جامعة بغداد – كلية الحاسوب والرياضيات"
+        : "University of Baghdad – College of Computer Science & Mathematics",
+    },
+  ],
+};
+
+const pageTitle = t.title;
+---
+
+<Base lang={lang} dir="rtl" title={pageTitle} description={t.description}>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <h1 class="sr-only">{pageTitle}</h1>
+
+  <About lang={lang} />
+
+  {/* ── Experience Timeline ── */}
+  <section class="about-page__section section" data-reveal="up" aria-labelledby="experience-heading">
+    <div class="container">
+      <SectionTitle tag="h2" id="experience-heading">{t.experienceTitle}</SectionTitle>
+      <ol class="timeline">
+        {t.experience.map((item, i) => (
+          <li class="timeline__item" data-reveal="up" data-reveal-delay={String((i + 1) * 100)}>
+            <span class="timeline__year">{item.year}</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">{item.title}</h3>
+              <p class="timeline__description">{item.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* ── Education ── */}
+  <section class="about-page__section section" data-reveal="up" aria-labelledby="education-heading">
+    <div class="container">
+      <SectionTitle tag="h2" id="education-heading">{t.educationTitle}</SectionTitle>
+      <ol class="timeline">
+        {t.education.map((item, i) => (
+          <li class="timeline__item" data-reveal="up" data-reveal-delay={String((i + 1) * 100)}>
+            <span class="timeline__year">{item.year}</span>
+            <div class="timeline__content">
+              <h3 class="timeline__title">{item.title}</h3>
+              <p class="timeline__description">{item.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<style>
+  .about-page__section {
+    padding-block: var(--space-4xl);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+    position: relative;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inline-start: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline__item {
+    display: flex;
+    gap: var(--space-xl);
+    padding-inline-start: calc(8px + var(--space-lg));
+    position: relative;
+  }
+
+  .timeline__item::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    inline-start: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg-base);
+  }
+
+  .timeline__year {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent);
+    white-space: nowrap;
+    min-width: 120px;
+    padding-top: 2px;
+  }
+
+  .timeline__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .timeline__title {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .timeline__description {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  @media (max-width: 767px) {
+    .timeline__item {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+  }
+</style>

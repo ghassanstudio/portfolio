@@ -1,0 +1,36 @@
+---
+/**
+ * index.astro — Homepage
+ *
+ * Renders Hero + About + Skills + Featured Projects + Contact sections.
+ */
+
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/navbar/Navbar.astro";
+import MobileMenu from "../components/navbar/MobileMenu.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+import Footer from "../components/shared/Footer.astro";
+import Hero from "../components/hero/Hero.astro";
+import About from "../components/about/About.astro";
+import Skills from "../components/skills/Skills.astro";
+import FeaturedProjects from "../components/projects/FeaturedProjects.astro";
+import Contact from "../components/contact/Contact.astro";
+
+const lang = "ar" as const;
+---
+
+<Base lang={lang} dir="rtl">
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <Hero lang={lang} />
+  <About lang={lang} />
+  <Skills lang={lang} />
+  <FeaturedProjects lang={lang} />
+  <Contact lang={lang} />
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>

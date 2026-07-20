@@ -1,0 +1,54 @@
+---
+/**
+ * FeaturedProjects.astro — Homepage featured projects section
+ *
+ * Shows 3 featured projects in alternating left/right layout.
+ * Reads from projects.json (featured only) and home.json (section config).
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import SectionTitle from "../shared/SectionTitle.astro";
+import Button from "../shared/Button.astro";
+import ProjectCard from "./ProjectCard.astro";
+import projectsData from "../../content/projects.json";
+import homeData from "../../content/home.json";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const sectionTitle = lang === "ar" ? homeData.featuredProjects.title.ar : homeData.featuredProjects.title.en;
+const viewAllLabel = lang === "ar" ? homeData.featuredProjects.viewAllLabel.ar : homeData.featuredProjects.viewAllLabel.en;
+
+const i18n = lang === "ar"
+  ? { viewCaseStudy: "تفاصيل المشروع", viewLive: "زيارة الموقع" }
+  : { viewCaseStudy: "Case Study", viewLive: "Visit Live" };
+
+const featured = projectsData
+  .filter((p) => p.featured)
+  .sort((a, b) => a.order - b.order)
+  .slice(0, homeData.featuredProjects.count);
+---
+
+<section class="section featured" id="projects" aria-labelledby="featured-heading">
+  <div class="container">
+    <SectionTitle tag="h2" subtitle={lang === "ar" ? "بعض المشاريع التي أعتز بها" : "A selection of projects I'm proud of"} id="featured-heading">
+      {sectionTitle}
+    </SectionTitle>
+
+    <div class="featured__list">
+      {featured.map((project, i) => (
+        <ProjectCard project={project} index={i} lang={lang} i18n={i18n} />
+      ))}
+    </div>
+
+    <div class="featured__view-all" data-reveal="up">
+      <Button href={`${base}projects`} variant="secondary" size="md">
+        {viewAllLabel}
+      </Button>
+    </div>
+  </div>
+</section>

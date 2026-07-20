@@ -1,0 +1,366 @@
+[
+  {
+    "slug": "calc-voice",
+    "title": {
+      "ar": "الآلة الحاسبة الناطقة",
+      "en": "Calc Voice"
+    },
+    "category": "mobile",
+    "featured": true,
+    "order": 1,
+    "thumbnail": "/images/projects/calcvoice.webp",
+    "heroImage": "/images/projects/calcvoice.webp",
+    "year": 2025,
+    "status": {
+      "ar": "مفعّل",
+      "en": "Live"
+    },
+    "summary": {
+      "ar": "تطبيق آلة حاسبة ذكي ينطق الأرقام والعمليات بصوت عالٍ فور النقر، مع دعم كامل للعربية والإنجليزية والوضع الداكن.",
+      "en": "A smart calculator app that speaks numbers and operations aloud on tap, with full Arabic and English support and dark mode."
+    },
+    "description": {
+      "ar": "تطبيق آلة حاسبة ناطقة مبني بـ Kotlin يستخدم تقنية Text-to-Speech لإخبار المستخدم بالأرقام والعمليات الحسابية وناتج العملية فوراً عند النقر. يدعم التطبيق الوضع الداكن التلقائي بناءً على إعدادات الجهاز، ويحتوي على لغتين صوتيتين (العربية والإنجليزية) يمكن التبديل بينهما يدوياً أو تلقائياً. صُمم التطبيق بهدف تسهيل استخدام الآلة الحاسبة على المستخدمين ذوي الاحتياجات الخاصة والمستخدمين الذين يفضلون التفاعل الصوتي.",
+      "en": "A talking calculator app built with Kotlin that uses Text-to-Speech technology to announce numbers, operations, and results aloud on tap. Features automatic dark mode based on device settings and dual-language voice switching between Arabic and English, either manually or automatically. Designed to make calculators more accessible for users with special needs and anyone who prefers voice interaction."
+    },
+    "problem": {
+      "ar": "يواجه المستخدمون ذوي الاحتياجات البصرية صعوبة في استخدام الآلات الحاسبة التقليدية على الهواتف الذكية، حيث لا توجد تغذية راجعة صوتية للأرقام المُدخلة أو العمليات الحسابية أو النتائج. كما أن المستخدمون العاديون يتعثرون أحياناً عند إدخال أرقام طويلة لأنهم لا يسمعون ما يكتبونه.",
+      "en": "Users with visual impairments struggle to use traditional smartphone calculators because there is no audio feedback for entered numbers, operations, or results. Even regular users sometimes make input errors with long numbers because they cannot hear what they are typing."
+    },
+    "solution": {
+      "ar": "قمت ببناء تطبيق آلة حاسبة يستخدم محرك Text-to-Speech المدمج في أندرويد لنطق كل عنصر فوراً عند النقر عليه. يتعرف التطبيق على لغة الجهاز تلقائياً ويwitch بين الصوت العربي والإنجليزية. صُمم الواجهة بسيطة بأزرار كبيرة وألوان واضحة مع دعم كامل للوضع الداكن لتقليل إجهاد العين.",
+      "en": "I built a calculator app that leverages Android's built-in Text-to-Speech engine to speak every element aloud on tap. The app auto-detects the device language and switches between Arabic and English voice output. The interface features large buttons, clear colors, and full dark mode support to minimize eye strain."
+    },
+    "features": [
+      {
+        "title": {
+          "ar": "نطق فوري للأرقام والعمليات",
+          "en": "Instant Number & Operation Speech"
+        },
+        "description": {
+          "ar": "ينطق التطبيق كل رقم وعملية حسابية (جمع، طرح، ضرب، قسمة) بصوت عالٍ فور النقر عليها.",
+          "en": "The app speaks every number and math operation (add, subtract, multiply, divide) aloud instantly on tap."
+        },
+        "icon": "microphone"
+      },
+      {
+        "title": {
+          "ar": "الوضع الداكن التلقائي",
+          "en": "Auto Dark Mode"
+        },
+        "description": {
+          "ar": "يت切换 تصميم التطبيق تلقائياً بين الوضع الفاتح والداكن بناءً على إعدادات نظام الجهاز.",
+          "en": "The app theme automatically switches between light and dark modes based on the device's system settings."
+        },
+        "icon": "moon"
+      },
+      {
+        "title": {
+          "ar": "دعم لغتين صوتيتين",
+          "en": "Dual Language Voice"
+        },
+        "description": {
+          "ar": "تبديل يدوي أو تلقائي بين الصوت العربي والإنجليزي مع إمكانية تغيير سرعة النطق.",
+          "en": "Manual or automatic switching between Arabic and English voice with adjustable speech speed."
+        },
+        "icon": "language"
+      },
+      {
+        "title": {
+          "ar": "نطق ناتج الحساب",
+          "en": "Result Announcements"
+        },
+        "description": {
+          "ar": "بعد إجراء العملية الحسابية، ينطق التطبيق الناتج النهائي بصوت عالٍ مع إمكانية إعادة نطقه.",
+          "en": "After performing a calculation, the app announces the final result aloud with an option to replay it."
+        },
+        "icon": "check-circle"
+      }
+    ],
+    "tech": ["Kotlin", "Android Studio", "Android"],
+    "techDetails": {
+      "language": ["Kotlin"],
+      "ui": ["Android XML", "Material Design"],
+      "tools": ["Android Studio", "Text-to-Speech API", "Gradle"]
+    },
+    "gallery": [],
+    "video": "https://www.youtube.com/embed/RDtq8xNH_hM",
+    "links": {
+      "live": "https://apkpure.com/p/com.gak.calcvoice",
+      "source": null
+    }
+  },
+  {
+    "slug": "e-commerce-platform",
+    "title": {
+      "ar": "منصة تجارة إلكترونية",
+      "en": "E-Commerce Platform"
+    },
+    "category": "web",
+    "featured": true,
+    "order": 2,
+    "thumbnail": "/images/projects/ecommerce.webp",
+    "heroImage": "/images/projects/ecommerce.webp",
+    "year": 2024,
+    "status": {
+      "ar": "قيد التطوير",
+      "en": "In Development"
+    },
+    "summary": {
+      "ar": "منصة تجارة إلكترونية متكاملة مع سلة تسوق ذكية ونظام دفع آمن ولوحة تحكم شاملة لإدارة المتجر.",
+      "en": "A full-featured e-commerce platform with a smart shopping cart, secure payment system, and comprehensive admin dashboard."
+    },
+    "description": {
+      "ar": "منصة تجارة إلكترونية مبنية بـ React و Node.js تقدم تجربة تسوق متكاملة للمستخدمين من تصفح المنتجات إلى إتمام الشراء. تتضمن المنصة سلة تسوق ذكية تحفظ اختيار المستخدم، ونظام دفع إلكتروني يدعم بطاقات الائتمان، ولوحة تحكم administrateur شاملة لإدارة المنتجات والفئات والطلبات والعملاء. صُممت الواجهة لتكون سريعة الاستجابة ومتوافقة مع جميع الأجهزة مع دعم البحث والتصفية المتقدمة.",
+      "en": "An e-commerce platform built with React and Node.js that delivers a complete shopping experience from product browsing to checkout. Features a smart shopping cart that persists user selections, a secure payment system supporting credit cards, and a comprehensive admin dashboard for managing products, categories, orders, and customers. Designed with a responsive, mobile-first interface with advanced search and filtering."
+    },
+    "problem": {
+      "ar": "يحتاج أصحاب المتاجر الصغيرة والمتوسطة إلى منصة بيع إلكتروني متكاملة لكن الحلول الجاهزة غالبة التكلفة أو معقدة التخصيص. كما أن إدارة المنتجات والمخزون والطلبات يدوياً تستهلك وقتاً كبيراً وتعرّض للأخطاء.",
+      "en": "Small and medium business owners need a complete online selling platform, but existing solutions are either too expensive or difficult to customize. Manual management of products, inventory, and orders is time-consuming and error-prone."
+    },
+    "solution": {
+      "ar": "بنيت منصة تجارة إلكترونية متكاملة مفتوحة المصدر تتضمن واجهة متجر سريعة ومتجاوبة للعملاء ولوحة تحكم شاملة للمالك. تدعم المنصة إدارة المنتجات بالصور والوصف والأسعار، سلة تسوق ذكية، نظام طلبات آلي، وبحث وتصفية متقدمة. الرؤية هي تقديم بديل خفيف وقابل للتخصيص للحلول التجارية الكبيرة.",
+      "en": "I built a complete open-source e-commerce platform with a fast, responsive storefront for customers and a full admin dashboard for owners. The platform supports product management with images, descriptions, and pricing, a smart shopping cart, automated order processing, and advanced search and filtering. The vision is to provide a lightweight, customizable alternative to heavy commercial solutions."
+    },
+    "features": [
+      {
+        "title": {
+          "ar": "سلة تسوق ذكية",
+          "en": "Smart Shopping Cart"
+        },
+        "description": {
+          "ar": "سلة تسوق تحفظ اختيار المستخدم تلقائياً وتحسب المجاميع والضرائب مع تحديث فوري.",
+          "en": "A shopping cart that persists user selections, calculates totals and taxes, and updates in real-time."
+        },
+        "icon": "shopping-cart"
+      },
+      {
+        "title": {
+          "ar": "لوحة تحكم شاملة",
+          "en": "Comprehensive Dashboard"
+        },
+        "description": {
+          "ar": "لوحة تحكم لإدارة المنتجات والفئات والطلبات والعملاء مع إحصائيات المبيعات.",
+          "en": "A dashboard for managing products, categories, orders, and customers with sales analytics."
+        },
+        "icon": "layout"
+      },
+      {
+        "title": {
+          "ar": "بحث وتصفية متقدمة",
+          "en": "Advanced Search & Filtering"
+        },
+        "description": {
+          "ar": "بحث سريع بالكلمات المفتاحية وتصفية حسب الفئات والأسعار والتوفر مع ترتيب مخصص.",
+          "en": "Fast keyword search with filtering by category, price, and availability with custom sorting."
+        },
+        "icon": "search"
+      },
+      {
+        "title": {
+          "ar": "تصميم متجاوب",
+          "en": "Responsive Design"
+        },
+        "description": {
+          "ar": "واجهة مصممة لتناسب جميع أحجام الشاشات من الهاتف إلى سطح المكتب مع أداء عالي.",
+          "en": "An interface designed for all screen sizes from mobile to desktop with high performance."
+        },
+        "icon": "smartphone"
+      }
+    ],
+    "tech": ["React", "Node.js", "MongoDB"],
+    "techDetails": {
+      "language": ["JavaScript", "TypeScript"],
+      "ui": ["React", "CSS Modules"],
+      "tools": ["Node.js", "Express.js", "MongoDB", "Stripe API"]
+    },
+    "gallery": [],
+    "video": null,
+    "links": {
+      "live": null,
+      "source": null
+    }
+  },
+  {
+    "slug": "task-manager",
+    "title": {
+      "ar": "نظام إدارة المهام",
+      "en": "Task Manager"
+    },
+    "category": "web",
+    "featured": true,
+    "order": 3,
+    "thumbnail": "/images/projects/taskmanager.webp",
+    "heroImage": "/images/projects/taskmanager.webp",
+    "year": 2023,
+    "status": {
+      "ar": "مفعّل",
+      "en": "Live"
+    },
+    "summary": {
+      "ar": "تطبيق ويب لإدارة المهام اليومية مع تحديد الأولويات والمواعيد النهائية ومزامنة عبر الأجهزة.",
+      "en": "A web app for daily task management with priority setting, due dates, and cross-device sync."
+    },
+    "description": {
+      "ar": "تطبيق ويب خفيف وسريع لإدارة المهام اليومية مبني بـ JavaScript و Firebase. يتيح للمستخدمين إنشاء مهام وتنظيمها حسب الأولوية وتحديد مواعيد نهائية مع تذكيرات. تتم مزامنة البيانات فوراً عبر جميع أجهزة المستخدم باستخدام Firebase Firestore. تتضمن الميزات السحب والإفلات لترتيب المهام، والبحث السريع، وتصنيف المهام حسب المشاريع.",
+      "en": "A lightweight, fast daily task management web app built with JavaScript and Firebase. Users can create tasks, organize by priority, set due dates with reminders, and data syncs instantly across all devices via Firebase Firestore. Features include drag-and-drop task reordering, quick search, and project-based task categorization."
+    },
+    "problem": {
+      "ar": "مع تعدد الأجهزة التي نستخدمها يومياً (الهاتف والحاسوب والجهاز اللوحي)، يصعب الحفاظ على قائمة مهام موحدة ومزامنة. التطبيقات الموجودة إما معقدة جداً أو لا تدعم المزامنة اللحظية أو تفتقر إلى تجربة مستخدم سلسة.",
+      "en": "With the multiple devices we use daily (phone, computer, tablet), it's hard to maintain a unified, synced task list. Existing apps are either overly complex, lack real-time sync, or have poor user experience."
+    },
+    "solution": {
+      "ar": "بنيت تطبيق إدارة مهام بسيط وفعال يستخدم Firebase Firestore للمزامنة اللحظية. يمكن للمستخدم إضافة وتعديل وحذف المهام من أي جهاز وترى التغييرات فوراً على جميع الأجهزة. ركزت على تجربة مستخدم نظيفة وسريعة مع minimal interface يقلل التشتيت ويزيد الإنتاجية.",
+      "en": "I built a simple yet powerful task management app using Firebase Firestore for real-time sync. Users can add, edit, and delete tasks from any device and see changes instantly across all devices. I focused on a clean, fast UX with a minimal interface that reduces distraction and boosts productivity."
+    },
+    "features": [
+      {
+        "title": {
+          "ar": "مزامنة لحظية عبر الأجهزة",
+          "en": "Real-time Cross-Device Sync"
+        },
+        "description": {
+          "ar": "تتم مزامنة جميع المهام فوراً عبر الأجهزة المختلفة باستخدام Firebase Firestore.",
+          "en": "All tasks sync instantly across devices using Firebase Firestore."
+        },
+        "icon": "refresh-cw"
+      },
+      {
+        "title": {
+          "ar": "تحديد الأولويات والمواعيد",
+          "en": "Priority & Due Dates"
+        },
+        "description": {
+          "ar": "تصنيف المهام حسب مستوى الأولوية مع تحديد مواعيد نهائية وتذكيرات.",
+          "en": "Categorize tasks by priority level with due dates and reminders."
+        },
+        "icon": "calendar"
+      },
+      {
+        "title": {
+          "ar": "سحب وإفلات",
+          "en": "Drag & Drop"
+        },
+        "description": {
+          "ar": "إعادة ترتيب المهام بسحبها وإفلاتها لإعطاء الأولوية البصرية.",
+          "en": "Reorder tasks by dragging and dropping for visual prioritization."
+        },
+        "icon": "move"
+      },
+      {
+        "title": {
+          "ar": "بحث وتصفية سريعة",
+          "en": "Quick Search & Filter"
+        },
+        "description": {
+          "ar": "بحث فوري في المهام وتصفية حسب الحالة أو الأولوية أو المشروع.",
+          "en": "Instant task search with filtering by status, priority, or project."
+        },
+        "icon": "search"
+      }
+    ],
+    "tech": ["JavaScript", "Firebase"],
+    "techDetails": {
+      "language": ["JavaScript", "ES6+"],
+      "ui": ["HTML5", "CSS3", "Custom Design"],
+      "tools": ["Firebase", "Firestore", "Firebase Auth"]
+    },
+    "gallery": [],
+    "video": null,
+    "links": {
+      "live": null,
+      "source": null
+    }
+  },
+  {
+    "slug": "writers-portfolio",
+    "title": {
+      "ar": "موقع كاتب شخصي",
+      "en": "Writer's Portfolio"
+    },
+    "category": "design",
+    "featured": false,
+    "order": 4,
+    "thumbnail": "/images/projects/writer.webp",
+    "heroImage": "/images/projects/writer.webp",
+    "year": 2023,
+    "status": {
+      "ar": "مفعّل",
+      "en": "Live"
+    },
+    "summary": {
+      "ar": "موقع شخصي احترافي لكاتب مع مدونة متكاملة وتصميم أنيق يعكس هوية الكاتب.",
+      "en": "A professional personal website for a writer with an integrated blog and elegant design reflecting the author's brand."
+    },
+    "description": {
+      "ar": "موقع شخصي احترافي لكاتب مبني على ووردبريس مع ثيم مخصص مصمم خصيصاً ليعكس أسلوب الكاتب وهويته البصرية. يتضمن الموقع صفحة مقدمة أنيقة، وقائمة أعمال منشورة، ومدونة متكاملة لإدارة المقالات مع دعم الوسوم والتصنيفات. تم تحسين الموقع من حيث سرعة التحميل وتحسين محركات البحث SEO مع تصميم متجاوب يعمل على جميع الأجهزة.",
+      "en": "A professional personal website for a writer built on WordPress with a custom theme designed to reflect the author's style and visual identity. Features an elegant landing page, published works portfolio, and a full blog system with article management, tags, and categories. Optimized for page speed and SEO with a fully responsive design."
+    },
+    "problem": {
+      "ar": "يحتاج الكتّاب والمؤلفون إلى مكان واحد يجمعون فيه أعمالهم المنشورة ومقالاتهم وتعريفاً شخصياً احترافياً. الحلول الجاهزة لا تعكس الطابع الأدبي والفكري المميز للكاتب، والتصميم التقليدي لا يجذب القراء.",
+      "en": "Writers and authors need a single place to showcase their published works, articles, and a professional bio. Generic solutions don't capture the literary and intellectual character of a writer, and conventional designs fail to engage readers."
+    },
+    "solution": {
+      "ar": "صممت موقع شخصي مخصص على ووردبريس يعكس الطابع الأدبي للكاتب مع ألوان هادئة وطباعة أنيقة ومساحات بيضاء واسعة. يتضمن الموقع مدونة متكاملة مع نظام تصنيف ووسوم، وصفحة أعمال منشورة بتصميم catalogue، وتحسين كامل لمحركات البحث SEO. صُمم الثيم من الصفر لتخصيص تجربة القراءة.",
+      "en": "I designed a custom WordPress site that captures the literary character of the writer with a calm color palette, elegant typography, and generous white space. Includes a full blog system with categories and tags, a published works page with catalogue-style layout, and complete SEO optimization. The theme was built from scratch for a tailored reading experience."
+    },
+    "features": [
+      {
+        "title": {
+          "ar": "ثيم ووردبريس مخصص",
+          "en": "Custom WordPress Theme"
+        },
+        "description": {
+          "ar": "ثيم مصمم من الصفر يعكس هوية الكاتب مع دعم كامل للمحرر الجديد.",
+          "en": "A theme built from scratch reflecting the author's identity with full Gutenberg support."
+        },
+        "icon": "layout"
+      },
+      {
+        "title": {
+          "ar": "مدونة متكاملة",
+          "en": "Full Blog System"
+        },
+        "description": {
+          "ar": "نظام مدونة مع تصنيفات ووسوم وأرشيف وبحث داخلي وتعليقات.",
+          "en": "Blog system with categories, tags, archive, internal search, and comments."
+        },
+        "icon": "file-text"
+      },
+      {
+        "title": {
+          "ar": "تحسين SEO",
+          "en": "SEO Optimization"
+        },
+        "description": {
+          "ar": "تحسين كامل لمحركات البحث يشمل البيانات المنظمة والروابط النظيفة والسرعة.",
+          "en": "Full search engine optimization including structured data, clean URLs, and speed."
+        },
+        "icon": "trending-up"
+      },
+      {
+        "title": {
+          "ar": "تصميم متجاوب",
+          "en": "Responsive Design"
+        },
+        "description": {
+          "ar": "تجربة قراءة مثالية على جميع الأجهزة من الهاتف إلى سطح المكتب.",
+          "en": "An optimal reading experience across all devices from phone to desktop."
+        },
+        "icon": "smartphone"
+      }
+    ],
+    "tech": ["WordPress", "PHP", "MySQL"],
+    "techDetails": {
+      "language": ["PHP", "HTML5", "CSS3"],
+      "ui": ["Custom WordPress Theme", "Gutenberg"],
+      "tools": ["WordPress", "MySQL", "WP CLI"]
+    },
+    "gallery": [],
+    "video": null,
+    "links": {
+      "live": null,
+      "source": null
+    }
+  }
+]

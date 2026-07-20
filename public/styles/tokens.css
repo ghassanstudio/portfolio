@@ -1,0 +1,147 @@
+/**
+ * tokens.css — Design Tokens
+ *
+ * All visual decisions live here. Every color, spacing unit,
+ * font size, transition, and shadow in the project references
+ * these variables. Change something here, it changes everywhere.
+ */
+
+:root {
+  /* ── Colors: Backgrounds ──────────────────────────────── */
+  --bg-base: #08080b;
+  --bg-surface: #101016;
+  --bg-elevated: #191920;
+  --bg-muted: #222229;
+
+  /* ── Colors: Accent (Gold) ────────────────────────────── */
+  --accent: #c8a44e;
+  --accent-light: #e2c677;
+  --accent-dim: #8b7335;
+  --accent-soft: rgba(200, 164, 78, 0.08);
+  --accent-border: rgba(200, 164, 78, 0.15);
+  --accent-glow: rgba(200, 164, 78, 0.12);
+
+  /* ── Colors: Text ─────────────────────────────────────── */
+  --text-primary: #edeae4;
+  --text-secondary: #a09d96;
+  --text-muted: #726f68;
+  --text-inverse: #08080b;
+
+  /* ── Colors: Borders ──────────────────────────────────── */
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(200, 164, 78, 0.2);
+
+  /* ── Colors: Semantic ─────────────────────────────────── */
+  --success: #34d399;
+  --error: #ef4444;
+
+  /* ── Typography: Font Families ────────────────────────── */
+  --font-heading: "Space Grotesk", "Tajawal", system-ui, sans-serif;
+  --font-body: "Inter", "Tajawal", system-ui, sans-serif;
+  --font-arabic: "Tajawal", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  /* ── Typography: Font Sizes ───────────────────────────── */
+  --text-hero: clamp(2.5rem, 6vw, 4.5rem);
+  --text-display: clamp(2rem, 4vw, 3rem);
+  --text-h2: clamp(1.5rem, 3vw, 2rem);
+  --text-h3: clamp(1.125rem, 2vw, 1.25rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-mono: 0.875rem;
+
+  /* ── Typography: Line Heights ─────────────────────────── */
+  --leading-tight: 1.15;
+  --leading-normal: 1.7;
+  --leading-relaxed: 1.8;
+
+  /* ── Typography: Letter Spacing ───────────────────────── */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  /* ── Typography: Font Weights ─────────────────────────── */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ── Spacing Scale (8px base) ─────────────────────────── */
+  --space-2xs: 0.25rem;   /* 4px  */
+  --space-xs: 0.5rem;     /* 8px  */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  --space-4xl: 6rem;      /* 96px */
+  --space-5xl: 8rem;      /* 128px */
+
+  /* ── Border Radius ────────────────────────────────────── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px var(--accent-glow);
+
+  /* ── Transitions ──────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 700ms;
+
+  /* ── Z-Index Scale ────────────────────────────────────── */
+  --z-base: 1;
+  --z-sticky: 10;
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-loader: 500;
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --container-max: 1280px;
+  --container-padding: clamp(1.25rem, 5vw, 10%);
+  --header-height: 80px;
+}
+
+/*
+ * ── Light Mode ────────────────────────────────────────
+ * Activated by data-theme="light" on <html>.
+ * Only color tokens change — every component stays untouched.
+ * Add a theme toggle script later to set the attribute.
+ */
+[data-theme="light"] {
+  --bg-base: #f5f3ef;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f0ede8;
+  --bg-muted: #e4e1da;
+
+  /* ── Light Theme (accessible gold — 4.5:1 on #f5f3ef) ─── */
+  --accent: #7d6224;
+  --accent-light: #9a8038;
+  --accent-dim: #b8953a;
+  --accent-soft: rgba(125, 98, 36, 0.08);
+  --accent-border: rgba(125, 98, 36, 0.18);
+  --accent-glow: rgba(125, 98, 36, 0.10);
+
+  --text-primary: #1a1a1f;
+  --text-secondary: #555550;
+  --text-muted: #8a8880;
+  --text-inverse: #f5f3ef;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(125, 98, 36, 0.25);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+}

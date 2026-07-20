@@ -1,0 +1,102 @@
+---
+/**
+ * MobileMenu.astro — Slide-in mobile navigation overlay
+ *
+ * Controlled by Navbar's hamburger button via aria-expanded + JS.
+ * Traps focus inside when open. Closes on Escape, link click, or overlay click.
+ * All strings from i18n JSON — zero hardcoded text.
+ */
+
+import siteData from "../../content/site.json";
+import i18nAr from "../../content/i18n/ar.json";
+import i18nEn from "../../content/i18n/en.json";
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const t = lang === "ar" ? i18nAr : i18nEn;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const navLinks = [
+  { href: `${base}#hero`, label: t.nav.home, icon: "layers" },
+  { href: `${base}#about`, label: t.nav.about, icon: "code" },
+  { href: `${base}#skills`, label: t.nav.skills, icon: "filter" },
+  { href: `${base}#projects`, label: t.nav.projects, icon: "eye" },
+  { href: `${base}#contact`, label: t.nav.contact, icon: "mail" },
+];
+
+const socialLinks = [
+  siteData.socials.github && { href: siteData.socials.github, label: t.socials.github, icon: "github" as const },
+  siteData.socials.linkedin && { href: siteData.socials.linkedin, label: t.socials.linkedin, icon: "linkedin" as const },
+  siteData.socials.email && { href: `mailto:${siteData.socials.email}`, label: t.socials.email, icon: "mail" as const },
+].filter(Boolean);
+---
+
+<!-- Overlay backdrop -->
+<div class="mobile-menu__overlay" data-mobile-overlay aria-hidden="true" />
+
+<!-- Slide-in panel -->
+<div
+  class="mobile-menu"
+  id="mobile-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label={lang === "ar" ? "القائمة" : "Menu"}
+  aria-hidden="true"
+  data-mobile-menu
+>
+  <nav class="mobile-menu__nav" aria-label={lang === "ar" ? "التنقل" : "Navigation"}>
+    <ul class="mobile-menu__list">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="mobile-menu__link" data-mobile-link>
+            <SVGIcon name={link.icon} size={20} />
+            <span>{link.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CV download -->
+    <a
+      href={`${base}documents/resume.pdf`}
+      class="btn btn--secondary btn--md mobile-menu__cv"
+      download
+    >
+      <SVGIcon name="download" size={18} />
+      {t.nav.downloadCv}
+    </a>
+
+    <!-- Social links -->
+    {socialLinks.length > 0 && (
+      <div class="mobile-menu__socials">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-menu__social-link"
+            aria-label={link.label}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SVGIcon name={link.icon} size={20} />
+          </a>
+        ))}
+      </div>
+    )}
+
+    <!-- Theme toggle (mobile) -->
+    <button
+      class="mobile-menu__theme-toggle"
+      aria-label={lang === "ar" ? "تبديل المظهر" : "Toggle theme"}
+      data-theme-toggle
+      type="button"
+    >
+      <SVGIcon name="sun" size={20} class="navbar__theme-icon navbar__theme-icon--light" />
+      <SVGIcon name="moon" size={20} class="navbar__theme-icon navbar__theme-icon--dark" />
+      <span>{lang === "ar" ? "تبديل المظهر" : "Toggle theme"}</span>
+    </button>
+  </nav>
+</div>

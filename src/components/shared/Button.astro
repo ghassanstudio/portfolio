@@ -1,0 +1,46 @@
+---
+/**
+ * Button.astro — Reusable button component
+ *
+ * Variants:
+ *   primary   — Gold fill, dark text (CTA)
+ *   secondary — Gold border, transparent fill
+ *   ghost     — No border, subtle hover
+ *
+ * Sizes:
+ *   sm, md (default), lg
+ *
+ * Renders <a> if href is provided, otherwise <button>.
+ * All variants support focus-visible with gold ring.
+ */
+
+interface Props {
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+  disabled?: boolean;
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  type = "button",
+  class: className = "",
+  disabled = false,
+  ...rest
+} = Astro.props;
+
+const Tag = href ? "a" : "button";
+const isLink = !!href;
+---
+
+<Tag
+  class:list={["btn", `btn--${variant}`, `btn--${size}`, className]}
+  {...(isLink ? { href } : { type, disabled })}
+  {...rest}
+>
+  <slot />
+</Tag>

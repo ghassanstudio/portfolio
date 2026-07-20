@@ -1,0 +1,144 @@
+---
+/**
+ * About.astro — About Me section
+ *
+ * Layout: two-column grid (image + code block | info cards + bio + stats)
+ * Features:
+ *   - Profile image with decorative border
+ *   - Developer code block with CSS-only syntax highlighting
+ *   - Personal info cards
+ *   - Animated stat counters (animate once on viewport entry)
+ *   - Fully responsive, RTL/LTR, accessible
+ *   - All text from JSON — zero hardcoded strings
+ */
+
+import homeData from "../../content/home.json";
+import SectionTitle from "../shared/SectionTitle.astro";
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const about = homeData.about;
+const title = lang === "ar" ? about.title.ar : about.title.en;
+const subtitle = lang === "ar" ? about.subtitle.ar : about.subtitle.en;
+const bio = lang === "ar" ? about.bio.ar : about.bio.en;
+const infoItems = about.infoItems;
+const stats = about.stats;
+
+/* ─── Parse code block for syntax highlighting ─── */
+const codeLines = about.codeBlock.split("\n");
+---
+
+<section
+  class="about section"
+  id="about"
+  data-section="about"
+  aria-labelledby="about-heading"
+>
+  <div class="container">
+    <SectionTitle tag="h2" subtitle={subtitle} id="about-heading">
+      {title}
+    </SectionTitle>
+
+    <div class="about__content">
+      <!-- Left column: Image + Code block -->
+      <div class="about__visual" data-reveal="left">
+        <!-- Profile image -->
+        <div class="about__image-wrapper">
+          <div class="about__image">
+            <!-- Placeholder until real image is added -->
+            <div class="about__image-placeholder" aria-hidden="true">
+              <SVGIcon name="code" size={48} />
+            </div>
+            <!-- Uncomment when image is available:
+            <img
+              src={about.image}
+              alt={lang === "ar" ? "صورة غسان عبدالخالق" : "Ghassan Abdulkhaliq photo"}
+              width="400"
+              height="500"
+              loading="lazy"
+              decoding="async"
+            />
+            -->
+          </div>
+          <div class="about__image-border" aria-hidden="true"></div>
+        </div>
+
+        <!-- Code block -->
+        <div class="code-block" data-reveal="up" data-reveal-delay="200">
+          <div class="code-block__header">
+            <span class="code-block__dot code-block__dot--red" aria-hidden="true"></span>
+            <span class="code-block__dot code-block__dot--yellow" aria-hidden="true"></span>
+            <span class="code-block__dot code-block__dot--green" aria-hidden="true"></span>
+            <span class="code-block__title">developer.ts</span>
+          </div>
+          <div class="code-block__body" role="img" aria-label={lang === "ar" ? "ملف تعريف المطور" : "Developer profile code"}>
+            <code>
+              {codeLines.map((line) => {
+                /* Simple CSS-only syntax highlighting */
+                let highlighted = line
+                  /* Strings: "..." */
+                  .replace(/"([^"]*)"/g, '<span class="hl-string">"$1"</span>')
+                  /* Keywords: const, true, false */
+                  .replace(/\b(const|let|var|true|false|return)\b/g, '<span class="hl-keyword">$1</span>')
+                  /* Array brackets */
+                  .replace(/(\[|\])/g, '<span class="hl-bracket">$1</span>')
+                  /* Object brackets */
+                  .replace(/(\{|\})/g, '<span class="hl-bracket">$1</span>')
+                  /* Keys (word before colon) */
+                  .replace(/(\w+)\s*:/g, '<span class="hl-key">$1</span>:')
+                  /* Commas at end */
+                  .replace(/,(\s*)$/g, '<span class="hl-punctuation">,</span>$1');
+                return (
+                  <Fragment>
+                    <span set:html={highlighted} />
+                    {"\n"}
+                  </Fragment>
+                );
+              })}
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Bio + Info cards + Stats -->
+      <div class="about__text" data-reveal="right">
+        <!-- Bio -->
+        <p class="about__bio">{bio}</p>
+
+        <!-- Info cards -->
+        <div class="about__info-grid">
+          {infoItems.map((item) => (
+            <div class="about__info-item">
+              <span class="about__info-label">
+                {lang === "ar" ? item.label.ar : item.label.en}
+              </span>
+              <span class="about__info-value">
+                {lang === "ar" ? item.value.ar : item.value.en}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+          {stats.map((stat) => (
+            <div class="stat">
+              <span
+                class="stat__value"
+                data-count-to={stat.value}
+                data-count-suffix={stat.suffix}
+              >0{stat.suffix}</span>
+              <span class="stat__label">
+                {lang === "ar" ? stat.label.ar : stat.label.en}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

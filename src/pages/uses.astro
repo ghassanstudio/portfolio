@@ -1,0 +1,230 @@
+---
+/**
+ * uses.astro — Uses / Tech Stack page
+ *
+ * Displays devices, software, and tools used.
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/navbar/Navbar.astro";
+import MobileMenu from "../components/navbar/MobileMenu.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+import Footer from "../components/shared/Footer.astro";
+import SVGIcon from "../components/shared/SVGIcon.astro";
+
+const lang = "ar" as const;
+
+const t = lang === "ar"
+  ? {
+      title: "ما أستخدمه",
+      subtitle: "الأجهزة والبرامج والأدوات التي أعمل بها يومياً.",
+      devices: "الأجهزة",
+      software: "البرامج",
+      tools: "الأدوات",
+      devicesList: [
+        { name: "MacBook Pro M2", description: "جهازي الأساسي للبرمجة والتصميم" },
+        { name: "iPhone 15", description: "لاختبار تطبيقات iOS" },
+        { name: "Samsung Galaxy S24", description: "لاختبار تطبيقات Android" },
+        { name: "Logitech MX Keys", description: "لوحة مفاتيح للعمل اليومي" },
+        { name: "LG UltraWide 34\"", description: "شاشة العمل الرئيسية" },
+      ],
+      softwareList: [
+        { name: "VS Code", description: "محرر الكود الأساسي" },
+        { name: "Android Studio", description: "لتطوير تطبيقات Android" },
+        { name: "Figma", description: "للتصميم واجهات المستخدم" },
+        { name: "Docker Desktop", description: "لإدارة الحاويات" },
+        { name: "Postman", description: "لاختبار APIs" },
+        { name: "Git", description: "للتحكم في الإصدارات" },
+      ],
+      toolsList: [
+        { name: "Astro", description: "إطار عمل مواقع سريعة" },
+        { name: "React", description: "مكتبة واجهات تفاعلية" },
+        { name: "Node.js", description: "بيئة تشغيل JavaScript" },
+        { name: "Firebase", description: "منصة تطبيقات سحابية" },
+        { name: "Tailwind CSS", description: "إطار عمل CSS" },
+        { name: "TypeScript", description: "JavaScript مع أنواع بيانات" },
+        { name: "Kotlin", description: "لتطوير Android" },
+        { name: "WordPress", description: "نظام إدارة محتوى" },
+      ],
+    }
+  : {
+      title: "My Setup",
+      subtitle: "The devices, software, and tools I use daily.",
+      devices: "Devices",
+      software: "Software",
+      tools: "Tools",
+      devicesList: [
+        { name: "MacBook Pro M2", description: "My main development machine" },
+        { name: "iPhone 15", description: "For iOS testing" },
+        { name: "Samsung Galaxy S24", description: "For Android testing" },
+        { name: "Logitech MX Keys", description: "Daily keyboard" },
+        { name: "LG UltraWide 34\"", description: "Primary monitor" },
+      ],
+      softwareList: [
+        { name: "VS Code", description: "Primary code editor" },
+        { name: "Android Studio", description: "Android app development" },
+        { name: "Figma", description: "UI/UX design" },
+        { name: "Docker Desktop", description: "Container management" },
+        { name: "Postman", description: "API testing" },
+        { name: "Git", description: "Version control" },
+      ],
+      toolsList: [
+        { name: "Astro", description: "Fast static site framework" },
+        { name: "React", description: "Interactive UI library" },
+        { name: "Node.js", description: "JavaScript runtime" },
+        { name: "Firebase", description: "Cloud platform" },
+        { name: "Tailwind CSS", description: "CSS framework" },
+        { name: "TypeScript", description: "Typed JavaScript" },
+        { name: "Kotlin", description: "Android development" },
+        { name: "WordPress", description: "Content management" },
+      ],
+    };
+---
+
+<Base lang={lang} dir="rtl" title={t.title} description={t.subtitle}>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <section class="uses-page" aria-labelledby="uses-heading">
+    <div class="container">
+      <header class="uses-page__header" data-reveal="up">
+        <h1 class="uses-page__title" id="uses-heading">{t.title}</h1>
+        <p class="uses-page__subtitle">{t.subtitle}</p>
+      </header>
+
+      {/* Devices */}
+      <section class="uses-page__category" data-reveal="up" aria-labelledby="devices-heading">
+        <h2 class="uses-page__category-title" id="devices-heading">
+          <SVGIcon name="layers" size={20} />
+          {t.devices}
+        </h2>
+        <dl class="uses-page__list">
+          {t.devicesList.map((item, i) => (
+            <div class="uses-page__item" data-reveal="up" data-reveal-delay={String((i + 1) * 50)}>
+              <dt class="uses-page__item-name">{item.name}</dt>
+              <dd class="uses-page__item-desc">{item.description}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Software */}
+      <section class="uses-page__category" data-reveal="up" aria-labelledby="software-heading">
+        <h2 class="uses-page__category-title" id="software-heading">
+          <SVGIcon name="code" size={20} />
+          {t.software}
+        </h2>
+        <dl class="uses-page__list">
+          {t.softwareList.map((item, i) => (
+            <div class="uses-page__item" data-reveal="up" data-reveal-delay={String((i + 1) * 50)}>
+              <dt class="uses-page__item-name">{item.name}</dt>
+              <dd class="uses-page__item-desc">{item.description}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Tools */}
+      <section class="uses-page__category" data-reveal="up" aria-labelledby="tools-heading">
+        <h2 class="uses-page__category-title" id="tools-heading">
+          <SVGIcon name="filter" size={20} />
+          {t.tools}
+        </h2>
+        <dl class="uses-page__list">
+          {t.toolsList.map((item, i) => (
+            <div class="uses-page__item" data-reveal="up" data-reveal-delay={String((i + 1) * 50)}>
+              <dt class="uses-page__item-name">{item.name}</dt>
+              <dd class="uses-page__item-desc">{item.description}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    </div>
+  </section>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<style>
+  .uses-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+    padding-bottom: var(--space-4xl);
+  }
+
+  .uses-page__header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .uses-page__title {
+    font-size: var(--text-display);
+    margin-bottom: var(--space-md);
+  }
+
+  .uses-page__subtitle {
+    font-size: var(--text-h3);
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: var(--leading-relaxed);
+  }
+
+  .uses-page__category {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .uses-page__category-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-h2);
+    font-weight: var(--weight-bold);
+    color: var(--accent);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .uses-page__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .uses-page__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding: var(--space-lg);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition:
+      border-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .uses-page__item:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+  }
+
+  .uses-page__item-name {
+    font-size: var(--text-body);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .uses-page__item-desc {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 479px) {
+    .uses-page__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+/**
+ * ProjectImage.astro — Reusable project image with placeholder fallback
+ *
+ * Architecture: designed for Astro's <Image /> component.
+ * Currently uses <img> for public/ paths; migrate to <Image> by
+ * moving images to src/assets/projects/ and importing them.
+ *
+ * Shows a styled placeholder (category icon + year) when src is empty.
+ * Fully responsive via CSS. Lazy-loaded by default.
+ */
+
+import SVGIcon from "./SVGIcon.astro";
+
+interface Props {
+  src?: string | null;
+  alt: string;
+  width?: number;
+  height?: number;
+  category?: string;
+  loading?: "lazy" | "eager";
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width = 640,
+  height = 400,
+  category = "web",
+  loading = "lazy",
+  class: className = "",
+} = Astro.props;
+
+const hasImage = !!src && src.trim().length > 0;
+
+const categoryIcons: Record<string, string> = {
+  web: "code",
+  mobile: "mobile",
+  design: "palette",
+};
+const iconName = categoryIcons[category] || "code";
+---
+
+<div class:list={["project-image", className]}>
+  {hasImage ? (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      class="project-image__img"
+    />
+  ) : (
+    <div class="project-image__placeholder" role="img" aria-label={alt}>
+      <span class="project-image__placeholder-icon" aria-hidden="true">
+        <SVGIcon name={iconName} size={48} />
+      </span>
+      <span class="project-image__placeholder-text">{alt}</span>
+    </div>
+  )}
+</div>
+
+<style>
+  .project-image {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    background-color: var(--bg-surface);
+  }
+
+  .project-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-image__placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    background: linear-gradient(
+      135deg,
+      var(--bg-surface) 0%,
+      var(--bg-elevated) 100%
+    );
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .project-image__placeholder-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-lg);
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
+  .project-image__placeholder-text {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>

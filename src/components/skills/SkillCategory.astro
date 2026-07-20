@@ -1,0 +1,63 @@
+---
+/**
+ * SkillCategory.astro — Single skill category with heading + grid of SkillCards
+ *
+ * Skills are sorted by level importance: expert > advanced > intermediate > learning.
+ * Uses TechIcon for technology-specific SVG logos.
+ */
+
+import SkillCard from "./SkillCard.astro";
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface SkillItem {
+  name: string;
+  icon?: string;
+  level: string;
+}
+
+interface Category {
+  id: string;
+  label: { ar: string; en: string };
+  icon: string;
+  skills: SkillItem[];
+}
+
+interface Props {
+  category: Category;
+  lang?: "ar" | "en";
+}
+
+const { category, lang = "ar" } = Astro.props;
+const label = lang === "ar" ? category.label.ar : category.label.en;
+
+/* Sort skills by level importance */
+const levelOrder: Record<string, number> = { expert: 0, advanced: 1, intermediate: 2, learning: 3 };
+const sortedSkills = [...category.skills].sort(
+  (a, b) => (levelOrder[a.level] ?? 4) - (levelOrder[b.level] ?? 4)
+);
+---
+
+<div class="skill-category" data-reveal="up">
+  <h3 class="skill-category__title" id={`category-${category.id}`}>
+    <span class="skill-category__icon" aria-hidden="true">
+      <SVGIcon name={category.icon} size={20} />
+    </span>
+    {label}
+    <span class="skill-category__count">{sortedSkills.length}</span>
+  </h3>
+
+  <div
+    class="skill-category__grid"
+    role="list"
+    aria-labelledby={`category-${category.id}`}
+  >
+    {sortedSkills.map((skill) => (
+      <SkillCard
+        name={skill.name}
+        level={skill.level}
+        icon={skill.icon}
+        lang={lang}
+      />
+    ))}
+  </div>
+</div>

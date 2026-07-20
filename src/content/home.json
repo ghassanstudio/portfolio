@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "greeting": {
+      "ar": "مرحباً، أنا",
+      "en": "Hello, I'm"
+    },
+    "description": {
+      "ar": "أحول الأفكار إلى تجارب رقمية. أطور تطبيقات Android ومواقع ويب بتصميم أنيق وأداء عالي، مع التركيز على جودة الكود وتجربة المستخدم.",
+      "en": "I turn ideas into digital experiences. I build Android apps and websites with elegant design and high performance, focusing on code quality and user experience."
+    },
+    "typingTexts": {
+      "ar": ["مطور Android", "مطور WordPress", "مطور مواقع", "مطور تطبيقات"],
+      "en": ["Android Developer", "WordPress Developer", "Web Developer", "App Developer"]
+    },
+    "ctaPrimaryLabel": {
+      "ar": "تحميل السيرة الذاتية",
+      "en": "Download Resume"
+    },
+    "ctaPrimaryLink": "/documents/resume.pdf",
+    "ctaSecondaryLabel": {
+      "ar": "عرض أعمالي",
+      "en": "View My Work"
+    },
+    "ctaSecondaryLink": "#projects"
+  },
+  "about": {
+    "title": {
+      "ar": "نبذة عني",
+      "en": "About Me"
+    },
+    "subtitle": {
+      "ar": "من أنا؟",
+      "en": "Who Am I?"
+    },
+    "bio": {
+      "ar": "أنا غسان عبدالخالق، مطور مواقع وتطبيقات من بغداد، العراق. بدأت رحلتي مع WordPress عام 2019 بمساعدة أخي في إدارة موقع أفلام ومسلسلات ثم أنشأت موقعي الخاص. أصبحت أبني مواقع متنوعة على WordPress وأرفعها على استضافة Hostinger. عام 2022 بدأت تعلم Android و Kotlin وطورت عدة تطبيقات منها Calc Voice. حالياً أركّز على مشروع OmniCalc وأستخدم أدوات الذكاء الاصطناعي لتسريع التطوير مع التصميم والتنفيذ والتحقق بنفسي.",
+      "en": "I'm Ghassan Abdulkhaliq, a web and mobile developer from Baghdad, Iraq. Started with WordPress in 2019, managing content for my brother's movies site, then built my own sites. From there, I deployed news, blog, and e-commerce sites on Hostinger. In 2022 I expanded into Android development with Kotlin and Android Studio, developing multiple apps including Calc Voice. Currently focused on OmniCalc, leveraging AI-assisted development tools to accelerate development while designing, implementing, and validating the final solutions myself."
+    },
+    "image": "/images/profile/profile.webp",
+    "codeBlock": "const developer = {\n  name: \"Ghassan Abdulkhaliq\",\n  role: \"Android & Web Developer\",\n  location: \"Baghdad, Iraq\",\n  journey: \"WordPress → Android → Full Stack\",\n  specialties: [\"Android\", \"WordPress\", \"PHP\"],\n  philosophy: \"Build products with quality.\"\n};",
+    "infoItems": [
+      {
+        "label": { "ar": "الاسم", "en": "Name" },
+        "value": { "ar": "غسان عبدالخالق", "en": "Ghassan Abdulkhaliq" }
+      },
+      {
+        "label": { "ar": "البريد الإلكتروني", "en": "Email" },
+        "value": { "ar": "ghassanabdulkhaliq92@gmail.com", "en": "ghassanabdulkhaliq92@gmail.com" }
+      },
+      {
+        "label": { "ar": "الموقع", "en": "Location" },
+        "value": { "ar": "بغداد، العراق", "en": "Baghdad, Iraq" }
+      },
+      {
+        "label": { "ar": "التخصص", "en": "Specialization" },
+        "value": { "ar": "تطوير Android والويب", "en": "Android & Web Development" }
+      }
+    ],
+    "stats": [
+      {
+        "value": "50",
+        "suffix": "+",
+        "label": { "ar": "مشروع مكتمل", "en": "Projects Completed" }
+      },
+      {
+        "value": "30",
+        "suffix": "+",
+        "label": { "ar": "عميل سعيد", "en": "Happy Clients" }
+      },
+      {
+        "value": "5",
+        "suffix": "+",
+        "label": { "ar": "سنوات خبرة", "en": "Years Experience" }
+      }
+    ]
+  },
+  "skills": {
+    "title": {
+      "ar": "مهاراتي التقنية",
+      "en": "My Skills"
+    },
+    "description": {
+      "ar": "أدوات وتقنيات أستخدمها لبناء تطبيقات Android ومواقع ويب متكاملة، من التطوير المحلي إلى النشر على الاستضافات.",
+      "en": "Tools and technologies I use to build Android apps and complete websites, from local development to hosting deployment."
+    }
+  },
+  "featuredProjects": {
+    "title": {
+      "ar": "أعمالي المميزة",
+      "en": "Featured Work"
+    },
+    "viewAllLabel": {
+      "ar": "عرض كل المشاريع",
+      "en": "View All Projects"
+    },
+    "count": 3
+  },
+  "contact": {
+    "title": {
+      "ar": "تواصل معي",
+      "en": "Get In Touch"
+    },
+    "heading": {
+      "ar": "لنبني شيئاً معاً",
+      "en": "Let's Build Something Together"
+    },
+    "description": {
+      "ar": "هل لديك مشروع في ذهنك أو تريد مناقشة فرصة تعاون؟ يسعدني التواصل معك.",
+      "en": "Have a project in mind or want to discuss a collaboration opportunity? I'd love to hear from you."
+    }
+  }
+}

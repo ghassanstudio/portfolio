@@ -1,0 +1,183 @@
+/**
+ * responsive.css — Media Queries
+ *
+ * All breakpoints in one place. Mobile-first approach:
+ * base styles are mobile, then we add complexity for larger screens.
+ */
+
+/* ── Tablet (768px+) ─────────────────────────────────── */
+@media (min-width: 768px) {
+  /* Navbar: show desktop links + CV */
+  .navbar__links {
+    display: flex;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__cv {
+    display: inline-flex;
+  }
+
+  .about__content {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .featured__item,
+  .featured__item--reverse {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .skills__categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Desktop (1024px+) ───────────────────────────────── */
+@media (min-width: 1024px) {
+  .skills__categories {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-category__grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* ── Mobile-only overrides (< 768px) ─────────────────── */
+@media (max-width: 767px) {
+  /* Navbar: hide desktop links, show hamburger */
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__cv-text {
+    display: none;
+  }
+
+  .section {
+    padding-block: var(--space-4xl);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .hero__inner {
+    min-height: auto;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .hero__orb {
+    opacity: 0.4;
+    top: 5%;
+    inset-inline-end: -15%;
+    width: 250px;
+    height: 250px;
+  }
+
+  /* About */
+  .about__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .about__image {
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .about__info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .stat__value {
+    font-size: 1.5rem;
+  }
+
+  /* Skills: single column on mobile */
+  .skill-category__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Featured Projects */
+  .featured__item,
+  .featured__item--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .featured__item--reverse .featured__image-wrapper,
+  .featured__item--reverse .featured__info {
+    order: unset;
+  }
+
+  /* Toast */
+  .toast {
+    inset-inline-start: var(--space-md);
+    inset-inline-end: var(--space-md);
+    bottom: var(--space-md);
+  }
+
+  /* Project Detail */
+  .project-detail__problem-solution {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail__nav {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail__features {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail__gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Small Mobile (< 480px) ──────────────────────────── */
+@media (max-width: 479px) {
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    text-align: start;
+  }
+}
+
+/* ── Projects Listing Responsive ──────────────────────── */
+/* Mobile grid rule is in projects/index.astro scoped styles */
+

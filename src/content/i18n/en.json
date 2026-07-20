@@ -1,0 +1,73 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "downloadCv": "Download Resume",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "socials": {
+    "github": "GitHub profile",
+    "linkedin": "LinkedIn profile",
+    "email": "Send email"
+  },
+  "hero": {
+    "scrollHint": "Scroll down"
+  },
+  "projectsPage": {
+    "title": "All Projects",
+    "subtitle": "A collection of projects I've built — from mobile apps to full-stack web applications.",
+    "filterAll": "All",
+    "filterWeb": "Web",
+    "filterMobile": "Mobile",
+    "filterDesign": "Design",
+    "viewCaseStudy": "Case Study",
+    "viewLive": "Visit Live",
+    "viewSource": "Source Code"
+  },
+  "projectDetail": {
+    "overview": "Overview",
+    "features": "Features",
+    "gallery": "Gallery",
+    "techStack": "Tech Stack",
+    "video": "Video",
+    "backToProjects": "Back to Projects",
+    "previousProject": "Previous",
+    "nextProject": "Next",
+    "problem": "The Challenge",
+    "solution": "The Solution",
+    "visitLiveSite": "Visit Live Site",
+    "viewSourceCode": "View Source Code",
+    "builtWith": "Built with",
+    "relatedProjects": "Related Projects"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Your Message",
+    "sendButton": "Send Message",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully!",
+    "error": "Something went wrong. Please try again.",
+    "requiredField": "This field is required"
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "craftedWith": "Crafted with precision by"
+  },
+  "backToTop": "Back to top",
+  "skipToContent": "Skip to main content",
+  "skillLevel": {
+    "expert": "Expert",
+    "advanced": "Advanced",
+    "intermediate": "Intermediate",
+    "learning": "Learning"
+  }
+}

@@ -1,0 +1,110 @@
+---
+/**
+ * 404.astro — Custom "Not Found" page
+ *
+ * Follows the Obsidian & Gold design system.
+ * Centered layout, gold accent, CTA back to home.
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../layouts/Base.astro";
+import Button from "../components/shared/Button.astro";
+import SVGIcon from "../components/shared/SVGIcon.astro";
+
+const lang = "ar" as const;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const t = lang === "ar"
+  ? {
+      title: "404",
+      heading: "الصفحة غير موجودة",
+      description: "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+      cta: "العودة للرئيسية",
+    }
+  : {
+      title: "404",
+      heading: "Page Not Found",
+      description: "Sorry, the page you're looking for doesn't exist or has been moved.",
+      cta: "Go Home",
+    };
+---
+
+<Base lang={lang} dir="rtl" title={t.heading} description={t.description} robots="noindex, nofollow">
+  <section class="not-found" aria-labelledby="not-found-heading">
+    <div class="not-found__inner">
+      <span class="not-found__code" aria-hidden="true">404</span>
+      <h1 class="not-found__heading" id="not-found-heading">{t.heading}</h1>
+      <p class="not-found__description">{t.description}</p>
+      <Button href={`${base}`} variant="primary" size="lg">
+        <SVGIcon name="arrow-left" size={18} />
+        {t.cta}
+      </Button>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .not-found__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-lg);
+    position: relative;
+    z-index: var(--z-base);
+  }
+
+  .not-found__code {
+    font-family: var(--font-heading);
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: var(--weight-bold);
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.25;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .not-found__heading {
+    font-size: var(--text-display);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .not-found__description {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    max-width: 420px;
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Decorative gold orb */
+  .not-found::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(250px, 40vw, 500px);
+    height: clamp(250px, 40vw, 500px);
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+</style>

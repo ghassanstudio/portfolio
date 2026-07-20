@@ -1,0 +1,150 @@
+---
+/**
+ * terms.astro — Terms of Service page
+ *
+ * Standard terms of service for portfolio website.
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/navbar/Navbar.astro";
+import MobileMenu from "../components/navbar/MobileMenu.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+import Footer from "../components/shared/Footer.astro";
+import siteData from "../content/site.json";
+
+const lang = "ar" as const;
+
+const t = lang === "ar"
+  ? {
+      title: "شروط الاستخدام",
+      lastUpdated: "آخر تحديث: يوليو 2026",
+      intro: "تصف شروط الاستخدام هذه القواعد والأنظمة لاستخدام موقع Ghassan Abdulkhaliq.",
+      section1Title: "قبول الشروط",
+      section1: "باستخدام هذا الموقع، فإنك توافق على هذه الشروط. إذا لم توافق على أي شرط، يرجى عدم استخدام الموقع.",
+      section2Title: "المحتوى",
+      section2: "جميع المشاريع والتصاميم والكود المعروض على هذا الموقع هي أعمال شخصية لـ Ghassan Abdulkhaliq unless otherwise noted.",
+      section3Title: "الملكية الفكرية",
+      section3: "المحتوى المعروض على هذا الموقع محمي بقوانين حقوق الملكية الفكرية. لا يُسمح بإعادة إنتاج أو توزيع المحتوى دون إذن مسبق.",
+      section4Title: "المسؤولية",
+      section4: "يتم تقديم هذا الموقع 'كما هو' دون أي ضمانات. لا نتحمل المسؤولية عن أي أضرار ناتجة عن استخدام الموقع.",
+      section5Title: "الروابط الخارجية",
+      section5: "قد يحتوي الموقع على روابط لمواقع خارجية. نحن غير مسؤولين عن محتوى أو سياسات هذه المواقع.",
+      section6Title: "التغييرات",
+      section6: "نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم نشر التغييرات على هذه الصفحة.",
+      contactUs: "لأي استفسار حول شروط الاستخدام، تواصل عبر البريد الإلكتروني:",
+    }
+  : {
+      title: "Terms of Service",
+      lastUpdated: "Last updated: July 2026",
+      intro: "These Terms of Service describe the rules and regulations for using Ghassan Abdulkhaliq's website.",
+      section1Title: "Acceptance of Terms",
+      section1: "By accessing this website, you agree to these terms. If you do not agree with any of these terms, please do not use this website.",
+      section2Title: "Content",
+      section2: "All projects, designs, and code displayed on this website are personal works of Ghassan Abdulkhaliq unless otherwise noted.",
+      section3Title: "Intellectual Property",
+      section3: "Content displayed on this website is protected by intellectual property laws. Reproduction or distribution without prior permission is not allowed.",
+      section4Title: "Disclaimer",
+      section4: "This website is provided 'as is' without any warranties. We are not liable for any damages arising from the use of this website.",
+      section5Title: "External Links",
+      section5: "The website may contain links to external sites. We are not responsible for the content or policies of these sites.",
+      section6Title: "Changes",
+      section6: "We reserve the right to modify these terms at any time. Changes will be posted on this page.",
+      contactUs: "For any questions about these Terms of Service, contact via email:",
+    };
+---
+
+<Base lang={lang} dir="rtl" title={t.title} description={lang === "ar" ? "شروط الاستخدام لموقع غسان عبدالخالق" : "Terms of Service for Ghassan AbdulKhalig's website"}>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <section class="legal-page" aria-labelledby="terms-heading">
+    <div class="container">
+      <header class="legal-page__header" data-reveal="up">
+        <h1 class="legal-page__title" id="terms-heading">{t.title}</h1>
+        <p class="legal-page__date">{t.lastUpdated}</p>
+      </header>
+
+      <article class="legal-page__content" data-reveal="up">
+        <p>{t.intro}</p>
+
+        <h2>{t.section1Title}</h2>
+        <p>{t.section1}</p>
+
+        <h2>{t.section2Title}</h2>
+        <p>{t.section2}</p>
+
+        <h2>{t.section3Title}</h2>
+        <p>{t.section3}</p>
+
+        <h2>{t.section4Title}</h2>
+        <p>{t.section4}</p>
+
+        <h2>{t.section5Title}</h2>
+        <p>{t.section5}</p>
+
+        <h2>{t.section6Title}</h2>
+        <p>{t.section6}</p>
+
+        <p>{t.contactUs} <a href={`mailto:${siteData.email}`}>{siteData.email}</a></p>
+      </article>
+    </div>
+  </section>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<style>
+  .legal-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+    padding-bottom: var(--space-4xl);
+  }
+
+  .legal-page__header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .legal-page__title {
+    font-size: var(--text-display);
+    margin-bottom: var(--space-sm);
+  }
+
+  .legal-page__date {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .legal-page__content {
+    max-width: 750px;
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .legal-page__content h2 {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-page__content p {
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-page__content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .legal-page__content a:hover {
+    color: var(--accent-light);
+  }
+</style>

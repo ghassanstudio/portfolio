@@ -1,0 +1,105 @@
+---
+/**
+ * Hero.astro — Full-viewport hero section
+ *
+ * Features:
+ *   - Large display name with greeting
+ *   - Animated typing effect (driven by typing.js)
+ *   - Short description
+ *   - Primary CTA (Download CV) + Secondary CTA (View Projects)
+ *   - Scroll indicator arrow
+ *   - Fully responsive, RTL/LTR, respects prefers-reduced-motion
+ *   - All text from content JSON — zero hardcoded strings
+ *
+ * CLS prevention: hidden measuring span holds all typing texts
+ * so the browser reserves width for the longest one.
+ * Screen readers: aria-live is on a visually hidden announcer,
+ * NOT on the typing text itself — avoids character-by-character noise.
+ */
+
+import homeData from "../../content/home.json";
+import siteData from "../../content/site.json";
+import Button from "../shared/Button.astro";
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const hero = homeData.hero;
+const name = lang === "ar" ? siteData.name.ar : siteData.name.en;
+const greeting = lang === "ar" ? hero.greeting.ar : hero.greeting.en;
+const description = lang === "ar" ? hero.description.ar : hero.description.en;
+const typingTexts = lang === "ar" ? hero.typingTexts.ar : hero.typingTexts.en;
+const ctaPrimaryLabel = lang === "ar" ? hero.ctaPrimaryLabel.ar : hero.ctaPrimaryLabel.en;
+const ctaSecondaryLabel = lang === "ar" ? hero.ctaSecondaryLabel.ar : hero.ctaSecondaryLabel.en;
+const scrollHint = lang === "ar" ? "مرر للأسفل" : "Scroll down";
+
+/* Find longest text for CLS reservation */
+const longestText = typingTexts.reduce((a, b) => (a.length > b.length ? a : b), "");
+---
+
+<section
+  class="hero"
+  id="hero"
+  data-section="hero"
+  aria-label={lang === "ar" ? "الرئيسية" : "Hero"}
+>
+  <!-- Subtle gold gradient orb (decorative, no animation) -->
+  <div class="hero__orb" aria-hidden="true"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <!-- Greeting -->
+      <p class="hero__greeting">{greeting}</p>
+
+      <!-- Name -->
+      <h1 class="hero__name">{name}</h1>
+
+      <!-- Typing line -->
+      <div class="hero__typing-wrap">
+        <span class="hero__typing-prefix" aria-hidden="true">&lt;</span>
+        <span
+          class="hero__typing"
+          data-typing-texts={JSON.stringify(typingTexts)}
+          data-typing-speed="100"
+          data-typing-delete-speed="50"
+          data-typing-pause="2000"
+          aria-hidden="true"
+        >{typingTexts[0]}</span>
+        <span class="hero__typing-cursor" aria-hidden="true">|</span>
+        <span class="hero__typing-suffix" aria-hidden="true">/&gt;</span>
+
+        <!-- CLS reservation: invisible span holds longest text width -->
+        <span class="hero__typing-measure" aria-hidden="true">{longestText}</span>
+      </div>
+
+      <!-- Screen reader announcer — updated only after each complete word -->
+      <div class="sr-only" aria-live="polite" aria-atomic="true" data-typing-announcer>
+        {typingTexts[0]}
+      </div>
+
+      <!-- Description -->
+      <p class="hero__description">{description}</p>
+
+      <!-- CTAs -->
+      <div class="hero__actions">
+        <Button variant="primary" size="lg" href={`${base}documents/resume.pdf`} download>
+          <SVGIcon name="download" size={18} />
+          {ctaPrimaryLabel}
+        </Button>
+        <Button variant="secondary" size="lg" href={`${base}#projects`}>
+          {ctaSecondaryLabel}
+        </Button>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-text">{scrollHint}</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </div>
+</section>

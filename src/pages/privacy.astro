@@ -1,0 +1,150 @@
+---
+/**
+ * privacy.astro — Privacy Policy page
+ *
+ * Standard privacy policy for portfolio website.
+ * Fully RTL/LTR, accessible, responsive.
+ */
+
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/navbar/Navbar.astro";
+import MobileMenu from "../components/navbar/MobileMenu.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+import Footer from "../components/shared/Footer.astro";
+import siteData from "../content/site.json";
+
+const lang = "ar" as const;
+
+const t = lang === "ar"
+  ? {
+      title: "سياسة الخصوصية",
+      lastUpdated: "آخر تحديث: يوليو 2026",
+      intro: "تشرح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك عند استخدام موقع Ghassan Abdulkhaliq.",
+      section1Title: "جمع المعلومات",
+      section1: "لا يجمع هذا الموقع معلومات شخصية تعريفية عنك إلا إذا قمت بتقديمها طوعاً عبر نموذج التواصل (الاسم، البريد الإلكتروني، الموضوع، الرسالة).",
+      section2Title: "استخدام المعلومات",
+      section2: "تُستخدم المعلومات التي تقدمها فقط للرد على استفساراتك والتواصل معك. لا تُباع أو تُشارك مع أطراف ثالثة.",
+      section3Title: "الكوكيز",
+      section3: "لا يستخدم هذا الموقع ملفات تعريف الارتباط (Cookies).",
+      section4Title: "خدمات طرف ثالث",
+      section4: "قد يحتوي الموقع على روابط لخدمات طرف ثالث (مثل GitHub، LinkedIn). لهذه الخدمات سياسات خصوصية خاصة بها.",
+      section5Title: "الأمان",
+      section5: "نتخذ تدابير معقولة لحماية معلوماتك، لكن لا يوجد طريقة نقل عبر الإنترنت آنة بنسبة 100%.",
+      section6Title: "التغييرات",
+      section6: "قد نحدّث هذه السياسة من حين لآخر. سيتم نشر تاريخ آخر تحديث في الأعلى.",
+      contactUs: "لأي استفسار حول سياسة الخصوصية، تواصل عبر البريد الإلكتروني:",
+    }
+  : {
+      title: "Privacy Policy",
+      lastUpdated: "Last updated: July 2026",
+      intro: "This Privacy Policy explains how your information is collected, used, and protected when you use Ghassan Abdulkhaliq's portfolio website.",
+      section1Title: "Information Collection",
+      section1: "This website does not collect personally identifiable information about you unless you voluntarily submit it through the contact form (name, email, subject, message).",
+      section2Title: "Use of Information",
+      section2: "Information you provide is used solely to respond to your inquiries and communicate with you. It is not sold or shared with third parties.",
+      section3Title: "Cookies",
+      section3: "This website does not use cookies.",
+      section4Title: "Third-Party Services",
+      section4: "The website may contain links to third-party services (e.g., GitHub, LinkedIn). These services have their own privacy policies.",
+      section5Title: "Security",
+      section5: "We take reasonable measures to protect your information, but no method of internet transmission is 100% secure.",
+      section6Title: "Changes",
+      section6: "We may update this policy from time to time. The last update date is shown at the top.",
+      contactUs: "For any questions about this Privacy Policy, contact via email:",
+    };
+---
+
+<Base lang={lang} dir="rtl" title={t.title} description={lang === "ar" ? "سياسة الخصوصية لموقع غسان عبدالخالق" : "Privacy Policy for Ghassan AbdulKhalig's website"}>
+  <Navbar lang={lang} />
+  <MobileMenu lang={lang} />
+
+  <section class="legal-page" aria-labelledby="privacy-heading">
+    <div class="container">
+      <header class="legal-page__header" data-reveal="up">
+        <h1 class="legal-page__title" id="privacy-heading">{t.title}</h1>
+        <p class="legal-page__date">{t.lastUpdated}</p>
+      </header>
+
+      <article class="legal-page__content" data-reveal="up">
+        <p>{t.intro}</p>
+
+        <h2>{t.section1Title}</h2>
+        <p>{t.section1}</p>
+
+        <h2>{t.section2Title}</h2>
+        <p>{t.section2}</p>
+
+        <h2>{t.section3Title}</h2>
+        <p>{t.section3}</p>
+
+        <h2>{t.section4Title}</h2>
+        <p>{t.section4}</p>
+
+        <h2>{t.section5Title}</h2>
+        <p>{t.section5}</p>
+
+        <h2>{t.section6Title}</h2>
+        <p>{t.section6}</p>
+
+        <p>{t.contactUs} <a href={`mailto:${siteData.email}`}>{siteData.email}</a></p>
+      </article>
+    </div>
+  </section>
+
+  <Fragment slot="footer">
+    <Footer lang={lang} />
+    <BackToTop lang={lang} />
+  </Fragment>
+</Base>
+
+<style>
+  .legal-page {
+    padding-top: calc(var(--header-height) + var(--space-3xl));
+    padding-bottom: var(--space-4xl);
+  }
+
+  .legal-page__header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .legal-page__title {
+    font-size: var(--text-display);
+    margin-bottom: var(--space-sm);
+  }
+
+  .legal-page__date {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .legal-page__content {
+    max-width: 750px;
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .legal-page__content h2 {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-page__content p {
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-page__content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .legal-page__content a:hover {
+    color: var(--accent-light);
+  }
+</style>

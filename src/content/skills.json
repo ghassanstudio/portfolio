@@ -1,0 +1,34 @@
+[
+  {
+    "id": "mobile",
+    "label": { "ar": "تطوير تطبيقات Android", "en": "Android Development" },
+    "icon": "mobile",
+    "skills": [
+      { "name": "Kotlin", "icon": "kotlin", "level": "advanced" },
+      { "name": "Android Studio", "icon": "android", "level": "advanced" },
+      { "name": "Android SDK", "icon": "android", "level": "advanced" }
+    ]
+  },
+  {
+    "id": "web",
+    "label": { "ar": "تطوير المواقع", "en": "Web Development" },
+    "icon": "code",
+    "skills": [
+      { "name": "WordPress", "icon": "wordpress", "level": "expert" },
+      { "name": "PHP", "icon": "php", "level": "advanced" },
+      { "name": "MySQL", "icon": "mysql", "level": "advanced" },
+      { "name": "HTML5", "icon": "html", "level": "expert" },
+      { "name": "CSS3", "icon": "css", "level": "expert" },
+      { "name": "JavaScript", "icon": "javascript", "level": "advanced" }
+    ]
+  },
+  {
+    "id": "tools",
+    "label": { "ar": "الأدوات والتقنيات", "en": "Tools & Technologies" },
+    "icon": "external-link",
+    "skills": [
+      { "name": "Git", "icon": "git", "level": "advanced" },
+      { "name": "AI Tools", "icon": "openai", "level": "advanced" }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+---
+/**
+ * BackToTop.astro — Scroll-to-top floating button
+ *
+ * Hidden by default, appears after 400px scroll.
+ * Keyboard accessible, gold focus ring, smooth scroll.
+ */
+
+import SVGIcon from "../shared/SVGIcon.astro";
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = "ar" } = Astro.props;
+const label = lang === "ar" ? "العودة للأعلى" : "Back to top";
+---
+
+<button
+  class="back-to-top"
+  aria-label={label}
+  data-back-to-top
+  type="button"
+>
+  <SVGIcon name="arrow-up" size={20} />
+</button>

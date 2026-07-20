@@ -1,0 +1,254 @@
+---
+/**
+ * TechIcon.astro — Technology-specific inline SVG icons
+ *
+ * Simplified, recognizable logos for common web technologies.
+ * All icons use a consistent 24×24 viewBox with currentColor fill/stroke.
+ * aria-hidden="true" on all (decorative — name is in adjacent text).
+ */
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 18, class: className = "" } = Astro.props;
+
+const svgAttrs: Record<string, string> = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: String(size),
+  height: String(size),
+  viewBox: "0 0 24 24",
+  fill: "none",
+  "aria-hidden": "true",
+};
+if (className) svgAttrs["class"] = className;
+---
+
+<svg {...svgAttrs}>
+  {/* ── HTML5 ── */}
+  {name === "html" && (
+    <path d="M4 2l1.5 18L12 22l6.5-2L20 2H4zm12.5 6H8.5l.2 2.5h7.5L15 15l-3 1-3-1-.2-2h2l.1 1 1.1.3 1.1-.3.1-1H7.5L7 6h10l-.1 2z" fill="currentColor" />
+  )}
+
+  {/* ── CSS3 ── */}
+  {name === "css" && (
+    <path d="M4 2l1.5 18L12 22l6.5-2L20 2H4zm12 6H8.5l.2 2h7.3l-.6 6-3.4 1-3.4-1-.2-2.5h2l.1 1 1.5.4 1.5-.4.2-2H8l-.5-6h9l-.1 2z" fill="currentColor" />
+  )}
+
+  {/* ── JavaScript ── */}
+  {name === "javascript" && (
+    <rect x="2" y="2" width="20" height="20" rx="2" fill="currentColor" opacity="0.15" />
+  ) && (
+    <path d="M7 18.5V6h2.5v10.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V6H15v10.5c0 2.21-1.79 4-4 4s-4-1.79-4-4z" fill="currentColor" />
+  )}
+
+  {/* ── TypeScript ── */}
+  {name === "typescript" && (
+    <rect x="2" y="2" width="20" height="20" rx="2" fill="currentColor" opacity="0.15" />
+  ) && (
+    <>
+      <path d="M12 7a3 3 0 100 6 3 3 0 000-6zm-1 4.5a.5.5 0 01-.5-.5v-2a.5.5 0 011 0v2a.5.5 0 01-.5.5z" fill="currentColor" />
+      <path d="M7 17V6h1.5l3 7.5L14.5 6H16v11h-1.5v-7L11 16h-1l-3.5-7v7H7z" fill="currentColor" />
+    </>
+  )}
+
+  {/* ── React ── */}
+  {name === "react" && (
+    <>
+      <circle cx="12" cy="12" r="2" fill="currentColor" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="currentColor" fill="none" stroke-width="1.2" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="currentColor" fill="none" stroke-width="1.2" transform="rotate(120 12 12)" />
+    </>
+  )}
+
+  {/* ── Astro ── */}
+  {name === "astro" && (
+    <>
+      <path d="M12 2L4 20h3l1.5-4h7L17 20h3L12 2zm-2.5 11L12 6l2.5 7h-5z" fill="currentColor" />
+    </>
+  )}
+
+  {/* ── Tailwind CSS ── */}
+  {name === "tailwind" && (
+    <path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35.98 1 2.12 2.15 4.6 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C15.22 7.15 14.08 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C8.38 16.85 9.52 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C10.22 13.15 9.08 12 7 12z" fill="currentColor" />
+  )}
+
+  {/* ── Node.js ── */}
+  {name === "nodejs" && (
+    <>
+      <path d="M12 2l8 4.5v7c0 4.5-3.5 8-8 9.5C7.5 21.5 4 18 4 13.5v-7L12 2z" fill="currentColor" opacity="0.15" />
+      <path d="M12 2l8 4.5v7c0 4.5-3.5 8-8 9.5C7.5 21.5 4 18 4 13.5v-7L12 2z" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <path d="M9 10v4l3 1.5 3-1.5v-4l-3-1.5L9 10z" fill="currentColor" />
+    </>
+  )}
+
+  {/* ── PHP ── */}
+  {name === "php" && (
+    <>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="bold" fill="currentColor" font-family="sans-serif">php</text>
+    </>
+  )}
+
+  {/* ── Python ── */}
+  {name === "python" && (
+    <>
+      <path d="M12 3c-4 0-4 2-4 2v3h4v1H7s-4-.3-4 4.5S7 18 7 18h2v-3s-.1-3 3-3h4s3 0 3-3V5s1-2-4-2h-3z" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <circle cx="9.5" cy="5.5" r="1" fill="currentColor" />
+      <circle cx="14.5" cy="17.5" r="1" fill="currentColor" />
+    </>
+  )}
+
+  {/* ── MySQL ── */}
+  {name === "mysql" && (
+    <>
+      <ellipse cx="12" cy="7" rx="7" ry="3" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <path d="M5 7v4c0 1.66 3.13 3 7 3s7-1.34 7-3V7" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <path d="M5 11v4c0 1.66 3.13 3 7 3s7-1.34 7-3v-4" stroke="currentColor" fill="none" stroke-width="1.2" />
+    </>
+  )}
+
+  {/* ── MongoDB ── */}
+  {name === "mongodb" && (
+    <path d="M12 3c-1 0-2 .5-2.5 1.5-.5 1-1 3-1.5 5-.5 2-1 4-1 5.5 0 2 1 4 3 5.5 1 .8 2 1 2 1v-4s-1-.5-2-1c-1-.7-1.5-1.5-1.5-2.5 0-1 .5-3 1-4.5s1-3 1.5-4c.5-1 1-1.5 1-1.5s.5.5 1 1.5c.5 1 1 2.5 1.5 4s1 3.5 1 4.5c0 1-.5 1.8-1.5 2.5-1 .5-2 1-2 1v4s1-.2 2-1c2-1.5 3-3.5 3-5.5 0-1.5-.5-3.5-1-5.5-.5-2-1-4-1.5-5C14 3.5 13 3 12 3z" fill="currentColor" />
+  )}
+
+  {/* ── Kotlin ── */}
+  {name === "kotlin" && (
+    <>
+      <rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor" opacity="0.15" />
+      <path d="M12 5v14l7-14h-4l3 6-3 6" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linejoin="round" />
+    </>
+  )}
+
+  {/* ── Flutter ── */}
+  {name === "flutter" && (
+    <>
+      <path d="M14 3H7l7 7h7l-7 7 7 4" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M7 3v18" stroke="currentColor" fill="none" stroke-width="1.5" />
+    </>
+  )}
+
+  {/* ── Android (simplified robot) ── */}
+  {name === "android" && (
+    <>
+      <rect x="6" y="10" width="12" height="9" rx="2" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="1.2" />
+      <path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <circle cx="10" cy="8" r="0.8" fill="currentColor" />
+      <circle cx="14" cy="8" r="0.8" fill="currentColor" />
+      <line x1="9" y1="19" x2="8" y2="22" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="15" y1="19" x2="16" y2="22" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+    </>
+  )}
+
+  {/* ── Git / GitHub ── */}
+  {name === "git" && (
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" fill="none" stroke-width="1.2" />
+  )}
+
+  {/* ── WordPress ── */}
+  {name === "wordpress" && (
+    <>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <path d="M5 15l7-11M16.5 9C15 7 13 6 12 6c-4 0-7 3.5-7 7" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <circle cx="12" cy="12" r="3" stroke="currentColor" fill="none" stroke-width="1" />
+    </>
+  )}
+
+  {/* ── Firebase ── */}
+  {name === "firebase" && (
+    <path d="M6 17l3-12h1l3 8 3-8h1l3 12-4 2-3-8-3 8-4-2z" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="0.8" />
+  )}
+
+  {/* ── VS Code ── */}
+  {name === "vscode" && (
+    <>
+      <path d="M17 3L7 12l10 9V3z" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="1.2" />
+      <path d="M5 6v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </>
+  )}
+
+  {/* ── Linux ── */}
+  {name === "linux" && (
+    <path d="M12 4c-2 0-3 1-3.5 2.5S8 9 8 10c0 1.5 1 2.5 1.5 3S11 14 12 14c1 0 2-.5 2.5-1s1.5-1.5 1.5-3c0-1-.5-2.5-1-3.5S14 4 12 4zm-4 9c-1 0-2.5 1-3 2.5S4 18 5 19s3 1 4 0 2-2 2-3-1.5-3-3-3zm8 0c-1.5 0-3 1-3.5 2.5S11 18 12 19s3 1 4 0 2-2 2-3-1.5-3-3-3zM12 18v3" stroke="currentColor" fill="none" stroke-width="1.2" />
+  )}
+
+  {/* ── OpenAI ── */}
+  {name === "openai" && (
+    <>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <path d="M12 7v10M9 9l3-2 3 2M9 15l3 2 3-2" stroke="currentColor" fill="none" stroke-width="1.2" stroke-linejoin="round" />
+    </>
+  )}
+
+  {/* ── LangChain ── */}
+  {name === "langchain" && (
+    <>
+      <circle cx="8" cy="8" r="3" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <circle cx="16" cy="16" r="3" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <path d="M10.5 10.5l3 3" stroke="currentColor" stroke-width="1.2" />
+    </>
+  )}
+
+  {/* ── Fallback: code brackets ── */}
+  {name === "code" && (
+    <>
+      <polyline points="16 18 22 12 16 6" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polyline points="8 6 2 12 8 18" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </>
+  )}
+
+  {/* ── Fallback: eye ── */}
+  {name === "eye" && (
+    <>
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <circle cx="12" cy="12" r="3" stroke="currentColor" fill="none" stroke-width="1.2" />
+    </>
+  )}
+
+  {/* ── Fallback: layers ── */}
+  {name === "layers" && (
+    <>
+      <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <polyline points="2 17 12 22 22 17" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <polyline points="2 12 12 17 22 12" stroke="currentColor" fill="none" stroke-width="1.2" />
+    </>
+  )}
+
+  {/* ── Fallback: external-link ── */}
+  {name === "external-link" && (
+    <>
+      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <polyline points="15 3 21 3 21 9" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="1.2" />
+    </>
+  )}
+
+  {/* ── Fallback: palette (design) ── */}
+  {name === "palette" && (
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1.7 0 3-1.3 3-3 0-.8-.3-1.5-.8-2-.5-.5-.8-1.2-.8-2 0-1.7 1.3-3 3-3h3.5c3 0 5.5-2.5 5.5-5.5C23 5.9 18 2 12 2z" stroke="currentColor" fill="none" stroke-width="1.2" />
+  )}
+
+  {/* ── Fallback: server ── */}
+  {name === "server" && (
+    <>
+      <rect x="2" y="2" width="20" height="8" rx="2" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <rect x="2" y="14" width="20" height="8" rx="2" stroke="currentColor" fill="none" stroke-width="1.2" />
+      <circle cx="6" cy="6" r="1" fill="currentColor" />
+      <circle cx="6" cy="18" r="1" fill="currentColor" />
+    </>
+  )}
+
+  {/* ── Fallback: mobile ── */}
+  {name === "mobile" && (
+    <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" fill="none" stroke-width="1.2" />
+  )}
+
+  {/* ── Fallback: wrench (tools) ── */}
+  {name === "wrench" && (
+    <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" fill="none" stroke-width="1.2" />
+  )}
+</svg>

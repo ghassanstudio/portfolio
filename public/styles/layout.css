@@ -1,0 +1,55 @@
+/**
+ * layout.css — Layout Primitives
+ *
+ * Container, grid system, section spacing, and the
+ * page structure shared across all pages.
+ */
+
+/* ── Container ────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ── Sections ─────────────────────────────────────────── */
+.section {
+  padding-block: var(--space-5xl);
+  position: relative;
+  z-index: var(--z-base);
+}
+
+/* ── SectionTitle component ──────────────────────────── */
+.section-title {
+  margin-bottom: var(--space-md);
+}
+
+.section-title__text {
+  font-size: var(--text-display);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title__text::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-full);
+}
+
+[dir="rtl"] .section-title__text::after {
+  background: linear-gradient(-90deg, var(--accent), transparent);
+}
+
+.section-title__subtitle {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-regular);
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: var(--leading-relaxed);
+  margin-top: var(--space-sm);
+}

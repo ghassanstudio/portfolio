@@ -1,0 +1,73 @@
+{
+  "lang": "ar",
+  "dir": "rtl",
+  "nav": {
+    "home": "الرئيسية",
+    "about": "نبذة عني",
+    "skills": "المهارات",
+    "projects": "المشاريع",
+    "contact": "تواصل معي",
+    "downloadCv": "تحميل السيرة الذاتية",
+    "menuOpen": "فتح القائمة",
+    "menuClose": "إغلاق القائمة"
+  },
+  "socials": {
+    "github": "حسابي على GitHub",
+    "linkedin": "حسابي على LinkedIn",
+    "email": "تواصل عبر البريد الإلكتروني"
+  },
+  "hero": {
+    "scrollHint": "مرر للأسفل"
+  },
+  "projectsPage": {
+    "title": "جميع مشاريعي",
+    "subtitle": "مجموعة من المشاريع التي عملت عليها، من تطبيقات الموبايل إلى مواقع الويب المتكاملة.",
+    "filterAll": "الكل",
+    "filterWeb": "تطوير الويب",
+    "filterMobile": "تطبيقات",
+    "filterDesign": "تصميم",
+    "viewCaseStudy": "تفاصيل المشروع",
+    "viewLive": "زيارة الموقع",
+    "viewSource": "الكود المصدري"
+  },
+  "projectDetail": {
+    "overview": "نظرة عامة",
+    "features": "المميزات",
+    "gallery": "معرض الصور",
+    "techStack": "التقنيات المستخدمة",
+    "video": "فيديو المشروع",
+    "backToProjects": "العودة للمشاريع",
+    "previousProject": "المشروع السابق",
+    "nextProject": "المشروع التالي",
+    "problem": "التحدي",
+    "solution": "الحل",
+    "visitLiveSite": "زيارة الموقع",
+    "viewSourceCode": "عرض الكود المصدري",
+    "builtWith": "تم البناء بـ",
+    "relatedProjects": "مشاريع مشابهة"
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "nameLabel": "اسمك الكامل",
+    "emailLabel": "بريدك الإلكتروني",
+    "subjectLabel": "الموضوع",
+    "messageLabel": "رسالتك",
+    "sendButton": "إرسال الرسالة",
+    "sending": "جاري الإرسال...",
+    "success": "تم إرسال رسالتك بنجاح!",
+    "error": "حدث خطأ أثناء الإرسال. حاول مرة أخرى.",
+    "requiredField": "هذا الحقل مطلوب"
+  },
+  "footer": {
+    "copyright": "جميع الحقوق محفوظة",
+    "craftedWith": "صُمم وطُوِّر بواسطة"
+  },
+  "backToTop": "العودة للأعلى",
+  "skipToContent": "انتقل للمحتوى الرئيسي",
+  "skillLevel": {
+    "expert": "خبير",
+    "advanced": "متقدم",
+    "intermediate": "متوسط",
+    "learning": "أتعلم"
+  }
+}
