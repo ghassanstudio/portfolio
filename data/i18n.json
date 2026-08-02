@@ -1,0 +1,467 @@
+{
+  "$doc": "UI chrome strings — navigation, buttons, labels, forms, footers. Page content lives in its own data file (profile.json, projects.json, articles.json, faq.json).",
+  "ar": {
+    "langName": "العربية",
+    "langToggle": "English",
+    "nav": {
+      "home": "الرئيسية",
+      "projects": "المشاريع",
+      "about": "نبذة عني",
+      "blog": "المدونة",
+      "contact": "تواصل معي",
+      "faq": "الأسئلة الشائعة",
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الاستخدام"
+    },
+    "actions": {
+      "viewProjects": "تصفح المشاريع",
+      "viewProject": "تفاصيل المشروع",
+      "contactMe": "تواصل معي",
+      "viewAllProjects": "عرض جميع المشاريع",
+      "readMore": "اقرأ المزيد",
+      "backHome": "العودة إلى الرئيسية",
+      "reload": "إعادة التحميل",
+      "visitLive": "زيارة المشروع",
+      "watchDemo": "فيديو توضيحي",
+      "sourceCode": "الكود المصدري",
+      "copy": "نسخ",
+      "copied": "تم النسخ",
+      "skipToContent": "تخطٍّ إلى المحتوى",
+      "arrow": "←"
+    },
+    "aria": {
+      "openMenu": "فتح قائمة التنقل",
+      "closeMenu": "إغلاق قائمة التنقل",
+      "mainNav": "القائمة الرئيسية",
+      "toggleTheme": "تبديل المظهر الفاتح/الداكن",
+      "toggleLang": "التبديل إلى اللغة الإنجليزية",
+      "copyEmail": "نسخ البريد الإلكتروني",
+      "copyPhone": "نسخ رقم الهاتف",
+      "projectDoc": "وثيقة دراسة الحالة",
+      "filters": "تصفية قائمة المشاريع",
+      "docNav": "التنقل بين المشاريع"
+    },
+    "theme": {
+      "light": "فاتح",
+      "dark": "داكن",
+      "system": "تلقائي"
+    },
+    "footer": {
+      "tagline": "مطوّر ويب وتطبيقات — الهندسة قبل المظهر.",
+      "builtWith": "مبني بـ HTML5 · CSS3 · JavaScript — بدون أطر عمل",
+      "rights": "جميع الحقوق محفوظة.",
+      "quickLinks": "روابط سريعة",
+      "contact": "تواصل"
+    },
+    "status": {
+      "live": "منشور",
+      "inProgress": "قيد التطوير",
+      "draft": "مسودة",
+      "archived": "مؤرشف"
+    },
+    "projects": {
+      "pageTitle": "المشاريع",
+      "pageLead": "كل مشروع هنا يُعرض كما تُعرض مراجعة كود: المشكلة، القرارات، القياسات، والدروس المستفادة.",
+      "indexKicker": "01 · المشاريع",
+      "filterLabel": "تصفية حسب النوع",
+      "filterAll": "الكل",
+      "filterApp": "تطبيقات",
+      "filterWeb": "مواقع ويب",
+      "empty": "لا توجد مشاريع في هذا التصنيف بعد.",
+      "readCaseStudy": "قراءة دراسة الحالة",
+      "caseStudy": {
+        "label": "دراسة حالة",
+        "problem": "المشكلة",
+        "goals": "الأهداف",
+        "research": "البحث",
+        "architecture": "العمارة",
+        "ui-decisions": "قرارات الواجهة",
+        "implementation": "التنفيذ",
+        "performance": "الأداء",
+        "accessibility": "إمكانية الوصول",
+        "seo": "SEO",
+        "security": "الأمان",
+        "testing": "الاختبارات",
+        "lessons": "الدروس المستفادة",
+        "results": "النتائج",
+        "gallery": "معرض الصور",
+        "technologies": "التقنيات",
+        "links": "الروابط",
+        "overview": "نظرة عامة",
+        "meta": {
+          "year": "السنة",
+          "status": "الحالة",
+          "platform": "المنصة",
+          "role": "دوري",
+          "stack": "التقنيات"
+        }
+      }
+    },
+    "project": {
+      "backToProjects": "العودة إلى المشاريع",
+      "toc": "محتويات الوثيقة",
+      "notFoundTitle": "المشروع غير موجود",
+      "notFoundLead": "لا يوجد مشروع بهذا المعرّف — تحقق من الرابط أو تصفح قائمة المشاريع.",
+      "prev": "المشروع السابق",
+      "next": "المشروع التالي"
+    },
+    "blog": {
+      "pageTitle": "المدونة",
+      "pageLead": "ملاحظات هندسية وكتابة تقنية — تُنشر عندما يكون لدي شيء يستحق القراءة.",
+      "empty": "لا توجد مقالات بعد. عندما أنشر الأولى، ستظهر هنا.",
+      "published": "نُشر",
+      "readingTime": "دقائق قراءة",
+      "backToBlog": "العودة إلى المدونة"
+    },
+    "about": {
+      "pageTitle": "نبذة عني",
+      "pageLead": "ماذا أفعل، وكيف أفكر، وما الذي يهمني في العمل.",
+      "skillsTitle": "مجالات العمل",
+      "infoTitle": "معلومات أساسية",
+      "location": "الموقع",
+      "experience": "الخبرة",
+      "email": "البريد الإلكتروني"
+    },
+    "contact": {
+      "pageTitle": "تواصل معي",
+      "pageLead": "مشروع؟ فكرة؟ وظيفة؟ اكتب لي — أرد عادةً خلال يوم عمل واحد.",
+      "form": {
+        "name": "الاسم الكامل",
+        "namePh": "اسمك",
+        "email": "البريد الإلكتروني",
+        "emailPh": "you@example.com",
+        "subject": "الموضوع",
+        "subjectPh": "مثال: مشروع متجر إلكتروني",
+        "message": "الرسالة",
+        "messagePh": "صف فكرتك أو متطلباتك باختصار...",
+        "send": "إرسال الرسالة",
+        "sending": "جاري الإرسال...",
+        "success": "تم إرسال رسالتك بنجاح — شكراً لك، سأرد قريباً.",
+        "error": "تعذّر إرسال الرسالة. أعد المحاولة أو راسلني مباشرة على البريد.",
+        "required": "هذا الحقل مطلوب",
+        "emailInvalid": "أدخل بريداً إلكترونياً صالحاً"
+      },
+      "direct": {
+        "title": "وسائل مباشرة",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "whatsapp": "واتساب",
+        "telegram": "تيليجرام",
+        "location": "الموقع"
+      }
+    },
+    "faq": {
+      "pageTitle": "الأسئلة الشائعة",
+      "pageLead": "إجابات موجزة عن الأسئلة الأكثر تكراراً.",
+      "expand": "عرض الإجابة",
+      "collapse": "إخفاء الإجابة",
+      "noResults": "لا توجد نتائج مطابقة."
+    },
+    "notFound": {
+      "title": "404 — الصفحة غير موجودة",
+      "lead": "الرابط الذي طلبته غير موجود، أو نُقل إلى مكان آخر.",
+      "message": "أفضل خيار: ابدأ من الرئيسية، أو تصفح المشاريع."
+    },
+    "offline": {
+      "title": "أنت غير متصل",
+      "lead": "هذه الصفحة محفوظة محلياً، لكنك تحتاج اتصالاً لفتح الباقي.",
+      "message": "تحقق من الاتصال ثم أعد المحاولة."
+    },
+    "home": {
+      "specCard": {
+        "title": "بطاقة المواصفات",
+        "experience": "الخبرة",
+        "location": "الموقع",
+        "areas": "المجالات",
+        "status": "الحالة"
+      },
+      "kickers": {
+        "projects": "01 · مشاريع",
+        "about": "02 · عني",
+        "articles": "03 · مقالات",
+        "contact": "04 · تواصل"
+      },
+      "sections": {
+        "projects": "مشاريع مختارة",
+        "about": "نبذة سريعة",
+        "articles": "آخر المقالات",
+        "contact": "لنعمل معاً"
+      },
+      "readCaseStudy": "قراءة دراسة الحالة",
+      "moreAbout": "المزيد عني",
+      "contactLead": "مشروع في بالك؟ اكتب لي — أرد عادةً خلال يوم عمل واحد.",
+      "contactCta": "فتح صفحة التواصل",
+      "whatsappCta": "تواصل عبر واتساب"
+    },
+    "seo": {
+      "defaultTitle": "غسان عبدالخالق — مطوّر ويب وتطبيقات",
+      "defaultDescription": "مطوّر ويب وتطبيقات منذ 2019. مواقع وتطبيقات أندرويد مبنية بهندسة سليمة، مع دراسة حالة موثقة لكل مشروع."
+    },
+    "blogPost": {
+      "backToBlog": "العودة إلى المدونة",
+      "published": "نُشر",
+      "readingTime": "دقائق قراءة"
+    },
+    "privacy": {
+      "pageTitle": "سياسة الخصوصية",
+      "pageLead": "ما المعلومات التي نجمعها، وكيف نستخدمها، ونحقوقك."
+    },
+    "terms": {
+      "pageTitle": "شروط الاستخدام",
+      "pageLead": "شروط استخدام هذا الموقع وحقوق الاستخدام المسموح بها."
+    }
+  },
+  "en": {
+    "langName": "English",
+    "langToggle": "العربية",
+    "nav": {
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About",
+      "blog": "Blog",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    },
+    "actions": {
+      "viewProjects": "View projects",
+      "viewProject": "Project details",
+      "contactMe": "Contact me",
+      "viewAllProjects": "View all projects",
+      "readMore": "Read more",
+      "backHome": "Back to home",
+      "reload": "Reload",
+      "visitLive": "Visit project",
+      "watchDemo": "Demo video",
+      "sourceCode": "Source code",
+      "copy": "Copy",
+      "copied": "Copied",
+      "skipToContent": "Skip to content",
+      "arrow": "→"
+    },
+    "notFound": {
+      "pageTitle": "Page not found",
+      "pageLead": "The page you requested does not exist on this server."
+    },
+    "blogPost": {
+      "backToBlog": "Back to blog",
+      "published": "Published",
+      "readingTime": "minutes reading"
+    },
+    "offline": {
+      "pageTitle": "Offline",
+      "pageLead": "This page is currently unavailable due to network issues."
+    },
+    "privacy": {
+      "pageTitle": "Privacy Policy",
+      "pageLead": "What information we collect, how we use it, and your rights."
+    },
+    "terms": {
+      "pageTitle": "Terms of Use",
+      "pageLead": "Terms of use for this website and permitted usage rights."
+    },
+    "about": {
+      "pageTitle": "About",
+      "pageLead": "Who I am, how I think, and what matters to me in work.",
+      "skillsTitle": "Areas of Work",
+      "infoTitle": "Background Info",
+      "location": "Location",
+      "experience": "Experience",
+      "email": "Email"
+    },
+    "contact": {
+      "pageTitle": "Contact",
+      "pageLead": "Project? Idea? Job? Write to me — I usually reply within one business day.",
+      "form": {
+        "name": "Full name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "send": "Send"
+      },
+      "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp"
+      }
+    },
+    "faq": {
+      "pageTitle": "FAQ",
+      "pageLead": "Real technical and professional questions companies and interviewers actually ask."
+    },
+  "blog": {
+    "pageTitle": "Blog",
+    "pageLead": "Engineering notes and technical writing — published when I have something worth reading.",
+    "empty": "No articles yet. When I publish the first one, it will appear here."
+  },
+    "aria": {
+      "openMenu": "Open navigation menu",
+      "closeMenu": "Close navigation menu",
+      "mainNav": "Main navigation",
+      "toggleTheme": "Toggle light/dark theme",
+      "toggleLang": "Switch to Arabic",
+      "copyEmail": "Copy email address",
+      "copyPhone": "Copy phone number",
+      "projectDoc": "Case study document",
+      "filters": "Filter the projects list",
+      "docNav": "Navigate between projects"
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "footer": {
+      "tagline": "Web & app developer — engineering before appearance.",
+      "builtWith": "Built with HTML5 · CSS3 · JavaScript — no frameworks",
+      "rights": "All rights reserved.",
+      "quickLinks": "Quick links",
+      "contact": "Contact"
+    },
+    "status": {
+      "live": "Live",
+      "inProgress": "In progress",
+      "draft": "Draft",
+      "archived": "Archived"
+    },
+    "projects": {
+      "pageTitle": "Projects",
+      "pageLead": "Every project here is presented the way a code review is: the problem, the decisions, the measurements, and the lessons.",
+      "indexKicker": "01 · Projects",
+      "filterLabel": "Filter by type",
+      "filterAll": "All",
+      "filterApp": "Apps",
+      "filterWeb": "Websites",
+      "empty": "No projects in this category yet.",
+      "readCaseStudy": "Read the case study",
+      "caseStudy": {
+        "label": "Case study",
+        "problem": "Problem",
+        "goals": "Goals",
+        "research": "Research",
+        "architecture": "Architecture",
+        "ui-decisions": "UI decisions",
+        "implementation": "Implementation",
+        "performance": "Performance",
+        "accessibility": "Accessibility",
+        "seo": "SEO",
+        "security": "Security",
+        "testing": "Testing",
+        "lessons": "Lessons learned",
+        "results": "Results",
+        "gallery": "Gallery",
+        "technologies": "Technologies",
+        "links": "Links",
+        "overview": "Overview",
+        "meta": {
+          "year": "Year",
+          "status": "Status",
+          "platform": "Platform",
+          "role": "My role",
+          "stack": "Stack"
+        }
+      }
+    },
+    "project": {
+      "backToProjects": "Back to projects",
+      "toc": "Table of contents",
+      "notFoundTitle": "Project not found",
+      "notFoundLead": "No project matches this identifier — check the link or browse the projects list.",
+      "prev": "Previous project",
+      "next": "Next project"
+    },
+    "blog": {
+      "pageTitle": "Blog",
+      "pageLead": "Engineering notes and technical writing — published when I have something worth reading.",
+      "empty": "No articles yet. When I publish the first one, it will appear here.",
+      "published": "Published",
+      "readingTime": "min read",
+      "backToBlog": "Back to blog"
+    },
+    "about": {
+      "pageTitle": "About me",
+      "pageLead": "What I do, how I think, and what I care about in work.",
+      "skillsTitle": "Areas of work",
+      "infoTitle": "Basic info",
+      "location": "Location",
+      "experience": "Experience",
+      "email": "Email"
+    },
+    "contact": {
+      "pageTitle": "Contact me",
+      "pageLead": "Project? Idea? Job? Write to me — I usually reply within one working day.",
+      "form": {
+        "name": "Full name",
+        "namePh": "Your name",
+        "email": "Email",
+        "emailPh": "you@example.com",
+        "subject": "Subject",
+        "subjectPh": "e.g. E-commerce project",
+        "message": "Message",
+        "messagePh": "Briefly describe your idea or requirements...",
+        "send": "Send message",
+        "sending": "Sending...",
+        "success": "Your message was sent successfully — thank you. I will reply soon.",
+        "error": "Message could not be sent. Try again or email me directly.",
+        "required": "This field is required",
+        "emailInvalid": "Enter a valid email address"
+      },
+      "direct": {
+        "title": "Direct channels",
+        "email": "Email",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "location": "Location"
+      }
+    },
+    "faq": {
+      "pageTitle": "Frequently asked questions",
+      "pageLead": "Concise answers to the most common questions.",
+      "expand": "Show answer",
+      "collapse": "Hide answer",
+      "noResults": "No matching results."
+    },
+    "notFound": {
+      "title": "404 — Page not found",
+      "lead": "The link you requested does not exist, or has moved.",
+      "message": "Best option: start from the home page, or browse the projects."
+    },
+    "offline": {
+      "title": "You are offline",
+      "lead": "This page is cached locally, but you need a connection to open the rest.",
+      "message": "Check your connection and try again."
+    },
+    "home": {
+      "specCard": {
+        "title": "Spec sheet",
+        "experience": "Experience",
+        "location": "Location",
+        "areas": "Areas",
+        "status": "Status"
+      },
+      "kickers": {
+        "projects": "01 · Projects",
+        "about": "02 · About",
+        "articles": "03 · Articles",
+        "contact": "04 · Contact"
+      },
+      "sections": {
+        "projects": "Selected projects",
+        "about": "Short about",
+        "articles": "Latest articles",
+        "contact": "Let's work together"
+      },
+      "readCaseStudy": "Read the case study",
+      "moreAbout": "More about me",
+      "contactLead": "Have a project in mind? Write to me — I usually reply within one working day.",
+      "contactCta": "Open contact page",
+      "whatsappCta": "Chat on WhatsApp"
+    },
+    "seo": {
+      "defaultTitle": "Ghassan Abdulkhaliq — Web & App Developer",
+      "defaultDescription": "Web and app developer since 2019. Websites and Android apps built on sound engineering, with a documented case study for every project."
+    }
+  }
+}

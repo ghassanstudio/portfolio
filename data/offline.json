@@ -1,0 +1,11 @@
+{
+  "$doc": "Offline page content — shown when there is no network connection.",
+  "en": {
+    "pageTitle": "You Are Offline",
+    "pageLead": "This page is cached locally, but you need a connection to open the rest."
+  },
+  "ar": {
+    "pageTitle": "أنت غير متصل",
+    "pageLead": "هذه الصفحة محفوظة محلياً، لكنك تحتاج اتصالاً لفتح الباقي."
+  }
+}

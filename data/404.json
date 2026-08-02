@@ -1,0 +1,11 @@
+{
+  "$doc": "404 page content — the link does not exist or was moved.",
+  "en": {
+    "pageTitle": "404 — Page Not Found",
+    "pageLead": "The link you requested does not exist, or it was moved to another location."
+  },
+  "ar": {
+    "pageTitle": "404 — الصفحة غير موجودة",
+    "pageLead": "الرابط الذي طلبته غير موجود، أو نُقل إلى مكان آخر."
+  }
+}

@@ -1,0 +1,33 @@
+﻿{
+  "name": "portfolio-v",
+  "version": "3.0.0",
+  "description": "Professional software engineer portfolio with engineering case studies, premium documentation, and production-ready architecture.",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint . --ext .js,.html",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
+  },
+  "keywords": [
+    "portfolio",
+    "engineering",
+    "documentation",
+    "case-study",
+    "software-engineer"
+  ],
+  "author": "Ghassan Abdulkhaliq",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghassanabdulkhaliq92-commits/portfolio-v"
+  },
+  "browserslist": [
+    ">0.25%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "playwright": "^1.62.1"
+  }
+}

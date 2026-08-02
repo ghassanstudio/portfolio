@@ -1,0 +1,111 @@
+{
+  "$doc": "FAQ content — real technical and professional questions only.",
+  "en": {
+    "questions": [
+      {
+        "id": "why-only-webapp",
+        "question": "Why do you only build web applications and not native mobile apps?",
+        "answer": "I focus on web technologies because they offer better performance across devices, faster development cycles, and easier maintenance. WebAssembly is making native performance accessible in browsers, so the web platform is becoming the universal runtime. My goal is to build systems that work everywhere without platform-specific code."
+      },
+      {
+        "id": "why-no-database",
+        "question": "Why don't you use a database for your projects?",
+        "answer": "Most of my projects are content-driven and static. JSON files provide better versioning, are easier to audit, and work perfectly with Git. For data that requires persistence and relationships, a database would add unnecessary complexity. I prefer to keep systems simple unless there's a clear need for data storage."
+      },
+      {
+        "id": "why-single-developer",
+        "question": "Can you work with a team on larger projects?",
+        "answer": "Absolutely. I've worked on team projects throughout my career, using pull requests, code reviews, and CI/CD pipelines. I understand agile methodologies, task breakdown, and delegating work based on team strengths. I can also lead development teams when needed."
+      },
+      {
+        "id": "why-no-frameworks",
+        "question": "Why don't you use frameworks like React or Vue?",
+        "answer": "I avoid frameworks because they add cognitive overhead and bundle bloat. Modern vanilla JavaScript with ES2024 features can achieve the same results with better performance and simpler mental models. I only use frameworks when the project complexity justifies their overhead."
+      },
+      {
+        "id": "why-ghpages",
+        "question": "Why deploy to GitHub Pages instead of Netlify or Vercel?",
+        "answer": "GitHub Pages is integrated with Git, making deployment atomic and version-controlled. It eliminates configuration complexity, and I can manage everything from a single repository. The only downside is build time, which is acceptable for static sites."
+      },
+      {
+        "id": "why-not-companies",
+        "question": "Why don't you list real companies or provide references?",
+        "answer": "I respect privacy and professional boundaries. I can provide references when you request them during the hiring process, but I don't publicly list client information. My portfolio focuses on the engineering work, not marketing credentials."
+      },
+      {
+        "id": "why-no-react-native",
+        "question": "Why not use React Native or Flutter for mobile apps?",
+        "answer": "I'm building Android apps using Kotlin and Jetpack Compose because they provide native performance and access to platform APIs directly. Cross-platform frameworks add an abstraction layer that can impact performance and native user experience."
+      },
+      {
+        "id": "why-no-graphql",
+        "question": "Why not use GraphQL or REST APIs?",
+        "answer": "Most of my projects are client-side or static. APIs require server infrastructure, maintenance, and hosting costs. When I do need data, I use third-party APIs or static JSON files. I prefer to minimize infrastructure unless it's core to the project."
+      },
+      {
+        "id": "why-no-package-manager",
+        "question": "Why don't you use npm or package managers?",
+        "answer": "I use Node.js but avoid dependency-heavy setups. For my projects, most functionality comes from vanilla JavaScript, native browser APIs, and a few lightweight utilities. This reduces security surface area and improves performance."
+      },
+      {
+        "id": "why-no-ci-cd",
+        "question": "Why do you have CI/CD if you're just deploying to GitHub Pages?",
+        "answer": "CI/CD provides automated testing, linting, and type checking before deployment. It catches errors early, ensures code quality, and makes deployment predictable. Even for simple deployments, automation prevents human error."
+      }
+    ]
+  },
+  "ar": {
+    "questions": [
+      {
+        "id": "why-only-webapp",
+        "question": "لماذا تبني تطبيقات الويب فقط وليس التطبيقات الأصلية للهواتف المحمولة؟",
+        "answer": "أركز على تقنيات الويب لأنها توفر أداءً أفضل عبر الأجهزة، دورات تطوير أسرع، وسهولة صيانة أكبر. WebAssembly يجعل الأداء الأصلي متاحاً في المتصفحات، لذا أصبحت منصة الويب المنصة العالمية. هدفي هو بناء أنظمة تعمل في كل مكان دون كود خاص بالمنصة."
+      },
+      {
+        "id": "why-no-database",
+        "question": "لماذا لا تستخدم قاعدة بيانات لمشاريعك؟",
+        "answer": "معظم مشاريعي مدفوعة بالمحتوى وثابتة. ملفات JSON توفر تدقيقاً أفضل، وسهولة استخدام مع Git. عندما يكون هناك حاجة لتخزين البيانات والعلاقات، تضيف قاعدة البيانات تعقيداً غير ضروري. أفضل الحفاظ على بساطة الأنظمة إلا إذا كان هناك حاجة واضحة لتخزين البيانات."
+      },
+      {
+        "id": "why-single-developer",
+        "question": "هل يمكنك العمل مع فريق على مشاريع أكبر؟",
+        "answer": "بالطبع. عملت على مشاريع فريق طوال مسيرتي المهنية، باستخدام طلبات السحب، ومراجعة الكود، وأنابيب CI/CD. أفهم منهجيات أجايل، وتقسيم المهام، وتفويض العمل بناءً على نقاط قوة الفريق. يمكنني أيضاً قيادة فرق التطوير عند الحاجة."
+      },
+      {
+        "id": "why-no-frameworks",
+        "question": "لماذا لا تستخدم أطر عمل مثل React أو Vue؟",
+        "answer": "أتجنب أطر العمل لأنها تضيف حملاً معرفياً وانتفاخاً في الحزم. يمكن للجافا سكريبت العادية الحديثة مع ميزات ES2024 تحقيق نفس النتائج مع أداء أفضل وأبسط نماذج عقلية. فقط استخدم أطر العمل عندما يبرر تعقيد المشروع هذا الحمل."
+      },
+      {
+        "id": "why-ghpages",
+        "question": "لماذا النشر على GitHub Pages بدلاً من Netlify أو Vercel؟",
+        "answer": "GitHub Pages متكامل مع Git، مما يجعل النشر ذرياً وخاضعاً للتحكم في الإصدار. يلغي هذا تعقيد التكوين، ويمكنني إدارة كل شيء من مستودع واحد. الجانب السلبي الوحيد هو وقت البناء، وهو مقبول للمواقع الثابتة."
+      },
+      {
+        "id": "why-not-companies",
+        "question": "لماذا لا تذكر شركات حقيقية أو تقدم مراجع؟",
+        "answer": "احترم الخصوصية والحدود المهنية. يمكنني تقديم مراجع عند طلبها خلال عملية التوظيف، لكنني لا أدرج معلومات العميل علناً. يركز مكتبي على العمل الهندسي، وليس التسويق للمؤهلات."
+      },
+      {
+        "id": "why-no-react-native",
+        "question": "لماذا لا تستخدم React Native أو Flutter للتطبيقات المحمولة؟",
+        "answer": "أبني تطبيقات أندرويد باستخدام Kotlin و Jetpack Compose لأنهما يوفران أداءً أصلياً ووصولاً مباشراً إلى واجهات برمجة تطبيقات المنصة. تضيف أطر العمل عبر المنصات طبقة تجريد يمكن أن تؤثر على الأداء والتجربة المستخدم الأصلية."
+      },
+      {
+        "id": "why-no-graphql",
+        "question": "لماذا لا تستخدم GraphQL أو REST APIs؟",
+        "answer": "معظم مشاريعي عميلة الجانب أو ثابتة. تتطلب APIs بنية تحتية للخادم، والصيانة، وتكاليف الاستضافة. عندما أحتاج إلى البيانات، أستخدم واجهات برمجة تطبيقات الطرف الثالث أو ملفات JSON الثابتة. أفضل تقليل البنية التحتية إلا إذا كانت جوهر المشروع."
+      },
+      {
+        "id": "why-no-package-manager",
+        "question": "لماذا لا تستخدم مديري الحزم مثل npm؟",
+        "answer": "أستخدم Node.js لكنني أتجنب الإعدادات المعتمدة على الحزم. بالنسبة لمشاريعي، يأتي معظم الوظائف من جافا سكريبت العادية، وواجهات برمجة تطبيقات المتصفح الأصلية، وبعض الأدوات الخفيفة. هذا يقلل من مساحة الهجوم الأمني ويحسن الأداء."
+      },
+      {
+        "id": "why-no-ci-cd",
+        "question": "لماذا لديك CI/CD إذا كنت فقط تنشر إلى GitHub Pages؟",
+        "answer": "يوفر CI/CD الاختبار الآلي، والتحقق من الجودة، وفحوصات النوع قبل النشر. يلتقط الأخطاء مبكراً، ويضمن جودة الكود، ويجعل النشر قابلاً للتنبؤ. حتى للنشر البسيط، تمنع الأتمتة الخطأ البشري."
+      }
+    ]
+  }
+}

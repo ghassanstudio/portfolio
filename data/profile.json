@@ -1,0 +1,128 @@
+{
+  "$doc": "Personal profile. Everything about the person behind the site. Hero answers three questions in five seconds: who I am, what I build, why to trust me.",
+  "name": {
+    "ar": "غسان عبدالخالق",
+    "en": "Ghassan Abdulkhaliq"
+  },
+  "initials": "GA",
+  "role": {
+    "ar": "مطوّر ويب وتطبيقات",
+    "en": "Web & App Developer"
+  },
+  "location": {
+    "ar": "بغداد، العراق",
+    "en": "Baghdad, Iraq"
+  },
+  "experienceStart": 2019,
+  "status": {
+    "active": true,
+    "label": {
+      "ar": "متاح لمشاريع جديدة",
+      "en": "Available for new projects"
+    }
+  },
+  "hero": {
+    "ar": {
+      "kicker": "مطوّر منذ 2019 — HTML5 · CSS · JavaScript · Kotlin",
+      "headline": "منتجات رقمية مبنية على هندسة سليمة، لا على قوالب جاهزة.",
+      "subheadline": "أبني مواقع وتطبيقات أندرويد أوثّق فيها القرارات الهندسية والقياسات. كل مشروع هنا يحمل دراسة حالة كاملة: المشكلة، والعمارة، والاختبار، وما تعلمته.",
+      "evidence": "قارن بنفسك: هذه الصفحة نفسها — بدون أطر عمل، ونتائج Lighthouse قريبة من 100/100."
+    },
+    "en": {
+      "kicker": "Developer since 2019 — HTML5 · CSS · JavaScript · Kotlin",
+      "headline": "Digital products built on sound engineering, not templates.",
+      "subheadline": "I build websites and Android apps where engineering decisions are documented and measured. Every project ships with a full case study: problem, architecture, testing, and lessons learned.",
+      "evidence": "See for yourself: this very site — no frameworks, near-perfect Lighthouse scores."
+    }
+  },
+  "stats": [
+    {
+      "value": "5+",
+      "label": { "ar": "سنوات خبرة", "en": "years of experience" }
+    },
+    {
+      "value": "50+",
+      "label": { "ar": "مشروع", "en": "projects delivered" }
+    },
+    {
+      "value": "30+",
+      "label": { "ar": "عميل", "en": "clients" }
+    }
+  ],
+  "about": {
+    "ar": {
+      "intro": "مطوّر ذاتي التعلّم، يكتب الكود كما يكتب التوثيق: بوضوح.",
+      "paragraphs": [
+        "أنا غسان عبدالخالق، مطوّر ويب وتطبيقات من بغداد. بدأت العمل في 2019، ومنذ ذلك الحين أبني مواقع تجارية، وتطبيقات أندرويد، وأنظمة ويب — بعضها على ووردبريس عندما يكون ذلك هو القرار الهندسي الصحيح، ومعظمها بكتابة يدوية خالصة.",
+        "أؤمن أن المطوّر الذي يستحق العمل على منتجك هو من يستطيع شرح قراراته: لماذا اخترت هذه التقنية؟ كيف أقيس الأداء؟ كيف أضمن الأمان؟ لذلك أكتب دراسة حالة لكل مشروع أنشره.",
+        "أعمل بتقنيات JavaScript و Kotlin و Jetpack Compose و Node.js و PHP وقواعد بيانات SQL و NoSQL — وأختار أيّها بناءً على متطلبات المشروع، لا على الموضة."
+      ]
+    },
+    "en": {
+      "intro": "A self-taught developer who writes code the way he writes documentation: clearly.",
+      "paragraphs": [
+        "I am Ghassan Abdulkhaliq, a web and app developer from Baghdad. I started working in 2019, and since then I have built commercial websites, Android apps, and web systems — some on WordPress when that is the right engineering decision, and most in hand-written code.",
+        "I believe the developer who deserves to work on your product is the one who can explain his decisions: why this technology? how do I measure performance? how do I ensure security? That is why I write a case study for every project I publish.",
+        "I work with JavaScript, Kotlin, Jetpack Compose, Node.js, PHP, and SQL and NoSQL databases — and I choose among them based on project requirements, not fashion."
+      ]
+    }
+  },
+  "skills": {
+    "ar": {
+      "categories": [
+        { "title": "واجهات الويب", "items": ["HTML5", "CSS3", "JavaScript (ES2024)", "React"] },
+        { "title": "تطبيقات أندرويد", "items": ["Kotlin", "Jetpack Compose", "Flutter"] },
+        { "title": "الواجهات الخلفية", "items": ["Node.js", "PHP", "Python", "MySQL", "MongoDB"] },
+        { "title": "الأدوات والتصميم", "items": ["WordPress", "Figma", "Adobe XD", "Git"] }
+      ]
+    },
+    "en": {
+      "categories": [
+        { "title": "Web frontend", "items": ["HTML5", "CSS3", "JavaScript (ES2024)", "React"] },
+        { "title": "Android apps", "items": ["Kotlin", "Jetpack Compose", "Flutter"] },
+        { "title": "Backend", "items": ["Node.js", "PHP", "Python", "MySQL", "MongoDB"] },
+        { "title": "Tools & design", "items": ["WordPress", "Figma", "Adobe XD", "Git"] }
+      ]
+    }
+  },
+  "social": [
+    {
+      "type": "whatsapp",
+      "url": "https://wa.me/9647755301667",
+      "label": "WhatsApp",
+      "handle": "+964 775 530 1667"
+    },
+    {
+      "type": "telegram",
+      "url": "https://t.me/ghassan_gak",
+      "label": "Telegram",
+      "handle": "@ghassan_gak"
+    },
+    {
+      "type": "email",
+      "url": "mailto:ghassanabdulkhaliq92@gmail.com",
+      "label": "Email",
+      "handle": "ghassanabdulkhaliq92@gmail.com"
+    },
+    {
+      "type": "phone",
+      "url": "tel:+9647755301667",
+      "label": "Phone",
+      "handle": "+964 775 530 1667"
+    }
+  ],
+  "contact": {
+    "email": "ghassanabdulkhaliq92@gmail.com",
+    "phone": "+9647755301667",
+    "phoneDisplay": "+964 775 530 1667",
+    "whatsapp": "https://wa.me/9647755301667",
+    "telegram": "https://t.me/ghassan_gak"
+  },
+  "cv": {
+    "url": null,
+    "label": {
+      "ar": "السيرة الذاتية",
+      "en": "Resume"
+    }
+  }
+}

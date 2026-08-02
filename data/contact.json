@@ -1,0 +1,39 @@
+{
+  "$doc": "Contact page content — direct communication channels only, no fake forms.",
+  "en": {
+    "email": "ghassanabdulkhaliq92@gmail.com",
+    "location": "Amman, Jordan",
+    "social": {
+      "github": {
+        "url": "https://github.com/ghassanabdulkhaliq92-commits",
+        "handle": "ghassanabdulkhaliq92-commits"
+      },
+      "linkedin": {
+        "url": "https://www.linkedin.com/in/ghassan-abdulkhaliq92",
+        "handle": "ghassan-abdulkhaliq92"
+      },
+      "whatsapp": {
+        "url": "https://wa.me/962778779977",
+        "handle": "+962778779977"
+      }
+    }
+  },
+  "ar": {
+    "email": "ghassanabdulkhaliq92@gmail.com",
+    "location": "عمان، الأردن",
+    "social": {
+      "github": {
+        "url": "https://github.com/ghassanabdulkhaliq92-commits",
+        "handle": "ghassanabdulkhaliq92-commits"
+      },
+      "linkedin": {
+        "url": "https://www.linkedin.com/in/ghassan-abdulkhaliq92",
+        "handle": "ghassan-abdulkhaliq92"
+      },
+      "whatsapp": {
+        "url": "https://wa.me/962778779977",
+        "handle": "+962778779977"
+      }
+    }
+  }
+}

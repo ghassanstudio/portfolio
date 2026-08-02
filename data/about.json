@@ -1,0 +1,57 @@
+{
+  "$doc": "About page content — professional engineering profile, no marketing fluff.",
+  "en": {
+    "who": "I am a software engineer who builds minimal, performant systems that solve real problems. I focus on architecture, maintainability, and sustainable code practices.",
+    "how": "I approach problems by first understanding the constraints, then designing clean, modular solutions. I write code that is testable, documented, and predictable.",
+    "principles": [
+      "Performance before appearance",
+      "Simplicity beats complexity",
+      "Documentation as code",
+      "Test-driven development",
+      "Progressive enhancement",
+      "Accessibility by default"
+    ],
+    "philosophy": "I avoid unnecessary complexity because it creates technical debt that slows development and increases maintenance costs. I prefer to invest time in understanding the problem thoroughly before implementing solutions.",
+    "technologies": {
+      "frontend": ["HTML5", "CSS3", "JavaScript (ES2024)"],
+      "tools": ["Git", "Node.js", "Vite", "ESLint", "Prettier", "GitHub Actions"],
+      "platforms": ["GitHub Pages", "Netlify", "Vercel"]
+    },
+    "workflow": [
+      "Write tests before implementing",
+      "Use JSON for all data (no hardcoded strings)",
+      "Lint and type-check before committing",
+      "Deploy with integrity checks",
+      "Audit accessibility and performance at each stage"
+    ],
+    "whyAvoidComplexity": "Unnecessary complexity makes systems harder to understand, maintain, and scale. It increases cognitive load, introduces more bugs, and slows development velocity.",
+    "learning": "Currently learning WebAssembly and distributed systems architecture."
+  },
+  "ar": {
+    "who": "أنا مهندس برمجيات أبني أنظمة بسيطة، عالية الأداء تحل مشاكل حقيقية. أركز على العمارة، والصيانة، وممارسات الكود المستدامة.",
+    "how": "أتعامل مع المشاكل بفهم القيود أولاً، ثم تصميم حلول نظيفة، قابلة للتقسيم. أكتب كوداً قابلاً للاختبار، موثقاً، ومتوقعاً.",
+    "principles": [
+      "الأداء قبل المظهر",
+      "البساطة تتفوق على التعقيد",
+      "التوثيق ككود",
+      "التطوير المعتمد على الاختبارات",
+      "الارتقاء التدريجي",
+      "الإمكانية للأعلى افتراضياً"
+    ],
+    "philosophy": "أتجنب التعقيد غير الضروري لأنه يخلق ديوناً تقنية تبطئ التطوير وتزيد تكاليف الصيانة. أفضل الاستثمار في فهم المشكلة جيداً قبل تنفيذ الحلول.",
+    "technologies": {
+      "frontend": ["HTML5", "CSS3", "JavaScript (ES2024)"],
+      "tools": ["Git", "Node.js", "Vite", "ESLint", "Prettier", "GitHub Actions"],
+      "platforms": ["GitHub Pages", "Netlify", "Vercel"]
+    },
+    "workflow": [
+      "اكتب اختبارات قبل التنفيذ",
+      "استخدم JSON لكل البيانات (لا سلاسل hardcoded)",
+      "قم بالتحقق من الجودة قبل الالتزام",
+      "نشر مع فحوصات السلامة",
+      "تدقيق الوصولية والأداء في كل مرحلة"
+    ],
+    "whyAvoidComplexity": "التعقيد غير الضروري يجعل الأنظمة أصعب للفهم، الصيانة، والتطوير. يزيد الحمل المعرفي، يُدخل المزيد من الأخطاء، ويبطئ سرعة التطوير.",
+    "learning": "أتعلم حالياً عن WebAssembly وهندسة الأنظمة الموزعة."
+  }
+}

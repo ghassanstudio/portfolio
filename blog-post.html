@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-default-lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقال · غسان عبدالخالق</title>
+    <meta name="description" content="مقال تقني من مدونة غسان عبدالخالق.">
+    <meta name="author" content="Ghassan Abdulkhaliq">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://ghassanabdulkhaliq92-commits.github.io/blog-post.html">
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="مقال · غسان عبدالخالق">
+    <meta property="og:description" content="مقال تقني من مدونة غسان عبدالخالق.">
+    <meta property="og:url" content="https://ghassanabdulkhaliq92-commits.github.io/blog-post.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ar_IQ">
+    <meta property="og:title" content="Article · Ghassan Abdulkhaliq">
+    <meta property="og:description" content="A technical article from Ghassan Abdulkhaliq's blog.">
+    <meta property="og:url" content="https://ghassanabdulkhaliq92-commits.github.io/blog-post.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <script>
+        /* Pre-paint: language, direction and theme — prevents a flash on load. */
+        (function () {
+            try {
+                var html = document.documentElement;
+                var lang = localStorage.getItem("portfolio-v.lang") || html.dataset.defaultLang || "ar";
+                html.lang = lang;
+                html.dir = lang === "ar" ? "rtl" : "ltr";
+                var theme = localStorage.getItem("portfolio-v.theme");
+                if (theme !== "light" && theme !== "dark") {
+                    theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+                html.setAttribute("data-theme", theme);
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="actions.skipToContent">تخطٍّ إلى المحتوى</a>
+    <header class="site-header" id="site-header"></header>
+    <main id="main" tabindex="-1">
+        <div class="container container--narrow">
+            <div class="blog-post-wrapper">
+                <div class="blog-post-header">
+                    <nav class="blog-nav" aria-label="breadcrumb">
+                        <a href="blog.html" data-i18n="blogPost.backToBlog">العودة إلى المدونة</a>
+                    </nav>
+                    <h1 id="blog-post-title">عنوان المقال</h1>
+                    <div class="blog-post-meta">
+                        <time id="blog-post-published" datetime=""></time>
+                        <span aria-hidden="true">·</span>
+                        <span id="blog-post-read-time"></span>
+                    </div>
+                </div>
+                <div id="blog-post-content"></div>
+                <div class="blog-post-footer">
+                    <a href="blog.html" class="btn btn--ghost" data-i18n="blogPost.backToBlog">العودة إلى المدونة</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer" id="site-footer"></footer>
+    <noscript><p class="noscript-note">يتطلب هذا الموقع تفعيل JavaScript لعرض المحتوى.</p></noscript>
+    <script type="module" src="js/blog-post.js"></script>
+</body>
+</html>

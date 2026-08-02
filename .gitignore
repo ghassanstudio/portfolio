@@ -1,0 +1,112 @@
+# Build output
+/dist
+/build
+/dist-electron
+/temp
+
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug-output
+
+# Environment variables
+.env*.local
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by many JavaScript frameworks
+coverage
+*.coverage
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate files
+grunt.js
+grunt-deps.js
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Deployments
+.gcloud
+.gcloudignore
+
+# Node.js
+.npm
+.node
+
+# Editor
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local
+.lock-wscript
+
+# Editor
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Other
+.desktop
+
+# Runtime files
+*.log
+*.tmp
+*.bak
+
+# Distribution
+*.zip
+*.tar.gz
+*.7z
+
+# Package manager
+*.rar
+*.gz
+
+# Installation logs
+*.install.log
+
+# User data
+*.user
+*.cache
+*.session
+
+# System temporary files
+*tmp*
+*.tmp
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*~
+
+# Test results
+reports/
+.test-results
+/playwright-report
+/test-results

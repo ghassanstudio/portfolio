@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-default-lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المشاريع — غسان عبدالخالق</title>
+    <meta name="description" content="دراسات حالة هندسية لكل مشروع: المشكلة، العمارة، القرارات، القياسات، والدروس المستفادة.">
+    <meta name="author" content="Ghassan Abdulkhaliq">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://ghassanabdulkhaliq92-commits.github.io/projects.html">
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="المشاريع — غسان عبدالخالق">
+    <meta property="og:description" content="دراسات حالة هندسية لكل مشروع: المشكلة، العمارة، القرارات، القياسات، والدروس المستفادة.">
+    <meta property="og:url" content="https://ghassanabdulkhaliq92-commits.github.io/projects.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_IQ">
+    <meta property="og:title" content="Projects — Ghassan Abdulkhaliq">
+    <meta property="og:description" content="Engineering case studies for every project: problem, architecture, decisions, measurements, and lessons learned.">
+    <meta property="og:url" content="https://ghassanabdulkhaliq92-commits.github.io/projects.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <script>
+        /* Pre-paint: language, direction and theme — prevents a flash on load. */
+        (function () {
+            try {
+                var html = document.documentElement;
+                var lang = localStorage.getItem("portfolio-v.lang") || html.dataset.defaultLang || "ar";
+                html.lang = lang;
+                html.dir = lang === "ar" ? "rtl" : "ltr";
+                var theme = localStorage.getItem("portfolio-v.theme");
+                if (theme !== "light" && theme !== "dark") {
+                    theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+                html.setAttribute("data-theme", theme);
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="actions.skipToContent">تخطٍّ إلى المحتوى</a>
+    <header class="site-header" id="site-header"></header>
+    <main id="main" tabindex="-1">
+        <section class="page-head" id="page-head" aria-labelledby="page-title"></section>
+        <section class="section" id="project-list">
+            <div class="container">
+                <div class="filter-bar" id="filter-bar" role="group"></div>
+                <div class="project-list" id="project-list-rows"></div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" id="site-footer"></footer>
+    <noscript><p class="noscript-note">يتطلب هذا الموقع تفعيل JavaScript لعرض المحتوى.</p></noscript>
+    <script type="module" src="js/projects.js"></script>
+</body>
+</html>

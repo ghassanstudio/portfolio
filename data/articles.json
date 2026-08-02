@@ -1,0 +1,4 @@
+{
+  "$doc": "Blog articles. Empty by design — the structure is ready, and publishing is a matter of appending an entry. Schema is documented in data/README.md.",
+  "articles": []
+}

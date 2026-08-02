@@ -1,0 +1,30 @@
+{
+  "$doc": "Site settings. The only place where the domain, languages and nav structure live.",
+  "url": "https://ghassanabdulkhaliq92-commits.github.io",
+  "langs": ["ar", "en"],
+  "defaultLang": "ar",
+  "localeMap": {
+    "ar": "ar-IQ",
+    "en": "en-US"
+  },
+  "ogLocales": {
+    "ar": "ar_IQ",
+    "en": "en_US"
+  },
+  "theme": {
+    "default": "system",
+    "storageKey": "portfolio-v.theme"
+  },
+  "langStorageKey": "portfolio-v.lang",
+  "nav": [
+    { "href": "index.html", "key": "home", "labelKey": "nav.home" },
+    { "href": "projects.html", "key": "projects", "labelKey": "nav.projects" },
+    { "href": "about.html", "key": "about", "labelKey": "nav.about" },
+    { "href": "blog.html", "key": "blog", "labelKey": "nav.blog" },
+    { "href": "contact.html", "key": "contact", "labelKey": "nav.contact" }
+  ],
+  "footer": {
+    "quickLinks": ["index.html", "projects.html", "about.html", "blog.html"],
+    "legal": ["faq.html", "privacy.html", "terms.html"]
+  }
+}

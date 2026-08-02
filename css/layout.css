@@ -1,0 +1,287 @@
+/* ==========================================================================
+   03. Layout
+   --------------------------------------------------------------------------
+   Structure shared by every page: containers, header, navigation, mobile
+   menu, footer. No decoration here — only position, size and order.
+   ========================================================================== */
+
+/* -- Containers --------------------------------------------------------------- */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+@media (min-width: 48rem) {
+  .container {
+    padding-inline: var(--space-6);
+  }
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+main {
+  min-height: 60vh;
+}
+
+/* Section rhythm: generous, equal, calm. */
+.section {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+/* -- Header --------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--header-h);
+}
+
+.site-nav {
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  .site-nav {
+    display: block;
+  }
+}
+
+.site-nav ul {
+  display: flex;
+  gap: var(--space-5);
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  display: inline-block;
+  padding-block: var(--space-2);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--color-text);
+}
+
+.nav-link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo__mark {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.logo__name {
+  font-size: var(--text-lg);
+}
+
+@media (max-width: 30rem) {
+  .logo__name {
+    display: none;
+  }
+}
+
+/* -- Mobile menu ---------------------------------------------------------------- */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  padding: var(--space-4) var(--space-5) var(--space-6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    visibility 0s linear var(--dur-base);
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+@media (min-width: 60rem) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+.mobile-menu__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.mobile-menu__title {
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.mobile-menu__nav ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.mobile-menu__nav a {
+  display: block;
+  padding: var(--space-3) var(--space-2);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+}
+
+.mobile-menu__nav a:hover {
+  text-decoration: none;
+  background-color: var(--color-surface-2);
+}
+
+.mobile-menu__nav a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+/* -- Footer ----------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-7) var(--space-5);
+  margin-top: var(--space-8);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+@media (min-width: 48rem) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand__tagline {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.footer-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-3);
+}
+
+.footer-links ul,
+.footer-contact__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.footer-links a,
+.footer-contact__list a {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.footer-links a:hover,
+.footer-contact__list a:hover {
+  color: var(--color-text);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+.footer-bottom__built {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}

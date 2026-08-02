@@ -1,0 +1,482 @@
+{
+  "$doc": "Projects list. Add a new project by appending an object to the projects array. Every project is presented as an engineering document (case study). The caseStudy array is a sequence of sections; each section has an id (labels come from i18n.json projects.caseStudy.<id>) and an ordered list of blocks. Block types: p (paragraph), list (bullet list), dl (definition rows: term -> detail). No text lives outside this file. The gallery array holds real screenshots only: add the image files under assets/images/projects/<id>/ first, then list them here (run tools/check-assets.mjs to verify). Empty gallery = no section rendered.",
+  "projects": [
+    {
+      "id": "calc-voice",
+      "slug": "calc-voice",
+      "featured": true,
+      "order": 1,
+      "type": "app",
+      "title": {
+        "ar": "الآلة الحاسبة الناطقة — Calc Voice",
+        "en": "Calc Voice — Talking Calculator"
+      },
+      "summary": {
+        "ar": "تطبيق أندرويد ينطق كل رقم وعملية حسابية عند الضغط، وينطق الناتج فور الحساب. صوت عربي وإنجليزي، ووضع داكن تلقائي.",
+        "en": "An Android app that speaks every digit and operation as you tap, then reads the result aloud. Arabic and English voices, automatic dark mode."
+      },
+      "year": "2025",
+      "status": "live",
+      "platform": {
+        "ar": "أندرويد",
+        "en": "Android"
+      },
+      "role": {
+        "ar": "مطوّر التطبيق: تصميم، تطوير، نشر، توثيق",
+        "en": "Solo developer: design, development, release, documentation"
+      },
+      "tech": ["Kotlin", "Jetpack Compose", "Kotlin DSL", "Android TextToSpeech", "StartApp Ads"],
+      "links": {
+        "live": {
+          "url": "https://apkpure.com/p/com.gak.calcvoice",
+          "label": {
+            "ar": "تحميل من APKPure",
+            "en": "Download on APKPure"
+          }
+        },
+        "demo": null,
+        "source": null,
+        "video": {
+          "url": "https://www.youtube.com/embed/RDtq8xNH_hM",
+          "label": {
+            "ar": "فيديو توضيحي",
+            "en": "Demo video"
+          }
+        }
+      },
+      "caseStudy": [
+        {
+          "id": "problem",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "المستخدمون ضعاف البصر يواجهون صعوبة مع الحاسبات التقليدية: لا توجد قراءة صوتية فورية لما يُكتب.",
+                "en": "Visually impaired users struggle with traditional calculators: there is no immediate voice feedback for what is typed."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "الحاسبات المتاحة على المتاجر إما صامتة، أو تنطق الناتج فقط بعد الضغط على \"=\" — دون نطق الأرقام والعمليات نفسها أثناء الإدخال.",
+                "en": "Calculators available in stores are either silent, or speak only the result after pressing \"=\" — never the digits and operations themselves while typing."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "الآباء الذين يعلّمون أطفالهم الأرقام والحساب بالعربية يفتقرون إلى أداة بسيطة تربط الرقم بصوته مباشرة.",
+                "en": "Parents teaching their children Arabic numbers and arithmetic lack a simple tool that ties a digit to its sound directly."
+              }
+            }
+          ]
+        },
+        {
+          "id": "goals",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "نطق فوري لكل رقم وعملية عند الضغط، ونطق الناتج بعد الحساب.",
+                  "en": "Instant speech for every digit and operation on tap, and the result read aloud after calculation."
+                },
+                {
+                  "ar": "دعم لغتين للصوت (العربية والإنجليزية) مع تبديل تلقائي حسب لغة الجهاز وزر يدوي.",
+                  "en": "Two voice languages (Arabic and English) with automatic switching based on device language plus a manual toggle."
+                },
+                {
+                  "ar": "وضع داكن يتبع إعدادات النظام تلقائياً.",
+                  "en": "A dark mode that follows the system setting automatically."
+                },
+                {
+                  "ar": "واجهة بسيطة بأزرار كبيرة تعمل باللمس دون دقة عالية.",
+                  "en": "A simple interface with large buttons usable by touch without fine accuracy."
+                },
+                {
+                  "ar": "تشغيل سلس على الأجهزة متوسطة الإمكانات، والبقاء مجانياً مدعوماً بإعلانات غير مزعجة.",
+                  "en": "Smooth performance on mid-range devices, and stay free, supported by non-intrusive ads."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "جربت أكثر من عشر حاسبات من متجر Google Play: الغالبية لا تنطق المدخلات، ومن تنطق تقتصر على النتيجة النهائية.",
+                "en": "I tried more than ten calculators from Google Play: most do not speak inputs at all, and those that do only read the final result."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "قيّمت محرك Android TextToSpeech: يوفر نطقاً مقبولاً للعربية والإنجليزية على معظم الأجهزة، لكن تهيئته غير متزامنة وتتطلب معالجة دقيقة لحالة onInit.",
+                "en": "I evaluated the Android TextToSpeech engine: it provides acceptable Arabic and English speech on most devices, but its initialization is asynchronous and requires careful onInit handling."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "خلُصت إلى أن التحدي الحقيقي ليس \"الحساب\" بل \"التزامن الصوتي\": أن ينطق التطبيق ما يراه المستخدم، دون تأخير محسوس.",
+                "en": "I concluded that the real challenge is not \"math\" but \"audio synchronization\": the app must speak exactly what the user sees, with no perceptible delay."
+              }
+            }
+          ]
+        },
+        {
+          "id": "architecture",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "تطبيق أحادي النشاط (Single-Activity) بفصل صارم بين الواجهة والحالة والخدمات، بحيث يبقى منطق الحساب قابلاً للاختبار دون جهاز.",
+                "en": "A single-activity app with strict separation between UI, state and services, so the calculation logic stays testable without a device."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "UI",
+                    "en": "UI"
+                  },
+                  "detail": {
+                    "ar": "Jetpack Compose — شاشة واحدة تعكس الحالة دائماً (State → UI)، مع دعم RTL كامل للعربية.",
+                    "en": "Jetpack Compose — one screen that always reflects the state (State → UI), with full RTL support for Arabic."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "State",
+                    "en": "State"
+                  },
+                  "detail": {
+                    "ar": "ViewModel يحمل التعبير الحسابي واللغة الصوتية المختارة، ويصدر أحداث النطق نحو الخدمة الصوتية.",
+                    "en": "A ViewModel holding the expression and the selected voice language, emitting speech events toward the voice service."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "Logic",
+                    "en": "Logic"
+                  },
+                  "detail": {
+                    "ar": "دالة حسابية نقية تحلل التعبير وتقيّمه — لا علاقة لها بالواجهة، وتُختبر كوحدة مستقلة.",
+                    "en": "A pure function that parses and evaluates the expression — independent of the UI and tested as a standalone unit."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "Services",
+                    "en": "Services"
+                  },
+                  "detail": {
+                    "ar": "غلاف TTS يدير دورة حياة محرك النطق، ووحدة إعلانات StartApp معزولة عن منطق التطبيق.",
+                    "en": "A TTS wrapper managing the speech engine lifecycle, and a StartApp ads unit isolated from app logic."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ui-decisions",
+          "blocks": [
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "أزرار كبيرة بتباين عالٍ",
+                    "en": "Large buttons with high contrast"
+                  },
+                  "detail": {
+                    "ar": "منطقة لمس لا تقل عن 56dp وتباين لوني يتجاوز AA — قرار من اليوم الأول لخدمة ضعاف البصر، لا تجميلاً.",
+                    "en": "Touch targets of at least 56dp and color contrast beyond AA — a decision made on day one to serve visually impaired users, not decoration."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "ترتيب قياسي للوحة الحاسبة",
+                    "en": "Standard calculator layout"
+                  },
+                  "detail": {
+                    "ar": "لا إعادة اختراع: الترتيب المألوف يقلل وقت التعلم، وهو قرار يُقاس بالاستخدام لا بالذوق.",
+                    "en": "No reinvention: the familiar arrangement reduces learning time, and that is a decision measured by usage, not taste."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الوضع الداكن تلقائياً",
+                    "en": "Automatic dark mode"
+                  },
+                  "detail": {
+                    "ar": "isSystemInDarkTheme() بدل مفتاح داخلي — لأن المستخدم قرر مسبقاً ما يريده من النظام.",
+                    "en": "isSystemInDarkTheme() instead of an internal switch — because the user already told the system what they want."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "زر لغة الصوت ظاهر دائماً",
+                    "en": "Voice language button always visible"
+                  },
+                  "detail": {
+                    "ar": "بجانب الشاشة بشكل دائم، لأن تبديل اللغة تجربة صوتية أكثر من كونها إعداداً.",
+                    "en": "Kept permanently beside the screen, because switching language is an audio experience more than a setting."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "implementation",
+          "blocks": [
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "إدارة تهيئة TTS",
+                    "en": "TTS initialization handling"
+                  },
+                  "detail": {
+                    "ar": "الانتظار على onInit قبل أي نطق، مع fallback واضح عند غياب محرك عربي على الجهاز.",
+                    "en": "Waiting for onInit before any speech, with a clear fallback when no Arabic engine exists on the device."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "قراءة فورية للمدخلات",
+                    "en": "Instant input speech"
+                  },
+                  "detail": {
+                    "ar": "كل ضغطة زر تصدر نصاً يُقرأ فوراً عبر قناة State → Service، دون إعادة إنشاء المحرك لكل ضغطة.",
+                    "en": "Each button press emits text that is spoken immediately through a State → Service channel, without rebuilding the engine per press."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "نطق النتيجة",
+                    "en": "Result speech"
+                  },
+                  "detail": {
+                    "ar": "بعد تقييم التعبير، يُنطق الناتج بلغة الصوت الحالية مع تنسيق الأرقام وفق اللغة.",
+                    "en": "After evaluating the expression, the result is read in the current voice language with numbers formatted accordingly."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "البناء بـ Kotlin DSL",
+                    "en": "Kotlin DSL builds"
+                  },
+                  "detail": {
+                    "ar": "ملف بناء نصي قابل للمراجعة ومركزي (Version Catalog) بدل XML القديم الصاخب.",
+                    "en": "A textual, reviewable build file with a central Version Catalog instead of verbose legacy XML."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "إعلانات معزولة",
+                    "en": "Isolated ads"
+                  },
+                  "detail": {
+                    "ar": "StartApp في وحدة منفصلة عن منطق الحساب، بحيث لا تؤثر على سلوك التطبيق ولا توقيته.",
+                    "en": "StartApp lives in a unit separate from calculation logic, so it cannot affect app behavior or timing."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "performance",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "واجهة Compose تعيد رسم ما يتغير فقط — لا إعادة بناء شجرة الواجهة عند كل ضغطة.",
+                  "en": "Compose redraws only what changes — no full UI tree rebuild per press."
+                },
+                {
+                  "ar": "محرك TTS يُهيأ مرة واحدة عند الإطلاق ويبقى حياً، بدل تهيئة وإغلاق متكررين.",
+                  "en": "The TTS engine is initialized once at launch and kept alive, instead of repeated init/close cycles."
+                },
+                {
+                  "ar": "قائمة انتظار صوتية قصيرة تسقط الأصوات القديمة عند الإدخال المتواصل، فلا يتأخر اللمس خلف الصوت.",
+                  "en": "A short speech queue drops stale utterances during fast input, so touch never lags behind sound."
+                },
+                {
+                  "ar": "حجم APK مضغوط، والتطبيق يعمل على أجهزة ذاكرة 2GB دون تباطؤ محسوس.",
+                  "en": "A compact APK size, and the app runs smoothly on 2GB devices with no perceptible lag."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "accessibility",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "أزرار بمنطقة لمس 56dp وتباين AA في الوضعين الفاتح والداكن.",
+                  "en": "56dp touch targets and AA contrast in both light and dark themes."
+                },
+                {
+                  "ar": "دعم TalkBack: كل زر يحمل نصاً وصفيّاً (contentDescription).",
+                  "en": "TalkBack support: every button carries a descriptive contentDescription."
+                },
+                {
+                  "ar": "دعم اتجاه RTL كامل للواجهة العربية.",
+                  "en": "Full RTL support for the Arabic interface."
+                },
+                {
+                  "ar": "عدم الاعتماد على اللون وحده: الزر النشط يتميز بالشكل والموقع أيضاً.",
+                  "en": "Color is never the only signal: the active button is also distinguished by shape and position."
+                },
+                {
+                  "ar": "نصوص مرنة تتحمل تكبير الخط دون كسر التخطيط.",
+                  "en": "Flexible text that survives font scaling without breaking the layout."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "seo",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "صفحة النشر على APKPure محسّنة بعنوان ووصف دقيقين يصفان الوظيفة: \"آلة حاسبة ناطقة بالعربية والإنجليزية\".",
+                  "en": "The APKPure listing is optimized with an accurate title and description of the function: \"Arabic and English talking calculator\"."
+                },
+                {
+                  "ar": "كلمات مفتاحية واقعية مطابقة للبحث الفعلي (حاسبة ناطقة، آلة حاسبة، تعليم الحساب).",
+                  "en": "Realistic keywords matching actual search behavior (talking calculator, speaking calculator, math learning)."
+                },
+                {
+                  "ar": "صور حقيقية من التطبيق في صفحة النشر، مع وصف بديل لكل صورة.",
+                  "en": "Real screenshots in the listing, each with an alternative description."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "لا صلاحيات حساسة: لا يطلب التطبيق أي إذن سوى الإنترنت للإعلانات.",
+                  "en": "No sensitive permissions: the app requests no permission except internet for ads."
+                },
+                {
+                  "ar": "لا تخزين لبيانات المستخدم — لا حسابات، ولا سجل عمليات.",
+                  "en": "No user data storage — no accounts, no calculation history."
+                },
+                {
+                  "ar": "السماحات الأقل امتيازاً مبدأ أساسي: تطبيق حاسبة بسيط لا يحتاج صندوق أدوات كاملاً.",
+                  "en": "Least privilege as a principle: a simple calculator does not need a full toolbox."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "اختبارات وحدة لمنطق الحساب: تعبيرات صحيحة، القسمة على صفر، ترتيب العمليات، الأعداد العشرية.",
+                  "en": "Unit tests for the calculation logic: valid expressions, division by zero, operator precedence, decimals."
+                },
+                {
+                  "ar": "اختبار يدوي على أجهزة بمستويات API مختلفة، وعلى جهاز بلا محرك عربي (التحقق من fallback).",
+                  "en": "Manual testing on devices with different API levels, and on a device without an Arabic engine (fallback verification)."
+                },
+                {
+                  "ar": "اختبار الوضعين الفاتح والداكن، والتبديل بين لغتي الصوت في منتصف الجلسة.",
+                  "en": "Testing both light and dark themes, and switching voice languages mid-session."
+                },
+                {
+                  "ar": "اختبار تدوير الشاشة للتأكد من بقاء الحالة والتعبير الحالي.",
+                  "en": "Rotation testing to confirm state and the current expression survive."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lessons",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "تهيئة TTS غير متزامنة بالكامل — معالجة onInit ليست تفصيلاً، بل عمود أساسي في التجربة.",
+                  "en": "TTS initialization is fully asynchronous — onInit handling is not a detail, it is a pillar of the experience."
+                },
+                {
+                  "ar": "فصل منطق الحساب عن الواجهة حوّل أكبر خطر (خطأ حسابي) إلى شيء تختبره وحدة الاختبار قبل أي مستخدم.",
+                  "en": "Separating calculation logic from the UI turned the biggest risk (a math bug) into something a unit test catches before any user."
+                },
+                {
+                  "ar": "الوضع الداكن التلقائي ليس \"ميزة\" — إنه سلوك يتوقعه المستخدمون اليوم، ويجب أن يتحقق دون إعدادات زائدة.",
+                  "en": "Automatic dark mode is not a \"feature\" — it is behavior users expect today, and it should be free of extra settings."
+                },
+                {
+                  "ar": "الإعلانات يجب أن تكون قابلة للإزالة من النشر دون لمس منطق التطبيق — أمكن إصدار نسخة نظيفة بتغيير بسيط.",
+                  "en": "Ads must be removable from a release without touching app logic — a clean build was a one-line change."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "التطبيق منشور ومتاح للتحميل عبر APKPure.",
+                  "en": "The app is published and available for download on APKPure."
+                },
+                {
+                  "ar": "يخدم الاستخدامين الأساسيين: تعليم الأطفال الأرقام، وإتاحة الحساب لضعاف البصر.",
+                  "en": "It serves both core uses: teaching children numbers and making calculation accessible to visually impaired users."
+                },
+                {
+                  "ar": "دورة عمل كاملة قابلة للتكرار: تصميم ← تطوير ← نشر ← توثيق.",
+                  "en": "A complete, repeatable workflow: design → development → release → documentation."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "gallery": [],
+      "meta": {
+        "description": {
+          "ar": "دراسة حالة كاملة لتطبيق الآلة الحاسبة الناطقة Calc Voice: المشكلة، العمارة، قرارات الواجهة، الأداء، إمكانية الوصول، الاختبارات، والدروس المستفادة.",
+          "en": "Full case study of the Calc Voice talking calculator app: problem, architecture, UI decisions, performance, accessibility, testing, and lessons learned."
+        },
+        "keywords": ["آلة حاسبة ناطقة", "تطبيق أندرويد", "Kotlin", "Jetpack Compose", "دراسة حالة"]
+      }
+    }
+  ]
+}

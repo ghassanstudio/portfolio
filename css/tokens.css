@@ -1,0 +1,157 @@
+﻿/* ==========================================================================
+   01. Design Tokens
+   --------------------------------------------------------------------------
+   The single source of truth for the visual language of this site.
+   Colors, type, spacing, shape and motion are defined here and nowhere else.
+   Components never hardcode values; they consume tokens only.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* -- Typography ----------------------------------------------------------- */
+
+  --font-sans: "Tajawal", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", "Fira Code", Consolas,
+    "Liberation Mono", monospace;
+
+  /* Fluid type scale: small screens take the low end, large screens the high. */
+  --text-xs: 0.75rem;   /* 12px â€” meta labels          */
+  --text-sm: 0.875rem;  /* 14px â€” secondary text       */
+  --text-base: 1rem;    /* 16px â€” body                 */
+  --text-lg: 1.125rem;  /* 18px â€” lead paragraphs      */
+  --text-xl: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+  --text-2xl: clamp(1.25rem, 1.05rem + 0.7vw, 1.5rem);
+  --text-3xl: clamp(1.5rem, 1.2rem + 1.2vw, 1.9rem);
+  --text-4xl: clamp(1.875rem, 1.4rem + 1.9vw, 2.5rem);
+  --text-5xl: clamp(2.25rem, 1.6rem + 2.6vw, 3.1rem);
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.6;
+
+  /* -- Spacing (4px base scale) ---------------------------------------------- */
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* -- Layout ---------------------------------------------------------------- */
+
+  --container-max: 72rem;      /* 1152px â€” page content            */
+  --container-narrow: 46rem;   /* 736px  â€” long-form reading       */
+  --header-h: 4rem;            /* fixed header height              */
+
+  /* -- Shape ------------------------------------------------------------------ */
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* -- Motion ------------------------------------------------------------------ */
+
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* -- Color: light theme -------------------------------------------------------- */
+
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-2: #f4f4f5;
+
+  --color-text: #18181b;
+  --color-text-muted: #52525b;
+  --color-text-faint: #71717a;
+
+  --color-border: #e4e4e7;
+  --color-border-strong: #d4d4d8;
+
+  --color-accent: #1d4ed8;
+  --color-accent-hover: #1e40af;
+  --color-accent-soft: rgba(29, 78, 216, 0.08);
+  --color-on-accent: #ffffff;
+
+  --color-success: #166534;
+  --color-success-soft: rgba(22, 101, 52, 0.1);
+  --color-warning: #92400e;
+  --color-warning-soft: rgba(146, 64, 14, 0.1);
+  --color-error: #b91c1c;
+  --color-error-soft: rgba(185, 28, 28, 0.1);
+
+  --color-focus: #1d4ed8;
+
+  --shadow-sm: 0 1px 2px rgba(24, 24, 27, 0.05);
+  --shadow-md: 0 2px 8px rgba(24, 24, 27, 0.06), 0 8px 24px rgba(24, 24, 27, 0.07);
+  --shadow-lg: 0 12px 32px rgba(24, 24, 27, 0.12);
+}
+
+/* -- Dark theme: toggled via <html data-theme="dark"> ---------------------------- */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #0c0e12;
+  --color-surface: #14161c;
+  --color-surface-2: #1b1e26;
+
+  --color-text: #e8eaf0;
+  --color-text-muted: #a0a7b3;
+  --color-text-faint: #868d9a;
+
+  --color-border: #262a34;
+  --color-border-strong: #333847;
+
+  --color-accent: #8ab4f8;
+  --color-accent-hover: #a5c5fb;
+  --color-accent-soft: rgba(138, 180, 248, 0.12);
+  --color-on-accent: #0c0e12;
+
+  --color-success: #4ade80;
+  --color-success-soft: rgba(74, 222, 128, 0.12);
+  --color-warning: #fbbf24;
+  --color-warning-soft: rgba(251, 191, 36, 0.12);
+  --color-error: #f87171;
+  --color-error-soft: rgba(248, 113, 113, 0.12);
+
+  --color-focus: #8ab4f8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   02. Responsive Breakpoints
+   --------------------------------------------------------------------------
+   Mobile-first breakpoints for responsive design.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --text-xl: 1.125rem;
+    --text-2xl: 1.25rem;
+    --text-3xl: 1.5rem;
+    --text-4xl: 1.875rem;
+    --text-5xl: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-xl: 1rem;
+    --text-2xl: 1.125rem;
+    --text-3xl: 1.25rem;
+    --text-4xl: 1.5rem;
+    --text-5xl: 1.875rem;
+  }
+}

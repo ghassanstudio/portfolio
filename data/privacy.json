@@ -1,0 +1,11 @@
+{
+  "$doc": "Privacy policy page — minimal, professional, machine-readable.",
+  "en": {
+    "pageTitle": "Privacy Policy",
+    "pageLead": "What information we collect, how we use it, and your rights."
+  },
+  "ar": {
+    "pageTitle": "سياسة الخصوصية",
+    "pageLead": "ما المعلومات التي نجمعها، وكيف نستخدمها، ونحقوقك."
+  }
+}

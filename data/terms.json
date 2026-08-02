@@ -1,0 +1,11 @@
+{
+  "$doc": "Terms of use page — professional, minimal, machine-readable.",
+  "en": {
+    "pageTitle": "Terms of Use",
+    "pageLead": "Terms of use for this website and permitted usage rights."
+  },
+  "ar": {
+    "pageTitle": "شروط الاستخدام",
+    "pageLead": "شروط استخدام هذا الموقع وحقوق الاستخدام المسموح بها."
+  }
+}
