@@ -41,12 +41,12 @@
       "label": { "ar": "سنوات خبرة", "en": "years of experience" }
     },
     {
-      "value": "50+",
-      "label": { "ar": "مشروع", "en": "projects delivered" }
+      "value": "0",
+      "label": { "ar": "أطر عمل على هذا الموقع", "en": "frameworks on this site" }
     },
     {
-      "value": "30+",
-      "label": { "ar": "عميل", "en": "clients" }
+      "value": "2",
+      "label": { "ar": "لغتا محتوى", "en": "content languages" }
     }
   ],
   "about": {

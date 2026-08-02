@@ -14,6 +14,7 @@ const CONTENT_MARKER = {
   home: "#hero .hero__content h1",
   projects: "#project-list-rows .project-row",
   "project-detail": "#case-study h1",
+  "blog-post-detail": "#blog-post-title",
   about: "#main h1",
   blog: "#main h1",
   contact: "#main h1",

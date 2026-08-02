@@ -62,6 +62,21 @@ for (const article of articles) {
   if (!/^[a-z0-9-]+$/.test(article.id)) fail(`article id "${article.id}" must be [a-z0-9-]`, `data/articles.json (${article.id})`);
 }
 
+/* -- Open Graph images referenced by the HTML heads -------------------------- */
+
+for (const file of fs.readdirSync(ROOT)) {
+  if (!file.endsWith(".html")) continue;
+  const html = fs.readFileSync(path.join(ROOT, file), "utf8");
+  const ref = `${file} (og:image)`;
+  const matches = [...html.matchAll(/property="og:image"[^>]*content="([^"]+)"/g)];
+  if (!matches.length) fail(`no og:image declared`, ref);
+  for (const match of matches) {
+    const url = match[1];
+    let rel = url.replace(/^https?:\/\/[^/]+/, "").replace(/^\//, "");
+    if (rel.startsWith("assets/") && !fs.existsSync(path.join(ROOT, rel))) fail(rel, ref);
+  }
+}
+
 /* -- Summary ---------------------------------------------------------------- */
 
 if (failures) {

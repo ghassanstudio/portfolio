@@ -27,6 +27,7 @@ export const PAGES = [
   { path: "index.html", name: "home" },
   { path: "projects.html", name: "projects" },
   { path: "project.html?id=calc-voice", name: "project-detail" },
+  { path: "blog-post.html?id=playwright-qa-without-build", name: "blog-post-detail" },
   { path: "about.html", name: "about" },
   { path: "blog.html", name: "blog" },
   { path: "contact.html", name: "contact" },
@@ -41,7 +42,14 @@ export const PAGES = [
 export const NOINDEX_PAGES = new Set(["404.html"]);
 
 /** The production domain used in canonical/OG URLs (data/settings.json `url`). */
-export const PROD_HOST = "ghassanabdulkhaliq92-commits.github.io";
+export const PROD_HOST = "ghassanstudio.github.io";
+
+/**
+ * The base path the site is published under on the production domain.
+ * The repo deploys to `https://<PROD_HOST>/<BASE_PATH>/`, so every
+ * canonical/OG URL carries this prefix.
+ */
+export const BASE_PATH = "/portfolio-v";
 
 /** Read and parse a JSON data file from disk (test-side copy of the data). */
 export async function readData(name) {

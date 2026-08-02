@@ -12,7 +12,7 @@
  */
 
 import { test, expect } from "@playwright/test";
-import { PAGES, LANGS, PROD_HOST, NOINDEX_PAGES, isMobileProject } from "../helpers/site.mjs";
+import { PAGES, LANGS, PROD_HOST, BASE_PATH, NOINDEX_PAGES, isMobileProject } from "../helpers/site.mjs";
 import { openPage } from "../helpers/open.mjs";
 import { expectClean } from "../helpers/quality.mjs";
 
@@ -100,7 +100,10 @@ for (const entry of PAGES) {
       expect(host, `${label}: canonical host must be ${PROD_HOST} (got "${host}")`).toBe(PROD_HOST);
       const canonicalPath = canonicalPathname(seo.canonical);
       const pagePath = new URL(page.url()).pathname;
-      const expectedPaths = pagePath === "/index.html" ? ["/", "/index.html"] : [pagePath];
+      const expectedPaths =
+        pagePath === "/index.html"
+          ? [`${BASE_PATH}/`, `${BASE_PATH}/index.html`]
+          : [`${BASE_PATH}${pagePath}`];
       expect(
         expectedPaths.includes(canonicalPath),
         `${label}: canonical path "${canonicalPath}" should match "${expectedPaths.join(" or ")}"`
@@ -138,7 +141,7 @@ for (const entry of PAGES) {
       expect(seo.h1Count, `${label}: exactly one h1 expected`).toBe(1);
 
       // JSON-LD on document pages.
-      if (entry.name === "project-detail") {
+      if (entry.name === "project-detail" || entry.name === "blog-post-detail") {
         expect(seo.jsonLd, `${label}: JSON-LD structured data missing`).toBeTruthy();
         expect(seo.jsonLd["@type"]).toBe("Article");
         expect(seo.jsonLd.headline, `${label}: JSON-LD headline empty`).toBeTruthy();

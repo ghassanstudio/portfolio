@@ -24,22 +24,71 @@ function setPageMeta(article) {
   setMeta("property", "og:description", description);
   setMeta("property", "og:locale", settings.ogLocales?.[lang] ?? lang);
   setMeta("property", "og:url", url);
+  setJsonLd(article, lang, url);
+}
+
+/** Structured data for search engines — rebuilt from the same JSON source. */
+function setJsonLd(article, lang, url) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title?.[lang],
+    description: article.summary?.[lang] ?? article.meta?.description?.[lang],
+    author: { "@type": "Person", name: getProfile().name?.[lang] },
+    inLanguage: lang,
+    datePublished: article.published ?? article.date,
+    mainEntityOfPage: url,
+  };
+  let script = document.getElementById("ld-json");
+  if (!script) {
+    script = document.createElement("script");
+    script.id = "ld-json";
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data);
+}
+
+/** Render a block of the article model: p, h2/h3, ul, code, quote. */
+function renderBlocks(blocks, lang) {
+  return (blocks ?? [])
+    .map((block) => {
+      switch (block.type) {
+        case "p":
+          return `<p class="doc-block">${escapeHTML(block.text?.[lang] ?? "")}</p>`;
+        case "h2":
+          return `<h2 class="blog-post-heading">${escapeHTML(block.text?.[lang] ?? "")}</h2>`;
+        case "h3":
+          return `<h3 class="blog-post-heading">${escapeHTML(block.text?.[lang] ?? "")}</h3>`;
+        case "ul":
+          return `<ul class="doc-list">${(block.items ?? [])
+            .map((item) => `<li>${escapeHTML(typeof item === "string" ? item : item?.[lang] ?? "")}</li>`)
+            .join("")}</ul>`;
+        case "code":
+          return `<pre class="doc-code"><code>${escapeHTML(block.code ?? "")}</code></pre>`;
+        case "quote":
+          return `<blockquote class="doc-quote">${escapeHTML(block.text?.[lang] ?? "")}</blockquote>`;
+        default:
+          return "";
+      }
+    })
+    .join("");
 }
 
 function renderBlogPost(article) {
   const lang = currentLang();
-  const content = article.content?.[lang] ?? article.content ?? "";
+  const published = article.published ?? article.date ?? "";
 
   $("#blog-post-title").textContent = article.title?.[lang] ?? "";
-  $("#blog-post-published").textContent = article.published ?? "";
-  $("#blog-post-published").setAttribute("datetime", article.published ?? "");
+  $("#blog-post-published").textContent = published;
+  $("#blog-post-published").setAttribute("datetime", published);
   $("#blog-post-read-time").textContent = `${article.readTime ?? article.readingMinutes ?? 0} ${t("blogPost.readingTime")}`;
 
   renderInto(
     $("#blog-post-content"),
     `
     <article class="blog-post-body">
-      <div class="blog-post-content">${escapeHTML(content)}</div>
+      <div class="blog-post-content">${renderBlocks(article.body?.[lang], lang)}</div>
     </article>
     `
   );

@@ -1,4 +1,117 @@
 {
-  "$doc": "Blog articles. Empty by design — the structure is ready, and publishing is a matter of appending an entry. Schema is documented in data/README.md.",
-  "articles": []
+  "$doc": "Blog articles. Schema is documented in data/README.md: body blocks of type p, h2, h3, ul (with items), code (with lang + code), quote.",
+  "articles": [
+    {
+      "id": "playwright-qa-without-build",
+      "slug": "playwright-qa-without-build",
+      "title": {
+        "ar": "جودة مضمونة بدون خطوة بناء: اختبار هذا الموقع بـ Playwright",
+        "en": "Guaranteed quality without a build step: testing this site with Playwright"
+      },
+      "summary": {
+        "ar": "موقع بلا أي أدوات بناء لا يعني موقعاً بلا اختبارات. كيف يعمل نظام فحص كامل هنا عبر ثلاثة محركات متصفح ومقاسين للشاشة، على خادم ثابت بسيط؟",
+        "en": "A site with no build tooling is not a site without tests. How a full QA matrix runs here across three browser engines and two viewports, on a plain static server."
+      },
+      "date": "2026-06-12",
+      "readingMinutes": 5,
+      "tags": ["testing", "playwright", "quality"],
+      "body": {
+        "ar": [
+          { "type": "p", "text": { "ar": "هذا الموقع يخرج كملفات HTML وCSS وJavaScript خالصة — لا بندلر ولا خطوة بناء ولا أطر عمل. لكن غياب أداة البناء لا يعني غياب الضمانات. بدل ذلك، أضع الضمان في طبقة اختبار كاملة تعمل في التطوير وقبل أي نشر.", "en": "" } },
+          { "type": "h2", "text": { "ar": "الإعداد", "en": "" } },
+          { "type": "p", "text": { "ar": "يمرّ Playwright الموقع عبر ثلاثة محركات متصفح حقيقية — Chromium وFirefox وWebKit — وبمقاسين للشاشة: مكتبي 1280×800 وجوال 390×844. التشغيل أمر واحد:", "en": "" } },
+          { "type": "code", "lang": "bash", "code": "npx playwright test" },
+          { "type": "h2", "text": { "ar": "مصدر حقيقة واحد", "en": "" } },
+          { "type": "p", "text": { "ar": "الملف tests/helpers/site.mjs يعلن كل صفحة ولغة وثيم ومقاس يهم النظام. الاختبارات لا تكرر القوائم — بل تتكرر فوقها، فإضافة صفحة جديدة تعني سطراً واحداً يفعّل كل الفحوص تلقائياً.", "en": "" } },
+          { "type": "ul", "items": [
+            { "ar": "كل صفحة × كل لغة × كل ثيم تُختبر فعلياً.", "en": "" },
+            { "ar": "الـ canonical و Open Graph تُفحص ضد نطاق الإنتاج الحقيقي.", "en": "" },
+            { "ar": "صفر أخطاء Console وصفر طلبات فاشلة — عبر كل المتصفحات.", "en": "" }
+          ] },
+          { "type": "h2", "text": { "ar": "خادم ثابت بلا اعتماديات", "en": "" } },
+          { "type": "p", "text": { "ar": "الاختبارات تعمل فوق خادم node:http مكتوب يدوياً يخدم جذر المستودع مباشرة، فلا يحتاج أي تثبيت إضافي:", "en": "" } },
+          { "type": "code", "lang": "bash", "code": "node tests/static-server.mjs --port 4173" },
+          { "type": "h2", "text": { "ar": "حراسة الأصول", "en": "" } },
+          { "type": "p", "text": { "ar": "قبل أي نشر يعمل tools/check-assets.mjs: أي صورة أو صفحة داخلية يُشار إليها في ملفات البيانات يجب أن تكون موجودة فعلياً على القرص، وإلا يفشل الفحص قبل أن يصل الكسر إلى الزائر.", "en": "" } },
+          { "type": "quote", "text": { "ar": "الموقع لا يتحقق من أصوله وقت التشغيل — بل يضمن وجودها قبل النشر.", "en": "" } },
+          { "type": "p", "text": { "ar": "النتيجة: تغيير جريء في التصميم أو البيانات لا يُنشر أبداً دون أن يمر أولاً عبر مئات الفحوص على ثلاثة محركات متصفح.", "en": "" } }
+        ],
+        "en": [
+          { "type": "p", "text": { "ar": "", "en": "This site ships as plain HTML, CSS and JavaScript — no bundler, no build step, no frameworks. But the absence of build tooling is not the absence of guarantees. Instead, the guarantee lives in a full test layer that runs in development and before any release." } },
+          { "type": "h2", "text": { "ar": "", "en": "The setup" } },
+          { "type": "p", "text": { "ar": "", "en": "Playwright drives the site through three real browser engines — Chromium, Firefox and WebKit — at two viewports: desktop 1280×800 and mobile 390×844. Running the whole matrix is one command:" } },
+          { "type": "code", "lang": "bash", "code": "npx playwright test" },
+          { "type": "h2", "text": { "ar": "", "en": "A single source of truth" } },
+          { "type": "p", "text": { "ar": "", "en": "The file tests/helpers/site.mjs declares every page, language, theme and viewport the suite cares about. The specs do not repeat those lists — they iterate over them, so adding a page is one line that turns on every check automatically." } },
+          { "type": "ul", "items": [
+            { "ar": "", "en": "Every page × language × theme is exercised for real." },
+            { "ar": "", "en": "Canonical and Open Graph hosts are asserted against the actual production domain." },
+            { "ar": "", "en": "Zero console errors and zero failed requests — across all engines." }
+          ] },
+          { "type": "h2", "text": { "ar": "", "en": "A dependency-free static server" } },
+          { "type": "p", "text": { "ar": "", "en": "The suite runs against a hand-written node:http server that serves the repo root directly, so nothing extra needs installing:" } },
+          { "type": "code", "lang": "bash", "code": "node tests/static-server.mjs --port 4173" },
+          { "type": "h2", "text": { "ar": "", "en": "Guarding the assets" } },
+          { "type": "p", "text": { "ar": "", "en": "Before any release, tools/check-assets.mjs runs: every image or internal page referenced by the data files must actually exist on disk, or the check fails before the breakage reaches a visitor." } },
+          { "type": "quote", "text": { "ar": "", "en": "The site never probes its assets at runtime — it guarantees they exist before publish." } },
+          { "type": "p", "text": { "ar": "", "en": "The result: a bold change to design or data never ships until it has first passed hundreds of checks on three browser engines." } }
+        ]
+      }
+    },
+    {
+      "id": "lighthouse-without-frameworks",
+      "slug": "lighthouse-without-frameworks",
+      "title": {
+        "ar": "Lighthouse قريب من الكمال بدون أطر عمل: هندسة هذا الموقع",
+        "en": "Near-perfect Lighthouse without frameworks: how this site is engineered"
+      },
+      "summary": {
+        "ar": "كيف يحصل موقع مرتكز على HTML وCSS وJavaScript خالصة على نتائج قريبة من 100/100 في Lighthouse؟ هذه هي القرارات التي تجعل ذلك ممكناً — والأمر الذي يبقيها كذلك.",
+        "en": "How does a site built on plain HTML, CSS and JavaScript score near 100/100 on Lighthouse? These are the decisions that make it possible — and the habit that keeps it there."
+      },
+      "date": "2026-06-28",
+      "readingMinutes": 6,
+      "tags": ["performance", "lighthouse", "web"],
+      "body": {
+        "ar": [
+          { "type": "p", "text": { "ar": "لا أطر عمل، لا بندلر، لا خطوة بناء — ومع ذلك يستهدف هذا الموقع نتائج قريبة من الكمال في Lighthouse. ليس بالصدفة، بل بقرارات هندسية تظهر في كل ملف.", "en": "" } },
+          { "type": "h2", "text": { "ar": "ماذا تعني \"قريبة من الكمال\"؟", "en": "" } },
+          { "type": "p", "text": { "ar": "Lighthouse يقيس أربعة محاور: الأداء، إمكانية الوصول، أفضل الممارسات، وSEO. الهدف هنا تجاوز 95 في كل المحاور مع عزل كل قياس بمتصفح نظيف وجلسة تصفح خاصة.", "en": "" } },
+          { "type": "h2", "text": { "ar": "نظام تصميم، لا فوضى كاسكيد", "en": "" } },
+          { "type": "p", "text": { "ar": "css/tokens.css يحمل لوحة الألوان، المسافات، الزوايا، ومقياس الطباعة كمتغيرات. لا توجد ألوان عشوائية في صفحات العرض — كل مكوّن يستهلك رمزاً من النظام، فيبقى التباين متحكماً به والملف قابلاً للتهيئة.", "en": "" } },
+          { "type": "h2", "text": { "ar": "المحتوى كبيانات", "en": "" } },
+          { "type": "p", "text": { "ar": "كل نص في الموقع يعيش في ملفات data/*.json، يُحمَّل مرة واحدة وتُعرضه وحدات JS صغيرة. لا عناصر DOM مزخرفة قبل الحاجة، ولا وحدات ثقيلة عند التحميل الابتدائي.", "en": "" } },
+          { "type": "ul", "items": [
+            { "ar": "أحجام نقل صغيرة تُخدَّم كـ JSON قابل للتخزين المؤقت.", "en": "" },
+            { "ar": "لا اعتماديات وقت تشغيل — الموقع يعمل بما يأتي مع المتصفح.", "en": "" },
+            { "ar": "الخط العربي يُحمَّل عبر preconnect و display=swap مع احتياطيات النظام.", "en": "" }
+          ] },
+          { "type": "h2", "text": { "ar": "مقاس، لا تخمين", "en": "" } },
+          { "type": "p", "text": { "ar": "أشغّل Lighthouse على العنوان المنشور فعلاً بمتصفح نظيف، وأتعامل مع أي انخفاض تحت 95 كخلل يصلح قبل الإطلاق:", "en": "" } },
+          { "type": "code", "lang": "bash", "code": "npx lighthouse https://ghassanstudio.github.io/portfolio-v/ --preset=desktop" },
+          { "type": "quote", "text": { "ar": "الأداء خاصية تتحقق منها في كل إصدار، لا عملية تحسين لمرة واحدة.", "en": "" } },
+          { "type": "p", "text": { "ar": "الموقع هنا يشهد على ذلك: HTML وCSS وJS خالصة، ونتائج قريبة من الكمال تُعاد قياسها عند كل تغيير.", "en": "" } }
+        ],
+        "en": [
+          { "type": "p", "text": { "ar": "", "en": "No frameworks, no bundler, no build step — and yet this site targets near-perfect Lighthouse scores. Not by accident, but by engineering decisions visible in every file." } },
+          { "type": "h2", "text": { "ar": "", "en": "What \"near-perfect\" means" } },
+          { "type": "p", "text": { "ar": "", "en": "Lighthouse measures four axes: Performance, Accessibility, Best Practices and SEO. The target here is above 95 on every axis, with each measurement taken in a clean incognito profile against the deployed URL." } },
+          { "type": "h2", "text": { "ar": "", "en": "Design tokens, not cascade soup" } },
+          { "type": "p", "text": { "ar": "", "en": "css/tokens.css holds the palette, spacing, radii and type scale as variables. There are no random colors in the view layers — every component consumes a token, so contrast stays controlled and the file stays configurable." } },
+          { "type": "h2", "text": { "ar": "", "en": "Content as data" } },
+          { "type": "p", "text": { "ar": "", "en": "Every string on the site lives in data/*.json, loaded once and rendered by small JS modules. No decorative DOM before it is needed, and no heavy modules on the initial load." } },
+          { "type": "ul", "items": [
+            { "ar": "", "en": "Small payloads served as cacheable JSON." },
+            { "ar": "", "en": "Zero runtime dependencies — the site runs on what the browser ships." },
+            { "ar": "", "en": "The Arabic font loads with preconnect and display=swap, plus system fallbacks." }
+          ] },
+          { "type": "h2", "text": { "ar": "", "en": "Measured, not assumed" } },
+          { "type": "p", "text": { "ar": "", "en": "I run Lighthouse against the live URL in a clean browser and treat any drop below 95 as a bug to fix before release:" } },
+          { "type": "code", "lang": "bash", "code": "npx lighthouse https://ghassanstudio.github.io/portfolio-v/ --preset=desktop" },
+          { "type": "quote", "text": { "ar": "", "en": "Performance is a property you verify on every release, not a one-time optimization." } },
+          { "type": "p", "text": { "ar": "", "en": "This site is the proof: plain HTML, CSS and JS, with near-perfect scores re-measured on every change." } }
+        ]
+      }
+    }
+  ]
 }

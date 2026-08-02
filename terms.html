@@ -7,17 +7,18 @@
     <meta name="description" content="شروط استخدام هذا الموقع وحقوق الاستخدام المسموح بها.">
     <meta name="author" content="Ghassan Abdulkhaliq">
     <meta name="color-scheme" content="light dark">
-    <link rel="canonical" href="https://ghassanabdulkhaliq92-commits.github.io/terms.html">
+    <link rel="canonical" href="https://ghassanstudio.github.io/portfolio-v/terms.html">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="شروط الاستخدام · غسان عبدالخالق">
     <meta property="og:description" content="شروط استخدام هذا الموقع وحقوق الاستخدام المسموح بها.">
-    <meta property="og:url" content="https://ghassanabdulkhaliq92-commits.github.io/terms.html">
+    <meta property="og:url" content="https://ghassanstudio.github.io/portfolio-v/terms.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_IQ">
+    <meta property="og:image" content="https://ghassanstudio.github.io/portfolio-v/assets/images/og/og-default.png">
     <meta property="og:title" content="Terms of Use · Ghassan Abdulkhaliq">
     <meta property="og:description" content="Terms of use for this website and permitted usage rights.">
-    <meta property="og:url" content="https://ghassanabdulkhaliq92-commits.github.io/terms.html">
+    <meta property="og:url" content="https://ghassanstudio.github.io/portfolio-v/terms.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <script>
@@ -25,7 +26,9 @@
         (function () {
             try {
                 var html = document.documentElement;
-                var lang = localStorage.getItem("portfolio-v.lang") || html.dataset.defaultLang || "ar";
+                var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || "").toLowerCase();
+                var browserLang = nav.indexOf("ar") === 0 ? "ar" : (nav ? "en" : null);
+                var lang = localStorage.getItem("portfolio-v.lang") || browserLang || html.dataset.defaultLang || "ar";
                 html.lang = lang;
                 html.dir = lang === "ar" ? "rtl" : "ltr";
                 var theme = localStorage.getItem("portfolio-v.theme");

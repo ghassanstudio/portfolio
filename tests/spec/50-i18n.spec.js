@@ -8,7 +8,14 @@ import { PAGES, LANGS, isMobileProject } from "../helpers/site.mjs";
 import { openPage } from "../helpers/open.mjs";
 import { expectClean } from "../helpers/quality.mjs";
 
-test("default language is Arabic with RTL direction", async ({ page }) => {
+// A brand-new visitor's language is detected from the browser locale
+// (js/i18n.js browserLang()): Arabic browsers get Arabic, everyone else
+// English. These tests run under an Arabic locale so the site's Arabic
+// default is exercised deterministically; the browser-language detection
+// itself is covered by the "first-visit detection" describe block below.
+test.use({ locale: "ar-IQ" });
+
+test("Arabic-locale first visit: default language is Arabic with RTL direction", async ({ page }) => {
   const quality = await openPage(page, "index.html");
   await expect(page.locator("html")).toHaveAttribute("lang", "ar");
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
@@ -31,6 +38,30 @@ test("?lang=ar forces Arabic and RTL", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
   await expect(page.locator("h1").first()).toContainText(/هندسة/i);
   expectClean(quality.snapshot(), "index.html?lang=ar");
+});
+
+test.describe("first-visit browser-language detection", () => {
+  test.use({ locale: "en-US" });
+
+  test("English-locale first visit resolves to English and LTR", async ({ page }) => {
+    const quality = await openPage(page, "index.html");
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
+    await expect(page.locator(".site-nav a", { hasText: "Projects" })).toHaveCount(1);
+    await expect(page.locator("h1").first()).toContainText(/Digital products/i);
+    expectClean(quality.snapshot(), "index.html first-visit en");
+  });
+});
+
+test.describe("first-visit browser-language detection", () => {
+  test.use({ locale: "fr-FR" });
+
+  test("French-locale first visit falls back to English, not Arabic", async ({ page }) => {
+    const quality = await openPage(page, "index.html");
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
+    expectClean(quality.snapshot(), "index.html first-visit fr");
+  });
 });
 
 test("the in-page toggle flips language, direction, and persists", async ({ page }) => {

@@ -1,6 +1,6 @@
 {
   "$doc": "Site settings. The only place where the domain, languages and nav structure live.",
-  "url": "https://ghassanabdulkhaliq92-commits.github.io",
+  "url": "https://ghassanstudio.github.io/portfolio-v",
   "langs": ["ar", "en"],
   "defaultLang": "ar",
   "localeMap": {

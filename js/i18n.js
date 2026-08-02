@@ -31,11 +31,26 @@ function storedLang() {
   }
 }
 
+/**
+ * Best-effort language for a brand-new visitor (no ?lang, no stored
+ * preference): Arabic browsers get Arabic, everyone else gets English.
+ * Returns null when the browser exposes no usable language, in which case
+ * the site default applies. Never persists — a first visit is not a choice.
+ */
+function browserLang() {
+  const raw = navigator.language || (navigator.languages && navigator.languages[0]) || "";
+  const code = String(raw).toLowerCase();
+  if (code.startsWith("ar")) return "ar";
+  if (code) return "en";
+  return null;
+}
+
 /** Resolve the effective language without side effects. */
 export function currentLang() {
   const candidates = [
     getParam("lang"),
     storedLang(),
+    browserLang(),
     getSettings().defaultLang,
     "ar",
   ];
