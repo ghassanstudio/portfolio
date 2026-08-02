@@ -17,6 +17,46 @@ function sectionHead(id, kicker, title) {
   return `<p class="section-head__kicker">${escapeHTML(kicker)}</p><h2 id="${id}">${escapeHTML(title)}</h2>`;
 }
 
+/**
+ * Rotating job title: every title occupies the same grid cell, so the element
+ * keeps the width of the widest title and nothing else shifts (CLS = 0).
+ */
+function rotatingTitles() {
+  const lang = currentLang();
+  const titles = Array.isArray(t("home.rotatingTitles"))
+    ? t("home.rotatingTitles")
+    : [];
+  if (!titles.length) return "";
+  const items = titles
+    .map(
+      (title, index) =>
+        `<span class="rotating-title__item${index === 0 ? " is-active" : ""}" aria-hidden="true">${escapeHTML(title)}</span>`
+    )
+    .join("");
+  const sep = lang === "ar" ? "، " : ", ";
+  return `<span class="rotating-title">${items}</span><span class="sr-only">${escapeHTML(titles.join(sep))}</span>`;
+}
+
+let rotatingTimer = null;
+
+/** Rotate titles every 3s with a smooth crossfade; static when motion is reduced. */
+function startRotatingTitles() {
+  if (rotatingTimer) {
+    clearInterval(rotatingTimer);
+    rotatingTimer = null;
+  }
+  const items = Array.from(document.querySelectorAll(".rotating-title__item"));
+  if (items.length < 2) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) return;
+  let current = 0;
+  rotatingTimer = setInterval(() => {
+    items[current]?.classList.remove("is-active");
+    current = (current + 1) % items.length;
+    items[current]?.classList.add("is-active");
+  }, 3000);
+}
+
 function projectCard(project, lang) {
   const detail = localizedHref(`project.html?id=${encodeURIComponent(project.slug ?? project.id)}`);
   const tech = (project.tech ?? []).map((item) => `<li>${escapeHTML(item)}</li>`).join("");
@@ -42,13 +82,16 @@ function renderHero() {
   const hero = profile.hero?.[lang] ?? {};
   const status = profile.status;
   const stats = profile.stats ?? [];
+  const rotatingAreas = rotatingTitles();
 
   const specRows = [
     stats[0]
       ? { key: t("home.specCard.experience"), value: `${stats[0].value} ${stats[0].label?.[lang] ?? ""}` }
       : null,
     { key: t("home.specCard.location"), value: profile.location?.[lang] ?? "" },
-    { key: t("home.specCard.areas"), value: profile.role?.[lang] ?? "" },
+    rotatingAreas
+      ? { key: t("home.specCard.areas"), html: rotatingAreas }
+      : { key: t("home.specCard.areas"), value: profile.role?.[lang] ?? "" },
   ];
   if (status?.active) {
     specRows.push({ key: t("home.specCard.status"), value: status.label?.[lang] ?? "", dot: true });
@@ -64,7 +107,7 @@ function renderHero() {
             (row) => `
           <div class="spec-card__row">
             <dt>${escapeHTML(row.key)}</dt>
-            <dd>${row.dot ? '<span class="status-dot" aria-hidden="true"></span>' : ""}${escapeHTML(row.value)}</dd>
+            <dd>${row.dot ? '<span class="status-dot" aria-hidden="true"></span>' : ""}${row.html ?? escapeHTML(row.value ?? "")}</dd>
           </div>`
           )
           .join("")}
@@ -105,10 +148,7 @@ function renderFeatured() {
     return;
   }
   const cards = projects.map((project) => projectCard(project, lang)).join("");
-  const viewAll =
-    getProjects().length > projects.length
-      ? `<a class="section-head__link" href="${escapeHTML(localizedHref("projects.html"))}">${escapeHTML(t("actions.viewAllProjects"))} <span class="link-arrow__icon" aria-hidden="true">${escapeHTML(t("actions.arrow"))}</span></a>`
-      : "";
+  const viewAll = `<a class="section-head__link" href="${escapeHTML(localizedHref("projects.html"))}">${escapeHTML(t("actions.viewAllProjects"))} <span class="link-arrow__icon" aria-hidden="true">${escapeHTML(t("actions.arrow"))}</span></a>`;
   renderInto(
     root,
     `
@@ -172,11 +212,12 @@ function renderArticles() {
       </article>`
     )
     .join("");
+  const viewAll = `<a class="section-head__link" href="${escapeHTML(localizedHref("blog.html"))}">${escapeHTML(t("actions.viewAllArticles"))} <span class="link-arrow__icon" aria-hidden="true">${escapeHTML(t("actions.arrow"))}</span></a>`;
   renderInto(
     root,
     `
     <div class="container container--narrow">
-      <div class="section-head">${sectionHead("articles-title", t("home.kickers.articles"), t("home.sections.articles"))}</div>
+      <div class="section-head">${sectionHead("articles-title", t("home.kickers.articles"), t("home.sections.articles"))}${viewAll}</div>
       <div class="article-list">${items}</div>
     </div>
     `
@@ -253,9 +294,11 @@ async function main() {
   initComponents();
   renderHome();
   setPageMeta();
+  startRotatingTitles();
   document.addEventListener("langchange", () => {
     renderHome();
     setPageMeta();
+    startRotatingTitles();
   });
 }
 

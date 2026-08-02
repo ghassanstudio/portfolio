@@ -554,6 +554,24 @@
   text-align: end;
 }
 
+/* Rotating job title: every title shares one grid cell, so the element
+   sizes to the widest title and never shifts the row (CLS = 0). */
+.rotating-title {
+  display: inline-grid;
+  grid-template-columns: max-content;
+}
+
+.rotating-title__item {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-in-out);
+}
+
+.rotating-title__item.is-active {
+  opacity: 1;
+}
+
 /* -- About excerpt ------------------------------------------------------------------------------- */
 
 .about-home__intro {

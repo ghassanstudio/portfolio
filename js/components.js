@@ -35,6 +35,23 @@ function isActive(href) {
   }
 }
 
+/**
+ * On the home page the four content sections live on the same page, so the
+ * nav links scroll to them instead of opening their own page. Everywhere
+ * else the same links navigate to the matching page as before.
+ */
+const HOME_ANCHORS = {
+  "projects.html": "#featured",
+  "about.html": "#about-home",
+  "blog.html": "#articles-home",
+  "contact.html": "#contact-home",
+};
+
+function navHref(item) {
+  if (pageName() === "index.html" && HOME_ANCHORS[item.href]) return HOME_ANCHORS[item.href];
+  return item.href;
+}
+
 function navItems() {
   return getSettings().nav.map((item) => ({
     href: item.href,
@@ -59,13 +76,13 @@ function renderHeader() {
   const desktopNav = navItems()
     .map(
       (item) =>
-        `<li><a class="nav-link" href="${escapeHTML(localizedHref(item.href))}"${item.current ? ' aria-current="page"' : ""}>${escapeHTML(item.label)}</a></li>`
+        `<li><a class="nav-link" href="${escapeHTML(localizedHref(navHref(item)))}"${item.current ? ' aria-current="page"' : ""}>${escapeHTML(item.label)}</a></li>`
     )
     .join("");
   const mobileNav = navItems()
     .map(
       (item) =>
-        `<li><a href="${escapeHTML(localizedHref(item.href))}"${item.current ? ' aria-current="page"' : ""}>${escapeHTML(item.label)}</a></li>`
+        `<li><a href="${escapeHTML(localizedHref(navHref(item)))}"${item.current ? ' aria-current="page"' : ""}>${escapeHTML(item.label)}</a></li>`
     )
     .join("");
 
@@ -217,6 +234,8 @@ function wireEvents() {
     } else if (event.target.closest("[data-menu-toggle]")) {
       setMenu(!menuIsOpen());
     } else if (event.target.closest("[data-menu-close]")) {
+      setMenu(false);
+    } else if (event.target.closest(".mobile-menu a")) {
       setMenu(false);
     }
   });

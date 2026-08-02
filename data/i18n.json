@@ -18,6 +18,7 @@
       "viewProject": "تفاصيل المشروع",
       "contactMe": "تواصل معي",
       "viewAllProjects": "عرض جميع المشاريع",
+      "viewAllArticles": "عرض جميع المقالات",
       "readMore": "اقرأ المزيد",
       "backHome": "العودة إلى الرئيسية",
       "reload": "إعادة التحميل",
@@ -176,6 +177,12 @@
         "areas": "المجالات",
         "status": "الحالة"
       },
+      "rotatingTitles": [
+        "مطور برمجيات",
+        "مطور ويب",
+        "مطور تطبيقات أندرويد",
+        "مطور ألعاب"
+      ],
       "kickers": {
         "projects": "01 · مشاريع",
         "about": "02 · عني",
@@ -230,6 +237,7 @@
       "viewProject": "Project details",
       "contactMe": "Contact me",
       "viewAllProjects": "View all projects",
+      "viewAllArticles": "View all articles",
       "readMore": "Read more",
       "backHome": "Back to home",
       "reload": "Reload",
@@ -443,6 +451,12 @@
         "areas": "Areas",
         "status": "Status"
       },
+      "rotatingTitles": [
+        "Software Developer",
+        "Web Developer",
+        "Android Developer",
+        "Game Developer"
+      ],
       "kickers": {
         "projects": "01 · Projects",
         "about": "02 · About",
