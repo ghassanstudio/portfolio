@@ -51,7 +51,7 @@
     },
     "footer": {
       "tagline": "استوديو تطوير برمجيات — الهندسة قبل المظهر.",
-      "builtWith": "هذا الموقع بُني باستخدام HTML5 وCSS3 وJavaScript — بدون أطر عمل.",
+      "builtWith": "هذا الموقع بُني باستخدام HTML5 وCSS3 وJavaScript، دون أي أطر عمل.",
       "rights": "جميع الحقوق محفوظة.",
       "quickLinks": "روابط سريعة",
       "contact": "تواصل"
@@ -329,8 +329,8 @@
       "system": "System"
     },
     "footer": {
-      "tagline": "A software development studio — engineering before aesthetics.",
-      "builtWith": "This website was built with HTML5, CSS3, and JavaScript — without frameworks.",
+      "tagline": "A software development studio — engineering over appearance.",
+      "builtWith": "This website is built with HTML5, CSS3, and JavaScript — without frameworks.",
       "rights": "All rights reserved.",
       "quickLinks": "Quick links",
       "contact": "Contact"
