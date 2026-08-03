@@ -29,13 +29,16 @@ function renderContact() {
   const lang = currentLang();
   const contact = getContact()[lang] ?? {};
   const social = contact.social ?? {};
-  const row = (label, href, handle) =>
-    href
-      ? `<li>
-          <strong>${escapeHTML(label)}:</strong>
-          <a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${escapeHTML(handle ?? href)}</a>
+  const socialList = Object.values(social)
+    .filter((item) => item?.url)
+    .map(
+      (item) => `
+        <li>
+          <span class="social-links__name">${escapeHTML(item.label ?? "")}</span>
+          <a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.handle ?? item.url)}</a>
         </li>`
-      : "";
+    )
+    .join("");
 
   renderInto(
     $("#contact-content"),
@@ -43,22 +46,18 @@ function renderContact() {
     <section class="contact-info">
       <h2>${escapeHTML(t("contact.direct.title"))}</h2>
       <div class="info-item">
-        <strong>${escapeHTML(t("contact.direct.email"))}:</strong>
-        <a href="mailto:${escapeHTML(contact.email ?? "")}">${escapeHTML(contact.email ?? "")}</a>
+        <span class="info-item__label">${escapeHTML(t("contact.direct.email"))}</span>
+        <a class="info-item__value" href="mailto:${escapeHTML(contact.email ?? "")}">${escapeHTML(contact.email ?? "")}</a>
       </div>
       <div class="info-item">
-        <strong>${escapeHTML(t("contact.direct.location"))}:</strong>
-        ${escapeHTML(contact.location ?? "")}
+        <span class="info-item__label">${escapeHTML(t("contact.direct.location"))}</span>
+        <span class="info-item__value">${escapeHTML(contact.location ?? "")}</span>
       </div>
     </section>
 
     <section class="social-links">
-      <h2>Social networks</h2>
-      <ul>
-        ${row("GitHub", social.github?.url, social.github?.handle)}
-        ${row("LinkedIn", social.linkedin?.url, social.linkedin?.handle)}
-        ${row("WhatsApp", social.whatsapp?.url, social.whatsapp?.handle)}
-      </ul>
+      <h2>${escapeHTML(contact.socialTitle ?? "")}</h2>
+      <ul>${socialList}</ul>
     </section>
     `
   );

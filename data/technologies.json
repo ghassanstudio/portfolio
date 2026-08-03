@@ -1,0 +1,105 @@
+{
+  "$doc": "Technologies page content — the technologies actually used across this portfolio's projects, grouped by category. No skill levels, no percentages, no marketing claims: only what is really used.",
+  "en": {
+    "categories": [
+      {
+        "slug": "languages",
+        "title": "Programming Languages",
+        "items": [
+          "HTML5",
+          "CSS3",
+          "JavaScript (ES6+)",
+          "Kotlin",
+          "Java",
+          "PHP",
+          "SQL"
+        ]
+      },
+      {
+        "slug": "platforms",
+        "title": "Platforms & Technologies",
+        "items": [
+          "Firebase",
+          "Material Design 3",
+          "Progressive Web Apps (PWA)",
+          "REST APIs"
+        ]
+      },
+      {
+        "slug": "tools",
+        "title": "Development Tools",
+        "items": [
+          "Git",
+          "GitHub",
+          "GitHub Pages",
+          "VS Code",
+          "Android Studio",
+          "Playwright",
+          "Node.js",
+          "npm",
+          "Composer",
+          "XAMPP"
+        ]
+      },
+      {
+        "slug": "databases",
+        "title": "Databases",
+        "items": [
+          "Firestore",
+          "MySQL"
+        ]
+      }
+    ]
+  },
+  "ar": {
+    "categories": [
+      {
+        "slug": "languages",
+        "title": "لغات البرمجة",
+        "items": [
+          "HTML5",
+          "CSS3",
+          "JavaScript (ES6+)",
+          "Kotlin",
+          "Java",
+          "PHP",
+          "SQL"
+        ]
+      },
+      {
+        "slug": "platforms",
+        "title": "المنصات والتقنيات",
+        "items": [
+          "Firebase",
+          "Material Design 3",
+          "Progressive Web Apps (PWA)",
+          "REST APIs"
+        ]
+      },
+      {
+        "slug": "tools",
+        "title": "أدوات التطوير",
+        "items": [
+          "Git",
+          "GitHub",
+          "GitHub Pages",
+          "VS Code",
+          "Android Studio",
+          "Playwright",
+          "Node.js",
+          "npm",
+          "Composer",
+          "XAMPP"
+        ]
+      },
+      {
+        "slug": "databases",
+        "title": "قواعد البيانات",
+        "items": [
+          "Firestore",
+          "MySQL"
+        ]
+      }
+    ]
+  }
+}

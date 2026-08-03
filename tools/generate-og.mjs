@@ -56,7 +56,7 @@ const html = `<!DOCTYPE html>
   </div>
   <div class="footer">
     <div>دراسات حالة هندسية موثقة — Engineering case studies</div>
-    <div class="url accent">ghassanstudio.github.io/portfolio-v</div>
+    <div class="url accent">ghassanstudio.github.io/portfolio</div>
   </div>
 </body>
 </html>`;

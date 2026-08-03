@@ -29,6 +29,7 @@ export const PAGES = [
   { path: "project.html?id=calc-voice", name: "project-detail" },
   { path: "blog-post.html?id=playwright-qa-without-build", name: "blog-post-detail" },
   { path: "about.html", name: "about" },
+  { path: "technologies.html", name: "technologies" },
   { path: "blog.html", name: "blog" },
   { path: "contact.html", name: "contact" },
   { path: "faq.html", name: "faq" },
@@ -49,7 +50,7 @@ export const PROD_HOST = "ghassanstudio.github.io";
  * The repo deploys to `https://<PROD_HOST>/<BASE_PATH>/`, so every
  * canonical/OG URL carries this prefix.
  */
-export const BASE_PATH = "/portfolio-v";
+export const BASE_PATH = "/portfolio";
 
 /** Read and parse a JSON data file from disk (test-side copy of the data). */
 export async function readData(name) {

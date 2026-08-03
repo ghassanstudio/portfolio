@@ -10,7 +10,7 @@
 
 import { installQualityMonitor } from "./quality.mjs";
 
-const STORAGE = { lang: "portfolio-v.lang", theme: "portfolio-v.theme" };
+const STORAGE = { lang: "portfolio.lang", theme: "portfolio.theme" };
 
 /**
  * Open a site page and wait for the shared chrome (header nav) to mount.
@@ -30,10 +30,10 @@ export async function openPage(page, path, options = {}) {
           // Seed the preference once per context only. Running on every
           // navigation (including reload) would overwrite a choice the page
           // itself just persisted.
-          if (sessionStorage.getItem("portfolio-v.seeded")) return;
-          if (lang) localStorage.setItem("portfolio-v.lang", lang);
-          if (theme) localStorage.setItem("portfolio-v.theme", theme);
-          sessionStorage.setItem("portfolio-v.seeded", "1");
+          if (sessionStorage.getItem("portfolio.seeded")) return;
+          if (lang) localStorage.setItem("portfolio.lang", lang);
+          if (theme) localStorage.setItem("portfolio.theme", theme);
+          sessionStorage.setItem("portfolio.seeded", "1");
         } catch {
           /* storage unavailable — ignore */
         }

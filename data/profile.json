@@ -1,8 +1,8 @@
 {
   "$doc": "Personal profile. Everything about the person behind the site. Hero answers three questions in five seconds: who I am, what I build, why to trust me.",
   "name": {
-    "ar": "غسان عبدالخالق",
-    "en": "Ghassan Abdulkhaliq"
+    "ar": "Ghassan Studio",
+    "en": "Ghassan Studio"
   },
   "initials": "GA",
   "role": {
@@ -23,22 +23,22 @@
   },
   "hero": {
     "ar": {
-      "kicker": "مطوّر منذ 2019 — HTML5 · CSS · JavaScript · Kotlin",
-      "headline": "منتجات رقمية مبنية على هندسة سليمة، لا على قوالب جاهزة.",
-      "subheadline": "أبني مواقع وتطبيقات أندرويد أوثّق فيها القرارات الهندسية والقياسات. كل مشروع هنا يحمل دراسة حالة كاملة: المشكلة، والعمارة، والاختبار، وما تعلمته.",
-      "evidence": "قارن بنفسك: هذه الصفحة نفسها — بدون أطر عمل، ونتائج Lighthouse قريبة من 100/100."
+      "kicker": "",
+      "headline": "أطوّر مواقع الويب، تطبيقات Android، والألعاب منذ عام 2019.",
+      "subheadline": "أصمّم وأطوّر حلولًا رقمية حديثة تشمل مواقع الويب، تطبيقات Android، والألعاب، مع التركيز على الأداء، وجودة التنفيذ، وتجربة مستخدم احترافية.",
+      "evidence": "هذا الموقع نفسه بُني بدون أطر عمل، مع التركيز على الأداء، وإمكانية الوصول، وأفضل ممارسات تطوير الويب الحديثة."
     },
     "en": {
-      "kicker": "Developer since 2019 — HTML5 · CSS · JavaScript · Kotlin",
-      "headline": "Digital products built on sound engineering, not templates.",
-      "subheadline": "I build websites and Android apps where engineering decisions are documented and measured. Every project ships with a full case study: problem, architecture, testing, and lessons learned.",
-      "evidence": "See for yourself: this very site — no frameworks, near-perfect Lighthouse scores."
+      "kicker": "",
+      "headline": "Developing websites, Android applications, and games since 2019.",
+      "subheadline": "I design and build modern digital solutions, including websites, Android applications, and games, with a strong focus on performance, code quality, and professional user experience.",
+      "evidence": "This website itself was built without frameworks, focusing on performance, accessibility, and modern web development best practices."
     }
   },
   "stats": [
     {
       "value": "5+",
-      "label": { "ar": "سنوات خبرة", "en": "years of experience" }
+      "label": { "ar": "سنوات", "en": "Years" }
     },
     {
       "value": "0",
@@ -51,17 +51,17 @@
   ],
   "about": {
     "ar": {
-      "intro": "مطوّر ذاتي التعلّم، يكتب الكود كما يكتب التوثيق: بوضوح.",
+      "intro": "مطوّر برمجيات يركّز على بناء حلول رقمية حديثة تجمع بين الأداء والبساطة وقابلية التطوير.",
       "paragraphs": [
-        "أنا غسان عبدالخالق، مطوّر ويب وتطبيقات من بغداد. بدأت العمل في 2019، ومنذ ذلك الحين أبني مواقع تجارية، وتطبيقات أندرويد، وأنظمة ويب — بعضها على ووردبريس عندما يكون ذلك هو القرار الهندسي الصحيح، ومعظمها بكتابة يدوية خالصة.",
+        "أنا غسان عبدالخالق من بغداد، أبني مواقع وتطبيقات وألعاباً، وأجعل أداءً موثوقاً وكوداً نظيفاً وتجربة استخدام مريحة في صميم كل مشروع.",
         "أؤمن أن المطوّر الذي يستحق العمل على منتجك هو من يستطيع شرح قراراته: لماذا اخترت هذه التقنية؟ كيف أقيس الأداء؟ كيف أضمن الأمان؟ لذلك أكتب دراسة حالة لكل مشروع أنشره.",
         "أعمل بتقنيات JavaScript و Kotlin و Jetpack Compose و Node.js و PHP وقواعد بيانات SQL و NoSQL — وأختار أيّها بناءً على متطلبات المشروع، لا على الموضة."
       ]
     },
     "en": {
-      "intro": "A self-taught developer who writes code the way he writes documentation: clearly.",
+      "intro": "Software developer focused on building modern digital solutions that balance performance, simplicity, and scalability.",
       "paragraphs": [
-        "I am Ghassan Abdulkhaliq, a web and app developer from Baghdad. I started working in 2019, and since then I have built commercial websites, Android apps, and web systems — some on WordPress when that is the right engineering decision, and most in hand-written code.",
+        "I'm Ghassan Abdulkhaliq from Baghdad, where I build websites, applications, and games — keeping reliable performance, clean code, and a comfortable user experience at the centre of every project.",
         "I believe the developer who deserves to work on your product is the one who can explain his decisions: why this technology? how do I measure performance? how do I ensure security? That is why I write a case study for every project I publish.",
         "I work with JavaScript, Kotlin, Jetpack Compose, Node.js, PHP, and SQL and NoSQL databases — and I choose among them based on project requirements, not fashion."
       ]

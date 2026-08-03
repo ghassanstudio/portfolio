@@ -29,63 +29,50 @@ function setPageMeta() {
 function renderAbout() {
   const lang = currentLang();
   const about = getAbout()[lang] ?? {};
+  const title = (key) => escapeHTML(about[key] ?? "");
   const list = (items) => (items ?? []).map((item) => `<li>${escapeHTML(item)}</li>`).join("");
-  const tech = about.technologies ?? {};
+  const tech = (about.techCategories ?? [])
+    .map(
+      (category) => `
+        <div class="tech-category">
+          <h3>${escapeHTML(category.title ?? "")}</h3>
+          <ul>${list(category.items)}</ul>
+        </div>`
+    )
+    .join("");
+  const journey = (about.journey ?? [])
+    .map(
+      (item) => `
+        <li><strong>${escapeHTML(item.year ?? "")}</strong><span>${escapeHTML(item.text ?? "")}</span></li>`
+    )
+    .join("");
 
   renderInto(
     $("#about-content"),
     `
     <section class="about-section" id="who">
-      <h2 class="about-section__title">Who I am</h2>
+      <h2 class="about-section__title">${title("whoTitle")}</h2>
       <p class="about-section__content">${escapeHTML(about.who ?? "")}</p>
     </section>
 
     <section class="about-section" id="how">
-      <h2 class="about-section__title">How I think</h2>
+      <h2 class="about-section__title">${title("howTitle")}</h2>
       <p class="about-section__content">${escapeHTML(about.how ?? "")}</p>
     </section>
 
     <section class="about-section" id="principles">
-      <h2 class="about-section__title">Engineering Principles</h2>
+      <h2 class="about-section__title">${title("principlesTitle")}</h2>
       <ul class="principles-list">${list(about.principles)}</ul>
     </section>
 
-    <section class="about-section" id="philosophy">
-      <h2 class="about-section__title">Working Philosophy</h2>
-      <p class="about-section__content">${escapeHTML(about.philosophy ?? "")}</p>
-    </section>
-
     <section class="about-section" id="tech">
-      <h2 class="about-section__title">Technologies I Actually Use</h2>
-      <div class="tech-stack">
-        <div class="tech-category">
-          <h3>Frontend</h3>
-          <ul>${list(tech.frontend)}</ul>
-        </div>
-        <div class="tech-category">
-          <h3>Tools</h3>
-          <ul>${list(tech.tools)}</ul>
-        </div>
-        <div class="tech-category">
-          <h3>Platforms</h3>
-          <ul>${list(tech.platforms)}</ul>
-        </div>
-      </div>
+      <h2 class="about-section__title">${title("technologiesTitle")}</h2>
+      <div class="tech-stack">${tech}</div>
     </section>
 
-    <section class="about-section" id="workflow">
-      <h2 class="about-section__title">Development Workflow</h2>
-      <ul class="workflow-list">${list(about.workflow)}</ul>
-    </section>
-
-    <section class="about-section" id="why-complexity">
-      <h2 class="about-section__title">Why I Avoid Unnecessary Complexity</h2>
-      <p class="about-section__content">${escapeHTML(about.whyAvoidComplexity ?? "")}</p>
-    </section>
-
-    <section class="about-section" id="learning">
-      <h2 class="about-section__title">Currently Learning</h2>
-      <p class="about-section__content">${escapeHTML(about.learning ?? "")}</p>
+    <section class="about-section" id="journey">
+      <h2 class="about-section__title">${title("journeyTitle")}</h2>
+      <ol class="workflow-list">${journey}</ol>
     </section>
     `
   );

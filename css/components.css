@@ -254,7 +254,14 @@
   font-size: var(--text-xl);
 }
 
+.project-card h3 a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
 .project-card h3 a:hover {
+  color: var(--color-accent);
   text-decoration-thickness: 1px;
 }
 
@@ -314,6 +321,18 @@
   margin-bottom: var(--space-2);
 }
 
+.article-card h3 a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.article-card h3 a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
 .article-card__meta {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -359,6 +378,14 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background-color: var(--color-surface);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.contact-strip:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .contact-strip__lead {
@@ -413,4 +440,67 @@
   flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
+}
+
+/* ==========================================================================
+   06. Touch UX
+   --------------------------------------------------------------------------
+   Native-app feel on touch devices: comfortable tap targets (≈44px),
+   whole-card tap areas, and immediate press feedback. Scoped to coarse
+   pointers so desktop keeps precise text select targets and hover cues.
+   Reduced-motion (base.css) already collapses all transitions for us.
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch targets at the native ~44px floor. */
+  .icon-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .lang-btn,
+  .filter-btn {
+    min-height: 2.75rem;
+  }
+
+  .btn--lg {
+    min-height: 3rem;
+  }
+
+  /* Whole-card tap targets: the title link fills the card body. */
+  .project-card,
+  .article-card,
+  .project-row,
+  .blog-post {
+    position: relative;
+  }
+
+  .project-card h3 a::after,
+  .article-card h3 a::after,
+  .project-row h2 a::after,
+  .blog-post__title a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Immediate press feedback on active controls and full-card taps. */
+  .btn:active,
+  .icon-btn:active,
+  .lang-btn:active,
+  .filter-btn:active,
+  .project-card:active,
+  .article-card:active,
+  .project-row:active,
+  .blog-post:active {
+    transform: translateY(1px);
+  }
+
+  .btn:active,
+  .icon-btn:active,
+  .lang-btn:active,
+  .filter-btn:active {
+    filter: brightness(0.97);
+  }
 }

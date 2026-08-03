@@ -65,16 +65,16 @@
 
   /* -- Color: light theme -------------------------------------------------------- */
 
-  --color-bg: #fafafa;
+  --color-bg: #f7f7f8;
   --color-surface: #ffffff;
-  --color-surface-2: #f4f4f5;
+  --color-surface-2: #f2f3f5;
 
-  --color-text: #18181b;
-  --color-text-muted: #52525b;
-  --color-text-faint: #71717a;
+  --color-text: #23262b;
+  --color-text-muted: #4e5560;
+  --color-text-faint: #5b6170;
 
-  --color-border: #e4e4e7;
-  --color-border-strong: #d4d4d8;
+  --color-border: #e2e4e8;
+  --color-border-strong: #d0d4da;
 
   --color-accent: #1d4ed8;
   --color-accent-hover: #1e40af;
@@ -100,21 +100,21 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-bg: #0c0e12;
-  --color-surface: #14161c;
-  --color-surface-2: #1b1e26;
+  --color-bg: #0d1015;
+  --color-surface: #151922;
+  --color-surface-2: #1d212b;
 
-  --color-text: #e8eaf0;
-  --color-text-muted: #a0a7b3;
-  --color-text-faint: #868d9a;
+  --color-text: #d6dbe4;
+  --color-text-muted: #9aa3b0;
+  --color-text-faint: #8d96a5;
 
-  --color-border: #262a34;
-  --color-border-strong: #333847;
+  --color-border: #252a35;
+  --color-border-strong: #353b4a;
 
-  --color-accent: #8ab4f8;
-  --color-accent-hover: #a5c5fb;
-  --color-accent-soft: rgba(138, 180, 248, 0.12);
-  --color-on-accent: #0c0e12;
+  --color-accent: #93b9fa;
+  --color-accent-hover: #a9c7fc;
+  --color-accent-soft: rgba(147, 185, 250, 0.12);
+  --color-on-accent: #0d1015;
 
   --color-success: #4ade80;
   --color-success-soft: rgba(74, 222, 128, 0.12);
@@ -123,11 +123,11 @@
   --color-error: #f87171;
   --color-error-soft: rgba(248, 113, 113, 0.12);
 
-  --color-focus: #8ab4f8;
+  --color-focus: #93b9fa;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
 /* ==========================================================================

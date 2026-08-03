@@ -1,57 +1,83 @@
 {
   "$doc": "About page content — professional engineering profile, no marketing fluff.",
   "en": {
-    "who": "I am a software engineer who builds minimal, performant systems that solve real problems. I focus on architecture, maintainability, and sustainable code practices.",
-    "how": "I approach problems by first understanding the constraints, then designing clean, modular solutions. I write code that is testable, documented, and predictable.",
+    "whoTitle": "Who I Am",
+    "howTitle": "How I Work",
+    "principlesTitle": "What I Focus On",
+    "technologiesTitle": "Technologies I Use",
+    "journeyTitle": "My Journey",
+    "who": "I'm Ghassan Abdulkhaliq, a software developer based in Baghdad. I started in web development, expanded into Android applications along the way, and now work across websites, applications, and games — tailoring the technical approach to what each project actually needs.",
+    "how": "I begin by clarifying each project's goal and requirements before picking any technology. I match tools to the problem, write organised and clean code, keep measuring performance and usability, and document key decisions so maintenance and future growth stay simple.",
     "principles": [
-      "Performance before appearance",
-      "Simplicity beats complexity",
-      "Documentation as code",
-      "Test-driven development",
-      "Progressive enhancement",
-      "Accessibility by default"
+      "Performance",
+      "Code Quality",
+      "User Experience",
+      "Maintainability",
+      "Scalability"
     ],
-    "philosophy": "I avoid unnecessary complexity because it creates technical debt that slows development and increases maintenance costs. I prefer to invest time in understanding the problem thoroughly before implementing solutions.",
-    "technologies": {
-      "frontend": ["HTML5", "CSS3", "JavaScript (ES2024)"],
-      "tools": ["Git", "Node.js", "Vite", "ESLint", "Prettier", "GitHub Actions"],
-      "platforms": ["GitHub Pages", "Netlify", "Vercel"]
-    },
-    "workflow": [
-      "Write tests before implementing",
-      "Use JSON for all data (no hardcoded strings)",
-      "Lint and type-check before committing",
-      "Deploy with integrity checks",
-      "Audit accessibility and performance at each stage"
+    "techCategories": [
+      {
+        "title": "Programming Languages",
+        "items": ["HTML5", "CSS3", "JavaScript", "Kotlin", "Java", "PHP", "SQL"]
+      },
+      {
+        "title": "Platforms & Technologies",
+        "items": ["Firebase", "Material Design", "REST APIs", "Progressive Web Apps (PWA)"]
+      },
+      {
+        "title": "Development Tools",
+        "items": ["Git", "GitHub", "GitHub Pages", "VS Code", "Android Studio", "Playwright", "Node.js", "npm", "Composer", "XAMPP"]
+      },
+      {
+        "title": "Databases",
+        "items": ["Firestore", "MySQL"]
+      }
     ],
-    "whyAvoidComplexity": "Unnecessary complexity makes systems harder to understand, maintain, and scale. It increases cognitive load, introduces more bugs, and slows development velocity.",
-    "learning": "Currently learning WebAssembly and distributed systems architecture."
+    "journey": [
+      { "year": "2019", "text": "Started building websites." },
+      { "year": "2020", "text": "Developed WordPress websites and worked with web hosting." },
+      { "year": "2023", "text": "Started Android application development." },
+      { "year": "Today", "text": "Building web, Android, and game projects while continuously improving my skills and learning modern technologies." }
+    ]
   },
   "ar": {
-    "who": "أنا مهندس برمجيات أبني أنظمة بسيطة، عالية الأداء تحل مشاكل حقيقية. أركز على العمارة، والصيانة، وممارسات الكود المستدامة.",
-    "how": "أتعامل مع المشاكل بفهم القيود أولاً، ثم تصميم حلول نظيفة، قابلة للتقسيم. أكتب كوداً قابلاً للاختبار، موثقاً، ومتوقعاً.",
+    "whoTitle": "من أنا",
+    "howTitle": "كيف أعمل",
+    "principlesTitle": "ما أهتم به",
+    "technologiesTitle": "التقنيات التي أستخدمها",
+    "journeyTitle": "رحلتي",
+    "who": "أنا غسان عبدالخالق، مطوّر برمجيات من بغداد. بدأت مسيرتي في تطوير الويب، ثم توسّعت إلى تطبيقات Android، وأعمل اليوم على مواقع وتطبيقات وألعاب — أختار النهج التقني بما يناسب متطلبات كل مشروع.",
+    "how": "أبدأ بتحديد هدف المشروع ومتطلباته قبل اختيار أي تقنية، ثم أوائم الأدوات مع المشكلة وأكتب كوداً منظّماً ونظيفاً. أواصل قياس الأداء وتجربة الاستخدام، وأوثّق القرارات المهمة لتبقى الصيانة والنمو المستقبلي بسيطين.",
     "principles": [
-      "الأداء قبل المظهر",
-      "البساطة تتفوق على التعقيد",
-      "التوثيق ككود",
-      "التطوير المعتمد على الاختبارات",
-      "الارتقاء التدريجي",
-      "الإمكانية للأعلى افتراضياً"
+      "الأداء",
+      "جودة الكود",
+      "تجربة المستخدم",
+      "سهولة الصيانة",
+      "قابلية التوسع"
     ],
-    "philosophy": "أتجنب التعقيد غير الضروري لأنه يخلق ديوناً تقنية تبطئ التطوير وتزيد تكاليف الصيانة. أفضل الاستثمار في فهم المشكلة جيداً قبل تنفيذ الحلول.",
-    "technologies": {
-      "frontend": ["HTML5", "CSS3", "JavaScript (ES2024)"],
-      "tools": ["Git", "Node.js", "Vite", "ESLint", "Prettier", "GitHub Actions"],
-      "platforms": ["GitHub Pages", "Netlify", "Vercel"]
-    },
-    "workflow": [
-      "اكتب اختبارات قبل التنفيذ",
-      "استخدم JSON لكل البيانات (لا سلاسل hardcoded)",
-      "قم بالتحقق من الجودة قبل الالتزام",
-      "نشر مع فحوصات السلامة",
-      "تدقيق الوصولية والأداء في كل مرحلة"
+    "techCategories": [
+      {
+        "title": "لغات البرمجة",
+        "items": ["HTML5", "CSS3", "JavaScript", "Kotlin", "Java", "PHP", "SQL"]
+      },
+      {
+        "title": "المنصات والتقنيات",
+        "items": ["Firebase", "Material Design", "REST APIs", "Progressive Web Apps (PWA)"]
+      },
+      {
+        "title": "أدوات التطوير",
+        "items": ["Git", "GitHub", "GitHub Pages", "VS Code", "Android Studio", "Playwright", "Node.js", "npm", "Composer", "XAMPP"]
+      },
+      {
+        "title": "قواعد البيانات",
+        "items": ["Firestore", "MySQL"]
+      }
     ],
-    "whyAvoidComplexity": "التعقيد غير الضروري يجعل الأنظمة أصعب للفهم، الصيانة، والتطوير. يزيد الحمل المعرفي، يُدخل المزيد من الأخطاء، ويبطئ سرعة التطوير.",
-    "learning": "أتعلم حالياً عن WebAssembly وهندسة الأنظمة الموزعة."
+    "journey": [
+      { "year": "2019", "text": "بداية العمل في تطوير مواقع الويب." },
+      { "year": "2020", "text": "تطوير مواقع WordPress والتعامل مع الاستضافات." },
+      { "year": "2023", "text": "بداية تطوير تطبيقات Android." },
+      { "year": "اليوم", "text": "أطوّر مواقع الويب، تطبيقات Android، والألعاب، مع الاستمرار في تعلم التقنيات الحديثة." }
+    ]
   }
 }

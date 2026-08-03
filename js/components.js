@@ -209,6 +209,14 @@ function setMenu(open) {
   target?.focus();
 }
 
+/** Adds an elevation cue to the sticky header once the page starts scrolling. */
+function updateHeaderElevation() {
+  const header = $("#site-header");
+  if (!header) return;
+  const scrolled = (window.scrollY ?? 0) > 4 || (document.documentElement.scrollTop ?? 0) > 4;
+  header.classList.toggle("is-scrolled", scrolled);
+}
+
 /** Shared failure state: shown when the JSON data cannot be loaded. */
 export function renderFatal(message) {
   const main = $("#main");
@@ -221,6 +229,7 @@ function renderChrome() {
   renderFooter();
   syncStaticText();
   refreshThemeIcon();
+  updateHeaderElevation();
   document.body.classList.remove("nav-open");
 }
 
@@ -246,6 +255,8 @@ function wireEvents() {
 
   document.addEventListener("langchange", renderChrome);
   document.addEventListener("themechange", refreshThemeIcon);
+
+  window.addEventListener("scroll", updateHeaderElevation, { passive: true });
 }
 
 export function initComponents() {

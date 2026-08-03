@@ -58,7 +58,7 @@ test("the theme toggle flips data-theme and persists the choice", async ({ page 
   const before = await readThemeState(page);
   await page.locator("[data-theme-toggle]").click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  const stored = await page.evaluate(() => localStorage.getItem("portfolio-v.theme"));
+  const stored = await page.evaluate(() => localStorage.getItem("portfolio.theme"));
   expect(stored).toBe("dark");
 
   const after = await readThemeState(page);

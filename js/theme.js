@@ -8,7 +8,7 @@
 import { getSettings } from "./data.js";
 
 /** Storage key, configurable through data/settings.json. */
-const storageKey = () => getSettings().theme?.storageKey ?? "portfolio-v.theme";
+const storageKey = () => getSettings().theme?.storageKey ?? "portfolio.theme";
 
 /** Resolve the effective theme: stored value, or the system preference. */
 export function currentTheme() {

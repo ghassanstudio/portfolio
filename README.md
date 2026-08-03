@@ -11,7 +11,7 @@
 ## العمارة
 
 ```
-portfolio-v/
+portfolio/
 ├── index.html            الصفحة الرئيسية
 ├── projects.html         قائمة المشاريع
 ├── project.html          دراسة الحالة (project.html?id=calc-voice)
@@ -77,7 +77,7 @@ portfolio-v/
 
 ## النشر على GitHub Pages
 
-1. ارفع المجلد إلى مستودع GitHub Pages (مثلاً `ghassanstudio.github.io/portfolio-v`).
+1. ارفع المجلد إلى مستودع GitHub Pages (مثلاً `ghassanstudio.github.io/portfolio`).
 2. Settings → Pages → Source: `Deploy from a branch` → `main` / `root`.
 3. عدّل `data/settings.json` ← `url` ليتطابق نطاقك.
 4. `404.html` مسموح به كما هو على GitHub Pages، و`sw.js` يحتاج `https` (يوفرها Pages تلقائياً).

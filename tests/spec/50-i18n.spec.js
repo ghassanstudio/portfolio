@@ -28,7 +28,7 @@ test("?lang=en switches to English and LTR", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
   await expect(page.locator(".site-nav a", { hasText: "Projects" })).toHaveCount(1);
-  await expect(page.locator("h1").first()).toContainText(/Digital products/i);
+  await expect(page.locator("h1").first()).toContainText(/Developing websites/i);
   expectClean(quality.snapshot(), "index.html?lang=en");
 });
 
@@ -36,7 +36,7 @@ test("?lang=ar forces Arabic and RTL", async ({ page }) => {
   const quality = await openPage(page, "index.html", { lang: "ar" });
   await expect(page.locator("html")).toHaveAttribute("lang", "ar");
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-  await expect(page.locator("h1").first()).toContainText(/هندسة/i);
+  await expect(page.locator("h1").first()).toContainText(/أطوّر مواقع الويب/i);
   expectClean(quality.snapshot(), "index.html?lang=ar");
 });
 
@@ -48,7 +48,7 @@ test.describe("first-visit browser-language detection", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
     await expect(page.locator(".site-nav a", { hasText: "Projects" })).toHaveCount(1);
-    await expect(page.locator("h1").first()).toContainText(/Digital products/i);
+    await expect(page.locator("h1").first()).toContainText(/Developing websites/i);
     expectClean(quality.snapshot(), "index.html first-visit en");
   });
 });
@@ -76,7 +76,7 @@ test("the in-page toggle flips language, direction, and persists", async ({ page
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
   await expect(page.locator(".site-nav a", { hasText: "Projects" })).toHaveCount(1);
 
-  const stored = await page.evaluate(() => localStorage.getItem("portfolio-v.lang"));
+  const stored = await page.evaluate(() => localStorage.getItem("portfolio.lang"));
   expect(stored).toBe("en");
 
   // Reloading keeps the English language.

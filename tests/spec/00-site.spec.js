@@ -16,6 +16,7 @@ const CONTENT_MARKER = {
   "project-detail": "#case-study h1",
   "blog-post-detail": "#blog-post-title",
   about: "#main h1",
+  technologies: "#tech-content .tech-category",
   blog: "#main h1",
   contact: "#main h1",
   faq: "#main h1",

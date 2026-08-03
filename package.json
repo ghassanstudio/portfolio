@@ -1,5 +1,5 @@
-﻿{
-  "name": "portfolio-v",
+{
+  "name": "portfolio",
   "version": "3.0.0",
   "description": "Professional software engineer portfolio with engineering case studies, premium documentation, and production-ready architecture.",
   "main": "index.html",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghassanabdulkhaliq92-commits/portfolio-v"
+    "url": "https://github.com/ghassanabdulkhaliq92-commits/portfolio"
   },
   "browserslist": [
     ">0.25%",

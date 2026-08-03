@@ -88,7 +88,7 @@
           ] },
           { "type": "h2", "text": { "ar": "مقاس، لا تخمين", "en": "" } },
           { "type": "p", "text": { "ar": "أشغّل Lighthouse على العنوان المنشور فعلاً بمتصفح نظيف، وأتعامل مع أي انخفاض تحت 95 كخلل يصلح قبل الإطلاق:", "en": "" } },
-          { "type": "code", "lang": "bash", "code": "npx lighthouse https://ghassanstudio.github.io/portfolio-v/ --preset=desktop" },
+          { "type": "code", "lang": "bash", "code": "npx lighthouse https://ghassanstudio.github.io/portfolio/ --preset=desktop" },
           { "type": "quote", "text": { "ar": "الأداء خاصية تتحقق منها في كل إصدار، لا عملية تحسين لمرة واحدة.", "en": "" } },
           { "type": "p", "text": { "ar": "الموقع هنا يشهد على ذلك: HTML وCSS وJS خالصة، ونتائج قريبة من الكمال تُعاد قياسها عند كل تغيير.", "en": "" } }
         ],
@@ -107,7 +107,7 @@
           ] },
           { "type": "h2", "text": { "ar": "", "en": "Measured, not assumed" } },
           { "type": "p", "text": { "ar": "", "en": "I run Lighthouse against the live URL in a clean browser and treat any drop below 95 as a bug to fix before release:" } },
-          { "type": "code", "lang": "bash", "code": "npx lighthouse https://ghassanstudio.github.io/portfolio-v/ --preset=desktop" },
+          { "type": "code", "lang": "bash", "code": "npx lighthouse https://ghassanstudio.github.io/portfolio/ --preset=desktop" },
           { "type": "quote", "text": { "ar": "", "en": "Performance is a property you verify on every release, not a one-time optimization." } },
           { "type": "p", "text": { "ar": "", "en": "This site is the proof: plain HTML, CSS and JS, with near-perfect scores re-measured on every change." } }
         ]

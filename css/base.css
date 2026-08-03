@@ -42,6 +42,27 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* -- Language-aware typography ---------------------------------------------------
+   Arabic (Tajawal) renders better with a taller line height, and its glyphs
+   must never carry negative letter-spacing. Latin text gets a hair of
+   breathing room. Applied per-document via the <html lang> attribute. */
+
+:lang(ar) {
+  --leading-normal: 1.85;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  letter-spacing: 0;
+}
+
+:lang(en) h1,
+:lang(en) h2 {
+  letter-spacing: -0.01em;
+}
+
 h1,
 h2,
 h3,

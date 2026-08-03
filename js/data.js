@@ -8,7 +8,7 @@
 import { fetchJSON } from "./utils.js";
 
 /** The JSON documents that make up the site's content. */
-const FILES = ["settings", "i18n", "profile", "projects", "articles", "faq", "about", "contact", "privacy", "terms", "offline", "404"];
+const FILES = ["settings", "i18n", "profile", "projects", "articles", "faq", "about", "contact", "technologies", "privacy", "terms", "offline", "404"];
 
 /** In-memory cache: file name -> parsed document. */
 const cache = new Map();
@@ -35,6 +35,7 @@ export const getArticles = () => get("articles")?.articles ?? [];
 export const getFaqs = () => get("faq")?.faqs ?? [];
 export const getAbout = () => get("about") ?? {};
 export const getContact = () => get("contact") ?? {};
+export const getTechnologies = () => get("technologies") ?? {};
 export const getPrivacy = () => get("privacy") ?? {};
 export const getTerms = () => get("terms") ?? {};
 export const getOffline = () => get("offline") ?? {};

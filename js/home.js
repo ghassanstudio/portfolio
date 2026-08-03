@@ -34,7 +34,7 @@ function rotatingTitles() {
     )
     .join("");
   const sep = lang === "ar" ? "، " : ", ";
-  return `<span class="rotating-title">${items}</span><span class="sr-only">${escapeHTML(titles.join(sep))}</span>`;
+  return `<span class="rotating-title" role="group" aria-label="${escapeHTML(titles.join(sep))}">${items}</span>`;
 }
 
 let rotatingTimer = null;

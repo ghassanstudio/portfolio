@@ -7,6 +7,7 @@
       "home": "الرئيسية",
       "projects": "المشاريع",
       "about": "نبذة عني",
+      "technologies": "التقنيات",
       "blog": "المدونة",
       "contact": "تواصل معي",
       "faq": "الأسئلة الشائعة",
@@ -62,12 +63,12 @@
       "archived": "مؤرشف"
     },
     "projects": {
-      "pageTitle": "المشاريع",
-      "pageLead": "كل مشروع هنا يُعرض كما تُعرض مراجعة كود: المشكلة، القرارات، القياسات، والدروس المستفادة.",
+      "pageTitle": "جميع المشاريع",
+      "pageLead": "استعرض مجموعة من المشاريع في تطوير الويب، تطبيقات Android، والألعاب. يعرض كل مشروع الفكرة، والتقنيات المستخدمة، وآلية التنفيذ، وأبرز النتائج.",
       "indexKicker": "01 · المشاريع",
       "filterLabel": "تصفية حسب النوع",
       "filterAll": "الكل",
-      "filterApp": "تطبيقات",
+      "filterApp": "تطبيقات Android",
       "filterWeb": "مواقع ويب",
       "empty": "لا توجد مشاريع في هذا التصنيف بعد.",
       "readCaseStudy": "قراءة دراسة الحالة",
@@ -117,12 +118,16 @@
     },
     "about": {
       "pageTitle": "نبذة عني",
-      "pageLead": "ماذا أفعل، وكيف أفكر، وما الذي يهمني في العمل.",
+      "pageLead": "تعرف على مسيرتي، وطريقة عملي، والتقنيات التي أستخدمها في تطوير المواقع، تطبيقات Android، والألعاب.",
       "skillsTitle": "مجالات العمل",
       "infoTitle": "معلومات أساسية",
       "location": "الموقع",
       "experience": "الخبرة",
       "email": "البريد الإلكتروني"
+    },
+    "technologies": {
+      "pageTitle": "التقنيات",
+      "pageLead": "التقنيات المستخدمة فعلياً في مشاريع هذا الموقع — لغات البرمجة، المنصات، أدوات التطوير، وقواعد البيانات."
     },
     "contact": {
       "pageTitle": "تواصل معي",
@@ -174,7 +179,7 @@
         "title": "بطاقة المواصفات",
         "experience": "الخبرة",
         "location": "الموقع",
-        "areas": "المجالات",
+        "areas": "التخصص",
         "status": "الحالة"
       },
       "rotatingTitles": [
@@ -184,25 +189,25 @@
         "مطور ألعاب"
       ],
       "kickers": {
-        "projects": "01 · مشاريع",
+        "projects": "01 · المشاريع",
         "about": "02 · عني",
         "articles": "03 · مقالات",
         "contact": "04 · تواصل"
       },
       "sections": {
-        "projects": "مشاريع مختارة",
+        "projects": "أبرز المشاريع",
         "about": "نبذة سريعة",
         "articles": "آخر المقالات",
         "contact": "لنعمل معاً"
       },
       "readCaseStudy": "قراءة دراسة الحالة",
       "moreAbout": "المزيد عني",
-      "contactLead": "مشروع في بالك؟ اكتب لي — أرد عادةً خلال يوم عمل واحد.",
+      "contactLead": "إذا كنت تبحث عن تطوير موقع، تطبيق Android، أو لعبة، أو ترغب في مناقشة فكرة مشروع جديد، يسعدني الاستماع إليك ومناقشة أفضل الحلول المناسبة.",
       "contactCta": "فتح صفحة التواصل",
       "whatsappCta": "تواصل عبر واتساب"
     },
     "seo": {
-      "defaultTitle": "غسان عبدالخالق — مطوّر ويب وتطبيقات",
+      "defaultTitle": "Ghassan Studio — مطوّر ويب وتطبيقات",
       "defaultDescription": "مطوّر ويب وتطبيقات منذ 2019. مواقع وتطبيقات أندرويد مبنية بهندسة سليمة، مع دراسة حالة موثقة لكل مشروع."
     },
     "blogPost": {
@@ -226,6 +231,7 @@
       "home": "Home",
       "projects": "Projects",
       "about": "About",
+      "technologies": "Technologies",
       "blog": "Blog",
       "contact": "Contact",
       "faq": "FAQ",
@@ -256,7 +262,7 @@
     "blogPost": {
       "backToBlog": "Back to blog",
       "published": "Published",
-      "readingTime": "minutes reading"
+      "readingTime": "min read"
     },
     "offline": {
       "pageTitle": "Offline",
@@ -271,8 +277,8 @@
       "pageLead": "Terms of use for this website and permitted usage rights."
     },
     "about": {
-      "pageTitle": "About",
-      "pageLead": "Who I am, how I think, and what matters to me in work.",
+      "pageTitle": "About Me",
+      "pageLead": "Learn about my journey, my development approach, and the technologies I use to build web, Android, and game projects.",
       "skillsTitle": "Areas of Work",
       "infoTitle": "Background Info",
       "location": "Location",
@@ -336,13 +342,13 @@
       "archived": "Archived"
     },
     "projects": {
-      "pageTitle": "Projects",
-      "pageLead": "Every project here is presented the way a code review is: the problem, the decisions, the measurements, and the lessons.",
+      "pageTitle": "All Projects",
+      "pageLead": "Browse a collection of web, Android, and game development projects. Each project highlights the idea, technologies used, implementation approach, and key outcomes.",
       "indexKicker": "01 · Projects",
-      "filterLabel": "Filter by type",
+      "filterLabel": "Filter by Category",
       "filterAll": "All",
-      "filterApp": "Apps",
-      "filterWeb": "Websites",
+      "filterApp": "Android",
+      "filterWeb": "Web",
       "empty": "No projects in this category yet.",
       "readCaseStudy": "Read the case study",
       "caseStudy": {
@@ -390,13 +396,17 @@
       "backToBlog": "Back to blog"
     },
     "about": {
-      "pageTitle": "About me",
-      "pageLead": "What I do, how I think, and what I care about in work.",
-      "skillsTitle": "Areas of work",
-      "infoTitle": "Basic info",
+      "pageTitle": "About Me",
+      "pageLead": "Learn about my journey, my development approach, and the technologies I use to build web, Android, and game projects.",
+      "skillsTitle": "Areas of Work",
+      "infoTitle": "Background Info",
       "location": "Location",
       "experience": "Experience",
       "email": "Email"
+    },
+    "technologies": {
+      "pageTitle": "Technologies",
+      "pageLead": "The technologies actually used across the projects in this portfolio — programming languages, platforms, development tools, and databases."
     },
     "contact": {
       "pageTitle": "Contact me",
@@ -448,7 +458,7 @@
         "title": "Spec sheet",
         "experience": "Experience",
         "location": "Location",
-        "areas": "Areas",
+        "areas": "Specialization",
         "status": "Status"
       },
       "rotatingTitles": [
@@ -464,19 +474,19 @@
         "contact": "04 · Contact"
       },
       "sections": {
-        "projects": "Selected projects",
-        "about": "Short about",
+        "projects": "Featured Projects",
+        "about": "Quick About",
         "articles": "Latest articles",
         "contact": "Let's work together"
       },
       "readCaseStudy": "Read the case study",
-      "moreAbout": "More about me",
-      "contactLead": "Have a project in mind? Write to me — I usually reply within one working day.",
+      "moreAbout": "Learn More",
+      "contactLead": "Whether you're looking to build a website, an Android application, or a game, I'd be happy to discuss your project and help find the right solution.",
       "contactCta": "Open contact page",
       "whatsappCta": "Chat on WhatsApp"
     },
     "seo": {
-      "defaultTitle": "Ghassan Abdulkhaliq — Web & App Developer",
+      "defaultTitle": "Ghassan Studio — Web & App Developer",
       "defaultDescription": "Web and app developer since 2019. Websites and Android apps built on sound engineering, with a documented case study for every project."
     }
   }

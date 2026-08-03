@@ -7,20 +7,15 @@
     <meta name="description" content="دراسة حالة هندسية لمشروع: المشكلة، العمارة، القرارات، القياسات، والدروس المستفادة.">
     <meta name="author" content="Ghassan Abdulkhaliq">
     <meta name="color-scheme" content="light dark">
-    <link rel="canonical" href="https://ghassanstudio.github.io/portfolio-v/project.html">
+    <link rel="canonical" href="https://ghassanstudio.github.io/portfolio/project.html">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="دراسة حالة — غسان عبدالخالق">
     <meta property="og:description" content="دراسة حالة هندسية لمشروع: المشكلة، العمارة، القرارات، القياسات، والدروس المستفادة.">
-    <meta property="og:url" content="https://ghassanstudio.github.io/portfolio-v/project.html">
+    <meta property="og:url" content="https://ghassanstudio.github.io/portfolio/project.html">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="ar_IQ">
-    <meta property="og:image" content="https://ghassanstudio.github.io/portfolio-v/assets/images/og/og-default.png">
-    <meta property="og:title" content="Case Study — Ghassan Abdulkhaliq">
-    <meta property="og:description" content="Engineering case study: problem, architecture, decisions, measurements, and lessons learned.">
-    <meta property="og:url" content="https://ghassanstudio.github.io/portfolio-v/project.html">
-    <meta property="og:type" content="article">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://ghassanstudio.github.io/portfolio/assets/images/og/og-default.png">
     <script>
         /* Pre-paint: language, direction and theme — prevents a flash on load. */
         (function () {
@@ -28,10 +23,10 @@
                 var html = document.documentElement;
                 var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || "").toLowerCase();
                 var browserLang = nav.indexOf("ar") === 0 ? "ar" : (nav ? "en" : null);
-                var lang = localStorage.getItem("portfolio-v.lang") || browserLang || html.dataset.defaultLang || "ar";
+                var lang = localStorage.getItem("portfolio.lang") || browserLang || html.dataset.defaultLang || "ar";
                 html.lang = lang;
                 html.dir = lang === "ar" ? "rtl" : "ltr";
-                var theme = localStorage.getItem("portfolio-v.theme");
+                var theme = localStorage.getItem("portfolio.theme");
                 if (theme !== "light" && theme !== "dark") {
                     theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
                 }

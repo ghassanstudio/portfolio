@@ -44,6 +44,23 @@ main {
   z-index: 50;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+/* Elevation cue once scrolled: lifts the nav off the content beneath it. */
+.site-header.is-scrolled {
+  background-color: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 60rem) {
+  .site-header.is-scrolled {
+    /* Soft glass blur on larger viewports only (cheap, none on phones). */
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
 }
 
 .site-header__inner {
@@ -284,4 +301,17 @@ body.nav-open {
 .footer-bottom__built {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
+}
+
+/* Mobile: footer links read easier and offer a friendlier tap target. */
+@media (max-width: 48rem) {
+  .footer-links ul,
+  .footer-contact__list {
+    gap: var(--space-3);
+  }
+
+  .footer-links a,
+  .footer-contact__list a {
+    font-size: var(--text-base);
+  }
 }

@@ -1,6 +1,6 @@
 {
   "$doc": "Site settings. The only place where the domain, languages and nav structure live.",
-  "url": "https://ghassanstudio.github.io/portfolio-v",
+  "url": "https://ghassanstudio.github.io/portfolio",
   "langs": ["ar", "en"],
   "defaultLang": "ar",
   "localeMap": {
@@ -13,13 +13,14 @@
   },
   "theme": {
     "default": "system",
-    "storageKey": "portfolio-v.theme"
+    "storageKey": "portfolio.theme"
   },
-  "langStorageKey": "portfolio-v.lang",
+  "langStorageKey": "portfolio.lang",
   "nav": [
     { "href": "index.html", "key": "home", "labelKey": "nav.home" },
     { "href": "projects.html", "key": "projects", "labelKey": "nav.projects" },
     { "href": "about.html", "key": "about", "labelKey": "nav.about" },
+    { "href": "technologies.html", "key": "technologies", "labelKey": "nav.technologies" },
     { "href": "blog.html", "key": "blog", "labelKey": "nav.blog" },
     { "href": "contact.html", "key": "contact", "labelKey": "nav.contact" }
   ],

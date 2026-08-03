@@ -75,6 +75,13 @@ export function setLang(lang) {
       /* private mode — ignore */
     }
   }
+  // The ?lang= parameter is a one-shot hint. Once the visitor makes an
+  // explicit choice, drop it so the stored language keeps working.
+  const url = new URL(window.location.href);
+  if (url.searchParams.has("lang")) {
+    url.searchParams.delete("lang");
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }
   applyLang(lang);
   document.dispatchEvent(new CustomEvent("langchange", { detail: { lang } }));
 }
