@@ -50,8 +50,8 @@
       "system": "تلقائي"
     },
     "footer": {
-      "tagline": "مطوّر ويب وتطبيقات — الهندسة قبل المظهر.",
-      "builtWith": "مبني بـ HTML5 · CSS3 · JavaScript — بدون أطر عمل",
+      "tagline": "استوديو تطوير برمجيات — الهندسة قبل المظهر.",
+      "builtWith": "هذا الموقع بُني باستخدام HTML5 وCSS3 وJavaScript — بدون أطر عمل.",
       "rights": "جميع الحقوق محفوظة.",
       "quickLinks": "روابط سريعة",
       "contact": "تواصل"
@@ -329,8 +329,8 @@
       "system": "System"
     },
     "footer": {
-      "tagline": "Web & app developer — engineering before appearance.",
-      "builtWith": "Built with HTML5 · CSS3 · JavaScript — no frameworks",
+      "tagline": "A software development studio — engineering before aesthetics.",
+      "builtWith": "This website was built with HTML5, CSS3, and JavaScript — without frameworks.",
       "rights": "All rights reserved.",
       "quickLinks": "Quick links",
       "contact": "Contact"
