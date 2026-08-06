@@ -69,9 +69,14 @@ function renderFilters() {
 function projectRow(project, lang) {
   const detail = localizedHref(`project.html?id=${encodeURIComponent(project.slug ?? project.id)}`);
   const tech = (project.tech ?? []).map((item) => `<li>${escapeHTML(item)}</li>`).join("");
+  const cover = project.cover?.[lang];
+  const coverHTML = cover
+    ? `<img class="project-row__cover" src="${escapeHTML(cover)}" alt="" loading="lazy" decoding="async">`
+    : "";
   return `
     <article class="project-row">
       <span class="project-row__num" aria-hidden="true">${escapeHTML(String(project.order ?? 0).padStart(2, "0"))}</span>
+      ${coverHTML}
       <div class="project-row__body">
         <div class="project-row__head">
           <h2><a href="${escapeHTML(detail)}">${escapeHTML(project.title?.[lang] ?? "")}</a></h2>

@@ -477,6 +477,51 @@
         },
         "keywords": ["آلة حاسبة ناطقة", "تطبيق أندرويد", "Kotlin", "Jetpack Compose", "دراسة حالة"]
       }
+    },
+    {
+      "id": "omnicalc",
+      "slug": "omnicalc",
+      "featured": true,
+      "order": 2,
+      "type": "app",
+      "title": {
+        "ar": "OmniCalc",
+        "en": "OmniCalc"
+      },
+      "summary": {
+        "ar": "تطبيق حاسبات متكامل يضم الحاسبة العادية والعلمية، وحاسبة العمر، ومؤشر كتلة الجسم، ومحول الوحدات، مع دعم الإدخال الصوتي، والعربية والإنجليزية، والوضعين الفاتح والداكن.",
+        "en": "An all-in-one calculator app featuring standard and scientific calculators, an age calculator, a BMI calculator, and a unit converter, with voice input, Arabic & English support, and light & dark themes."
+      },
+      "year": "2026",
+      "status": "live",
+      "platform": {
+        "ar": "أندرويد",
+        "en": "Android"
+      },
+      "role": {
+        "ar": "مطوّر التطبيق: تصميم، تطوير، نشر، توثيق",
+        "en": "Solo developer: design, development, release, documentation"
+      },
+      "tech": ["Kotlin", "Jetpack Compose", "Material 3", "MVVM", "DataStore", "Google AdMob"],
+      "cover": {
+        "ar": "assets/images/apps/omnicalc/omnicalc-cover-ar.jpg",
+        "en": "assets/images/apps/omnicalc/omnicalc-cover-en.jpg"
+      },
+      "links": {
+        "live": null,
+        "demo": null,
+        "source": null,
+        "video": null
+      },
+      "caseStudy": [],
+      "gallery": [],
+      "meta": {
+        "description": {
+          "ar": "تطبيق حاسبات متكامل: حاسبة عادية وعلمية، حاسبة عمر، مؤشر كتلة الجسم، ومحول وحدات — مع إدخال صوتي، وعربية وإنجليزية، ووضعين فاتح وداكن.",
+          "en": "An all-in-one calculator app: standard and scientific calculators, age calculator, BMI calculator, and unit converter — with voice input, Arabic & English, and light & dark themes."
+        },
+        "keywords": ["OmniCalc", "آلة حاسبة", "حاسبة علمية", "محول وحدات", "Android", "Kotlin"]
+      }
     }
   ]
 }

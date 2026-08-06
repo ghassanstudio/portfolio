@@ -175,6 +175,10 @@ function renderDoc(project) {
   const base = (project.caseStudy ?? []).length;
   const gallery = galleryHTML(project, lang, String(base + 2).padStart(2, "0"));
   const links = linksHTML(project, lang, String(base + 1).padStart(2, "0"));
+  const cover = project.cover?.[lang];
+  const coverHTML = cover
+    ? `<figure class="case-study__cover"><img src="${escapeHTML(cover)}" alt="${escapeHTML(project.title?.[lang] ?? "")}" loading="eager" decoding="async"></figure>`
+    : "";
   renderInto(
     $("#case-study"),
     `
@@ -185,6 +189,7 @@ function renderDoc(project) {
         <p class="case-study__summary">${escapeHTML(project.summary?.[lang] ?? "")}</p>
         <dl class="case-study__meta">${metaRows(project, lang)}</dl>
         <ul class="tech-list" aria-label="${escapeHTML(t("projects.caseStudy.meta.stack"))}">${techChips(project.tech)}</ul>
+        ${coverHTML}
       </div>
     </header>
     <div class="container container--narrow case-study__body">

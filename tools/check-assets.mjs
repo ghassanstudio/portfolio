@@ -54,6 +54,9 @@ for (const project of projects) {
   for (const image of project.gallery ?? []) {
     if (!fs.existsSync(path.join(ROOT, image.src))) fail(image.src, ref);
   }
+  for (const src of Object.values(project.cover ?? {})) {
+    if (!fs.existsSync(path.join(ROOT, src))) fail(src, ref);
+  }
 }
 
 /* -- Articles --------------------------------------------------------------- */

@@ -60,8 +60,13 @@ function startRotatingTitles() {
 function projectCard(project, lang) {
   const detail = localizedHref(`project.html?id=${encodeURIComponent(project.slug ?? project.id)}`);
   const tech = (project.tech ?? []).map((item) => `<li>${escapeHTML(item)}</li>`).join("");
+  const cover = project.cover?.[lang];
+  const coverHTML = cover
+    ? `<img class="project-card__cover" src="${escapeHTML(cover)}" alt="" loading="lazy" decoding="async">`
+    : "";
   return `
     <article class="project-card">
+      ${coverHTML}
       <div class="project-card__head">
         <h3><a href="${escapeHTML(detail)}">${escapeHTML(project.title?.[lang] ?? "")}</a></h3>
         <span class="badge badge--${escapeHTML(project.status ?? "draft")}">${escapeHTML(t(`status.${project.status ?? "draft"}`))}</span>
