@@ -26,7 +26,7 @@ export const VIEWPORTS = { desktop: { width: 1280, height: 800 }, mobile: { widt
 export const PAGES = [
   { path: "index.html", name: "home" },
   { path: "projects.html", name: "projects" },
-  { path: "project.html?id=calc-voice", name: "project-detail" },
+  { path: "project.html?id=omnicalc", name: "project-detail" },
   { path: "blog-post.html?id=playwright-qa-without-build", name: "blog-post-detail" },
   { path: "about.html", name: "about" },
   { path: "technologies.html", name: "technologies" },

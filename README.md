@@ -14,7 +14,7 @@
 portfolio/
 ├── index.html            الصفحة الرئيسية
 ├── projects.html         قائمة المشاريع
-├── project.html          دراسة الحالة (project.html?id=calc-voice)
+├── project.html          دراسة الحالة (project.html?id=omnicalc)
 ├── about.html            نبذة عني
 ├── blog.html             المدونة
 ├── blog-post.html        قراءة مقال (blog-post.html?id=...)
