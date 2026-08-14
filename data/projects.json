@@ -504,8 +504,8 @@
       },
       "tech": ["Kotlin", "Jetpack Compose", "Material 3", "MVVM", "DataStore", "Google AdMob"],
       "cover": {
-        "ar": "assets/images/apps/omnicalc/omnicalc-cover-ar.jpg",
-        "en": "assets/images/apps/omnicalc/omnicalc-cover-en.jpg"
+        "ar": "assets/images/apps/omnicalc/ar/omnicalc-cover-ar.jpg",
+        "en": "assets/images/apps/omnicalc/en/omnicalc-cover-en.jpg"
       },
       "links": {
         "live": null,
@@ -513,8 +513,543 @@
         "source": null,
         "video": null
       },
-      "caseStudy": [],
-      "gallery": [],
+      "caseStudy": [
+        {
+          "id": "problem",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "مستخدم الهاتف النموذجي يحتاج أكثر من أداة حساب واحدة: حاسبة يومية، وحاسبة علمية للدراسة، وحاسبة عمر وكتلة الجسم صحية، ومحول وحدات للطبيعة والطبخ والسفر. الحل الشائع — تثبيت تطبيق منفصل لكل مهمة — يعني واجهات مختلفة وإعلانات مضاعفة ومساحة تخزين مهدورة.",
+                "en": "The typical phone user needs more than one calculation tool: an everyday calculator, a scientific one for study, health tools like age and BMI, and a unit converter for nature, cooking, and travel. The common answer — installing a separate app per task — means different UIs, doubled ads, and wasted storage."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "الإدخال الصوتي شبه غائب عن الحاسبات على المتاجر، والدعم العربي فيه نادر. المستخدم الذي لا يستطيع الكتابة بسهولة (قيادة، مهام متوازية، أيدي مشغولة) يبقى مقصياً من الحساب الآني.",
+                "en": "Voice input is nearly absent from store calculators, and Arabic support in it is rare. Users who cannot type easily (driving, multitasking, busy hands) remain locked out of instant calculation."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "المستخدم العربي يواجه أيضاً تطبيقات لا تحترم اتجاه RTL، ولا تعرض الأرقام العربية، ولا تكتشف لغته تلقائياً — فتلتزم بالخبرة الإنجليزية فقط.",
+                "en": "Arabic speakers additionally face apps that ignore RTL direction, refuse Arabic numerals, and never auto-detect their language — leaving them stuck with an English-only experience."
+              }
+            }
+          ]
+        },
+        {
+          "id": "goals",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "حاسبة عادية وعلمية (مثلثات، لوغاريتمات، ترميز علمي) في تطبيق واحد.",
+                  "en": "Standard and scientific calculators (trigonometry, logarithms, scientific notation) in one app."
+                },
+                {
+                  "ar": "إدخال صوتي للحسابات بالعربية والإنجليزية مع نطق النتائج.",
+                  "en": "Voice input for calculations in Arabic and English, with spoken results."
+                },
+                {
+                  "ar": "حاسبة عمر (سنوات/شهور/أيام) ومؤشر كتلة جسم مع رؤى صحية مفصلة.",
+                  "en": "An age calculator (years/months/days) and a BMI calculator with detailed health insights."
+                },
+                {
+                  "ar": "محول وحدات يغطي الطول والوزن والحجم والحرارة والسرعة والمساحة والزمن والبيانات.",
+                  "en": "A unit converter covering length, weight, volume, temperature, speed, area, time, and data."
+                },
+                {
+                  "ar": "واجهة ثنائية اللغة مع كشف تلقائي، ودعم RTL كامل، وخيار أسلوب الأرقام العربية.",
+                  "en": "A bilingual UI with automatic detection, full RTL support, and an Arabic numeral style option."
+                },
+                {
+                  "ar": "وضعان فاتح وداكن مع خيار تلقائي يتبع النظام، بتصميم Material 3.",
+                  "en": "Light and dark themes with an auto option that follows the system, in Material 3 design."
+                },
+                {
+                  "ar": "كل البيانات محلية على الجهاز، والتطبيق يعمل دون إنترنت.",
+                  "en": "All data stays on-device and the app works fully offline."
+                },
+                {
+                  "ar": "بقاء التطبيق مجانياً عبر إعلانات AdMob مقننة التردد لا تزعج التجربة.",
+                  "en": "Keep the app free through frequency-capped AdMob ads that respect the experience."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "قيّمت Android SpeechRecognizer للعربية والإنجليزية على أجهزة مختلفة: دقة التعرف تتفاوت حسب الجهاز ومحرك Google، والناتج الخام مليء بأخطاء تجانس صوتي (5 ↔ خمسة). خلُصت إلى أن التعرف وحده لا يكفي — يلزمه طبقة فهم تعرف العامية والبدائل.",
+                "en": "I evaluated Android SpeechRecognizer for Arabic and English across devices: accuracy varies by device and Google engine, and the raw output is full of homophone errors (5 ↔ five). I concluded that recognition alone is not enough — it needs a comprehension layer that understands speech variants."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "قيّمت محرك TextToSpeech لنطق النتائج: النطق بالعربية والإنجليزية متاح، لكن تهيئته غير متزامنة وترتبط بخيط رئيسي و Looper — إنشاؤه خارج الخيط الرئيسي لا يُشغّل onInit إطلاقاً.",
+                "en": "I evaluated the TextToSpeech engine for spoken results: Arabic and English speech work, but initialization is asynchronous and needs a main thread with a Looper — creating it off the main thread never fires onInit."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "قارنت إستراتيجيات الإعلانات عبر AdMob 24.1.0 و UMP 4.0.0: اعتمدت كبحاً ذكياً — إعلان بيني بعد كل 7 انتقالات مع استراحة 180 ثانية، وإعلان أصلي داخل السجل كل 7 عناصر — بدل إغراق كل شاشة.",
+                "en": "I compared ad strategies with AdMob 24.1.0 and UMP 4.0.0: I adopted smart capping — an interstitial after every 7 navigations with a 180-second cooldown, plus a native ad inside history every 7 items — instead of flooding every screen."
+              }
+            }
+          ]
+        },
+        {
+          "id": "architecture",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "تطبيق Single-Activity مبني بالكامل بـ Jetpack Compose: SplashActivity معرّفة كـ LAUNCHER وتؤدي إلى IntroActivity ثم MainActivity — وهي ComponentActivity واحدة تملك كل الشاشات عبر التنقل بين الشاشات مع Drawer.",
+                "en": "A single-activity app built entirely with Jetpack Compose: SplashActivity is the LAUNCHER and hands off to IntroActivity then MainActivity — one ComponentActivity owning every screen through drawer-based navigation."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "إدارة الحالة",
+                    "en": "State management"
+                  },
+                  "detail": {
+                    "ar": "ViewModel واحد (CalculatorViewModel) ومسؤولان عن التخزين: DataStoreManager و HistoryManager؛ تستهلك الواجهة تدفقاتهما عبر collectAsState.",
+                    "en": "A single CalculatorViewModel plus two storage owners — DataStoreManager and HistoryManager — consumed by the UI via collectAsState."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التخزين",
+                    "en": "Storage"
+                  },
+                  "detail": {
+                    "ar": "DataStore Preferences (omnicalc_settings) يحفظ كل الإعدادات: وضع الثيم، وضع اللغة، أسلوب الأرقام، وضع الزاوية، الصوت، الصوت الناطق، لغة التعرف الصوتي، والنسخ التلقائي.",
+                    "en": "DataStore Preferences (omnicalc_settings) persists every setting: theme mode, language mode, number style, angle mode, sound, voice name, speech recognition language, and auto-copy result."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "خط الصوت",
+                    "en": "Voice pipeline"
+                  },
+                  "detail": {
+                    "ar": "VoiceRecognizer (SpeechRecognizer) ← VoiceParser بقواميس عربية وإنجليزية وطبقة تصحيحات ← CalculatorEvaluator ← VoiceSpeaker (TextToSpeech) لنطق النتيجة.",
+                    "en": "VoiceRecognizer (SpeechRecognizer) → VoiceParser with Arabic and English dictionaries plus a correction layer → CalculatorEvaluator → VoiceSpeaker (TextToSpeech) reads the result."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "اللغة والاتجاه",
+                    "en": "Language & direction"
+                  },
+                  "detail": {
+                    "ar": "LocaleHelper.wrapContext داخل attachBaseContext يبدل اللغة قبل الرسم، مع تخزين مؤقت للغة لقراءة فورية؛ والاتجاه عبر LocalLayoutDirection (RTL/LTR).",
+                    "en": "LocaleHelper.wrapContext inside attachBaseContext swaps the language before drawing, with a cached language for instant reads; direction flows through LocalLayoutDirection (RTL/LTR)."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "طبقة الإعلانات",
+                    "en": "Ads layer"
+                  },
+                  "detail": {
+                    "ar": "UnifiedAdManager + AdConfig: بنرات وبينية وأصلية ومكافأة، بمعرّفات اختبار رسمية من Google، وتحميل مسبق قبل العرض.",
+                    "en": "UnifiedAdManager + AdConfig: banner, interstitial, native, and rewarded units with Google's official test IDs, preloaded before display."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "البنية المادية",
+                    "en": "Physical footprint"
+                  },
+                  "detail": {
+                    "ar": "com.ghassanstudio.omnicalc — minSdk 23، targetSdk/compileSdk 36، الإصدار 1.2 (versionCode 2).",
+                    "en": "com.ghassanstudio.omnicalc — minSdk 23, targetSdk/compileSdk 36, version 1.2 (versionCode 2)."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ui-decisions",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "اخترت تصميم Material 3 مخصصاً بطابع Neon/Glassmorphism مميز، مع نظام تصميم مركزي (DesignSystem و Color و Type) يوحّد الأشكال والألوان والأحجام عبر كل الشاشات بدل تكرار القيم يدوياً.",
+                "en": "I chose a custom Material 3 design with a distinctive neon/glassmorphism look, backed by a central design system (DesignSystem, Color, Type) that unifies shapes, colors, and sizes across every screen instead of duplicating values by hand."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "شاشة BMI مقسمة إلى أقسام غنية: مقياس Gauge، رسوم صحية حسب الجنس والعمر، بطاقات حقائق ممتعة ونصائح نمط حياة.",
+                  "en": "The BMI screen is broken into rich sections: a gauge, health charts by gender and age, fun-fact cards, and lifestyle tips."
+                },
+                {
+                  "ar": "محول الوحدات بشاشة موحدة: فئات كبطاقات مصغرة، لوحة أرقام متجاوبة حسب الاتجاه، وقيم مرجعية سريعة.",
+                  "en": "The unit converter uses one unified screen: categories as compact cards, a responsive number pad, and quick reference values."
+                },
+                {
+                  "ar": "وضع edge-to-edge مع Drawer يعرض إحصائيات سريعة وعناصر قائمة مميزة بتصميم Premium.",
+                  "en": "Edge-to-edge layout with a drawer showing quick stats and premium-styled menu items."
+                },
+                {
+                  "ar": "شاشات Splash و Intro متحركة تشرح القيمة قبل الوصول إلى الحاسبة.",
+                  "en": "Animated Splash and Intro screens present the value before the calculator itself."
+                },
+                {
+                  "ar": "تثبيت الاتجاه Portrait في كل الأنشطة لتجربة استخدام بيد واحدة ثابتة.",
+                  "en": "Portrait orientation is locked on every activity for a stable one-hand experience."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "implementation",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "البنية التقنية: Kotlin 2.0.21 مع AGP 8.13.2 و Compose BOM 2024.09.00، و Navigation Compose 2.8.5، و DataStore Preferences 1.1.4، و Google Mobile Ads 24.1.0 مع UMP 4.0.0.",
+                "en": "The technical base: Kotlin 2.0.21 with AGP 8.13.2 and Compose BOM 2024.09.00, Navigation Compose 2.8.5, DataStore Preferences 1.1.4, and Google Mobile Ads 24.1.0 with UMP 4.0.0."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "محرك الحساب",
+                    "en": "Math engine"
+                  },
+                  "detail": {
+                    "ar": "calculator/CalculatorEvaluator يحلل التعبير ويدعم الأرقام العربية وعامل الطرح الأحادي، و ScientificFunctions تتعامل مع الدوال المثلثية وفق وضع الزاوية (DEG/RAD).",
+                    "en": "calculator/CalculatorEvaluator parses the expression, supports Arabic numerals and unary minus; ScientificFunctions handles trigonometry per angle mode (DEG/RAD)."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الصوت",
+                    "en": "Voice"
+                  },
+                  "detail": {
+                    "ar": "voiceparser/ بقواميس عربية وإنجليزية وقواعد تصحيح لتحويل الكلام إلى تعبير رياضي؛ voicespeaker/ ينطق الأرقام والنتائج بلغة مختارة.",
+                    "en": "voiceparser/ carries Arabic and English dictionaries plus correction rules that turn speech into a math expression; voicespeaker/ reads digits and results in the chosen voice."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "المحول",
+                    "en": "Converter"
+                  },
+                  "detail": {
+                    "ar": "ثماني فئات (الطول، الوزن، الحجم، الحرارة، السرعة، المساحة، الزمن، البيانات) ببيانات وحدات مركزية لكل فئة.",
+                    "en": "Eight categories (length, weight, volume, temperature, speed, area, time, data) with centralized unit data per category."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الإصدار",
+                    "en": "Release"
+                  },
+                  "detail": {
+                    "ar": "R8 مفعل مع تصغير الموارد (minify + shrinkResources)، و BuildConfig مفعل، وموارد عربية وإنجليزية كاملة (values-ar).",
+                    "en": "R8 enabled with resource shrinking (minify + shrinkResources), BuildConfig on, and complete Arabic/English resources (values-ar)."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "تفصيلة دورة حياة مهمة موثقة داخل الكود: يُنشأ TextToSpeech بحزمة applicationContext لتفادي تسريب Activity، وعلى الخيط الرئيسي بالضرورة — وإلا فلن يعمل onInit.",
+                "en": "One lifecycle detail documented in the code: TextToSpeech is created with the applicationContext to avoid leaking the Activity, and must be created on the main thread — otherwise onInit never fires."
+              }
+            }
+          ]
+        },
+        {
+          "id": "performance",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "StartupTimer يقيس مراحل الإقلاع (main_oncreate ← calculator_ready ← main_visible) ويطبع الملخص عند أول ظهور للنافذة.",
+                  "en": "StartupTimer measures boot phases (main_oncreate → calculator_ready → main_visible) and prints a summary at first window focus."
+                },
+                {
+                  "ar": "لغة التطبيق مخزنة مؤقتاً (cachedLanguageInfo) لتُقرأ فوراً داخل attachBaseContext دون انتظار DataStore في كل إقلاع بارد.",
+                  "en": "The app language is cached (cachedLanguageInfo) so attachBaseContext reads it instantly instead of waiting on DataStore on every cold start."
+                },
+                {
+                  "ar": "تبديل لغة النطق وتحميل الأصوات يجري خارج الخيط الرئيسي عبر Dispatchers.Default.",
+                  "en": "Voice language switching and voice loading run off the main thread via Dispatchers.Default."
+                },
+                {
+                  "ar": "R8 مع تصغير الموارد يقلص حجم الإصدار النهائي.",
+                  "en": "R8 with resource shrinking keeps the final APK small."
+                },
+                {
+                  "ar": "إعلانات مسبقة التحميل تُحدَّث كل 10 دقائق وتنتهي صلاحيتها بعد 15 دقيقة؛ الإعلان البيني لا يظهر إلا عندما يكون جاهزاً.",
+                  "en": "Ads are preloaded, refreshed every 10 minutes, and expire after 15; an interstitial shows only when it is ready."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "accessibility",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "نطق صوتي للنتائج عبر TextToSpeech، وإدخال صوتي لمن يجد الكتابة صعبة.",
+                  "en": "Spoken results via TextToSpeech, plus voice input for users who find typing difficult."
+                },
+                {
+                  "ar": "وصف محتوى (content description) لكل زر، وأهداف لمس كبيرة، واهتزاز عند الضغط.",
+                  "en": "Content descriptions on every button, large touch targets, and haptic feedback on press."
+                },
+                {
+                  "ar": "دعم RTL كامل وتخطيط معكوس فعلي عبر LocalLayoutDirection.",
+                  "en": "Full RTL support with real mirrored layout via LocalLayoutDirection."
+                },
+                {
+                  "ar": "التباين مدروس في الوضعين الفاتح والداكن عبر نظام الألوان المركزي.",
+                  "en": "Contrast is handled in both themes through the central color system."
+                },
+                {
+                  "ar": "supportsRtl مفعّل في المانيفست مع موارد مخصّصة للاتجاهين.",
+                  "en": "supportsRtl is enabled in the manifest with direction-specific resources."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "أذونات محدودة بأدنى حد: INTERNET و ACCESS_NETWORK_STATE للإعلانات، و RECORD_AUDIO للإدخال الصوتي، و AD_ID. لا يُجمع أي شيء آخر.",
+                "en": "Permissions are kept minimal: INTERNET and ACCESS_NETWORK_STATE for ads, RECORD_AUDIO for voice input, and AD_ID. Nothing else is collected."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "كل العمليات الحسابية والسجل والإعدادات محلية على الجهاز عبر DataStore؛ والتطبيق يعمل دون أي حساب أو مزامنة سحابية. سياسة خصوصية منشورة على GitHub Pages مرتبطة داخل التطبيق في شاشة مخصصة.",
+                "en": "All calculations, history, and settings stay on-device via DataStore; the app needs no account or cloud sync. A published privacy policy on GitHub Pages is linked from an in-app screen."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "على جانب الإعلانات: UMP (User Messaging Platform 4.0.0) يطلب الموافقة قبل عرض الإعلانات، وتُستخدم معرّفات AdMob الاختبارية الرسمية أثناء التطوير. النسخ الاحتياطي معطّل (allowBackup=false) مع قواعد استخراج بيانات مخصصة.",
+                "en": "On the ads side: UMP (User Messaging Platform 4.0.0) requests consent before any ad shows, and Google's official test AdMob IDs are used during development. Backup is disabled (allowBackup=false) with custom data extraction rules."
+              }
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "طبقتان من الاختبارات: اختبارات وحدة بـ JUnit 4.13.2 (مع returnDefaultValues للواجهات التي تتطلب Android)، واختبارات واجهة آلية بـ Espresso 3.7.0 و Compose UI Test (ui-test-junit4) تعمل على جهاز أو محاكٍ عبر AndroidJUnitRunner.",
+                "en": "Two test layers: unit tests with JUnit 4.13.2 (with returnDefaultValues for Android-dependent APIs) and instrumented UI tests with Espresso 3.7.0 and Compose UI Test (ui-test-junit4) running on device or emulator via AndroidJUnitRunner."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "اختبارات شاشات الحاسبة العادية والعلمية (الإدخال، النتيجة، الأزرار).",
+                  "en": "Tests of the standard and scientific calculator screens (input, result, buttons)."
+                },
+                {
+                  "ar": "اختبار محتوى Drawer والتنقل بين الشاشات.",
+                  "en": "Drawer content and screen-navigation tests."
+                },
+                {
+                  "ar": "اختبار التبديل بين الثيمين الفاتح والداكن.",
+                  "en": "Light/dark theme switching tests."
+                },
+                {
+                  "ar": "ملف VerificationTest يثبت صحة سلوكيات عامة على مستوى الوحدة.",
+                  "en": "A VerificationTest file pins general behaviors at the unit level."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lessons",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "التعرف الصوتي العربي وحده غير موثوق: طبقة القواميس والتصحيحات في voiceparser/ هي التي جعلت الإدخال الصوتي قابلاً للاستخدام فعلياً — الاستثمار الحقيقي كان في فهم الكلام لا في التقاطه.",
+                "en": "Arabic speech recognition alone is unreliable: the dictionary and correction layer in voiceparser/ is what made voice input actually usable — the real investment was understanding speech, not capturing it."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "SpeechRecognizer و TextToSpeech مرتبطان بدورة حياة النشاط إحكاماً: pause عند onPause و destroy عند onDestroy حالتا دون تسريبات وتجمّد للصوت عند فتح تطبيقات أخرى.",
+                "en": "SpeechRecognizer and TextToSpeech are tightly bound to the activity lifecycle: pausing on onPause and destroying on onDestroy prevented leaks and audio freezes when switching apps."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "الإعلانات تفرض قرارات بنيوية من اليوم الأول: UMP قبل التهيئة، ومعرّفات اختبار رسمية أثناء التطوير، وترددات (7 انتقالات / 180 ثانية) تحفظ التجربة والعائد معاً.",
+                "en": "Ads force structural decisions from day one: UMP before initialization, official test IDs during development, and caps (7 navigations / 180 seconds) that preserve both UX and revenue."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "التزام targetSdk 36 فرضته Google Play للتطبيقات الجديدة اعتباراً من 31 أغسطس 2026 — المواكبة المستمرة للمتطلبات جزء من الصيانة لا حدث لمرة واحدة.",
+                "en": "Targeting SDK 36 was mandated by Google Play for new apps from August 31, 2026 — keeping up with requirements is ongoing maintenance, not a one-off event."
+              }
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "الإصدار 1.2 (versionCode 2) مبني بـ R8 ويعمل من أندرويد 6.0 حتى أحدث الإصدارات.",
+                  "en": "Version 1.2 (versionCode 2) ships R8-optimized and runs from Android 6.0 up to the latest versions."
+                },
+                {
+                  "ar": "حاسبتان، حاسبة عمر، مؤشر كتلة جسم برؤى صحية، ومحول وحدات بثماني فئات.",
+                  "en": "Two calculators, an age calculator, a BMI tool with health insights, and an eight-category unit converter."
+                },
+                {
+                  "ar": "إدخال صوتي بالعربية والإنجليزية مع نطق النتائج، وسجل قابل للبحث واستعادة التعبيرات.",
+                  "en": "Arabic and English voice input with spoken results, plus searchable history with expression restore."
+                },
+                {
+                  "ar": "ثنائية اللغة الكاملة مع كشف تلقائي وأرقام عربية، وثيمات فاتح/داكن/تلقائي.",
+                  "en": "Full bilingual support with auto-detection and Arabic numerals, plus light/dark/auto themes."
+                },
+                {
+                  "ar": "دورة عمل كاملة موثقة: تصميم ← تطوير ← اختبارات وحدة وواجهة ← إصدار، مع ملفات نشر وخصوصية جاهزة.",
+                  "en": "A fully documented workflow: design → development → unit and UI tests → release, with store listing and privacy files ready."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "gallery": [
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/1ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/1en.jpg"
+          },
+          "alt": {
+            "ar": "شاشة الحاسبة العادية",
+            "en": "Standard calculator screen"
+          }
+        },
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/2ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/2en.jpg"
+          },
+          "alt": {
+            "ar": "شاشة الحاسبة العلمية",
+            "en": "Scientific calculator screen"
+          }
+        },
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/3ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/3en.jpg"
+          },
+          "alt": {
+            "ar": "محول الوحدات — عرض الفئات الرئيسية",
+            "en": "Unit converter — main category view"
+          }
+        },
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/4ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/4en.jpg"
+          },
+          "alt": {
+            "ar": "محول الوحدات — فئة التحويل بعد الاختيار",
+            "en": "Unit converter — selected conversion category"
+          }
+        },
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/5ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/5en.jpg"
+          },
+          "alt": {
+            "ar": "شاشة حاسبة العمر",
+            "en": "Age calculator screen"
+          }
+        },
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/6ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/6en.jpg"
+          },
+          "alt": {
+            "ar": "شاشة مؤشر كتلة الجسم",
+            "en": "BMI calculator screen"
+          }
+        },
+        {
+          "src": {
+            "ar": "assets/images/apps/omnicalc/ar/7ar.jpg",
+            "en": "assets/images/apps/omnicalc/en/7en.jpg"
+          },
+          "alt": {
+            "ar": "شاشة سجل العمليات الحسابية",
+            "en": "Calculation history screen"
+          }
+        },
+        {
+          "src": {
+            "en": "assets/images/apps/omnicalc/en/8en.jpg"
+          },
+          "alt": {
+            "ar": "شاشة الإعدادات",
+            "en": "Settings screen"
+          }
+        }
+      ],
       "meta": {
         "description": {
           "ar": "تطبيق حاسبات متكامل: حاسبة عادية وعلمية، حاسبة عمر، مؤشر كتلة الجسم، ومحول وحدات — مع إدخال صوتي، وعربية وإنجليزية، ووضعين فاتح وداكن.",

@@ -59,26 +59,40 @@ function startRotatingTitles() {
 
 function projectCard(project, lang) {
   const detail = localizedHref(`project.html?id=${encodeURIComponent(project.slug ?? project.id)}`);
-  const tech = (project.tech ?? []).map((item) => `<li>${escapeHTML(item)}</li>`).join("");
+  const tech = (project.tech ?? []).slice(0, 4).map((item) => `<li>${escapeHTML(item)}</li>`).join("");
   const cover = project.cover?.[lang];
   const coverHTML = cover
     ? `<img class="project-card__cover" src="${escapeHTML(cover)}" alt="" loading="lazy" decoding="async">`
-    : "";
+    : `<div class="project-card__cover project-card__cover--placeholder" aria-hidden="true">${escapeHTML((project.title?.[lang] ?? "؟").trim().charAt(0))}</div>`;
+  const typeLabel = typeKey(project.type)
+    ? t(typeKey(project.type))
+    : (project.platform?.[lang] ?? project.type ?? "");
   return `
     <article class="project-card">
-      ${coverHTML}
-      <div class="project-card__head">
-        <h3><a href="${escapeHTML(detail)}">${escapeHTML(project.title?.[lang] ?? "")}</a></h3>
-        <span class="badge badge--${escapeHTML(project.status ?? "draft")}">${escapeHTML(t(`status.${project.status ?? "draft"}`))}</span>
+      <div class="project-card__media">${coverHTML}</div>
+      <div class="project-card__body">
+        <div class="project-card__head">
+          <h3><a href="${escapeHTML(detail)}">${escapeHTML(project.title?.[lang] ?? "")}</a></h3>
+          <span class="badge badge--${escapeHTML(project.status ?? "draft")}">${escapeHTML(t(`status.${project.status ?? "draft"}`))}</span>
+        </div>
+        <p class="project-card__summary">${escapeHTML(project.summary?.[lang] ?? "")}</p>
+        <ul class="tech-list" aria-label="${escapeHTML(t("projects.caseStudy.meta.stack"))}">${tech}</ul>
+        <div class="project-card__meta">
+          <span class="project-card__type">${escapeHTML(typeLabel)}</span>
+          <span>${escapeHTML(project.year ?? "")}</span>
+        </div>
+        <a class="link-arrow" href="${escapeHTML(detail)}">${escapeHTML(t("home.readCaseStudy"))}<span class="link-arrow__icon" aria-hidden="true">${escapeHTML(t("actions.arrow"))}</span></a>
       </div>
-      <p class="project-card__summary">${escapeHTML(project.summary?.[lang] ?? "")}</p>
-      <ul class="tech-list" aria-label="${escapeHTML(t("projects.caseStudy.meta.stack"))}">${tech}</ul>
-      <div class="project-card__meta">
-        <span>${escapeHTML(project.year ?? "")}</span>
-        <span>${escapeHTML(project.platform?.[lang] ?? "")}</span>
-      </div>
-      <a class="link-arrow" href="${escapeHTML(detail)}">${escapeHTML(t("home.readCaseStudy"))}<span class="link-arrow__icon" aria-hidden="true">${escapeHTML(t("actions.arrow"))}</span></a>
     </article>`;
+}
+
+/** i18n key for a project type label, or null when unknown. */
+function typeKey(type) {
+  if (type === "app" || type === "android") return "projects.filterApp";
+  if (type === "web") return "projects.filterWeb";
+  if (type === "games") return "projects.filterGames";
+  if (type === "wordpress") return "projects.filterWordPress";
+  return null;
 }
 
 function renderHero() {

@@ -86,7 +86,8 @@
     { "id": "results", "blocks": [] }
   ],
   "gallery": [
-    { "src": "assets/images/projects/my-project/1.webp", "alt": { "ar": "...", "en": "..." } }
+    { "src": "assets/images/projects/my-project/1.webp", "alt": { "ar": "...", "en": "..." } },
+    { "src": { "ar": "assets/images/projects/my-project/2-ar.webp", "en": "assets/images/projects/my-project/2-en.webp" }, "alt": { "ar": "...", "en": "..." } }
   ],
   "meta": {
     "description": { "ar": "...", "en": "..." },
@@ -108,6 +109,7 @@
 - `featured: true` يظهر المشروع في الرئيسية.
 - `links`: استخدم `null` للروابط غير المتوفرة — لا تضع `#`.
 - `gallery`: ضع ملفات الصور في `assets/images/projects/<slug>/` بصيغة WebP (ينصح: عرض 800px)، ثم أدرجها هنا، ثم تحقق بـ `node tools/check-assets.mjs`. القاعدة: **لا تُذكر صورة إلا إذا وُجد ملفها فعلاً** — لا صور وهمية ولا معرض مكسور.
+- `gallery` و `src`: `src` نص عادي (صورة مشتركة للغتين) **أو** كائن `{ "ar": ..., "en": ... }` لصورة مختلفة حسب اللغة — يُختار تلقائياً حسب اللغة المعروضة. `alt` دائماً `{ ar, en }`. يُتجاهل العنصر الذي لا يملك صورة للغة الحالية.
 
 ---
 

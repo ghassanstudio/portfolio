@@ -221,15 +221,26 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-5);
 }
 
-.project-card {
+@media (min-width: 48rem) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Portfolio cards: one balanced card system shared by the home page
+   (project-card) and the projects index (project-row). Every cover keeps
+   the same 3/2 ratio no matter the project type — Android, Web, Games or
+   WordPress. */
+.project-card,
+.project-row {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-5);
+  min-width: 0;
+  overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background-color: var(--color-surface);
@@ -238,55 +249,117 @@
     box-shadow var(--dur-base) var(--ease-out);
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-row:hover {
   border-color: var(--color-border-strong);
   box-shadow: var(--shadow-md);
 }
 
-.project-card__head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-3);
+/* Media area: fixed ratio so every card's image region has the same size. */
+.project-card__media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface-2);
 }
 
 .project-card__cover {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
-  object-position: top center;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface-2);
+  object-position: center;
+}
+
+.project-card__cover--placeholder {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text-faint);
+  background-image: linear-gradient(135deg, var(--color-surface-2), var(--color-surface));
+}
+
+.project-card__body,
+.project-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card__head,
+.project-row__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.project-row__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.project-row__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
 }
 
 .project-card h3 {
   font-size: var(--text-xl);
 }
 
-.project-card h3 a {
+.project-row h2 {
+  font-size: var(--text-xl);
+}
+
+.project-card h3 a,
+.project-row h2 a {
   color: var(--color-text);
   text-decoration: none;
   transition: color var(--dur-base) var(--ease-out);
 }
 
-.project-card h3 a:hover {
+.project-card h3 a:hover,
+.project-row h2 a:hover {
   color: var(--color-accent);
   text-decoration-thickness: 1px;
 }
 
-.project-card__summary {
+.project-card__summary,
+.project-row__summary {
   color: var(--color-text-muted);
+  min-width: 0;
 }
 
-.project-card__meta {
+.project-card__meta,
+.project-row__meta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
-  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--color-text-faint);
-  font-size: var(--text-sm);
+}
+
+.project-card__meta .project-card__type,
+.project-row__meta .project-card__type {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.project-card__body .link-arrow,
+.project-row__body .link-arrow {
+  margin-top: auto;
+  padding-top: var(--space-1);
 }
 
 .tech-list {

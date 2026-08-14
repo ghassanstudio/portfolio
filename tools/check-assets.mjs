@@ -52,7 +52,10 @@ for (const project of projects) {
     if (link && !/^https?:\/\//.test(link.url)) fail(`links.${type} url "${link.url}" must be absolute http(s)`, ref);
   }
   for (const image of project.gallery ?? []) {
-    if (!fs.existsSync(path.join(ROOT, image.src))) fail(image.src, ref);
+    const srcs = typeof image.src === "string" ? [image.src] : Object.values(image.src ?? {});
+    for (const src of srcs) {
+      if (!fs.existsSync(path.join(ROOT, src))) fail(src, ref);
+    }
   }
   for (const src of Object.values(project.cover ?? {})) {
     if (!fs.existsSync(path.join(ROOT, src))) fail(src, ref);

@@ -133,9 +133,11 @@ function galleryHTML(project, lang, num) {
   const items = project.gallery ?? [];
   if (!items.length) return "";
   const figures = items
-    .map(
-      (item) => `<figure class="gallery__item"><img src="${escapeHTML(item.src)}" alt="${escapeHTML(item.alt?.[lang] ?? "")}" loading="lazy" decoding="async"></figure>`
-    )
+    .map((item) => {
+      const src = typeof item.src === "string" ? item.src : item.src?.[lang];
+      if (!src) return "";
+      return `<figure class="gallery__item"><img src="${escapeHTML(src)}" alt="${escapeHTML(item.alt?.[lang] ?? "")}" loading="lazy" decoding="async"></figure>`;
+    })
     .join("");
   return `
     <section class="doc-section" id="gallery" aria-labelledby="gallery-title">
