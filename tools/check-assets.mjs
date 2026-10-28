@@ -49,7 +49,13 @@ for (const project of projects) {
     if (!/^[a-z0-9-]+$/.test(section.id)) fail(`section id "${section.id}" must be [a-z0-9-]`, ref);
   }
   for (const [type, link] of Object.entries(project.links ?? {})) {
-    if (link && !/^https?:\/\//.test(link.url)) fail(`links.${type} url "${link.url}" must be absolute http(s)`, ref);
+    if (!link) continue;
+    const isAbsolute = /^https?:\/\//.test(link.url);
+    const isLocalAsset = /^assets\/[a-z0-9._/-]+$/i.test(link.url);
+    if (isAbsolute) continue;
+    if (!isLocalAsset || !fs.existsSync(path.join(ROOT, link.url))) {
+      fail(`links.${type} url "${link.url}" must be absolute http(s) or an existing assets/ file`, ref);
+    }
   }
   for (const image of project.gallery ?? []) {
     const srcs = typeof image.src === "string" ? [image.src] : Object.values(image.src ?? {});

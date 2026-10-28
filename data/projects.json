@@ -8,12 +8,12 @@
       "order": 1,
       "type": "app",
       "title": {
-        "ar": "OmniCalc",
-        "en": "OmniCalc"
+        "ar": "OmniCalc — حاسبة متكاملة",
+        "en": "OmniCalc — All-in-one calculator"
       },
       "summary": {
-        "ar": "تطبيق حاسبات متكامل يضم الحاسبة العادية والعلمية، وحاسبة العمر، ومؤشر كتلة الجسم، ومحول الوحدات، مع دعم الإدخال الصوتي، والعربية والإنجليزية، والوضعين الفاتح والداكن.",
-        "en": "An all-in-one calculator app featuring standard and scientific calculators, an age calculator, a BMI calculator, and a unit converter, with voice input, Arabic & English support, and light & dark themes."
+        "ar": "تطبيق أندرويد واحد يجمع الحاسبة العادية والعلمية، ومحوّل وحدات بثماني فئات، وحاسبة العمر، ومؤشر كتلة الجسم، وسجلاً قابلاً للبحث — بواجهة عربية أولاً، وإدخال صوتي، ووضعين فاتح وداكن.",
+        "en": "One Android calculator for everyday and scientific math, eight unit categories, age, and BMI — with a searchable history, Arabic-first design, voice input, and light and dark themes."
       },
       "year": "2026",
       "status": "live",
@@ -22,43 +22,138 @@
         "en": "Android"
       },
       "role": {
-        "ar": "مطوّر التطبيق: تصميم، تطوير، نشر، توثيق",
-        "en": "Solo developer: design, development, release, documentation"
+        "ar": "مطوّر مستقل: المنتج، التصميم، تطوير Android، الاختبارات، الإصدار",
+        "en": "Solo developer: product, design, Android development, testing, release"
       },
-      "tech": ["Kotlin", "Jetpack Compose", "Material 3", "MVVM", "DataStore", "Google AdMob"],
+      "tech": [
+        "Kotlin",
+        "Jetpack Compose",
+        "Material 3",
+        "MVVM",
+        "Navigation Compose",
+        "DataStore",
+        "SpeechRecognizer",
+        "TextToSpeech",
+        "AdMob + UMP",
+        "R8"
+      ],
       "cover": {
-        "ar": "assets/images/apps/omnicalc/ar/omnicalc-cover-ar.jpg",
-        "en": "assets/images/apps/omnicalc/en/omnicalc-cover-en.jpg"
+        "ar": "assets/images/projects/omnicalc/omnicalc-cover-ar.webp",
+        "en": "assets/images/projects/omnicalc/omnicalc-cover-en.webp"
+      },
+      "coverAlt": {
+        "ar": "غلاف OmniCalc — الحاسبة العادية ومؤشر كتلة الجسم على خلفية داكنة",
+        "en": "OmniCalc cover — the standard calculator and BMI screens on a dark background"
       },
       "links": {
-        "live": null,
+        "live": {
+          "url": "https://play.google.com/store/apps/details?id=com.ghassanstudio.omnicalc",
+          "label": {
+            "ar": "عرض على Google Play",
+            "en": "View on Google Play"
+          }
+        },
         "demo": null,
         "source": null,
         "video": null
       },
       "caseStudy": [
         {
+          "id": "overview",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "OmniCalc تطبيق أندرويد واحد يستبدل درجاً كاملاً من الحاسبات أحادية الغرض: حاسبة عادية للاستخدام اليومي، وعلمية للدراسة، ومحوّل وحدات بثماني فئات، وحاسبة عمر ومؤشر كتلة جسم، وسجل عمليات قابل للبحث. الفكرة ليست جمع الأدوات في قائمة، بل منحها لغة تصميم واحدة وسلوكاً واحداً.",
+                "en": "OmniCalc is one Android app that replaces a drawer of single-purpose calculators: an everyday calculator, a scientific one for study, an eight-category unit converter, an age calculator and BMI tool, and a searchable history. The idea is not to stack tools in a menu, but to give them one design language and one set of behaviours."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "أُطلق التطبيق على Google Play وبُني بالكامل فردياً — من قرار المنتج وتصميم الواجهة إلى كود Kotlin واختبارات الإصدار. التركيز الأول كان على ما تتعثر فيه الحاسبات العربية عادةً: اتجاه RTL الحقيقي، والأرقام العربية، ونطق التعابير كما يقولها الناس فعلاً.",
+                "en": "The app is live on Google Play and was built end-to-end by one developer — from product decisions and interface design to Kotlin code and release testing. The first focus was the ground Arabic calculators usually stumble on: real RTL mirroring, Arabic-Indic numerals, and speech that matches how people actually say math."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "الإصدار الحالي",
+                    "en": "Current release"
+                  },
+                  "detail": {
+                    "ar": "1.4 (versionCode 4) — تحديث 22 أكتوبر 2026",
+                    "en": "1.4 (versionCode 4) — updated 22 October 2026"
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التوافق",
+                    "en": "Compatibility"
+                  },
+                  "detail": {
+                    "ar": "Android 7.0+ (minSdk 24) · targetSdk 36",
+                    "en": "Android 7.0+ (minSdk 24) · targetSdk 36"
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "النطاق",
+                    "en": "Scope"
+                  },
+                  "detail": {
+                    "ar": "ست أدوات · ثماني فئات تحويل · لغتان · فاتح/داكن/تلقائي",
+                    "en": "Six tools · eight conversion categories · two languages · light/dark/auto"
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "البيانات",
+                    "en": "Data"
+                  },
+                  "detail": {
+                    "ar": "بلا حساب · السجل والإعدادات محليان عبر DataStore",
+                    "en": "No account · history and settings stored locally with DataStore"
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التوزيع",
+                    "en": "Distribution"
+                  },
+                  "detail": {
+                    "ar": "Google Play · مجاني بدعم إعلانات",
+                    "en": "Google Play · free with ad support"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "problem",
           "blocks": [
             {
               "type": "p",
               "text": {
-                "ar": "مستخدم الهاتف النموذجي يحتاج أكثر من أداة حساب واحدة: حاسبة يومية، وحاسبة علمية للدراسة، وحاسبة عمر وكتلة الجسم صحية، ومحول وحدات للطبيعة والطبخ والسفر. الحل الشائع — تثبيت تطبيق منفصل لكل مهمة — يعني واجهات مختلفة وإعلانات مضاعفة ومساحة تخزين مهدورة.",
-                "en": "The typical phone user needs more than one calculation tool: an everyday calculator, a scientific one for study, health tools like age and BMI, and a unit converter for nature, cooking, and travel. The common answer — installing a separate app per task — means different UIs, doubled ads, and wasted storage."
+                "ar": "المستخدم النموذجي يحتاج أكثر من حاسبة: واحدة للفواتير، وأخرى للدراسة، وثالثة للوحدات، ورابعة للعمر أو الوزن. الحل الشائع هو تثبيت تطبيق لكل مهمة — فتتعدد الواجهات والإعلانات والمساحة، ويضيع السجل بين التطبيقات.",
+                "en": "The typical user needs more than one calculator: one for bills, another for study, a third for units, and a fourth for age or weight. The common answer is to install an app per task — multiplying interfaces, ads, and storage while scattering history across apps."
               }
             },
             {
               "type": "p",
               "text": {
-                "ar": "الإدخال الصوتي شبه غائب عن الحاسبات على المتاجر، والدعم العربي فيه نادر. المستخدم الذي لا يستطيع الكتابة بسهولة (قيادة، مهام متوازية، أيدي مشغولة) يبقى مقصياً من الحساب الآني.",
-                "en": "Voice input is nearly absent from store calculators, and Arabic support in it is rare. Users who cannot type easily (driving, multitasking, busy hands) remain locked out of instant calculation."
+                "ar": "الفجوة العربية أعمق من الترجمة: تطبيقات كثيرة تترجم النصوص وتترك التخطيط LTR، أو ترفض الأرقام العربية، أو لا تدعم الإدخال الصوتي بالعربية أصلاً. من لا يستطيع الكتابة بسهولة — أثناء القيادة أو الانشغال — يبقى خارج التجربة.",
+                "en": "The Arabic gap runs deeper than translation: many apps translate their strings yet leave the layout LTR, reject Arabic-Indic numerals, or never support Arabic voice input at all. People who cannot type easily — while driving or multitasking — stay locked out."
               }
             },
             {
               "type": "p",
               "text": {
-                "ar": "المستخدم العربي يواجه أيضاً تطبيقات لا تحترم اتجاه RTL، ولا تعرض الأرقام العربية، ولا تكتشف لغته تلقائياً — فتلتزم بالخبرة الإنجليزية فقط.",
-                "en": "Arabic speakers additionally face apps that ignore RTL direction, refuse Arabic numerals, and never auto-detect their language — leaving them stuck with an English-only experience."
+                "ar": "وثمة فجوة ثقة: حاسبات تحجب وظائف خلف اشتراك، وأدوات صحة تعرض رقماً بلا سياق. كان الهدف تطبيقاً مجانياً صريحاً، يعرض النتيجة مع معناها، ويوضح حدود أداة مثل مؤشر كتلة الجسم بدل تقديم تشخيص.",
+                "en": "There is also a trust gap: calculators that lock features behind a subscription, and health tools that show a number without context. The goal was an openly free app that presents a result with its meaning — and states the limits of a tool like BMI instead of implying a diagnosis."
               }
             }
           ]
@@ -70,139 +165,82 @@
               "type": "list",
               "items": [
                 {
-                  "ar": "حاسبة عادية وعلمية (مثلثات، لوغاريتمات، ترميز علمي) في تطبيق واحد.",
-                  "en": "Standard and scientific calculators (trigonometry, logarithms, scientific notation) in one app."
+                  "ar": "تطبيق واحد متماسك للرياضيات اليومية والدراسة والصحة وتحويل الوحدات.",
+                  "en": "One coherent app for everyday math, study, health, and unit conversion."
                 },
                 {
-                  "ar": "إدخال صوتي للحسابات بالعربية والإنجليزية مع نطق النتائج.",
-                  "en": "Voice input for calculations in Arabic and English, with spoken results."
+                  "ar": "عربية أولاً لا ترجمة لاحقة: RTL حقيقي، وأرقام عربية، وإدخال صوتي بالعربية والإنجليزية.",
+                  "en": "Arabic-first rather than translated afterwards: real RTL, Arabic-Indic numerals, and voice input in Arabic and English."
                 },
                 {
-                  "ar": "حاسبة عمر (سنوات/شهور/أيام) ومؤشر كتلة جسم مع رؤى صحية مفصلة.",
-                  "en": "An age calculator (years/months/days) and a BMI calculator with detailed health insights."
+                  "ar": "نطق النتائج صوتياً، وإدخال تعبير كامل بالكلام بدل الضغط على عشرات الأزرار.",
+                  "en": "Speak results aloud and enter a whole expression by voice instead of tapping dozens of keys."
                 },
                 {
-                  "ar": "محول وحدات يغطي الطول والوزن والحجم والحرارة والسرعة والمساحة والزمن والبيانات.",
-                  "en": "A unit converter covering length, weight, volume, temperature, speed, area, time, and data."
+                  "ar": "أدوات عمر وكتلة جسم تعطي سياقاً ونطاقات مرجعية، لا رقماً مجرداً.",
+                  "en": "Age and BMI tools that give context and reference ranges, not a bare number."
                 },
                 {
-                  "ar": "واجهة ثنائية اللغة مع كشف تلقائي، ودعم RTL كامل، وخيار أسلوب الأرقام العربية.",
-                  "en": "A bilingual UI with automatic detection, full RTL support, and an Arabic numeral style option."
+                  "ar": "سجل محلي قابل للبحث والتصفية والاستعادة، بلا حساب أو مزامنة سحابية.",
+                  "en": "A local history that can be searched, filtered, and restored, with no account or cloud sync."
                 },
                 {
-                  "ar": "وضعان فاتح وداكن مع خيار تلقائي يتبع النظام، بتصميم Material 3.",
-                  "en": "Light and dark themes with an auto option that follows the system, in Material 3 design."
+                  "ar": "وضعان فاتح وداكن مع خيار تلقائي يتبع النظام، وتجربة سريعة على أجهزة متوسطة.",
+                  "en": "Light and dark themes with an automatic system option, and a fast experience on mid-range devices."
                 },
                 {
-                  "ar": "كل البيانات محلية على الجهاز، والتطبيق يعمل دون إنترنت.",
-                  "en": "All data stays on-device and the app works fully offline."
+                  "ar": "مجانية مستدامة بإعلانات تحترم الموافقة والتردد، لا بإغراق الشاشات.",
+                  "en": "Sustainable free access through consent-aware, frequency-capped ads rather than flooding screens."
                 },
                 {
-                  "ar": "بقاء التطبيق مجانياً عبر إعلانات AdMob مقننة التردد لا تزعج التجربة.",
-                  "en": "Keep the app free through frequency-capped AdMob ads that respect the experience."
+                  "ar": "إصدار موثوق عبر Google Play باختبارات وعملية نشر موثقة.",
+                  "en": "A trustworthy Google Play release backed by tests and a documented release process."
                 }
               ]
             }
           ]
         },
         {
-          "id": "research",
+          "id": "features",
           "blocks": [
             {
-              "type": "p",
-              "text": {
-                "ar": "قيّمت Android SpeechRecognizer للعربية والإنجليزية على أجهزة مختلفة: دقة التعرف تتفاوت حسب الجهاز ومحرك Google، والناتج الخام مليء بأخطاء تجانس صوتي (5 ↔ خمسة). خلُصت إلى أن التعرف وحده لا يكفي — يلزمه طبقة فهم تعرف العامية والبدائل.",
-                "en": "I evaluated Android SpeechRecognizer for Arabic and English across devices: accuracy varies by device and Google engine, and the raw output is full of homophone errors (5 ↔ five). I concluded that recognition alone is not enough — it needs a comprehension layer that understands speech variants."
-              }
-            },
-            {
-              "type": "p",
-              "text": {
-                "ar": "قيّمت محرك TextToSpeech لنطق النتائج: النطق بالعربية والإنجليزية متاح، لكن تهيئته غير متزامنة وترتبط بخيط رئيسي و Looper — إنشاؤه خارج الخيط الرئيسي لا يُشغّل onInit إطلاقاً.",
-                "en": "I evaluated the TextToSpeech engine for spoken results: Arabic and English speech work, but initialization is asynchronous and needs a main thread with a Looper — creating it off the main thread never fires onInit."
-              }
-            },
-            {
-              "type": "p",
-              "text": {
-                "ar": "قارنت إستراتيجيات الإعلانات عبر AdMob 24.1.0 و UMP 4.0.0: اعتمدت كبحاً ذكياً — إعلان بيني بعد كل 7 انتقالات مع استراحة 180 ثانية، وإعلان أصلي داخل السجل كل 7 عناصر — بدل إغراق كل شاشة.",
-                "en": "I compared ad strategies with AdMob 24.1.0 and UMP 4.0.0: I adopted smart capping — an interstitial after every 7 navigations with a 180-second cooldown, plus a native ad inside history every 7 items — instead of flooding every screen."
-              }
-            }
-          ]
-        },
-        {
-          "id": "architecture",
-          "blocks": [
-            {
-              "type": "p",
-              "text": {
-                "ar": "تطبيق Single-Activity مبني بالكامل بـ Jetpack Compose: SplashActivity معرّفة كـ LAUNCHER وتؤدي إلى IntroActivity ثم MainActivity — وهي ComponentActivity واحدة تملك كل الشاشات عبر التنقل بين الشاشات مع Drawer.",
-                "en": "A single-activity app built entirely with Jetpack Compose: SplashActivity is the LAUNCHER and hands off to IntroActivity then MainActivity — one ComponentActivity owning every screen through drawer-based navigation."
-              }
-            },
-            {
-              "type": "dl",
-              "rows": [
+              "type": "list",
+              "items": [
                 {
-                  "term": {
-                    "ar": "إدارة الحالة",
-                    "en": "State management"
-                  },
-                  "detail": {
-                    "ar": "ViewModel واحد (CalculatorViewModel) ومسؤولان عن التخزين: DataStoreManager و HistoryManager؛ تستهلك الواجهة تدفقاتهما عبر collectAsState.",
-                    "en": "A single CalculatorViewModel plus two storage owners — DataStoreManager and HistoryManager — consumed by the UI via collectAsState."
-                  }
+                  "ar": "الحاسبة العادية: العمليات الأربع، والنسبة المئوية، وتغيير الإشارة، وسجل تلقائي، ونسخ تلقائي اختياري للنتيجة.",
+                  "en": "Standard calculator: four operations, percent, sign toggle, automatic history, and optional auto-copy of the result."
                 },
                 {
-                  "term": {
-                    "ar": "التخزين",
-                    "en": "Storage"
-                  },
-                  "detail": {
-                    "ar": "DataStore Preferences (omnicalc_settings) يحفظ كل الإعدادات: وضع الثيم، وضع اللغة، أسلوب الأرقام، وضع الزاوية، الصوت، الصوت الناطق، لغة التعرف الصوتي، والنسخ التلقائي.",
-                    "en": "DataStore Preferences (omnicalc_settings) persists every setting: theme mode, language mode, number style, angle mode, sound, voice name, speech recognition language, and auto-copy result."
-                  }
+                  "ar": "الحاسبة العلمية: المثلثات واللوغاريتمات والجذور والأسس والثوابت والمضروب، مع وضعي DEG/RAD.",
+                  "en": "Scientific calculator: trigonometry, logarithms, roots, powers, constants, factorial, and DEG/RAD modes."
                 },
                 {
-                  "term": {
-                    "ar": "خط الصوت",
-                    "en": "Voice pipeline"
-                  },
-                  "detail": {
-                    "ar": "VoiceRecognizer (SpeechRecognizer) ← VoiceParser بقواميس عربية وإنجليزية وطبقة تصحيحات ← CalculatorEvaluator ← VoiceSpeaker (TextToSpeech) لنطق النتيجة.",
-                    "en": "VoiceRecognizer (SpeechRecognizer) → VoiceParser with Arabic and English dictionaries plus a correction layer → CalculatorEvaluator → VoiceSpeaker (TextToSpeech) reads the result."
-                  }
+                  "ar": "محوّل الوحدات: الطول والوزن والحجم والحرارة والسرعة والمساحة والزمن والبيانات الرقمية، مع تبديل بلمسة، وجدول قيم مرجعية 1/10/100/1000، وأمثلة شائعة.",
+                  "en": "Unit converter: length, weight, volume, temperature, speed, area, time, and digital data, with one-tap swap, a 1/10/100/1000 quick-reference table, and common examples."
                 },
                 {
-                  "term": {
-                    "ar": "اللغة والاتجاه",
-                    "en": "Language & direction"
-                  },
-                  "detail": {
-                    "ar": "LocaleHelper.wrapContext داخل attachBaseContext يبدل اللغة قبل الرسم، مع تخزين مؤقت للغة لقراءة فورية؛ والاتجاه عبر LocalLayoutDirection (RTL/LTR).",
-                    "en": "LocaleHelper.wrapContext inside attachBaseContext swaps the language before drawing, with a cached language for instant reads; direction flows through LocalLayoutDirection (RTL/LTR)."
-                  }
+                  "ar": "حاسبة العمر: السنوات والأشهر والأيام بدقة، ومجاميع الأسابيع والأشهر والأيام والساعات، وتاريخ مقارنة مخصص.",
+                  "en": "Age calculator: exact years, months, and days, totals in weeks, months, days, and hours, and a custom comparison date."
                 },
                 {
-                  "term": {
-                    "ar": "طبقة الإعلانات",
-                    "en": "Ads layer"
-                  },
-                  "detail": {
-                    "ar": "UnifiedAdManager + AdConfig: بنرات وبينية وأصلية ومكافأة، بمعرّفات اختبار رسمية من Google، وتحميل مسبق قبل العرض.",
-                    "en": "UnifiedAdManager + AdConfig: banner, interstitial, native, and rewarded units with Google's official test IDs, preloaded before display."
-                  }
+                  "ar": "مؤشر كتلة الجسم: إدخال الطول والوزن، ومقياس ملوّن بالنطاقات المرجعية، وإحصاءات متقدمة للخصر والورك، ومؤشر صحة، وإرشاد بلغة واضحة.",
+                  "en": "BMI calculator: height and weight input, a colour gauge with reference ranges, advanced waist and hip statistics, a health score, and plain-language guidance."
                 },
                 {
-                  "term": {
-                    "ar": "البنية المادية",
-                    "en": "Physical footprint"
-                  },
-                  "detail": {
-                    "ar": "com.ghassanstudio.omnicalc — minSdk 23، targetSdk/compileSdk 36، الإصدار 1.2 (versionCode 2).",
-                    "en": "com.ghassanstudio.omnicalc — minSdk 23, targetSdk/compileSdk 36, version 1.2 (versionCode 2)."
-                  }
+                  "ar": "السجل: بحث فوري، وتصفية حسب نوع الحاسبة، وإحصاءات استخدام، وتجميع بالتاريخ، ونسخ أو استعادة أي تعبير بنقرة.",
+                  "en": "History: instant search, filtering by calculator type, usage stats, date grouping, and copy or restore any expression in one tap."
+                },
+                {
+                  "ar": "الصوت: تحويل الكلام إلى تعبير بالعربية والإنجليزية، ونطق النتائج، وتغذية صوتية اختيارية.",
+                  "en": "Voice: speech-to-expression in Arabic and English, spoken results, and optional sound feedback."
+                },
+                {
+                  "ar": "التخصيص: العربية أو الإنجليزية، وأرقام عربية أو غربية، وثيمات فاتح/داكن/تلقائي، واهتزاز عند اللمس.",
+                  "en": "Personalization: Arabic or English, Arabic-Indic or Western numerals, light/dark/auto themes, and haptic feedback."
+                },
+                {
+                  "ar": "الخصوصية: بلا حساب أو سحابة؛ الإعدادات والسجل يبقيان على الجهاز عبر DataStore.",
+                  "en": "Privacy: no account or cloud; settings and history stay on the device through DataStore."
                 }
               ]
             }
@@ -214,45 +252,49 @@
             {
               "type": "p",
               "text": {
-                "ar": "اخترت تصميم Material 3 مخصصاً بطابع Neon/Glassmorphism مميز، مع نظام تصميم مركزي (DesignSystem و Color و Type) يوحّد الأشكال والألوان والأحجام عبر كل الشاشات بدل تكرار القيم يدوياً.",
-                "en": "I chose a custom Material 3 design with a distinctive neon/glassmorphism look, backed by a central design system (DesignSystem, Color, Type) that unifies shapes, colors, and sizes across every screen instead of duplicating values by hand."
+                "ar": "الهوية بصرية نيون/زجاجية على أسطح شبه سوداء، لكن اللون ليس زينة: لكل أداة لون دلالي ثابت — بنفسجي للحاسبة العلمية، وسماوي للمحوّل، ووردي للعمر، وذهبي لمؤشر كتلة الجسم. نظام تصميم مركزي يحكم الأشكال والأحجام والمسافات، فلا تتباعد الشاشات مع نمو التطبيق.",
+                "en": "The identity is neon and glassy on near-black surfaces, but colour is not decoration: each tool has a fixed semantic accent — violet for scientific, cyan for the converter, pink for age, gold for BMI. A central design system governs shapes, sizes, and spacing so the screens do not drift apart as the app grows."
               }
             },
             {
               "type": "list",
               "items": [
                 {
-                  "ar": "شاشة BMI مقسمة إلى أقسام غنية: مقياس Gauge، رسوم صحية حسب الجنس والعمر، بطاقات حقائق ممتعة ونصائح نمط حياة.",
-                  "en": "The BMI screen is broken into rich sections: a gauge, health charts by gender and age, fun-fact cards, and lifestyle tips."
+                  "ar": "لوحة الأرقام أولاً: شبكة أربعة أعمدة، أهداف لمس كبيرة، ألوان للعمليات، وزر يساوي بعرض بارز.",
+                  "en": "Keypad first: a four-column grid, large touch targets, coloured operators, and a prominent equals key."
                 },
                 {
-                  "ar": "محول الوحدات بشاشة موحدة: فئات كبطاقات مصغرة، لوحة أرقام متجاوبة حسب الاتجاه، وقيم مرجعية سريعة.",
-                  "en": "The unit converter uses one unified screen: categories as compact cards, a responsive number pad, and quick reference values."
+                  "ar": "الشاشة هي البطل: التعبير صغير والنتيجة كبيرة، مع تحجيم تلقائي للنصوص الطويلة بدل تصغير الواجهة كلها.",
+                  "en": "The display is the hero: a small expression over a large result, with adaptive text scaling for long values instead of shrinking the whole UI."
                 },
                 {
-                  "ar": "وضع edge-to-edge مع Drawer يعرض إحصائيات سريعة وعناصر قائمة مميزة بتصميم Premium.",
-                  "en": "Edge-to-edge layout with a drawer showing quick stats and premium-styled menu items."
+                  "ar": "الاستخدام بيد واحدة: تثبيت الوضع الرأسي، وتخطيط edge-to-edge يحترم حواف النظام.",
+                  "en": "One-handed use: portrait orientation locked, with an edge-to-edge layout that respects system insets."
                 },
                 {
-                  "ar": "شاشات Splash و Intro متحركة تشرح القيمة قبل الوصول إلى الحاسبة.",
-                  "en": "Animated Splash and Intro screens present the value before the calculator itself."
+                  "ar": "مؤشر كتلة الجسم كمقياس لا كرقم: موقعك على تدرّج ملوّن، وتصنيف بلغة واضحة، وملاحظة صريحة بأنه معلومة عامة لا تشخيص.",
+                  "en": "BMI as a scale rather than a number: your position on a colour gradient, a plain-language category, and an explicit note that it is general information, not a diagnosis."
                 },
                 {
-                  "ar": "تثبيت الاتجاه Portrait في كل الأنشطة لتجربة استخدام بيد واحدة ثابتة.",
-                  "en": "Portrait orientation is locked on every activity for a stable one-hand experience."
+                  "ar": "السجل كدفتر عمليات: إحصاءات في الأعلى، ورقائق تصفية، وبحث، وتجميع بالتاريخ، وأزرار نسخ واستعادة ظاهرة.",
+                  "en": "History as a logbook: stats at the top, filter chips, search, date grouping, and visible copy and restore actions."
+                },
+                {
+                  "ar": "تكافؤ الثيمين: الفاتح والداكن ضُبطا كلٌّ على حدة، لا مجرد عكس للألوان.",
+                  "en": "Theme parity: light and dark were tuned separately rather than simply inverted."
                 }
               ]
             }
           ]
         },
         {
-          "id": "implementation",
+          "id": "architecture",
           "blocks": [
             {
               "type": "p",
               "text": {
-                "ar": "البنية التقنية: Kotlin 2.0.21 مع AGP 8.13.2 و Compose BOM 2024.09.00، و Navigation Compose 2.8.5، و DataStore Preferences 1.1.4، و Google Mobile Ads 24.1.0 مع UMP 4.0.0.",
-                "en": "The technical base: Kotlin 2.0.21 with AGP 8.13.2 and Compose BOM 2024.09.00, Navigation Compose 2.8.5, DataStore Preferences 1.1.4, and Google Mobile Ads 24.1.0 with UMP 4.0.0."
+                "ar": "تطبيق Single-Activity مبني بالكامل بـ Jetpack Compose: شاشة Splash تنطلق إلى Intro ثم MainActivity، وهي ComponentActivity واحدة تملك كل الشاشات عبر Drawer. ViewModel واحد يخدم الحاسبات، ومديرَا تخزين يحفظان الإعدادات والسجل محلياً، وخط صوت مستقل يحوّل الكلام إلى تعبير ثم إلى نتيجة منطوقة.",
+                "en": "A single-activity app built entirely with Jetpack Compose: a Splash screen hands off to Intro and then MainActivity, one ComponentActivity that owns every screen through a drawer. A single ViewModel serves the calculators, two storage owners keep settings and history local, and a separate voice pipeline turns speech into an expression and then into a spoken result."
               }
             },
             {
@@ -260,12 +302,32 @@
               "rows": [
                 {
                   "term": {
-                    "ar": "محرك الحساب",
-                    "en": "Math engine"
+                    "ar": "الواجهة",
+                    "en": "UI"
                   },
                   "detail": {
-                    "ar": "calculator/CalculatorEvaluator يحلل التعبير ويدعم الأرقام العربية وعامل الطرح الأحادي، و ScientificFunctions تتعامل مع الدوال المثلثية وفق وضع الزاوية (DEG/RAD).",
-                    "en": "calculator/CalculatorEvaluator parses the expression, supports Arabic numerals and unary minus; ScientificFunctions handles trigonometry per angle mode (DEG/RAD)."
+                    "ar": "Compose + Material 3، مع Navigation Compose و DesignSystem موحّد للألوان والأنواع والأشكال.",
+                    "en": "Compose + Material 3, with Navigation Compose and a unified DesignSystem for colour, type, and shape."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الحالة",
+                    "en": "State"
+                  },
+                  "detail": {
+                    "ar": "CalculatorViewModel واحد يملك حالة الحاسبة والسجل، تستهلكه الشاشات عبر تدفقات قابلة للملاحظة.",
+                    "en": "One CalculatorViewModel owns calculator and history state, consumed by screens through observable streams."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التخزين",
+                    "en": "Storage"
+                  },
+                  "detail": {
+                    "ar": "DataStore Preferences (omnicalc_settings) للإعدادات، و DataStore منفصل (omnicalc_history) للسجل بصيغة JSON — بلا قاعدة بيانات أو خادم.",
+                    "en": "DataStore Preferences (omnicalc_settings) for settings and a separate DataStore (omnicalc_history) for JSON-encoded history — no database or server."
                   }
                 },
                 {
@@ -274,18 +336,28 @@
                     "en": "Voice"
                   },
                   "detail": {
-                    "ar": "voiceparser/ بقواميس عربية وإنجليزية وقواعد تصحيح لتحويل الكلام إلى تعبير رياضي؛ voicespeaker/ ينطق الأرقام والنتائج بلغة مختارة.",
-                    "en": "voiceparser/ carries Arabic and English dictionaries plus correction rules that turn speech into a math expression; voicespeaker/ reads digits and results in the chosen voice."
+                    "ar": "SpeechRecognizer ← قواميس عربية وإنجليزية وطبقة تصحيحات ← CalculatorEvaluator ← TextToSpeech لنطق النتيجة.",
+                    "en": "SpeechRecognizer → Arabic and English dictionaries plus a correction layer → CalculatorEvaluator → TextToSpeech for the spoken result."
                   }
                 },
                 {
                   "term": {
-                    "ar": "المحول",
-                    "en": "Converter"
+                    "ar": "اللغة والاتجاه",
+                    "en": "Language & direction"
                   },
                   "detail": {
-                    "ar": "ثماني فئات (الطول، الوزن، الحجم، الحرارة، السرعة، المساحة، الزمن، البيانات) ببيانات وحدات مركزية لكل فئة.",
-                    "en": "Eight categories (length, weight, volume, temperature, speed, area, time, data) with centralized unit data per category."
+                    "ar": "LocaleHelper.wrapContext داخل attachBaseContext يبدّل اللغة قبل الرسم، مع لغة مخزّنة مؤقتاً للقراءة الفورية، واتجاه عبر LocalLayoutDirection.",
+                    "en": "LocaleHelper.wrapContext inside attachBaseContext swaps the language before drawing, backed by a cached language for instant reads and direction through LocalLayoutDirection."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الإعلانات",
+                    "en": "Ads"
+                  },
+                  "detail": {
+                    "ar": "UnifiedAdManager + UMP: موافقة قبل التهيئة، وبينية بعد كل 7 انتقالات مع تهدئة 180 ثانية، وأصلية كل 7 عناصر في السجل، وتحميل مسبق بانتهاء صلاحية.",
+                    "en": "UnifiedAdManager + UMP: consent before initialization, an interstitial after every 7 navigations with a 180-second cooldown, a native ad every 7 history items, and preloading with expiry."
                   }
                 },
                 {
@@ -294,104 +366,81 @@
                     "en": "Release"
                   },
                   "detail": {
-                    "ar": "R8 مفعل مع تصغير الموارد (minify + shrinkResources)، و BuildConfig مفعل، وموارد عربية وإنجليزية كاملة (values-ar).",
-                    "en": "R8 enabled with resource shrinking (minify + shrinkResources), BuildConfig on, and complete Arabic/English resources (values-ar)."
+                    "ar": "R8 مع تصغير الموارد، و BuildConfig مفعّل، و minSdk 24 / targetSdk 36، والإصدار 1.4 (versionCode 4).",
+                    "en": "R8 with resource shrinking, BuildConfig enabled, minSdk 24 / targetSdk 36, and version 1.4 (versionCode 4)."
                   }
                 }
               ]
-            },
-            {
-              "type": "p",
-              "text": {
-                "ar": "تفصيلة دورة حياة مهمة موثقة داخل الكود: يُنشأ TextToSpeech بحزمة applicationContext لتفادي تسريب Activity، وعلى الخيط الرئيسي بالضرورة — وإلا فلن يعمل onInit.",
-                "en": "One lifecycle detail documented in the code: TextToSpeech is created with the applicationContext to avoid leaking the Activity, and must be created on the main thread — otherwise onInit never fires."
-              }
             }
           ]
         },
         {
-          "id": "performance",
+          "id": "challenges",
           "blocks": [
             {
-              "type": "list",
-              "items": [
+              "type": "dl",
+              "rows": [
                 {
-                  "ar": "StartupTimer يقيس مراحل الإقلاع (main_oncreate ← calculator_ready ← main_visible) ويطبع الملخص عند أول ظهور للنافذة.",
-                  "en": "StartupTimer measures boot phases (main_oncreate → calculator_ready → main_visible) and prints a summary at first window focus."
+                  "term": {
+                    "ar": "الكلام العربي ليس إملاءً",
+                    "en": "Arabic speech is not dictation"
+                  },
+                  "detail": {
+                    "ar": "التعرف الخام يخطئ في المتجانسات الصوتية وفي طريقة نطق الأرقام والعمليات. الحل لم يكن محركاً آخر، بل طبقة فهم: تطبيع النص، وقواميس عربية وإنجليزية، وقواعد تصحيح، ثم محرك الحساب — فصار الإدخال الصوتي قابلاً للاستخدام فعلاً.",
+                    "en": "Raw recognition confuses homophones and the many ways people say numbers and operators. The fix was not another engine but a comprehension layer: text normalization, Arabic and English dictionaries, correction rules, and then the math engine — which is what made voice input genuinely usable."
+                  }
                 },
                 {
-                  "ar": "لغة التطبيق مخزنة مؤقتاً (cachedLanguageInfo) لتُقرأ فوراً داخل attachBaseContext دون انتظار DataStore في كل إقلاع بارد.",
-                  "en": "The app language is cached (cachedLanguageInfo) so attachBaseContext reads it instantly instead of waiting on DataStore on every cold start."
+                  "term": {
+                    "ar": "دورة حياة الصوت",
+                    "en": "Voice lifecycle"
+                  },
+                  "detail": {
+                    "ar": "TextToSpeech يجب أن يُنشأ على الخيط الرئيسي مع Looper؛ إنشاؤه خارجه يعني أن onInit لا يعمل إطلاقاً. استخدمت applicationContext لمنع تسريب النشاط، وربطت الإيقاف والتدمير بدورة حياة الشاشة لمنع تجمّد الصوت عند تبديل التطبيقات.",
+                    "en": "TextToSpeech must be created on the main thread with a Looper; creating it elsewhere means onInit never fires. I used the applicationContext to avoid leaking the Activity and bound pause and destroy to the screen lifecycle so audio never freezes when switching apps."
+                  }
                 },
                 {
-                  "ar": "تبديل لغة النطق وتحميل الأصوات يجري خارج الخيط الرئيسي عبر Dispatchers.Default.",
-                  "en": "Voice language switching and voice loading run off the main thread via Dispatchers.Default."
+                  "term": {
+                    "ar": "RTL قبل أول إطار",
+                    "en": "RTL before the first frame"
+                  },
+                  "detail": {
+                    "ar": "تبديل اللغة داخل Compose بعد الرسم يسبب وميضاً واتجاهاً خاطئاً. الحل كان تبديل السياق في attachBaseContext مع لغة مخزّنة مؤقتاً، وفصل أسلوب الأرقام عن اللغة — فيمكن أن تكون الواجهة عربية والأرقام غربية والعكس.",
+                    "en": "Switching language inside Compose after drawing causes flashes and the wrong direction. The fix was swapping the context in attachBaseContext with a cached language, and separating numeral style from language — so the UI can be Arabic with Western digits, or the reverse."
+                  }
                 },
                 {
-                  "ar": "R8 مع تصغير الموارد يقلص حجم الإصدار النهائي.",
-                  "en": "R8 with resource shrinking keeps the final APK small."
+                  "term": {
+                    "ar": "إعلانات لا تخرّب التجربة",
+                    "en": "Ads that do not ruin the experience"
+                  },
+                  "detail": {
+                    "ar": "المجانية تعني إعلانات، لكن التكرار يقتل الثقة. اعتمدت موافقة UMP قبل التهيئة، وبينية بعد 7 انتقالات مع تهدئة 180 ثانية، وأصلية كل 7 عناصر سجل، وتحميلاً مسبقاً بانتهاء صلاحية — فالإعلان يظهر فقط عندما يكون جاهزاً ومناسباً.",
+                    "en": "Free access means ads, but repetition kills trust. I required UMP consent before initialization, capped interstitials at every 7 navigations with a 180-second cooldown, placed native ads every 7 history items, and preloaded with expiry — so an ad appears only when it is ready and appropriate."
+                  }
                 },
                 {
-                  "ar": "إعلانات مسبقة التحميل تُحدَّث كل 10 دقائق وتنتهي صلاحيتها بعد 15 دقيقة؛ الإعلان البيني لا يظهر إلا عندما يكون جاهزاً.",
-                  "en": "Ads are preloaded, refreshed every 10 minutes, and expire after 15; an interstitial shows only when it is ready."
+                  "term": {
+                    "ar": "النتائج الطويلة",
+                    "en": "Long results"
+                  },
+                  "detail": {
+                    "ar": "نتيجة مثل 2.8284271247 لا تتسع في شاشة ثابتة. بنيت AdaptiveTextScaler يحسب حجم الخط وارتفاع الأزرار من طول النص وحجم الشاشة، بدل قص النتيجة أو تصغير الواجهة كلها.",
+                    "en": "A result such as 2.8284271247 does not fit a fixed display. I built AdaptiveTextScaler to compute font size and key height from text length and screen size, instead of clipping the value or shrinking the entire UI."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "متطلبات المتجر",
+                    "en": "Store requirements"
+                  },
+                  "detail": {
+                    "ar": "رفع targetSdk إلى 36 كان شرطاً لنشر التطبيقات الجديدة، وكشف تعارضات في الاعتماديات غير المباشرة. ثبّتّ إصدار fragment المتوافق ورفعت Core وActivity، ثم أعدت اختبار الإصدار — المواكبة صيانة مستمرة لا مهمة لمرة واحدة.",
+                    "en": "Raising targetSdk to 36 was required for new app releases and exposed conflicts in transitive dependencies. I pinned a compatible fragment version, raised Core and Activity, and retested the build — staying current is ongoing maintenance, not a one-off task."
+                  }
                 }
               ]
-            }
-          ]
-        },
-        {
-          "id": "accessibility",
-          "blocks": [
-            {
-              "type": "list",
-              "items": [
-                {
-                  "ar": "نطق صوتي للنتائج عبر TextToSpeech، وإدخال صوتي لمن يجد الكتابة صعبة.",
-                  "en": "Spoken results via TextToSpeech, plus voice input for users who find typing difficult."
-                },
-                {
-                  "ar": "وصف محتوى (content description) لكل زر، وأهداف لمس كبيرة، واهتزاز عند الضغط.",
-                  "en": "Content descriptions on every button, large touch targets, and haptic feedback on press."
-                },
-                {
-                  "ar": "دعم RTL كامل وتخطيط معكوس فعلي عبر LocalLayoutDirection.",
-                  "en": "Full RTL support with real mirrored layout via LocalLayoutDirection."
-                },
-                {
-                  "ar": "التباين مدروس في الوضعين الفاتح والداكن عبر نظام الألوان المركزي.",
-                  "en": "Contrast is handled in both themes through the central color system."
-                },
-                {
-                  "ar": "supportsRtl مفعّل في المانيفست مع موارد مخصّصة للاتجاهين.",
-                  "en": "supportsRtl is enabled in the manifest with direction-specific resources."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "security",
-          "blocks": [
-            {
-              "type": "p",
-              "text": {
-                "ar": "أذونات محدودة بأدنى حد: INTERNET و ACCESS_NETWORK_STATE للإعلانات، و RECORD_AUDIO للإدخال الصوتي، و AD_ID. لا يُجمع أي شيء آخر.",
-                "en": "Permissions are kept minimal: INTERNET and ACCESS_NETWORK_STATE for ads, RECORD_AUDIO for voice input, and AD_ID. Nothing else is collected."
-              }
-            },
-            {
-              "type": "p",
-              "text": {
-                "ar": "كل العمليات الحسابية والسجل والإعدادات محلية على الجهاز عبر DataStore؛ والتطبيق يعمل دون أي حساب أو مزامنة سحابية. سياسة خصوصية منشورة على GitHub Pages مرتبطة داخل التطبيق في شاشة مخصصة.",
-                "en": "All calculations, history, and settings stay on-device via DataStore; the app needs no account or cloud sync. A published privacy policy on GitHub Pages is linked from an in-app screen."
-              }
-            },
-            {
-              "type": "p",
-              "text": {
-                "ar": "على جانب الإعلانات: UMP (User Messaging Platform 4.0.0) يطلب الموافقة قبل عرض الإعلانات، وتُستخدم معرّفات AdMob الاختبارية الرسمية أثناء التطوير. النسخ الاحتياطي معطّل (allowBackup=false) مع قواعد استخراج بيانات مخصصة.",
-                "en": "On the ads side: UMP (User Messaging Platform 4.0.0) requests consent before any ad shows, and Google's official test AdMob IDs are used during development. Backup is disabled (allowBackup=false) with custom data extraction rules."
-              }
             }
           ]
         },
@@ -401,16 +450,16 @@
             {
               "type": "p",
               "text": {
-                "ar": "طبقتان من الاختبارات: اختبارات وحدة بـ JUnit 4.13.2 (مع returnDefaultValues للواجهات التي تتطلب Android)، واختبارات واجهة آلية بـ Espresso 3.7.0 و Compose UI Test (ui-test-junit4) تعمل على جهاز أو محاكٍ عبر AndroidJUnitRunner.",
-                "en": "Two test layers: unit tests with JUnit 4.13.2 (with returnDefaultValues for Android-dependent APIs) and instrumented UI tests with Espresso 3.7.0 and Compose UI Test (ui-test-junit4) running on device or emulator via AndroidJUnitRunner."
+                "ar": "اختبرت التطبيق على طبقتين: اختبارات وحدة بـ JUnit لسلوك المحرك والتحليل، واختبارات واجهة آلية بـ Espresso و Compose UI Test تعمل على جهاز أو محاكٍ عبر AndroidJUnitRunner. فوق ذلك مصفوفة يدوية للغتين والاتجاهين والثيمين والأحجام الصغيرة.",
+                "en": "I tested at two levels: JUnit unit tests for engine and parsing behaviour, and instrumented UI tests with Espresso and Compose UI Test running on a device or emulator through AndroidJUnitRunner. On top of that, a manual matrix covered both languages, both directions, both themes, and small screens."
               }
             },
             {
               "type": "list",
               "items": [
                 {
-                  "ar": "اختبارات شاشات الحاسبة العادية والعلمية (الإدخال، النتيجة، الأزرار).",
-                  "en": "Tests of the standard and scientific calculator screens (input, result, buttons)."
+                  "ar": "اختبارات شاشتي الحاسبة العادية والعلمية: الإدخال، والنتيجة، واستجابة الأزرار.",
+                  "en": "Standard and scientific screen tests: input, result, and key response."
                 },
                 {
                   "ar": "اختبار محتوى Drawer والتنقل بين الشاشات.",
@@ -418,11 +467,53 @@
                 },
                 {
                   "ar": "اختبار التبديل بين الثيمين الفاتح والداكن.",
-                  "en": "Light/dark theme switching tests."
+                  "en": "Light and dark theme switching tests."
                 },
                 {
-                  "ar": "ملف VerificationTest يثبت صحة سلوكيات عامة على مستوى الوحدة.",
-                  "en": "A VerificationTest file pins general behaviors at the unit level."
+                  "ar": "VerificationTest يثبت سلوكيات عامة على مستوى الوحدة.",
+                  "en": "A VerificationTest pins general behaviours at the unit level."
+                },
+                {
+                  "ar": "فحص يدوي لـ RTL/LTR، والأرقام العربية، والنتائج الطويلة، والتحويلات الثمانية، وحالات الخطأ.",
+                  "en": "Manual checks for RTL/LTR, Arabic numerals, long results, all eight conversions, and error states."
+                },
+                {
+                  "ar": "فحص الإصدار النهائي المبني بـ R8 قبل الرفع، مع مراجعة متطلبات Play وسياسة الخصوصية.",
+                  "en": "A final R8 release build review before upload, including Play requirements and the privacy policy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "منشور على Google Play: الإصدار 1.4 (versionCode 4)، آخر تحديث 22 أكتوبر 2026، ويعمل من Android 7.0.",
+                  "en": "Live on Google Play: version 1.4 (versionCode 4), last updated 22 October 2026, running from Android 7.0."
+                },
+                {
+                  "ar": "ست أدوات وثماني فئات تحويل في تثبيت واحد بدل أربعة تطبيقات منفصلة.",
+                  "en": "Six tools and eight conversion categories in one install instead of four separate apps."
+                },
+                {
+                  "ar": "عربية أولاً فعلياً: RTL كامل، وأرقام عربية، وإدخال صوتي ونطق نتائج بالعربية والإنجليزية.",
+                  "en": "Genuinely Arabic-first: full RTL, Arabic-Indic numerals, and voice input plus spoken results in Arabic and English."
+                },
+                {
+                  "ar": "بيانات محلية بالكامل: بلا حساب أو خادم أو مزامنة، والسجل والإعدادات يبقيان على الجهاز.",
+                  "en": "Fully local data: no account, server, or sync; history and settings stay on the device."
+                },
+                {
+                  "ar": "مجاني مع موافقة إعلانية صريحة وحدود تردد تحفظ التجربة.",
+                  "en": "Free with explicit ad consent and frequency caps that protect the experience."
+                },
+                {
+                  "ar": "إصدار محسّن بـ R8 ومحمي باختبارات وحدة وواجهة، مع دورة نشر وتوثيق يديرها مطوّر واحد.",
+                  "en": "An R8-optimized release backed by unit and UI tests, with a release and documentation cycle run by one developer."
                 }
               ]
             }
@@ -434,60 +525,23 @@
             {
               "type": "p",
               "text": {
-                "ar": "التعرف الصوتي العربي وحده غير موثوق: طبقة القواميس والتصحيحات في voiceparser/ هي التي جعلت الإدخال الصوتي قابلاً للاستخدام فعلياً — الاستثمار الحقيقي كان في فهم الكلام لا في التقاطه.",
-                "en": "Arabic speech recognition alone is unreliable: the dictionary and correction layer in voiceparser/ is what made voice input actually usable — the real investment was understanding speech, not capturing it."
+                "ar": "الصوت مشكلة منتج لا استدعاء API: التعرف الصوتي سلعة متاحة، لكن طبقة القواميس والتصحيحات هي التي تجعل «ثمانية زائد خمسة» تعبيراً صحيحاً. الاستثمار الحقيقي كان في فهم الكلام، لا في التقاطه.",
+                "en": "Voice is a product problem, not an API call: recognition is a commodity, but the dictionary and correction layer is what turns a spoken phrase into a valid expression. The real investment was understanding speech, not capturing it."
               }
             },
             {
               "type": "p",
               "text": {
-                "ar": "SpeechRecognizer و TextToSpeech مرتبطان بدورة حياة النشاط إحكاماً: pause عند onPause و destroy عند onDestroy حالتا دون تسريبات وتجمّد للصوت عند فتح تطبيقات أخرى.",
-                "en": "SpeechRecognizer and TextToSpeech are tightly bound to the activity lifecycle: pausing on onPause and destroying on onDestroy prevented leaks and audio freezes when switching apps."
+                "ar": "العربية أولاً قرار معماري: الاتجاه والأرقام يجب أن يُحسما قبل أول شاشة، لا أن يُرقّعا لاحقاً. كلما تأخر القرار، زاد عدد الشاشات التي تحتاج إصلاحاً.",
+                "en": "Arabic-first is an architectural decision: direction and numerals must be settled before the first screen, not patched afterwards. The later the decision, the more screens need repair."
               }
             },
             {
               "type": "p",
               "text": {
-                "ar": "الإعلانات تفرض قرارات بنيوية من اليوم الأول: UMP قبل التهيئة، ومعرّفات اختبار رسمية أثناء التطوير، وترددات (7 انتقالات / 180 ثانية) تحفظ التجربة والعائد معاً.",
-                "en": "Ads force structural decisions from day one: UMP before initialization, official test IDs during development, and caps (7 navigations / 180 seconds) that preserve both UX and revenue."
+                "ar": "الإعلانات قيد تصميمي لا طبقة تُركّب في النهاية: الموافقة والحدود والمواضع يجب أن تكون جزءاً من البنية من اليوم الأول. والمتجر يفرض صيانة مستمرة — targetSdk والاعتماديات ليستا حدثاً لمرة واحدة.",
+                "en": "Ads are a design constraint, not a layer bolted on at the end: consent, caps, and placement belong in the architecture from day one. And the store demands continuous maintenance — targetSdk and dependencies are never a one-off task."
               }
-            },
-            {
-              "type": "p",
-              "text": {
-                "ar": "التزام targetSdk 36 فرضته Google Play للتطبيقات الجديدة اعتباراً من 31 أغسطس 2026 — المواكبة المستمرة للمتطلبات جزء من الصيانة لا حدث لمرة واحدة.",
-                "en": "Targeting SDK 36 was mandated by Google Play for new apps from August 31, 2026 — keeping up with requirements is ongoing maintenance, not a one-off event."
-              }
-            }
-          ]
-        },
-        {
-          "id": "results",
-          "blocks": [
-            {
-              "type": "list",
-              "items": [
-                {
-                  "ar": "الإصدار 1.2 (versionCode 2) مبني بـ R8 ويعمل من أندرويد 6.0 حتى أحدث الإصدارات.",
-                  "en": "Version 1.2 (versionCode 2) ships R8-optimized and runs from Android 6.0 up to the latest versions."
-                },
-                {
-                  "ar": "حاسبتان، حاسبة عمر، مؤشر كتلة جسم برؤى صحية، ومحول وحدات بثماني فئات.",
-                  "en": "Two calculators, an age calculator, a BMI tool with health insights, and an eight-category unit converter."
-                },
-                {
-                  "ar": "إدخال صوتي بالعربية والإنجليزية مع نطق النتائج، وسجل قابل للبحث واستعادة التعبيرات.",
-                  "en": "Arabic and English voice input with spoken results, plus searchable history with expression restore."
-                },
-                {
-                  "ar": "ثنائية اللغة الكاملة مع كشف تلقائي وأرقام عربية، وثيمات فاتح/داكن/تلقائي.",
-                  "en": "Full bilingual support with auto-detection and Arabic numerals, plus light/dark/auto themes."
-                },
-                {
-                  "ar": "دورة عمل كاملة موثقة: تصميم ← تطوير ← اختبارات وحدة وواجهة ← إصدار، مع ملفات نشر وخصوصية جاهزة.",
-                  "en": "A fully documented workflow: design → development → unit and UI tests → release, with store listing and privacy files ready."
-                }
-              ]
             }
           ]
         }
@@ -495,90 +549,82 @@
       "gallery": [
         {
           "src": {
-            "ar": "assets/images/apps/omnicalc/ar/1ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/1en.jpg"
+            "ar": "assets/images/projects/omnicalc/01-standard-calculator-ar.webp",
+            "en": "assets/images/projects/omnicalc/01-standard-calculator-en.webp"
           },
           "alt": {
-            "ar": "شاشة الحاسبة العادية",
-            "en": "Standard calculator screen"
+            "ar": "الحاسبة العادية — نتيجة فورية مع سجل تلقائي ونسخ بلمسة",
+            "en": "Standard calculator — instant results with automatic history and one-tap copy"
           }
         },
         {
           "src": {
-            "ar": "assets/images/apps/omnicalc/ar/2ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/2en.jpg"
+            "ar": "assets/images/projects/omnicalc/02-scientific-calculator-ar.webp",
+            "en": "assets/images/projects/omnicalc/02-scientific-calculator-en.webp"
           },
           "alt": {
-            "ar": "شاشة الحاسبة العلمية",
-            "en": "Scientific calculator screen"
+            "ar": "الحاسبة العلمية — المثلثات واللوغاريتمات والجذور ووضع DEG/RAD",
+            "en": "Scientific calculator — trigonometry, logarithms, roots, and DEG/RAD modes"
           }
         },
         {
           "src": {
-            "ar": "assets/images/apps/omnicalc/ar/3ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/3en.jpg"
+            "ar": "assets/images/projects/omnicalc/03-unit-converter-ar.webp",
+            "en": "assets/images/projects/omnicalc/03-unit-converter-en.webp"
           },
           "alt": {
-            "ar": "محول الوحدات — عرض الفئات الرئيسية",
-            "en": "Unit converter — main category view"
+            "ar": "محوّل الوحدات — ثماني فئات وتبديل فوري وقيم مرجعية",
+            "en": "Unit converter — eight categories, instant swap, and quick reference values"
           }
         },
         {
           "src": {
-            "ar": "assets/images/apps/omnicalc/ar/4ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/4en.jpg"
+            "ar": "assets/images/projects/omnicalc/04-age-bmi-ar.webp",
+            "en": "assets/images/projects/omnicalc/04-age-bmi-en.webp"
           },
           "alt": {
-            "ar": "محول الوحدات — فئة التحويل بعد الاختيار",
-            "en": "Unit converter — selected conversion category"
+            "ar": "حاسبة العمر ومؤشر كتلة الجسم — نطاقات مرجعية ومؤشر صحة",
+            "en": "Age calculator and BMI — reference ranges and a health score"
           }
         },
         {
           "src": {
-            "ar": "assets/images/apps/omnicalc/ar/5ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/5en.jpg"
+            "ar": "assets/images/projects/omnicalc/05-history-ar.webp",
+            "en": "assets/images/projects/omnicalc/05-history-en.webp"
           },
           "alt": {
-            "ar": "شاشة حاسبة العمر",
-            "en": "Age calculator screen"
+            "ar": "سجل العمليات — بحث وتصفية وإحصاءات واستعادة التعبيرات",
+            "en": "Calculation history — search, filters, stats, and expression restore"
           }
         },
         {
           "src": {
-            "ar": "assets/images/apps/omnicalc/ar/6ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/6en.jpg"
+            "ar": "assets/images/projects/omnicalc/06-features-ar.webp",
+            "en": "assets/images/projects/omnicalc/06-features-en.webp"
           },
           "alt": {
-            "ar": "شاشة مؤشر كتلة الجسم",
-            "en": "BMI calculator screen"
-          }
-        },
-        {
-          "src": {
-            "ar": "assets/images/apps/omnicalc/ar/7ar.jpg",
-            "en": "assets/images/apps/omnicalc/en/7en.jpg"
-          },
-          "alt": {
-            "ar": "شاشة سجل العمليات الحسابية",
-            "en": "Calculation history screen"
-          }
-        },
-        {
-          "src": {
-            "en": "assets/images/apps/omnicalc/en/8en.jpg"
-          },
-          "alt": {
-            "ar": "شاشة الإعدادات",
-            "en": "Settings screen"
+            "ar": "نظرة شاملة — ست أدوات في تجربة واحدة",
+            "en": "The complete picture — six tools in one experience"
           }
         }
       ],
       "meta": {
         "description": {
-          "ar": "تطبيق حاسبات متكامل: حاسبة عادية وعلمية، حاسبة عمر، مؤشر كتلة الجسم، ومحول وحدات — مع إدخال صوتي، وعربية وإنجليزية، ووضعين فاتح وداكن.",
-          "en": "An all-in-one calculator app: standard and scientific calculators, age calculator, BMI calculator, and unit converter — with voice input, Arabic & English, and light & dark themes."
+          "ar": "دراسة حالة OmniCalc: تطبيق أندرويد يجمع الحاسبة العادية والعلمية ومحوّل الوحدات وحاسبة العمر ومؤشر كتلة الجسم والسجل، بتصميم عربي أولاً وإدخال صوتي وإصدار حي على Google Play.",
+          "en": "The OmniCalc case study: one Android app for standard and scientific math, unit conversion, age, BMI, and history — Arabic-first design, voice input, and a live Google Play release."
         },
-        "keywords": ["OmniCalc", "آلة حاسبة", "حاسبة علمية", "محول وحدات", "Android", "Kotlin"]
+        "keywords": [
+          "OmniCalc",
+          "آلة حاسبة",
+          "حاسبة علمية",
+          "محول وحدات",
+          "حاسبة عمر",
+          "مؤشر كتلة الجسم",
+          "إدخال صوتي",
+          "Android",
+          "Kotlin",
+          "Jetpack Compose"
+        ]
       }
     },
     {
@@ -605,7 +651,15 @@
         "ar": "مطوّر الموقع: تصميم، تطوير، بيانات، اختبارات، نشر",
         "en": "Site developer: design, development, data, testing, deployment"
       },
-      "tech": ["HTML5", "CSS3", "JavaScript (ES6+)", "Git", "GitHub", "GitHub Pages", "Playwright"],
+      "tech": [
+        "HTML5",
+        "CSS3",
+        "JavaScript (ES6+)",
+        "Git",
+        "GitHub",
+        "GitHub Pages",
+        "Playwright"
+      ],
       "cover": {
         "ar": "assets/images/og/og-default.png",
         "en": "assets/images/og/og-default.png"
@@ -986,7 +1040,981 @@
           "ar": "دراسة حالة لموقع Ghassan Studio الشخصي: الفكرة، الأهداف، البنية المدفوعة بالبيانات، التصميم المتجاوب، إمكانية الوصول، SEO، والاختبارات الآلية بـ Playwright.",
           "en": "Case study of the Ghassan Studio personal portfolio: the idea, goals, data-driven architecture, responsive design, accessibility, SEO, and automated Playwright testing."
         },
-        "keywords": ["Ghassan Studio", "Portfolio", "موقع شخصي", "HTML5", "CSS3", "JavaScript", "GitHub Pages", "Playwright", "دراسة حالة"]
+        "keywords": [
+          "Ghassan Studio",
+          "Portfolio",
+          "موقع شخصي",
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "GitHub Pages",
+          "Playwright",
+          "دراسة حالة"
+        ]
+      }
+    },
+    {
+      "id": "souq",
+      "slug": "souq",
+      "featured": false,
+      "order": 3,
+      "type": "app",
+      "title": {
+        "ar": "Souq – سوق متعدد البائعين",
+        "en": "Souq – Multi-Vendor Marketplace"
+      },
+      "summary": {
+        "ar": "نموذج تجريبي لتطبيق سوق إلكتروني متعدد البائعين، يتيح استعراض المتاجر والمنتجات، والبحث والتصفية، وإدارة سلة التسوق، مع واجهات مخصصة للبائع لإدارة المنتجات والطلبات. نسخة Prototype للعرض فقط: البيانات محلية، ولا يشمل تسجيل دخول حقيقياً أو خادماً أو دفعاً إلكترونياً أو ربطاً بشركات التوصيل.",
+        "en": "A demo prototype of a multi-vendor marketplace app: browse stores and products, search and filter, manage a cart, and use dedicated seller screens to manage products and orders. Prototype only: data is local, with no real authentication, server, database, payment gateway, or delivery integration."
+      },
+      "year": "2026",
+      "status": "inProgress",
+      "platform": {
+        "ar": "أندرويد",
+        "en": "Android"
+      },
+      "role": {
+        "ar": "مطوّر التطبيق: التصميم، تطوير الواجهات، منطق السلة والمنتجات، الاختبارات، التوثيق",
+        "en": "App developer: design, UI development, cart and product logic, testing, documentation"
+      },
+      "tech": [
+        "Kotlin",
+        "Jetpack Compose",
+        "Material 3",
+        "Navigation Compose",
+        "ViewModel",
+        "Gradle"
+      ],
+      "cover": {
+        "ar": "assets/images/projects/souq/souq-cover.webp",
+        "en": "assets/images/projects/souq/souq-cover.webp"
+      },
+      "links": {
+        "live": null,
+        "demo": null,
+        "source": null,
+        "download": {
+          "url": "assets/downloads/souq-demo-debug.apk",
+          "label": {
+            "ar": "تحميل APK تجريبي (Debug)",
+            "en": "Download demo APK (Debug)"
+          }
+        },
+        "video": null
+      },
+      "caseStudy": [
+        {
+          "id": "problem",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "السوق الإلكتروني متعدد البائعين يجمع رحلتين مختلفتين في منتج واحد: رحلة مشتري يبحث ويقارن ويضيف إلى السلة، ورحلة بائع يدير منتجاته وطلباته. بناء النموذج الأولي دون خادم يفرض تحدياً واضحاً: كيف نعرض التجربة الكاملة ونثبت جدواها بصرياً قبل الاستثمار في البنية الخلفية؟",
+                "en": "A multi-vendor marketplace combines two different journeys in one product: a buyer who searches, compares, and adds to a cart, and a seller who manages products and orders. Building the prototype without a backend creates a clear challenge: how do we demonstrate the full experience and validate it visually before investing in server infrastructure?"
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "الهدف كان نموذجاً عربياً بالكامل من اليمين إلى اليسار، بثماني شاشات مترابطة وهوية بصرية واحدة، يعمل محلياً على جهاز أندرويد حقيقي، مع فصل صريح بين ما هو منفذ فعلاً وما يحتاج إلى خادم أو تسجيل دخول أو دفع.",
+                "en": "The goal was a fully Arabic, right-to-left prototype with eight connected screens and one visual identity, running locally on a real Android device, with an explicit separation between what is actually implemented and what still needs a server, authentication, or payments."
+              }
+            }
+          ]
+        },
+        {
+          "id": "goals",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "تغطية رحلة المشتري كاملة: الرئيسية، المتاجر، تفاصيل المنتج، المفضلة، والسلة.",
+                  "en": "Cover the complete buyer journey: home, stores, product details, favorites, and cart."
+                },
+                {
+                  "ar": "تغطية رحلة البائع: لوحة التحكم، إدارة المنتجات، الإضافة والتعديل والحذف، والطلبات.",
+                  "en": "Cover the seller journey: dashboard, product management, add/edit/delete, and orders."
+                },
+                {
+                  "ar": "دعم العربية وRTL على مستوى التطبيق كامل، مع خط عربي وصور محلية.",
+                  "en": "Full Arabic and RTL support across the app, with an Arabic typeface and local imagery."
+                },
+                {
+                  "ar": "تفاعل محلي حقيقي: السلة والمفضلة والمنتجات تتشارك الحالة نفسها وتتحدث فوراً.",
+                  "en": "Real local interaction: cart, favorites, and products share the same state and update instantly."
+                },
+                {
+                  "ar": "تغذية راجعة واضحة: تحقق من الحقول، رسائل نجاح، وتأكيد قبل الحذف.",
+                  "en": "Clear feedback: field validation, success messages, and delete confirmation."
+                },
+                {
+                  "ar": "الالتزام الصريح بحدود النموذج التجريبي وعدم الادعاء بوجود خادم أو دفع أو توصيل.",
+                  "en": "Explicitly respect prototype boundaries and never claim a server, payments, or delivery exists."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "architecture",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "التطبيق أحادي النشاط (Single-Activity) مبني بالكامل بـ Jetpack Compose وMaterial 3. تتولى Navigation Compose الانتقال بين الشاشات، بينما يحتفظ SouqViewModel بحالة المنتجات والسلة والمفضلة والطلبات في الذاكرة، فتعمل كل الشاشات على مصدر حقيقة واحد دون أي طلب شبكة.",
+                "en": "The app is single-activity and built entirely with Jetpack Compose and Material 3. Navigation Compose handles screen transitions, while SouqViewModel keeps products, cart, favorites, and orders in memory, so every screen shares one source of truth with no network requests."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "الواجهة",
+                    "en": "UI"
+                  },
+                  "detail": {
+                    "ar": "Jetpack Compose + Material 3، مع نظام ألوان زمردي وخط IBM Plex Sans Arabic وصور منتجات محلية.",
+                    "en": "Jetpack Compose + Material 3, with an emerald palette, IBM Plex Sans Arabic, and local product imagery."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "إدارة الحالة",
+                    "en": "State"
+                  },
+                  "detail": {
+                    "ar": "SouqViewModel واحد يحتوي قوائم قابلة للملاحظة للمنتجات والسلة والمفضلة والطلبات، مع حسابات مشتقة للمجموع والضريبة والشحن.",
+                    "en": "A single SouqViewModel holds observable product, cart, favorite, and order lists, with derived subtotal, VAT, and shipping calculations."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التنقل",
+                    "en": "Navigation"
+                  },
+                  "detail": {
+                    "ar": "مسارات ثابتة لشاشات الجذر، ومسارات بمعاملات لتفاصيل المنتج وإضافة/تعديل المنتج، وشريط تنقل سفلي يظهر في الأقسام الأربعة الرئيسية فقط.",
+                    "en": "Static routes for root screens and parameterized routes for product details and add/edit product, with a bottom bar shown only on the four main sections."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "البيانات",
+                    "en": "Data"
+                  },
+                  "detail": {
+                    "ar": "بيانات تجريبية محلية داخل التطبيق: متاجر ومنتجات وطلبات. لا قاعدة بيانات ولا API، وأي تعديل يعود لقيمته الأصلية عند إعادة التشغيل.",
+                    "en": "Local demo data inside the app: stores, products, and orders. No database or API; all edits reset on restart."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "البنية التقنية",
+                    "en": "Technical base"
+                  },
+                  "detail": {
+                    "ar": "Kotlin 2.2.10، AGP 9.3.2، Gradle 9.5.0، Compose BOM 2026.02.01، وcompile/targetSdk 37 مع minSdk 24.",
+                    "en": "Kotlin 2.2.10, AGP 9.3.2, Gradle 9.5.0, Compose BOM 2026.02.01, compile/targetSdk 37, minSdk 24."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ui-decisions",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "اعتمدت هوية زمردية هادئة تعطي السوق طابعاً موثوقاً، مع أسطح فاتحة وبطاقات مستديرة وظلال خفيفة. الاتجاه RTL مفروض على مستوى التطبيق، وتُعرض الأسعار بالريال السعودي مع أرقام واضحة، وتُحترم مساحات أزرار النظام في الشريط السفلي والشاشات ذات الأشرطة الثابتة.",
+                "en": "I used a calm emerald identity to make the marketplace feel trustworthy, with light surfaces, rounded cards, and soft shadows. RTL is enforced at the app level, prices are shown in Saudi riyals with clear numerals, and system navigation insets are respected in the bottom bar and screens with sticky actions."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "شاشة إضافة/تعديل المنتج: شريط حفظ ثابت أسفل الشاشة، ورسائل تحقق داخلية، و`imePadding` حتى لا تغطي لوحة المفاتيح زر الحفظ.",
+                  "en": "Add/edit product: a sticky save bar at the bottom, inline validation messages, and imePadding so the keyboard never covers the save action."
+                },
+                {
+                  "ar": "حذف المنتج يمر عبر حوار تأكيد، ثم تظهر رسالة نجاح، لمنع الحذف العرضي ولإغلاق حلقة التغذية الراجعة.",
+                  "en": "Product deletion goes through a confirmation dialog followed by a success message, preventing accidental loss and closing the feedback loop."
+                },
+                {
+                  "ar": "أزرار الإضافة إلى السلة والمفضلة تعمل من بطاقة المنتج مباشرة، دون الحاجة لفتح التفاصيل.",
+                  "en": "Add-to-cart and favorite actions work directly from the product card, without opening the details screen."
+                },
+                {
+                  "ar": "شريط تنقل سفلي بأربعة أقسام رئيسية وشارة عدد للسلة، يختفي في الشاشات الفرعية لتركيز المحتوى.",
+                  "en": "A four-section bottom bar with a cart-count badge, hidden on secondary screens to keep the content focused."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "implementation",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "تم تنفيذ الميزات المطلوبة محلياً بالكامل، مع بيانات تجريبية مترابطة تجعل كل شاشة قابلة للاستخدام أثناء العرض:",
+                "en": "All requested features were implemented locally, with connected demo data that makes every screen usable during a walkthrough:"
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "استعراض المتاجر والمنتجات، مع شبكة منتجات وبطاقات متاجر مميزة.",
+                  "en": "Browse stores and products, with a product grid and featured store cards."
+                },
+                {
+                  "ar": "البحث والتصفية حسب الفئات، مع نتائج فورية وحالة فارغة واضحة.",
+                  "en": "Search and category filtering, with instant results and a clear empty state."
+                },
+                {
+                  "ar": "تفاصيل المنتج والمفضلة: صور، سعر وخصم، تقييم، وصف، ميزات، وزر إضافة للسلة.",
+                  "en": "Product details and favorites: imagery, price and discount, rating, description, features, and add-to-cart."
+                },
+                {
+                  "ar": "سلة التسوق وحساب الإجمالي: تعديل الكميات، الحذف، ضريبة 15%، شحن 25 ر.س، وشحن مجاني فوق 300 ر.س.",
+                  "en": "Cart and totals: quantity updates, removal, 15% VAT, a 25 SAR shipping fee, and free shipping over 300 SAR."
+                },
+                {
+                  "ar": "لوحة تحكم تجريبية للبائع تعرض المبيعات وعدد المنتجات والطلبات وروابط سريعة.",
+                  "en": "A demo seller dashboard showing sales, product and order counts, and quick actions."
+                },
+                {
+                  "ar": "إضافة المنتجات وتعديلها وحذفها مع تحقق من الاسم والسعر والكمية، واختيار صورة تجريبية وتصنيف.",
+                  "en": "Add, edit, and delete products with name, price, and quantity validation, plus demo image selection and category choice."
+                },
+                {
+                  "ar": "استعراض طلبات البائع مع حالة كل طلب وتفاصيله.",
+                  "en": "View seller orders with each order's status and details."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "كل ما يحتاج إلى خادم معروض كتجربة توضيحية: «متابعة الطلب» يحاكي الإتمام برسالة صريحة، وزيارة متجر من الرئيسية تعرض رسالة أن صفحة المتجر غير متاحة في النموذج. بذلك لا يوحي النموذج للعميل بأن هناك وظائف خلفية غير موجودة.",
+                "en": "Anything requiring a server is presented as a demo: checkout simulates completion with an explicit message, and visiting a store from the home screen states that the store page is not available in the prototype. This keeps the client from assuming backend features that do not exist."
+              }
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "تم بناء نسخة Debug بنجاح وتثبيتها على جهاز Xiaomi حقيقي يعمل بـ Android 15، ثم تشغيلها والتأكد من فتح الشاشة الرئيسية دون انهيار. كما أُعيد التقاط لقطات الشاشات الثماني من النسخة الحالية بعد إصلاح شريط الحفظ وحقول السعر والكمية.",
+                "en": "A debug build was compiled successfully, installed on a real Xiaomi device running Android 15, and launched without a crash. All eight screenshots were recaptured from the current build after fixing the sticky save bar and the price/quantity fields."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "بناء Debug",
+                    "en": "Debug build"
+                  },
+                  "detail": {
+                    "ar": "‎./gradlew.bat assembleDebug — BUILD SUCCESSFUL، وAPK بحجم ~20MB.",
+                    "en": "./gradlew.bat assembleDebug — BUILD SUCCESSFUL, APK ~20MB."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "اختبارات الوحدة",
+                    "en": "Unit tests"
+                  },
+                  "detail": {
+                    "ar": "5 اختبارات JVM لمنطق السلة والمفضلة وإضافة/تعديل/حذف المنتج والتنسيقات — 0 فشل.",
+                    "en": "5 JVM tests for cart, favorites, product add/edit/delete, and formatting — 0 failures."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "اختبارات الواجهة",
+                    "en": "UI tests"
+                  },
+                  "detail": {
+                    "ar": "اختبارات Compose جُمّعت بنجاح لكنها لم تُنفّذ بعد؛ تثبيت APK الاختبارات كان مقيّداً على الجهاز.",
+                    "en": "Compose tests compiled successfully but have not run yet; installing the test APK was restricted on the device."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التحقق البصري",
+                    "en": "Visual verification"
+                  },
+                  "detail": {
+                    "ar": "الشاشات الثماني مفتوحة ومُلتقطة على جهاز حقيقي، واللقطات المعروضة في المعرض من النسخة الحالية.",
+                    "en": "All eight screens were opened and captured on a real device, and the gallery shows the current build."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "حدود النموذج معلنة بوضوح: لا يوجد تسجيل دخول حقيقي، ولا قاعدة بيانات، ولا خادم، ولا بوابة دفع، ولا تكامل مع شركات توصيل. كل البيانات محلية داخل التطبيق ولا تغادر الجهاز، ولا توجد مفاتيح API أو أسرار في المشروع.",
+                "en": "The prototype boundaries are explicit: there is no real authentication, database, server, payment gateway, or delivery integration. All data lives locally on the device and never leaves it, and the project contains no API keys or secrets."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "تسجيل الدخول وحسابات المستخدمين: غير منفذ.",
+                  "en": "Sign-in and user accounts: not implemented."
+                },
+                {
+                  "ar": "الخادم وقاعدة البيانات والمزامنة: غير منفذة.",
+                  "en": "Server, database, and sync: not implemented."
+                },
+                {
+                  "ar": "الدفع الإلكتروني ومعالجة الطلبات الحقيقية: غير منفذين.",
+                  "en": "Online payments and real order processing: not implemented."
+                },
+                {
+                  "ar": "ربط شركات التوصيل وتتبع الشحنات: غير منفذ.",
+                  "en": "Delivery-company integration and shipment tracking: not implemented."
+                },
+                {
+                  "ar": "ملف APK المرفق نسخة Debug تجريبية موقعة بمفتاح التطوير، وليس نسخة إنتاج للنشر على المتاجر.",
+                  "en": "The attached APK is a debug demo signed with the development key, not a production build for store release."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "اكتمل النموذج الأولي القابل للعرض: ثماني شاشات عربية RTL، وسبع ميزات تفاعلية محلية، وبناء ناجح، وتشغيل فعلي على جهاز أندرويد. المعرض أدناه يوثّق الواجهات كما تظهر في النسخة الحالية.",
+                "en": "The presentable prototype is complete: eight Arabic RTL screens, seven interactive local features, a successful build, and a real run on an Android device. The gallery below documents the UI as it appears in the current build."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "ما هو منفذ: التصفح، البحث والتصفية، التفاصيل، المفضلة، السلة والإجمالي، لوحة البائع، وإدارة المنتجات والطلبات — كلها محلياً.",
+                  "en": "Implemented: browsing, search and filtering, details, favorites, cart and totals, the seller dashboard, and product/order management — all locally."
+                },
+                {
+                  "ar": "ما هو تجريبي: الإشعارات، زيارة المتجر، ومتابعة الطلب — تعرض رسائل توضيحية بدل وظائف خلفية.",
+                  "en": "Demo-only: notifications, store visits, and checkout — they show explanatory messages instead of backend behavior."
+                },
+                {
+                  "ar": "ما يحتاج إلى مرحلة تالية: خادم وقاعدة بيانات، تسجيل دخول وأدوار، دفع، توصيل، ورفع صور حقيقي.",
+                  "en": "Next phase: server and database, authentication and roles, payments, delivery, and real image uploads."
+                },
+                {
+                  "ar": "الخطوة التالية المقترحة: تحويل حالة ViewModel المحلية إلى مستودع (Repository) متصل بـ API، مع الإبقاء على الواجهات كما هي.",
+                  "en": "Suggested next step: move the local ViewModel state behind a repository backed by an API, while keeping the UI unchanged."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "gallery": [
+        {
+          "src": "assets/images/projects/souq/home.webp",
+          "alt": {
+            "ar": "الشاشة الرئيسية — البحث والتصنيفات والمتاجر المميزة",
+            "en": "Home screen — search, categories, and featured stores"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/stores.webp",
+          "alt": {
+            "ar": "استكشاف المتاجر مع البحث وبطاقة الملخص",
+            "en": "Store discovery with search and an overview card"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/product.webp",
+          "alt": {
+            "ar": "تفاصيل المنتج مع السعر والتقييم وزر الإضافة للسلة",
+            "en": "Product details with price, rating, and add-to-cart"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/cart.webp",
+          "alt": {
+            "ar": "سلة التسوق مع الكميات والضريبة والإجمالي",
+            "en": "Shopping cart with quantities, VAT, and total"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/seller.webp",
+          "alt": {
+            "ar": "لوحة تحكم البائع التجريبية",
+            "en": "Demo seller dashboard"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/seller-products.webp",
+          "alt": {
+            "ar": "إدارة منتجات البائع مع التعديل والحذف",
+            "en": "Seller product management with edit and delete"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/seller-add.webp",
+          "alt": {
+            "ar": "إضافة منتج مع شريط حفظ ثابت وحقول واضحة",
+            "en": "Add product with a sticky save bar and clear fields"
+          }
+        },
+        {
+          "src": "assets/images/projects/souq/seller-orders.webp",
+          "alt": {
+            "ar": "طلبات البائع وحالة كل طلب",
+            "en": "Seller orders with each order's status"
+          }
+        }
+      ],
+      "meta": {
+        "description": {
+          "ar": "Souq – نموذج أولي لتطبيق سوق إلكتروني متعدد البائعين بواجهة عربية RTL: متاجر ومنتجات، بحث وتصفية، تفاصيل ومفضلة، سلة وإجمالي، ولوحة بائع لإدارة المنتجات والطلبات. بيانات محلية فقط، دون تسجيل دخول أو خادم أو دفع أو توصيل.",
+          "en": "Souq – an Arabic RTL multi-vendor marketplace prototype: stores and products, search and filtering, details and favorites, cart and totals, and a seller dashboard for products and orders. Local data only, with no authentication, server, payments, or delivery."
+        },
+        "keywords": [
+          "Souq",
+          "سوق",
+          "متعدد البائعين",
+          "Multi-Vendor Marketplace",
+          "Android",
+          "Kotlin",
+          "Jetpack Compose",
+          "Prototype",
+          "نموذج تجريبي",
+          "RTL"
+        ]
+      }
+    },
+    {
+      "id": "brightling",
+      "slug": "brightling",
+      "featured": false,
+      "order": 4,
+      "type": "app",
+      "title": {
+        "ar": "BrightLing – تعلّم الإنجليزية للأطفال",
+        "en": "BrightLing – English for Kids"
+      },
+      "summary": {
+        "ar": "تطبيق أندرويد عربي أولاً لتعليم الأطفال الحروف الإنجليزية والأرقام والمفردات عبر بطاقات مصوّرة وصوتية واختبارات قصيرة. النسخة المثبتة تحمل الاسم BrightLearnEng، بينما يستخدم الموقع اسم BrightLing. بُني التطبيق في سياق مشروع تخرج جامعي، ويعمل محلياً دون خادم أو حساب مستخدم. شاشة الجمل ما تزال عنصراً نائباً، ولا يدعم التطبيق الوضع الداكن أو تبديل اللغة.",
+        "en": "An Arabic-first Android app for teaching children English letters, numbers, and vocabulary through illustrated audio cards and short quizzes. The installed build is labelled BrightLearnEng; the portfolio uses BrightLing as the project name. Built in the context of a university graduation research project, it runs locally without a server or user account. The sentences screen is still a placeholder, and the app has no dark theme or language switch."
+      },
+      "year": "2025",
+      "status": "inProgress",
+      "platform": {
+        "ar": "أندرويد",
+        "en": "Android"
+      },
+      "role": {
+        "ar": "تطوير التطبيق: تنفيذ واجهات Compose، التنقل، منطق الاختبارات، تشغيل الوسائط، والتغذية الراجعة البصرية. السياق مشروع تخرج جامعي؛ لا تُنشر هنا التفاصيل الأكاديمية أو بيانات المشاركين.",
+        "en": "App development: Compose UI implementation, navigation, quiz logic, media playback, and visual feedback. Context: a university graduation research project; academic details and participant data are not published here."
+      },
+      "tech": [
+        "Kotlin",
+        "Jetpack Compose",
+        "Material 3",
+        "Navigation Compose",
+        "Lottie",
+        "MediaPlayer",
+        "Gradle"
+      ],
+      "cover": {
+        "ar": "assets/images/projects/brightling/brightling-cover.webp",
+        "en": "assets/images/projects/brightling/brightling-cover.webp"
+      },
+      "links": {
+        "live": null,
+        "demo": null,
+        "source": null,
+        "download": null,
+        "video": null
+      },
+      "caseStudy": [
+        {
+          "id": "problem",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "تعلّم الإنجليزية في سن مبكرة يحتاج إلى أكثر من قائمة كلمات: يحتاج الطفل إلى صورة، ونطق، وترجمة عربية، وتغذية راجعة فورية. كثير من تطبيقات الأطفال تبدأ بواجهة إنجليزية وتفترض أن الطفل يقرأ تعليماتها، فيتوقف التعلم قبل أن يبدأ.",
+                "en": "Early English learning needs more than a word list: a child needs an image, pronunciation, an Arabic translation, and immediate feedback. Many children's apps start with an English interface and assume the child can read its instructions, so learning stops before it starts."
+              }
+            },
+            {
+              "type": "p",
+              "text": {
+                "ar": "بُني BrightLing في سياق مشروع تخرج جامعي كنموذج أندرويد قابل للعرض على جهاز حقيقي. الهدف لم يكن بناء منصة تعليمية متكاملة، بل إثبات تجربة تفاعلية عربية أولاً تغطي الحروف والأرقام والكلمات والاختبارات، وتعمل محلياً دون خادم أو حساب مستخدم. التفاصيل الأكاديمية وبيانات المشاركين ليست جزءاً من هذه الصفحة.",
+                "en": "BrightLing was built in the context of a university graduation research project as an Android prototype that could be demonstrated on a real device. The goal was not a complete learning platform, but a working Arabic-first experience covering letters, numbers, words, and quizzes, running locally without a server or user account. The academic details and participant data are not part of this page."
+              }
+            }
+          ]
+        },
+        {
+          "id": "goals",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "واجهة عربية بالكامل مع محتوى إنجليزي، حتى يقرأ الطفل التعليمات بلغته ويتعلم المفردات الإنجليزية.",
+                  "en": "A fully Arabic interface with English learning content, so the child reads instructions in their language while learning English vocabulary."
+                },
+                {
+                  "ar": "شبكة حروف A–Z وشبكة أرقام 0–10 مع بطاقات مصوّرة.",
+                  "en": "An A–Z letter grid and a 0–10 number grid with illustrated cards."
+                },
+                {
+                  "ar": "ثماني فئات كلمات: الحروف، الأرقام، الحيوانات، الفواكه، الأشكال، الألوان، الأشهر، والأيام.",
+                  "en": "Eight word categories: letters, numbers, animals, fruits, shapes, colors, months, and days."
+                },
+                {
+                  "ar": "بطاقات كلمات تعرض الصورة والكلمة الإنجليزية والمعنى العربي، مع صوت للكلمة والمعنى.",
+                  "en": "Word cards showing an image, the English word, and the Arabic meaning, with audio for both word and meaning."
+                },
+                {
+                  "ar": "اختبارات حروف وأرقام بثلاثة خيارات وتغذية راجعة فورية.",
+                  "en": "Letter and number quizzes with three choices and immediate feedback."
+                },
+                {
+                  "ar": "أربعة مستويات للحروف وأربعة مستويات للأرقام، مع تنقل سفلي واضح.",
+                  "en": "Four letter levels and four number levels, with clear bottom navigation."
+                },
+                {
+                  "ar": "تشغيل محلي بالكامل: الصور والأصوات داخل التطبيق، دون حساب أو خادم.",
+                  "en": "Fully local operation: images and sounds inside the app, with no account or server."
+                },
+                {
+                  "ar": "الالتزام بحدود واضحة: لا يُعرض ما لم يُنفّذ فعلاً، وشاشة الجمل معلنة كنائبة.",
+                  "en": "Respect clear boundaries: nothing is presented as finished unless it is implemented, and the sentences screen is declared a placeholder."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "architecture",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "التطبيق أحادي النشاط (Single-Activity) ومبني بالكامل بـ Jetpack Compose. يستضيف MainActivity مضيف Navigation Compose، وتتوزع الشاشات على مسارات ثابتة: البداية، القائمة الرئيسية، الحروف، الأرقام، الكلمات، الاختبارات، وسياسة الخصوصية. لا يوجد ViewModel أو مستودع بيانات أو قاعدة بيانات؛ كل شاشة تحتفظ بحالتها المحلية عبر remember وmutableStateOf، وتُحمّل الصور والأصوات من مجلد assets. هذا يبقي النموذج بسيطاً وقابلاً للعرض دون أي اعتماد على الشبكة.",
+                "en": "The app is single-activity and built entirely with Jetpack Compose. MainActivity hosts a Navigation Compose graph with static routes for the splash screen, main menu, letters, numbers, words, quizzes, and privacy policy. There is no ViewModel, repository, or database; each screen keeps local state with remember and mutableStateOf, and images and sounds are loaded from the assets folder. This keeps the prototype simple and demonstrable without any network dependency."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "الواجهة",
+                    "en": "UI"
+                  },
+                  "detail": {
+                    "ar": "Jetpack Compose + Material 3، مع خلفيات مصوّرة وأزرار صور كبيرة بدل القوائم النصية.",
+                    "en": "Jetpack Compose + Material 3, with illustrated backgrounds and large image buttons instead of text lists."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التنقل",
+                    "en": "Navigation"
+                  },
+                  "detail": {
+                    "ar": "Navigation Compose بمسارات ثابتة، وأشرطة سفلية مختلفة لكل قسم (الحروف، الأرقام، الكلمات).",
+                    "en": "Navigation Compose with static routes and different bottom bars per section (letters, numbers, words)."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "إدارة الحالة",
+                    "en": "State"
+                  },
+                  "detail": {
+                    "ar": "حالة محلية داخل كل شاشة عبر remember/mutableStateOf؛ لا ViewModel ولا حفظ للتقدم، لذا يعود التقدم للبداية عند إعادة إنشاء الشاشة.",
+                    "en": "Screen-local state via remember/mutableStateOf; no ViewModel and no progress persistence, so progress resets when the screen is recreated."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الوسائط",
+                    "en": "Media"
+                  },
+                  "detail": {
+                    "ar": "BitmapFactory للصور المحلية، وMediaPlayer للأصوات، وLottie لحركات النجاح والخطأ.",
+                    "en": "BitmapFactory for local images, MediaPlayer for audio, and Lottie for success and error animations."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "البنية التقنية",
+                    "en": "Technical base"
+                  },
+                  "detail": {
+                    "ar": "Kotlin، AGP 8.6.0، Gradle 8.7، Compose BOM 2023.08.00، minSdk 21، compile/targetSdk 34، الإصدار 1.0 (1).",
+                    "en": "Kotlin, AGP 8.6.0, Gradle 8.7, Compose BOM 2023.08.00, minSdk 21, compile/targetSdk 34, version 1.0 (1)."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ui-decisions",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "الواجهة مبنية حول صور توضيحية كبيرة وأزرار على شكل بطاقات، بدلاً من قوائم نصية. الخلفيات ملونة ومليئة بالرسوم، والأزرار السفلية تستخدم أيقونات صور بدل أيقونات Material، ما يمنح التطبيق طابعاً طفولياً واضحاً. الواجهة عربية بالكامل، بينما المحتوى التعليمي إنجليزي، وهذا هو القرار الأساسي: الطفل يقرأ التعليمات بالعربية ويتعلم المفردات الإنجليزية.",
+                "en": "The interface is built around large illustrations and card-shaped buttons rather than text lists. Backgrounds are colorful and illustrated, and the bottom bars use image icons instead of Material icons, giving the app a clear child-friendly character. The interface is fully Arabic while the learning content is English; that is the core decision: the child reads instructions in Arabic and learns English vocabulary."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "أزرار كبيرة (60–80dp) وبطاقات حروف وأرقام (75dp) تناسب اللمس على شاشة هاتف.",
+                  "en": "Large buttons (60–80dp) and letter/number cards (75dp) suited to touch on a phone screen."
+                },
+                {
+                  "ar": "التغذية الراجعة تجمع بين تغيير اللون (سماوي ← وردي للصحيح، أحمر للخطأ)، وصورة نتيجة، وحركة Lottie، وصوت.",
+                  "en": "Feedback combines color change (cyan to pink for correct, red for wrong), a result image, a Lottie animation, and sound."
+                },
+                {
+                  "ar": "الواجهة عربية فقط، والمحتوى إنجليزي؛ لا يوجد مبدّل لغة داخل التطبيق.",
+                  "en": "Arabic-only interface with English content; there is no in-app language switch."
+                },
+                {
+                  "ar": "الوضع الفاتح فقط: الثيم يعرّف lightColorScheme ولا يعرّف وضعاً داكناً.",
+                  "en": "Light theme only: the theme defines lightColorScheme and no dark scheme."
+                },
+                {
+                  "ar": "أشرطة تنقل سفلية بأيقونات صور، تختلف حسب القسم.",
+                  "en": "Bottom navigation bars with image icons, varying by section."
+                },
+                {
+                  "ar": "بعض الشاشات الجذرية (الحروف والأرقام) تعمل كغلاف للقسم وتعرض شريط التنقل فقط؛ المحتوى على بُعد نقرة واحدة. هذه فجوة UX معروفة.",
+                  "en": "Some root screens (letters and numbers) act as section shells showing only the bottom bar; content is one tap deeper. This is a known UX gap."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "implementation",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "الميزات التالية منفّذة فعلاً في الكود وتظهر في اللقطات أدناه:",
+                "en": "The following features are actually implemented in the code and appear in the screenshots below:"
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "القائمة الرئيسية: الأحرف، الأرقام، الكلمات، الجمل، سياسة الخصوصية.",
+                  "en": "Main menu: letters, numbers, words, sentences, privacy policy."
+                },
+                {
+                  "ar": "الحروف: شبكة A–Z؛ الضغط على حرف يفتح حواراً بمثال وصورة ومعنى عربي وصوت وحركة.",
+                  "en": "Letters: A–Z grid; tapping a letter opens a dialog with an example, image, Arabic meaning, audio, and animation."
+                },
+                {
+                  "ar": "الأرقام: شبكة 0–10؛ الضغط على رقم يفتح حواراً بالكلمة الإنجليزية والمعنى العربي والصوت.",
+                  "en": "Numbers: 0–10 grid; tapping a number opens a dialog with the English word, Arabic meaning, and audio."
+                },
+                {
+                  "ar": "الكلمات: ثماني فئات، وبطاقات تعرض الصورة والكلمة الإنجليزية والمعنى العربي، مع أزرار التالي والسابق وإعادة الصوت.",
+                  "en": "Words: eight categories, with cards showing the image, English word, and Arabic meaning, plus next, previous, and replay-audio buttons."
+                },
+                {
+                  "ar": "اختبارات الحروف: مطابقة الحرف الكبير بالصغير (والعكس في مستوى آخر)، بثلاثة خيارات.",
+                  "en": "Letter quizzes: uppercase-to-lowercase matching (and the reverse in another level), with three choices."
+                },
+                {
+                  "ar": "اختبارات الأرقام: مطابقة الإنجليزية بالعربية (والعكس)، بثلاثة خيارات وأربعة مستويات.",
+                  "en": "Number quizzes: English-to-Arabic matching (and the reverse), with three choices and four levels."
+                },
+                {
+                  "ar": "مستويات الحروف: أربعة مستويات تعرض شبكة الحروف ثم تطلب كتابة الكلمة الإنجليزية أو المعنى العربي حسب المستوى.",
+                  "en": "Letter levels: four levels that show the alphabet grid and then ask the child to type the English word or Arabic meaning, depending on the level."
+                },
+                {
+                  "ar": "سياسة خصوصية داخل التطبيق؛ لا يُعاد نشر محتواها الشخصي هنا.",
+                  "en": "An in-app privacy policy; its personal content is not reproduced here."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "تم تثبيت نسخة Debug على هاتف أندرويد حقيقي، وفتح الشاشات الأساسية، والتقاط اللقطات المعروضة أدناه. لم يُعثر على اختبارات آلية خاصة بالمشروع؛ المشروع يحتوي فقط على اختبارات القالب الافتراضية. لذلك كان التحقق يدوياً: فتح القوائم، التنقل بين الحروف والأرقام والكلمات، تشغيل الأصوات، واختيار إجابات صحيحة وخاطئة.",
+                "en": "A debug build was installed on a real Android phone, the main screens were opened, and the screenshots below were captured from that build. No project-specific automated tests were found; only the default template tests are present. Verification was therefore manual: opening the menus, navigating letters, numbers, and words, playing audio, and selecting correct and incorrect answers."
+              }
+            },
+            {
+              "type": "dl",
+              "rows": [
+                {
+                  "term": {
+                    "ar": "بناء Debug",
+                    "en": "Debug build"
+                  },
+                  "detail": {
+                    "ar": "APK Debug موجود بحجم ~34MB، الإصدار 1.0 (1)، وليس نسخة إنتاج.",
+                    "en": "A debug APK is present (~34 MB), version 1.0 (1); it is not a production build."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الجهاز",
+                    "en": "Device"
+                  },
+                  "detail": {
+                    "ar": "هاتف أندرويد حقيقي بدقة 1080×2400؛ اللقطات أدناه من النسخة الحالية.",
+                    "en": "A real Android phone at 1080×2400; the screenshots below are from the current build."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الاختبارات الآلية",
+                    "en": "Automated tests"
+                  },
+                  "detail": {
+                    "ar": "لا توجد اختبارات خاصة بالمشروع؛ فقط اختبارات القالب الافتراضية (ExampleUnitTest / ExampleInstrumentedTest).",
+                    "en": "No project-specific tests; only the default template tests (ExampleUnitTest / ExampleInstrumentedTest)."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "التحقق اليدوي",
+                    "en": "Manual verification"
+                  },
+                  "detail": {
+                    "ar": "فتح القوائم، التنقل بين الحروف والأرقام والكلمات، تشغيل الأصوات، واختيار إجابات صحيحة وخاطئة.",
+                    "en": "Opened the menus, navigated letters, numbers, and words, played audio, and selected correct and incorrect answers."
+                  }
+                },
+                {
+                  "term": {
+                    "ar": "الفجوات المعروفة",
+                    "en": "Known gaps"
+                  },
+                  "detail": {
+                    "ar": "شاشة الجمل نائبة، لا حفظ للتقدم، لا وضع داكن، ولا تدقيق إمكانية وصول رسمي.",
+                    "en": "The sentences screen is a placeholder, there is no progress persistence, no dark mode, and no formal accessibility audit."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "لا توجد في المصدر الذي تم فحصه أي طلبات شبكة أو إعلانات أو تحليلات أو مفاتيح API. الصور والأصوات محلية داخل assets. لكن ملف AndroidManifest يعلن أذونات RECORD_AUDIO وINTERNET وACCESS_NETWORK_STATE، ولا يبدو أن الكود الحالي يستخدمها؛ يجب مراجعتها قبل أي إصدار.",
+                "en": "No network requests, ads, analytics, or API keys were found in the inspected source. Images and sounds are local inside assets. However, the AndroidManifest declares RECORD_AUDIO, INTERNET, and ACCESS_NETWORK_STATE permissions, and the current code does not appear to use them; they should be reviewed before any release."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "لا تسجيل دخول، ولا خادم، ولا قاعدة بيانات، ولا دفع، ولا إعلانات، ولا تحليلات في الكود المفحوص.",
+                  "en": "No login, server, database, payments, ads, or analytics in the inspected code."
+                },
+                {
+                  "ar": "أذونات المانيفست الثلاثة تحتاج مراجعة وإزالة غير المستخدم منها.",
+                  "en": "The three manifest permissions need review, and unused ones should be removed."
+                },
+                {
+                  "ar": "سياسة الخصوصية داخل التطبيق تحتوي أسماء وأرقام هواتف خاصة؛ لم تُنشر هنا، ويجب استبدالها قبل أي إصدار.",
+                  "en": "The in-app privacy policy contains private names and phone numbers; it is not reproduced here and must be replaced before release."
+                },
+                {
+                  "ar": "نص السياسة يصف تحليلات وتشفيراً وخوادم لم تُعثر عليها في الكود المفحوص؛ يجب مطابقته مع النسخة الفعلية.",
+                  "en": "The policy text describes analytics, encryption, and servers that were not found in the inspected code; it should be aligned with the actual build."
+                },
+                {
+                  "ar": "لا يُنشر ملف APK: النسخة الحالية Debug وتحتوي بيانات خاصة.",
+                  "en": "No APK is published: the current build is debug and contains private data."
+                },
+                {
+                  "ar": "لا مفاتيح API أو أسرار في المشروع.",
+                  "en": "No API keys or secrets in the project."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lessons",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "الوسائط المحلية سهلة البداية، لكن تشغيل الصوت يحتاج مكوّناً يحترم دورة حياة الشاشة؛ النسخة الحالية تنشئ MediaPlayer داخل الشاشات ولا تربطه دائماً بمالك دورة حياة.",
+                  "en": "Local media is easy to start with, but audio playback needs a lifecycle-aware component; the current build creates MediaPlayer inside screens and does not consistently tie it to a lifecycle owner."
+                },
+                {
+                  "ar": "Navigation Compose سهّل توسيع الرسم البياني، لكنه يجمع الآن شاشات التعلم والاختبارات والعناصر النائبة؛ تجميع المسارات حسب الميزة سيسهّل الصيانة.",
+                  "en": "Navigation Compose made the graph easy to grow, but it now mixes learning screens, quizzes, and placeholders; grouping routes by feature would improve maintainability."
+                },
+                {
+                  "ar": "الخصوصية والجاهزية للإصدار ليستا خطوة أخيرة: الأذونات غير المستخدمة ونص السياسة غير المطابق يجب معالجتهما قبل النشر.",
+                  "en": "Privacy and release readiness are not an afterthought: unused permissions and mismatched policy text must be handled before publishing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "blocks": [
+            {
+              "type": "p",
+              "text": {
+                "ar": "الناتج نموذج أندرويد عامل يغطي الحروف A–Z، والأرقام 0–10، وثماني فئات كلمات، وبطاقات كلمات بالصوت، واختبارات حروف وأرقام بثلاثة خيارات، وأربعة مستويات للحروف وأربعة للأرقام. الواجهة عربية، والمحتوى إنجليزي، وكل الوسائط محلية. المعرض أدناه يوثّق ثماني شاشات من النسخة الحالية.",
+                "en": "The result is a working Android prototype covering A–Z letters, 0–10 numbers, eight word categories, audio word cards, letter and number quizzes with three choices, and four letter levels plus four number levels. The interface is Arabic, the content is English, and all media is local. The gallery below documents eight screens from the current build."
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "ar": "منفّذ: القوائم، شبكات الحروف والأرقام، بطاقات الكلمات والصوت، اختبارات الحروف والأرقام، المستويات، التنقل السفلي، وشاشة الخصوصية.",
+                  "en": "Implemented: menus, letter and number grids, word cards and audio, letter and number quizzes, levels, bottom navigation, and the privacy screen."
+                },
+                {
+                  "ar": "غير منفّذ: الجمل (نائب)، حسابات المستخدمين، حفظ التقدم، المزامنة، الوضع الداكن، ومبدّل اللغة.",
+                  "en": "Not implemented: sentences (placeholder), user accounts, progress saving, sync, dark mode, and a language switch."
+                },
+                {
+                  "ar": "فجوة UX: شاشتا الحروف والأرقام الجذريتان تعرضان شريط التنقل فقط؛ المحتوى على بُعد نقرة.",
+                  "en": "UX gap: the root letters and numbers screens show only the bottom bar; content is one tap deeper."
+                },
+                {
+                  "ar": "الخطوة التالية: تنفيذ الجمل، حفظ التقدم، إضافة اختبارات، تدقيق إمكانية الوصول، تنظيف الأذونات، وإعادة كتابة سياسة الخصوصية قبل إصدار Production.",
+                  "en": "Next: implement sentences, persist progress, add tests, audit accessibility, clean up permissions, and rewrite the privacy policy before a production release."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "gallery": [
+        {
+          "src": "assets/images/projects/brightling/main.webp",
+          "alt": {
+            "ar": "القائمة الرئيسية: الأحرف والأرقام والكلمات والجمل وسياسة الخصوصية",
+            "en": "Main menu: letters, numbers, words, sentences, and privacy policy"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/letters.webp",
+          "alt": {
+            "ar": "شبكة الحروف الإنجليزية من A إلى Z",
+            "en": "English alphabet grid from A to Z"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/numbers.webp",
+          "alt": {
+            "ar": "شبكة الأرقام من 0 إلى 10",
+            "en": "Number grid from 0 to 10"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/words.webp",
+          "alt": {
+            "ar": "فئات الكلمات الثماني: الحروف والأرقام والحيوانات والفواكه والأشكال والألوان والأشهر والأيام",
+            "en": "The eight word categories: letters, numbers, animals, fruits, shapes, colors, months, and days"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/word-card.webp",
+          "alt": {
+            "ar": "بطاقة كلمة Cat مع الصورة والمعنى العربي",
+            "en": "Cat word card with image and Arabic meaning"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/letter-quiz.webp",
+          "alt": {
+            "ar": "اختبار حرف A بثلاثة خيارات",
+            "en": "Letter A quiz with three choices"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/number-quiz.webp",
+          "alt": {
+            "ar": "اختبار رقم خمسة بثلاثة خيارات إنجليزية",
+            "en": "Number five quiz with three English choices"
+          }
+        },
+        {
+          "src": "assets/images/projects/brightling/levels.webp",
+          "alt": {
+            "ar": "اختيار أحد مستويات الأرقام الأربعة",
+            "en": "Choosing one of the four number levels"
+          }
+        }
+      ],
+      "meta": {
+        "description": {
+          "ar": "BrightLing (BrightLearnEng) – تطبيق أندرويد عربي لتعليم الأطفال الحروف الإنجليزية والأرقام والمفردات عبر بطاقات مصوّرة وصوتية واختبارات. دراسة حالة لمشروع تخرج جامعي: Compose، التنقل، الوسائط المحلية، والحدود المعلنة للنموذج.",
+          "en": "BrightLing (BrightLearnEng) – an Arabic-first Android app for teaching children English letters, numbers, and vocabulary through illustrated audio cards and quizzes. A university graduation project case study: Compose, navigation, local media, and the prototype's declared limits."
+        },
+        "keywords": [
+          "BrightLing",
+          "BrightLearnEng",
+          "تعليم الأطفال",
+          "English for Kids",
+          "Android",
+          "Kotlin",
+          "Jetpack Compose",
+          "Educational App",
+          "مشروع تخرج",
+          "Graduation Project"
+        ]
       }
     }
   ]

@@ -75,7 +75,7 @@ function renderHead() {
 
 function renderFilters() {
   const buttons = FILTERS.map((type) => {
-    const key = `projects.filter${type[0].toUpperCase()}${type.slice(1)}`;
+    const key = typeKey(type) ?? "projects.filterAll";
     const pressed = type === currentFilter;
     return `<button type="button" class="filter-btn" data-filter="${type}" aria-pressed="${pressed}">${escapeHTML(t(key))}</button>`;
   }).join("");

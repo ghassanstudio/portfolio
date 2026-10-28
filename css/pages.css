@@ -187,7 +187,7 @@
 
 .case-study__cover {
   margin: var(--space-6) auto 0;
-  max-width: 18rem;
+  max-width: 46rem;
 }
 
 .case-study__cover img {
@@ -380,7 +380,7 @@
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
   gap: var(--space-4);
 }
 

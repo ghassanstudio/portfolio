@@ -111,7 +111,13 @@ function linksHTML(project, lang, num) {
   const buttons = entries
     .map(([type, link]) => {
       const href = type === "video" ? watchUrl(link.url) : link.url;
-      return `<a class="btn btn--ghost" href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${escapeHTML(link.label?.[lang] ?? href)}</a>`;
+      const isDownload = type === "download";
+      const isPrimary = isDownload || type === "live";
+      const attributes = isDownload
+        ? "download"
+        : 'target="_blank" rel="noopener noreferrer"';
+      const className = isPrimary ? "btn btn--primary" : "btn btn--ghost";
+      return `<a class="${className}" href="${escapeHTML(href)}" ${attributes}>${escapeHTML(link.label?.[lang] ?? href)}</a>`;
     })
     .join("");
   return `
@@ -179,7 +185,7 @@ function renderDoc(project) {
   const links = linksHTML(project, lang, String(base + 1).padStart(2, "0"));
   const cover = project.cover?.[lang];
   const coverHTML = cover
-    ? `<figure class="case-study__cover"><img src="${escapeHTML(cover)}" alt="${escapeHTML(project.title?.[lang] ?? "")}" loading="eager" decoding="async"></figure>`
+    ? `<figure class="case-study__cover"><img src="${escapeHTML(cover)}" alt="${escapeHTML(project.coverAlt?.[lang] ?? project.title?.[lang] ?? "")}" loading="eager" decoding="async"></figure>`
     : "";
   renderInto(
     $("#case-study"),
@@ -233,6 +239,10 @@ function setPageMeta(project) {
   const url = `${settings.url}/project.html?id=${encodeURIComponent(project.slug ?? project.id)}`;
   const title = `${project.title?.[lang]} — ${t("projects.caseStudy.label")}`;
   const description = project.meta?.description?.[lang] ?? project.summary?.[lang] ?? "";
+  const cover = project.cover?.[lang];
+  const image = cover
+    ? new URL(cover, settings.url.replace(/\/?$/, "/")).href
+    : `${settings.url.replace(/\/?$/, "/")}assets/images/og/og-default.png`;
   document.title = title;
   setMeta("name", "description", description);
   setLink("canonical", url);
@@ -241,6 +251,10 @@ function setPageMeta(project) {
   setMeta("property", "og:description", description);
   setMeta("property", "og:locale", settings.ogLocales?.[lang] ?? lang);
   setMeta("property", "og:url", url);
+  setMeta("property", "og:image", image);
+  setMeta("property", "og:image:alt", project.coverAlt?.[lang] ?? project.title?.[lang] ?? "");
+  setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:image", image);
   setJsonLd(project, lang, getProfile(), url);
 }
 
